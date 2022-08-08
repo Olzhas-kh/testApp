@@ -84,7 +84,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   freezed: ^2.1.0+1
-  lint: ^1.8.2
+  lint: ^1.10.0
   # mocktail: ^0.3.0
 
 
@@ -122,6 +122,19 @@ flutter:
         - asset: assets/fonts/Rubik/Rubik-Regular.ttf
         - asset: assets/fonts/Rubik/Rubik-SemiBold.ttf
         - asset: assets/fonts/Rubik/Rubik-SemiBoldItalic.ttf
-  #
-  # For details regarding fonts from package dependencies,
-  # see https://flutter.dev/custom-fonts/#from-packages
+    - family: Gilroy
+      fonts:
+        - asset: assets/fonts/Gilroy/Gilroy-Black.ttf
+        - asset: assets/fonts/Gilroy/Gilroy-BlackItalic.ttf
+        - asset: assets/fonts/Gilroy/Gilroy-Bold.ttf
+        - asset: assets/fonts/Gilroy/Gilroy-BoldItalic.ttf
+        - asset: assets/fonts/Gilroy/Gilroy-ExtraBold.ttf
+        - asset: assets/fonts/Gilroy/Gilroy-ExtraBoldItalic.ttf
+        - asset: assets/fonts/Gilroy/Gilroy-RegularItalic.ttf
+        - asset: assets/fonts/Gilroy/Gilroy-Light.ttf
+        - asset: assets/fonts/Gilroy/Gilroy-LightItalic.ttf
+        - asset: assets/fonts/Gilroy/Gilroy-Medium.ttf
+        - asset: assets/fonts/Gilroy/Gilroy-MediumItalic.ttf
+        - asset: assets/fonts/Gilroy/Gilroy-Regular.ttf
+        - asset: assets/fonts/Gilroy/Gilroy-SemiBold.ttf
+        - asset: assets/fonts/Gilroy/Gilroy-SemiBoldItalic.ttf

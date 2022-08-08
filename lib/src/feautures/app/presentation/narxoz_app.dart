@@ -41,7 +41,7 @@ class _NarxozAppState extends State<NarxozApp> {
 
     return MultiblocWrapper(
       child: MaterialApp.router(
-        title: 'Kausar',
+        title: 'Narxoz',
         debugShowCheckedModeBanner: false,
         // navigatorKey: GlobalVariable.navigatorKey,
         // localizationsDelegates: const [
@@ -55,13 +55,7 @@ class _NarxozAppState extends State<NarxozApp> {
         localizationsDelegates: context.localizationDelegates,
         supportedLocales: context.supportedLocales,
         locale: context.locale,
-        theme: ThemeData(
-          primarySwatch: MaterialColor(0xffB1F9A3, primaryColorMap),
-          fontFamily: 'SF Pro',
-          appBarTheme: const AppBarTheme(
-            systemOverlayStyle: SystemUiOverlayStyle.dark,
-          ),
-        ),
+        theme: AppTheme.light,
         routeInformationParser: sl<AppRouter>().defaultRouteParser(),
         // routerDelegate: sl<AppRouter>().delegate(),
         routerDelegate: AutoRouterDelegate(

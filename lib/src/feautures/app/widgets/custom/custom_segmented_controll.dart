@@ -229,7 +229,7 @@ class _SegmentSeparatorState extends State<_SegmentSeparator>
 
 class CustomSegmentedControl<T> extends StatefulWidget {
   CustomSegmentedControl({
-    Key? key,
+    super.key,
     required this.children,
     required this.onValueChanged,
     this.groupValue,
@@ -245,8 +245,7 @@ class CustomSegmentedControl<T> extends StatefulWidget {
         assert(
           groupValue == null || children.keys.contains(groupValue),
           'The groupValue must be either null or one of the keys in the children map.',
-        ),
-        super(key: key);
+        );
 
   final Map<T, Widget> children;
 
@@ -588,14 +587,14 @@ class _SegmentedControlState<T> extends State<CustomSegmentedControl<T>>
 
 class _SegmentedControlRenderWidget<T> extends MultiChildRenderObjectWidget {
   _SegmentedControlRenderWidget({
-    Key? key,
-    List<Widget> children = const <Widget>[],
+    super.key,
+    super.children,
     required this.highlightedIndex,
     required this.thumbColor,
     required this.thumbScale,
     required this.state,
     required this.kThumbRadius,
-  }) : super(key: key, children: children);
+  });
 
   final int? highlightedIndex;
   final Color thumbColor;

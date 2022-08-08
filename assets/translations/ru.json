@@ -1,3 +1,11 @@
 {
-  "txt": "txt"
+  "login": "Логин",
+  "password": "Пароль",
+  "enter_login": "Введите логин",
+  "enter_password": "Введите пароль",
+  "apply_for_a_hostel": "Подать заявку на общежитие",
+  "enter": "Войти",
+  "you_have_entered_an_incorrect_username_or_password": "Вы ввели неверный логин или пароль",
+  "the_section_is_under_development": "Раздел находится в разработке",
+  "clearly": "Понятно"
 }

@@ -15,8 +15,9 @@ class AppBloc extends Bloc<AppEvent, AppState> {
   // final AuthRepository _authRepository;
 
   AppBloc(
-    // this._authRepository,
-  ) : super(const AppState.loadingState()) {
+      // this._authRepository,
+      )
+      : super(const AppState.loadingState()) {
     on<AppEvent>(
       (AppEvent event, Emitter<AppState> emit) async => event.map(
         exiting: (_Exiting event) async => _exit(event, emit),
@@ -30,6 +31,8 @@ class AppBloc extends Bloc<AppEvent, AppState> {
     _CheckAuth event,
     Emitter<AppState> emit,
   ) async {
+    // TODO
+    emit(const AppState.notAuthorizedState());
     // await _tokenCheck(emit);
   }
 

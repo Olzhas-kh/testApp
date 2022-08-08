@@ -33,21 +33,20 @@ class _LauncherState extends State<Launcher> {
     return BlocConsumer<AppBloc, AppState>(
       listener: (context, state) {},
       builder: (context, state) {
-        return const SignInPage();
-        // return state.when(
-        //   loadingState: () {
-        //     return const _Scaffold(child: CustomLoadingWidget());
-        //   },
-        //   notAuthorizedState: () {
-        //     return const SignInPage();
-        //   },
-        //   errorState: (String message) {
-        //     return const _Scaffold(child: CustomErrorLoadingWidget());
-        //   },
-        //   inAppState: () {
-        //     return const Base();
-        //   },
-        // );
+        return state.when(
+          loadingState: () {
+            return const _Scaffold(child: CustomLoadingWidget());
+          },
+          notAuthorizedState: () {
+            return const SignInPage();
+          },
+          errorState: (String message) {
+            return const _Scaffold(child: CustomErrorLoadingWidget());
+          },
+          inAppState: () {
+            return const Base();
+          },
+        );
       },
     );
   }

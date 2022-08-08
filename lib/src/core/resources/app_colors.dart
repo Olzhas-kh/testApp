@@ -3,21 +3,24 @@ part of 'resources.dart';
 mixin AppColors {
   static const Color kPrimaryColor = Color(0xffB1F9A3);
   static const Color kPinkColor = Color(0xffEE46BC);
-  static const Color kGray = Color(0xffF9FAFB);
-  static const Color kGray1 = Color(0xffF8F8F8);
-  static const Color kGray2 = Color(0xffF1F2F3);
-  static const Color kGray4 = Color(0xffC3C7CE);
-  static const Color kGray5 = Color(0xff757D8A);
-  static const Color kGray6 = Color(0xff909499);
-  static const Color steelGray = Color.fromRGBO(153, 162, 173, 1);
+  static const Color kGray = Color(0xffC1C1C1);
+  static const Color kInnerBoder = Color(0xffD4D4D4);
+  static const Color kGray1 = Color(0xffBDBDBD);
+  // static const Color kGray1 = Color(0xffF8F8F8);
+  // static const Color kGray2 = Color(0xffF1F2F3);
+  // static const Color kGray4 = Color(0xffC3C7CE);
+  // static const Color kGray5 = Color(0xff757D8A);
+  // static const Color kGray6 = Color(0xff909499);
   static const Color kBGMessage = Color(0xffE9E9EB);
   static const Color kWhite = Colors.white;
+  static const Color kBlack = Colors.black;
   static const Color kSlidingSegment = Color.fromRGBO(0, 0, 0, 0.03);
   static const Color kNeutral = Color(0xff919191);
   static const Color kAzure = Color(0xff4986CC);
   static const Color kBg = Color(0xfff2f3f6);
-  static const Color kBlueAlpha32 = Color.fromRGBO(173, 211, 255, 0.32);
-  static const Color kYellowLight = Color.fromRGBO(255, 213, 79, 1);
+  // static const Color kBlueAlpha32 = Color.fromRGBO(173, 211, 255, 0.32);
+  // static const Color kYellowLight = Color.fromRGBO(255, 213, 79, 1);
+  static const Color kRedPrimary = Color.fromRGBO(212, 0, 49, 0.97);
 
   ///
   static const Color kDark = Color(0xff404D61);

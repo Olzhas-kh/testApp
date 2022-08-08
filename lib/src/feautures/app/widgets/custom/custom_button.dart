@@ -150,19 +150,33 @@ ButtonStyle pinkButtonStyle() {
 //   );
 // }
 
-ButtonStyle yellowButtonStyle() {
-  return ButtonStyle(
-    backgroundColor: MaterialStateProperty.all<Color>(
-      const Color.fromRGBO(255, 221, 0, 1),
-    ),
-    shadowColor: MaterialStateProperty.all<Color>(
-      const Color.fromRGBO(255, 255, 255, 0),
-    ),
-    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-      RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(7),
-        // side: BorderSide(color: Colors.black),
-      ),
+// ButtonStyle yellowButtonStyle() {
+//   return ButtonStyle(
+//     backgroundColor: MaterialStateProperty.all<Color>(
+//       const Color.fromRGBO(255, 221, 0, 1),
+//     ),
+//     shadowColor: MaterialStateProperty.all<Color>(
+//       const Color.fromRGBO(255, 255, 255, 0),
+//     ),
+//     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+//       RoundedRectangleBorder(
+//         borderRadius: BorderRadius.circular(7),
+//         // side: BorderSide(color: Colors.black),
+//       ),
+//     ),
+//   );
+
+ButtonStyle redButtonStyle({
+  double elevation = 0,
+}) {
+  return ElevatedButton.styleFrom(
+    shadowColor: const Color.fromRGBO(255, 255, 255, 1),
+    // onPrimary: Colors.white,
+    primary: AppColors.kRedPrimary,
+    elevation: elevation,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(12),
+      // side: const BorderSide(color: Colors.white),
     ),
   );
 }
