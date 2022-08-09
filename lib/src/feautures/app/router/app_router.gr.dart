@@ -37,6 +37,10 @@ class _$AppRouter extends RootStackRouter {
       return MaterialPageX<dynamic>(
           routeData: routeData, child: const HomePage());
     },
+    HostelPageRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+          routeData: routeData, child: const HostelPage());
+    },
     ApplicationPageRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
           routeData: routeData, child: const ApplicationPage());
@@ -52,6 +56,8 @@ class _$AppRouter extends RootStackRouter {
               children: [
                 RouteConfig(HomePageRoute.name,
                     path: '', parent: BaseHomeRouter.name),
+                RouteConfig(HostelPageRoute.name,
+                    path: 'hostel-page', parent: BaseHomeRouter.name),
                 RouteConfig(ApplicationPageRoute.name,
                     path: 'application-page', parent: BaseHomeRouter.name)
               ]),
@@ -105,6 +111,14 @@ class HomePageRoute extends PageRouteInfo<void> {
   const HomePageRoute() : super(HomePageRoute.name, path: '');
 
   static const String name = 'HomePageRoute';
+}
+
+/// generated route for
+/// [HostelPage]
+class HostelPageRoute extends PageRouteInfo<void> {
+  const HostelPageRoute() : super(HostelPageRoute.name, path: 'hostel-page');
+
+  static const String name = 'HostelPageRoute';
 }
 
 /// generated route for

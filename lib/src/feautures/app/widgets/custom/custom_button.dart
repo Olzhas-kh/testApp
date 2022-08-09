@@ -39,9 +39,11 @@ class _CustomButtonState extends State<CustomButton> {
   }
 }
 
-ButtonStyle whiteButtonStyle() {
+ButtonStyle whiteButtonStyle({
+  double elevation = 0,
+}) {
   return ElevatedButton.styleFrom(
-    elevation: 0,
+    elevation: elevation,
     onPrimary: Colors.black,
     primary: Colors.white,
     shadowColor: Colors.black,

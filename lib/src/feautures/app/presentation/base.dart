@@ -32,46 +32,47 @@ class _BaseState extends State<Base> {
   @override
   Widget build(BuildContext context) {
     return AutoTabsScaffold(
-      appBarBuilder: (_, tabsRouter) => PreferredSize(
-        preferredSize: const Size.fromHeight(100),
-        child: Padding(
-          padding:
-              const EdgeInsets.symmetric(horizontal: 25, vertical: 15).copyWith(
-            top: context.screenSize.height * .05,
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              SvgPicture.asset(AppSvgImages.narxozProfile),
-              TextButton(
-                onPressed: () {},
-                child: const Text(
-                  'Русский',
-                  style: AppTextStyles.gilroy15w500Red,
-                ).tr(),
-              ),
-            ],
-          ),
-        ), // here the desired height
-        // child: AppBar(
-        //   title: Padding(
-        //     padding: const EdgeInsets.symmetric(vertical: 20),
-        //     child: SvgPicture.asset(AppSvgImages.narxozProfile),
-        //   ),
-        //   centerTitle: false,
-        //   actions: [
-        //     Padding(
-        //       padding: const EdgeInsets.only(right: 25),
-        //       child: TextButton(
-        //         onPressed: () {},
-        //         child: Text(
-        //           'Русский',
-        //         ),
-        //       ),
-        //     ),
-        //   ],
-        // ),
-      ),
+      // appBarBuilder: (_, tabsRouter) => PreferredSize(
+      //   preferredSize: const Size.fromHeight(100),
+      //   child: Container(
+      //     color: AppColors.kWhite,
+      //     padding:
+      //         const EdgeInsets.symmetric(horizontal: 25, vertical: 15).copyWith(
+      //       top: context.screenSize.height * .07,
+      //     ),
+      //     child: Row(
+      //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      //       children: [
+      //         SvgPicture.asset(AppSvgImages.narxozProfile),
+      //         TextButton(
+      //           onPressed: () {},
+      //           child: const Text(
+      //             'Русский',
+      //             style: AppTextStyles.gilroy15w500Red,
+      //           ).tr(),
+      //         ),
+      //       ],
+      //     ),
+      //   ), // here the desired height
+      //   // child: AppBar(
+      //   //   title: Padding(
+      //   //     padding: const EdgeInsets.symmetric(vertical: 20),
+      //   //     child: SvgPicture.asset(AppSvgImages.narxozProfile),
+      //   //   ),
+      //   //   centerTitle: false,
+      //   //   actions: [
+      //   //     Padding(
+      //   //       padding: const EdgeInsets.only(right: 25),
+      //   //       child: TextButton(
+      //   //         onPressed: () {},
+      //   //         child: Text(
+      //   //           'Русский',
+      //   //         ),
+      //   //       ),
+      //   //     ),
+      //   //   ],
+      //   // ),
+      // ),
       //getAppBars().elementAt(tabsRouter.activeIndex),
       routes: const [
         BaseHomeRouter(),
@@ -79,7 +80,7 @@ class _BaseState extends State<Base> {
         ProfilePageRoute(),
         // BaseProfileRouter() // ProfilePageRoute(),
       ],
-      backgroundColor: AppColors.kBg,
+      backgroundColor: AppColors.kWhite,
       bottomNavigationBuilder: (_, tabsRouter) {
         return SizedBox(
           height: 93,

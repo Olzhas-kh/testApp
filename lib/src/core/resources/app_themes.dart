@@ -13,3 +13,17 @@ mixin AppTheme {
         primaryColor: AppColors.kRedPrimary,
       );
 }
+
+mixin AppDecorations {
+  static const List<BoxShadow> dropShadow = [
+    BoxShadow(
+      offset: Offset(1, 1),
+      blurRadius: 6,
+      color: Color.fromRGBO(0, 0, 0, 0.25),
+    ),
+    // BoxShadow(
+    //   blurRadius: 2,
+    //   color: Color.fromRGBO(0, 0, 0, 0.08),
+    // ),
+  ];
+}

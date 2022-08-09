@@ -6,6 +6,7 @@ mixin AppColors {
   static const Color kGray = Color(0xffC1C1C1);
   static const Color kInnerBoder = Color(0xffD4D4D4);
   static const Color kGray1 = Color(0xffBDBDBD);
+  static const Color kGray2 = Color(0xffB8B8B8);
   // static const Color kGray1 = Color(0xffF8F8F8);
   // static const Color kGray2 = Color(0xffF1F2F3);
   // static const Color kGray4 = Color(0xffC3C7CE);

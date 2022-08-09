@@ -1,10 +1,52 @@
 part of 'resources.dart';
 
 mixin AppTextStyles {
+  static const gilroy15w500 = TextStyle(
+    // fontFamily: AppFonts.gilroy,
+    fontSize: 15,
+    color: AppColors.kBlack,
+    fontWeight: FontWeight.w500,
+  );
+
   static const gilroy15w500Red = TextStyle(
     // fontFamily: AppFonts.gilroy,
     fontSize: 15,
     color: AppColors.kRedPrimary,
+    fontWeight: FontWeight.w500,
+  );
+
+  static const gilroy16w500Red = TextStyle(
+    // fontFamily: AppFonts.gilroy,
+    fontSize: 16,
+    color: AppColors.kRedPrimary,
+    fontWeight: FontWeight.w500,
+  );
+
+  static const gilroy16w500 = TextStyle(
+    // fontFamily: AppFonts.gilroy,
+    fontSize: 16,
+    color: AppColors.kBlack,
+    fontWeight: FontWeight.w500,
+  );
+
+  static const gilroy17w600Red = TextStyle(
+    // fontFamily: AppFonts.gilroy,
+    fontSize: 17,
+    color: AppColors.kRedPrimary,
+    fontWeight: FontWeight.w600,
+  );
+
+  static const gilroy17w600 = TextStyle(
+    // fontFamily: AppFonts.gilroy,
+    fontSize: 17,
+    color: AppColors.kBlack,
+    fontWeight: FontWeight.w600,
+  );
+
+  static const gilroy19w500 = TextStyle(
+    // fontFamily: AppFonts.gilroy,
+    fontSize: 19,
+    color: AppColors.kBlack,
     fontWeight: FontWeight.w500,
   );
 
@@ -13,6 +55,20 @@ mixin AppTextStyles {
     fontSize: 19,
     color: AppColors.kWhite,
     fontWeight: FontWeight.w600,
+  );
+
+  static const gilroy20w500 = TextStyle(
+    // fontFamily: AppFonts.gilroy,
+    fontSize: 20,
+    color: AppColors.kBlack,
+    fontWeight: FontWeight.w600,
+  );
+
+  static const gilroy24w500 = TextStyle(
+    // fontFamily: AppFonts.gilroy,
+    fontSize: 24,
+    color: AppColors.kBlack,
+    fontWeight: FontWeight.w500,
   );
 
   //
