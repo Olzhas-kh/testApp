@@ -24,10 +24,11 @@ class _NarxozAppState extends State<NarxozApp> {
   @override
   void initState() {
     SystemChrome.setSystemUIOverlayStyle(
-      const SystemUiOverlayStyle(
-        systemNavigationBarColor: Colors.white,
-        systemNavigationBarIconBrightness: Brightness.dark,
-      ),
+      SystemUiOverlayStyle.dark,
+      // const SystemUiOverlayStyle(
+      //   systemNavigationBarColor: Colors.black,
+      //   systemNavigationBarIconBrightness: Brightness.dark,
+      // ),
     );
     super.initState();
   }

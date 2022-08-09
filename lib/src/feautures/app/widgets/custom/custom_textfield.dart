@@ -17,6 +17,7 @@ class CustomTextField extends StatelessWidget {
   final TextEditingController? repeatController;
   final void Function(String)? onFieldSubmitted;
   final double borderRadius;
+  final InputBorder? enabledBorder;
 
   const CustomTextField({
     super.key,
@@ -34,6 +35,7 @@ class CustomTextField extends StatelessWidget {
     this.prefixIcon,
     this.onFieldSubmitted,
     this.borderRadius = 4,
+    this.enabledBorder,
   });
 
   @override
@@ -74,18 +76,20 @@ class CustomTextField extends StatelessWidget {
             borderSide: const BorderSide(color: Colors.red),
             borderRadius: BorderRadius.circular(borderRadius),
           ),
-          enabledBorder: OutlineInputBorder(
-            borderSide: const BorderSide(color: AppColors.kInnerBoder),
-            borderRadius: BorderRadius.circular(borderRadius),
-          ),
+          enabledBorder: enabledBorder ??
+              OutlineInputBorder(
+                borderSide: const BorderSide(color: AppColors.kInnerBoder),
+                borderRadius: BorderRadius.circular(borderRadius),
+              ),
           focusedBorder: OutlineInputBorder(
             borderSide: const BorderSide(color: AppColors.kRedPrimary),
             borderRadius: BorderRadius.circular(borderRadius),
           ),
-          border: OutlineInputBorder(
-            borderSide: const BorderSide(color: AppColors.kInnerBoder),
-            borderRadius: BorderRadius.circular(borderRadius),
-          ),
+          border: enabledBorder ??
+              OutlineInputBorder(
+                borderSide: const BorderSide(color: AppColors.kInnerBoder),
+                borderRadius: BorderRadius.circular(borderRadius),
+              ),
         ),
       ),
     );

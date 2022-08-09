@@ -15,6 +15,13 @@ mixin AppTextStyles {
     fontWeight: FontWeight.w500,
   );
 
+  static const gilroy15w600White = TextStyle(
+    // fontFamily: AppFonts.gilroy,
+    fontSize: 15,
+    color: AppColors.kWhite,
+    fontWeight: FontWeight.w600,
+  );
+
   static const gilroy16w500Red = TextStyle(
     // fontFamily: AppFonts.gilroy,
     fontSize: 16,
@@ -27,6 +34,20 @@ mixin AppTextStyles {
     fontSize: 16,
     color: AppColors.kBlack,
     fontWeight: FontWeight.w500,
+  );
+
+  static const gilroy16w600 = TextStyle(
+    // fontFamily: AppFonts.gilroy,
+    fontSize: 16,
+    color: AppColors.kBlack,
+    fontWeight: FontWeight.w600,
+  );
+
+  static const gilroy16w600White = TextStyle(
+    // fontFamily: AppFonts.gilroy,
+    fontSize: 16,
+    color: AppColors.kWhite,
+    fontWeight: FontWeight.w600,
   );
 
   static const gilroy17w600Red = TextStyle(
@@ -61,6 +82,13 @@ mixin AppTextStyles {
     // fontFamily: AppFonts.gilroy,
     fontSize: 20,
     color: AppColors.kBlack,
+    fontWeight: FontWeight.w500,
+  );
+
+  static const gilroy20w600Red = TextStyle(
+    // fontFamily: AppFonts.gilroy,
+    fontSize: 20,
+    color: AppColors.kRedPrimary,
     fontWeight: FontWeight.w600,
   );
 
@@ -76,6 +104,13 @@ mixin AppTextStyles {
     fontFamily: AppFonts.rubik,
     fontSize: 14,
     color: AppColors.kBlack,
+    fontWeight: FontWeight.w400,
+  );
+
+  static const rubik14w400Red = TextStyle(
+    fontFamily: AppFonts.rubik,
+    fontSize: 14,
+    color: AppColors.kRedPrimary,
     fontWeight: FontWeight.w400,
   );
 
@@ -98,18 +133,6 @@ mixin AppTextStyles {
     fontSize: 16,
     color: AppColors.kGray750,
     fontFamily: 'SF-Pro-Display-Bold',
-  );
-
-  static const ts16w400g800 = TextStyle(
-    fontWeight: FontWeight.w400,
-    fontSize: 16,
-    color: AppColors.kGray800,
-  );
-
-  static const ts16w400black = TextStyle(
-    fontWeight: FontWeight.w500,
-    fontSize: 16,
-    color: Colors.black,
   );
 
   static const ts16w500blackBold = TextStyle(

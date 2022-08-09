@@ -7,23 +7,32 @@ class BackButtonWidget extends StatelessWidget {
     required this.onTap,
     super.key,
   });
-  final Function()? onTap;
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      elevation: 3,
-      color: AppColors.kWhite,
-      borderRadius: BorderRadius.circular(100),
-      child: InkWell(
-        borderRadius: BorderRadius.circular(100),
-        onTap: onTap,
-        child: const SizedBox(
-          height: 44,
-          width: 44,
-          child: Icon(
-            Icons.arrow_back,
-            color: Colors.black,
+    return Container(
+      height: 40,
+      width: 40,
+      decoration: BoxDecoration(
+        boxShadow: AppDecorations.backButtonShadow,
+        color: AppColors.kWhite,
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Material(
+        // elevation: 1,
+        color: Colors.transparent,
+        borderRadius: BorderRadius.circular(12),
+        child: InkWell(
+          borderRadius: BorderRadius.circular(12),
+          onTap: onTap,
+          child: const SizedBox(
+            height: 44,
+            width: 44,
+            child: Icon(
+              Icons.arrow_back,
+              color: Colors.black,
+            ),
           ),
         ),
       ),

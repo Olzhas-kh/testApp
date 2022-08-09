@@ -41,6 +41,18 @@ class _$AppRouter extends RootStackRouter {
       return MaterialPageX<dynamic>(
           routeData: routeData, child: const HostelPage());
     },
+    HelpSectionPageRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+          routeData: routeData, child: const HelpSectionPage());
+    },
+    ApplicationPage1Route.name: (routeData) {
+      return MaterialPageX<dynamic>(
+          routeData: routeData, child: const ApplicationPage1());
+    },
+    ApplicationPage2Route.name: (routeData) {
+      return MaterialPageX<dynamic>(
+          routeData: routeData, child: const ApplicationPage2());
+    },
     ApplicationPageRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
           routeData: routeData, child: const ApplicationPage());
@@ -58,6 +70,12 @@ class _$AppRouter extends RootStackRouter {
                     path: '', parent: BaseHomeRouter.name),
                 RouteConfig(HostelPageRoute.name,
                     path: 'hostel-page', parent: BaseHomeRouter.name),
+                RouteConfig(HelpSectionPageRoute.name,
+                    path: 'help-section-page', parent: BaseHomeRouter.name),
+                RouteConfig(ApplicationPage1Route.name,
+                    path: 'application-page1', parent: BaseHomeRouter.name),
+                RouteConfig(ApplicationPage2Route.name,
+                    path: 'application-page2', parent: BaseHomeRouter.name),
                 RouteConfig(ApplicationPageRoute.name,
                     path: 'application-page', parent: BaseHomeRouter.name)
               ]),
@@ -119,6 +137,33 @@ class HostelPageRoute extends PageRouteInfo<void> {
   const HostelPageRoute() : super(HostelPageRoute.name, path: 'hostel-page');
 
   static const String name = 'HostelPageRoute';
+}
+
+/// generated route for
+/// [HelpSectionPage]
+class HelpSectionPageRoute extends PageRouteInfo<void> {
+  const HelpSectionPageRoute()
+      : super(HelpSectionPageRoute.name, path: 'help-section-page');
+
+  static const String name = 'HelpSectionPageRoute';
+}
+
+/// generated route for
+/// [ApplicationPage1]
+class ApplicationPage1Route extends PageRouteInfo<void> {
+  const ApplicationPage1Route()
+      : super(ApplicationPage1Route.name, path: 'application-page1');
+
+  static const String name = 'ApplicationPage1Route';
+}
+
+/// generated route for
+/// [ApplicationPage2]
+class ApplicationPage2Route extends PageRouteInfo<void> {
+  const ApplicationPage2Route()
+      : super(ApplicationPage2Route.name, path: 'application-page2');
+
+  static const String name = 'ApplicationPage2Route';
 }
 
 /// generated route for

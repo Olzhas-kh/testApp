@@ -3,7 +3,7 @@ import 'package:narxoz/src/core/resources/resources.dart';
 
 class CustomButton extends StatefulWidget {
   final Widget body;
-  final Function() onClick;
+  final void Function()? onClick;
   final ButtonStyle style;
   final double? width;
   final double? height;
@@ -29,9 +29,7 @@ class _CustomButtonState extends State<CustomButton> {
       height: widget.height == 0 ? null : widget.height,
       margin: const EdgeInsets.symmetric(vertical: 3),
       child: ElevatedButton(
-        onPressed: () {
-          widget.onClick();
-        },
+        onPressed: widget.onClick,
         style: widget.style,
         child: widget.body,
       ),
@@ -48,7 +46,7 @@ ButtonStyle whiteButtonStyle({
     primary: Colors.white,
     shadowColor: Colors.black,
     shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(7),
+      borderRadius: BorderRadius.circular(12),
     ),
     // shadowColor: MaterialStateProperty.all<Color>(
     //   Colors.black,

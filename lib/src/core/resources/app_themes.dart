@@ -26,4 +26,16 @@ mixin AppDecorations {
     //   color: Color.fromRGBO(0, 0, 0, 0.08),
     // ),
   ];
+
+  static const List<BoxShadow> backButtonShadow = [
+    BoxShadow(
+      // offset: Offset(1, 1),
+      blurRadius: 15,
+      color: Color.fromRGBO(0, 0, 0, 0.1),
+    ),
+    // BoxShadow(
+    //   blurRadius: 2,
+    //   color: Color.fromRGBO(0, 0, 0, 0.08),
+    // ),
+  ];
 }

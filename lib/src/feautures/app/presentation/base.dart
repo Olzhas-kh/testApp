@@ -103,17 +103,22 @@ class _BaseState extends State<Base> {
 
               if (tabsRouter.activeIndex == index) {
                 log('${tabsRouter.canPopSelfOrChildren}');
+                tabsRouter.popTop();
+                // context.router.popUntilRoot();
                 // context
                 //     .innerRouterOf<TabsRouter>(LauncherRoute.name)
                 //     ?.root
                 //     .popUntil((route) => route.isFirst);
-                tabsRouter.popTop();
-                // tabsRouter.popTop();
+                // print(tabsRouter.isRoot);
+                // while (tabsRouter.canPopSelfOrChildren) {
+                //   tabsRouter.popTop();
+                // }
 
                 // context.router.replace(LauncherRoute());
-                // context.router.po((route) {
+
+                // context.router.popUntil((route) {
                 //   log('${route}', name: _tag);
-                //   return route.isFirst;
+                //   return !tabsRouter.canPopSelfOrChildren && route.;
                 // });
               } else {
                 tabsRouter.setActiveIndex(index);
@@ -194,45 +199,4 @@ class _BaseState extends State<Base> {
       },
     );
   }
-
-  // List<AppBar> getAppBars() {
-  //   return [
-  //     AppBar(
-  //       backgroundColor: AppColors.kPrimaryColor,
-  //       title: const Text('FlutterBottomNav'),
-  //       centerTitle: true,
-  //       elevation: 0,
-  //       leading: const AutoLeadingButton(),
-  //     ),
-  //     AppBar(
-  //       backgroundColor: AppColors.kPrimaryColor,
-  //       title: const Text('navbar_chat'),
-  //       centerTitle: true,
-  //       elevation: 0,
-  //       leading: const AutoLeadingButton(),
-  //     ),
-  //     AppBar(
-  //       backgroundColor: AppColors.kWhite,
-  //       title: const Text('Новое обьявление'),
-  //       centerTitle: true,
-  //       elevation: 0,
-  //       leading: const AutoLeadingButton(),
-  //     ),
-  //     AppBar(
-  //       backgroundColor: AppColors.kPrimaryColor,
-  //       title: const Text('Избранное'),
-  //       centerTitle: true,
-  //       elevation: 0,
-  //       leading: const AutoLeadingButton(),
-  //     ),
-  //     AppBar(
-  //       backgroundColor: AppColors.kPrimaryColor,
-  //       title: const Text('navbar_profile').tr(),
-  //       centerTitle: true,
-  //       elevation: 0,
-  //       leading: const AutoLeadingButton(),
-  //     ),
-  //   ];
-  // }
-
 }
