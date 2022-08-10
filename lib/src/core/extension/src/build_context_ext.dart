@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.g.dart';
 
 extension BuildContextX on BuildContext {
   // IEnvironmentStorage get environment => EnvironmentScope.of(this);
@@ -17,4 +18,6 @@ extension BuildContextX on BuildContext {
 
   ThemeData get theme => Theme.of(this);
   TextTheme get textTheme => theme.textTheme;
+
+  AppLocalizations get appLocale => AppLocalizations.of(this)!;
 }

@@ -1,9 +1,7 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:narxoz/src/core/extension/extensions.dart';
 import 'package:narxoz/src/core/resources/resources.dart';
-import 'package:narxoz/src/feautures/app/widgets/custom/custom_appbar.dart';
 import 'package:narxoz/src/feautures/app/widgets/custom/custom_button.dart';
 import 'package:narxoz/src/feautures/app/widgets/custom/custom_textfield.dart';
 import 'package:narxoz/src/feautures/app/widgets/validators.dart';
@@ -70,7 +68,7 @@ class _ApplicationPageState extends State<ApplicationPage> {
                       const Text(
                         'Имя',
                         style: AppTextStyles.gilroy16w500,
-                      ).tr(),
+                      ),
                       const SizedBox(height: 12),
                       CustomTextField(
                         borderRadius: 12,
@@ -86,7 +84,7 @@ class _ApplicationPageState extends State<ApplicationPage> {
                       const Text(
                         'Фамилия',
                         style: AppTextStyles.gilroy16w500,
-                      ).tr(),
+                      ),
                       const SizedBox(height: 12),
                       CustomTextField(
                         borderRadius: 12,
@@ -102,7 +100,7 @@ class _ApplicationPageState extends State<ApplicationPage> {
                       const Text(
                         'Почта',
                         style: AppTextStyles.gilroy16w500,
-                      ).tr(),
+                      ),
                       const SizedBox(height: 12),
                       CustomTextField(
                         borderRadius: 12,
@@ -118,7 +116,7 @@ class _ApplicationPageState extends State<ApplicationPage> {
                       const Text(
                         'Пол',
                         style: AppTextStyles.gilroy16w500,
-                      ).tr(),
+                      ),
                       const SizedBox(height: 12),
                       Container(
                         // height: 86,
@@ -163,7 +161,7 @@ class _ApplicationPageState extends State<ApplicationPage> {
                       const Text(
                         'ИНН',
                         style: AppTextStyles.gilroy16w500,
-                      ).tr(),
+                      ),
                       const SizedBox(height: 12),
                       CustomTextField(
                         borderRadius: 12,
@@ -179,7 +177,7 @@ class _ApplicationPageState extends State<ApplicationPage> {
                       const Text(
                         'Номер телефона',
                         style: AppTextStyles.gilroy16w500,
-                      ).tr(),
+                      ),
                       const SizedBox(height: 12),
                       CustomTextField(
                         borderRadius: 12,
@@ -195,7 +193,7 @@ class _ApplicationPageState extends State<ApplicationPage> {
                       const Text(
                         'Дата рождения ',
                         style: AppTextStyles.gilroy16w500,
-                      ).tr(),
+                      ),
                       const SizedBox(height: 12),
                       CustomTextField(
                         borderRadius: 12,
@@ -211,7 +209,7 @@ class _ApplicationPageState extends State<ApplicationPage> {
                       const Text(
                         'Форма обучения',
                         style: AppTextStyles.gilroy16w500,
-                      ).tr(),
+                      ),
                       const SizedBox(height: 12),
                       Container(
                         // height: 86,
@@ -256,7 +254,7 @@ class _ApplicationPageState extends State<ApplicationPage> {
                       const Text(
                         'Справка об инвалидности',
                         style: AppTextStyles.gilroy16w500,
-                      ).tr(),
+                      ),
                       const SizedBox(height: 12),
                       Row(
                         children: [
@@ -323,7 +321,7 @@ class _ApplicationPageState extends State<ApplicationPage> {
                         body: const Text(
                           'Далее',
                           style: AppTextStyles.gilroy16w600White,
-                        ).tr(),
+                        ),
                         onClick: () {},
                         style: redButtonStyle(),
                       ),

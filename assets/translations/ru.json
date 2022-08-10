@@ -7,5 +7,7 @@
   "enter": "Войти",
   "you_have_entered_an_incorrect_username_or_password": "Вы ввели неверный логин или пароль",
   "the_section_is_under_development": "Раздел находится в разработке",
-  "clearly": "Понятно"
+  "clearly": "Понятно",
+  "gpa": "GPA",
+  "date_of_birth": "Дата рождения"
 }

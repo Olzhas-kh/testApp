@@ -1,4 +1,3 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:narxoz/src/core/extension/extensions.dart';
@@ -58,7 +57,7 @@ class _SignInPageState extends State<SignInPage> {
                     // ),
                     // isVisible: _passwordVisible,
                     controller: loginController,
-                    hintText: 'enter_login'.tr(),
+                    hintText: context.appLocale.enterLogin, //'enter_login',
                     maxLines: 1,
                     validator: passwordRepeatValidator,
                     borderRadius: 12,
@@ -80,7 +79,7 @@ class _SignInPageState extends State<SignInPage> {
                     ),
                     isVisible: _passwordVisible,
                     controller: passwordController,
-                    hintText: 'enter_password'.tr(),
+                    hintText: 'enter_password',
                     maxLines: 1,
                     validator: passwordRepeatValidator,
                     borderRadius: 12,
@@ -91,7 +90,7 @@ class _SignInPageState extends State<SignInPage> {
                     body: const Text(
                       'apply_for_a_hostel',
                       style: AppTextStyles.gilroy19w600white,
-                    ).tr(),
+                    ),
                     onClick: () {},
                     style: redButtonStyle(),
                   ),
@@ -101,7 +100,7 @@ class _SignInPageState extends State<SignInPage> {
                     body: const Text(
                       'enter',
                       style: AppTextStyles.gilroy19w600white,
-                    ).tr(),
+                    ),
                     onClick: () {
                       BlocProvider.of<AppBloc>(context)
                           .add(const AppEvent.logining());

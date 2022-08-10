@@ -1,4 +1,3 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:narxoz/src/core/resources/resources.dart';
 
@@ -52,7 +51,7 @@ class ApplicationCard extends StatelessWidget {
                             Text(
                               title,
                               style: AppTextStyles.gilroy20w600Red,
-                            ).tr(),
+                            ),
                             if (titleContent != null) const SizedBox(height: 10),
                             if (titleContent != null)
                               Text(
@@ -78,7 +77,7 @@ class ApplicationCard extends StatelessWidget {
                 child: Text(
                   body,
                   style: AppTextStyles.gilroy15w600White,
-                ).tr(),
+                ),
               ),
             ],
           ),

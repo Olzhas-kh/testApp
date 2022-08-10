@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:easy_localization/easy_localization.dart';
+// import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:narxoz/src/core/services/locator_service.dart';
@@ -29,25 +29,26 @@ mixin MainRunner {
   }) async {
     // ignore: avoid-ignoring-return-values
     WidgetsFlutterBinding.ensureInitialized();
-    await EasyLocalization.ensureInitialized();
-    EasyLocalization.logger.enableLevels = [];
+    // await EasyLocalization.ensureInitialized();
+    // EasyLocalization.logger.enableLevels = [];
 
     // await Firebase.initializeApp();
     final app = await _initApp(shouldSend, asyncDependencies, appBuilder);
     await initLocator();
 
-    runApp(
-      EasyLocalization(
-        useFallbackTranslations: true,
-        supportedLocales: const [
-          Locale('ru'),
-          Locale('en'),
-          Locale('kk'),
-        ],
-        path: 'assets/translations',
-        fallbackLocale: const Locale('ru'),
-        child: app,
-      ),
-    );
+    runApp(app);
+    // runApp(
+    //   EasyLocalization(
+    //     useFallbackTranslations: true,
+    //     supportedLocales: const [
+    //       Locale('ru'),
+    //       Locale('en'),
+    //       Locale('kk'),
+    //     ],
+    //     path: 'assets/translations',
+    //     fallbackLocale: const Locale('ru'),
+    //     child: app,
+    //   ),
+    // );
   }
 }

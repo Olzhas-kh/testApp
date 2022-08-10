@@ -1,4 +1,3 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:narxoz/src/core/resources/resources.dart';
 
@@ -70,7 +69,7 @@ class CustomBackButton extends StatelessWidget {
               Text(
                 buttonWord,
                 // style: TextStyle(),
-              ).tr(),
+              ),
             ],
           ),
         ),
