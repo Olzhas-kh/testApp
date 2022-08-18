@@ -17,10 +17,10 @@ class _HomePageState extends State<HomePage> {
     return ColoredBox(
       color: AppColors.kWhite,
       child: ListView(
-        children: [
-          const BaseAppBar(),
-          const BannersWidget(),
-          const SizedBox(height: 27),
+        children: const [
+          BaseAppBar(),
+          BannersWidget(),
+          SizedBox(height: 27),
           ChaptersWidget()
         ],
       ),
