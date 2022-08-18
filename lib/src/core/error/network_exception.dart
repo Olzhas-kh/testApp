@@ -44,7 +44,7 @@ class NetworkException with _$NetworkException implements Exception {
       case HttpStatus.internalServerError:
         return 'Что-то не так с нашими серверами, проблема будет решена в ближайшее время!';
       default:
-        return error.response?.data['message'] as String;
+        return (error.response?.data as Map<String, dynamic>)['message'] as String;
     }
   }
 }
