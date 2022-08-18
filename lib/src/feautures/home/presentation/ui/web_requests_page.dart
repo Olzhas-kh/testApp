@@ -36,7 +36,7 @@ class _WebRequestsPageState extends State<WebRequestsPage> {
                 context.router.pop();
               },
             ),
-            Expanded(
+            const Expanded(
               child: WebView(
                 initialUrl: 'https://shd.narxoz.kz/',
               ),

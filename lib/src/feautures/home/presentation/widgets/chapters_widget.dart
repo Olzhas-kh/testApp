@@ -32,7 +32,7 @@ class _ChaptersWidgetState extends State<ChaptersWidget> {
     ),
     _Chapter(
       id: 3,
-      text: 'Общежитие',
+      text: context.appLocale.hostel,
       // onTap: () {},
       isActive: true,
       image: 'assets/icons/chapter_3.svg',
@@ -46,25 +46,25 @@ class _ChaptersWidgetState extends State<ChaptersWidget> {
     ),
     _Chapter(
       id: 5,
-      text: 'Финансы',
+      text: context.appLocale.finance,
       // onTap: () {},
       image: 'assets/icons/chapter_5.svg',
     ),
     _Chapter(
       id: 6,
-      text: 'Документы',
+      text: context.appLocale.documents,
       // onTap: () {},
       image: 'assets/icons/chapter_6.svg',
     ),
     _Chapter(
       id: 7,
-      text: 'Каталог',
+      text: context.appLocale.catalog,
       // onTap: () {},
       image: 'assets/icons/chapter_7.svg',
     ),
     _Chapter(
       id: 8,
-      text: 'Эдвайзер',
+      text: context.appLocale.adviser,
       // onTap: () {},
       image: 'assets/icons/chapter_8.svg',
     ),
