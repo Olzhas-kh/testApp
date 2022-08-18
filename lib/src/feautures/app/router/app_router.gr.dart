@@ -60,6 +60,25 @@ class _$AppRouter extends RootStackRouter {
     ApplicationPageRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
           routeData: routeData, child: const ApplicationPage());
+    },
+    DescriptionHostelPageRoute.name: (routeData) {
+      final args = routeData.argsAs<DescriptionHostelPageRouteArgs>();
+      return MaterialPageX<dynamic>(
+          routeData: routeData,
+          child: DescriptionHostelPage(text: args.text, key: args.key));
+    },
+    CheckInProcedurePageRoute.name: (routeData) {
+      final args = routeData.argsAs<CheckInProcedurePageRouteArgs>();
+      return MaterialPageX<dynamic>(
+          routeData: routeData,
+          child: CheckInProcedurePage(
+              header: args.header, text: args.text, key: args.key));
+    },
+    ForeignCitizensPageRoute.name: (routeData) {
+      final args = routeData.argsAs<ForeignCitizensPageRouteArgs>();
+      return MaterialPageX<dynamic>(
+          routeData: routeData,
+          child: ForeignCitizensPage(text: args.text, key: args.key));
     }
   };
 
@@ -81,7 +100,15 @@ class _$AppRouter extends RootStackRouter {
                 RouteConfig(ApplicationPage2Route.name,
                     path: 'application-page2', parent: BaseHomeRouter.name),
                 RouteConfig(ApplicationPageRoute.name,
-                    path: 'application-page', parent: BaseHomeRouter.name)
+                    path: 'application-page', parent: BaseHomeRouter.name),
+                RouteConfig(DescriptionHostelPageRoute.name,
+                    path: 'description-hostel-page',
+                    parent: BaseHomeRouter.name),
+                RouteConfig(CheckInProcedurePageRoute.name,
+                    path: 'check-in-procedure-page',
+                    parent: BaseHomeRouter.name),
+                RouteConfig(ForeignCitizensPageRoute.name,
+                    path: 'foreign-citizens-page', parent: BaseHomeRouter.name)
               ]),
           RouteConfig(SectionsPageRoute.name,
               path: 'sections-page', parent: LauncherRoute.name),
@@ -187,4 +214,84 @@ class ApplicationPageRoute extends PageRouteInfo<void> {
       : super(ApplicationPageRoute.name, path: 'application-page');
 
   static const String name = 'ApplicationPageRoute';
+}
+
+/// generated route for
+/// [DescriptionHostelPage]
+class DescriptionHostelPageRoute
+    extends PageRouteInfo<DescriptionHostelPageRouteArgs> {
+  DescriptionHostelPageRoute({required String text, Key? key})
+      : super(DescriptionHostelPageRoute.name,
+            path: 'description-hostel-page',
+            args: DescriptionHostelPageRouteArgs(text: text, key: key));
+
+  static const String name = 'DescriptionHostelPageRoute';
+}
+
+class DescriptionHostelPageRouteArgs {
+  const DescriptionHostelPageRouteArgs({required this.text, this.key});
+
+  final String text;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'DescriptionHostelPageRouteArgs{text: $text, key: $key}';
+  }
+}
+
+/// generated route for
+/// [CheckInProcedurePage]
+class CheckInProcedurePageRoute
+    extends PageRouteInfo<CheckInProcedurePageRouteArgs> {
+  CheckInProcedurePageRoute(
+      {required String header, required String text, Key? key})
+      : super(CheckInProcedurePageRoute.name,
+            path: 'check-in-procedure-page',
+            args: CheckInProcedurePageRouteArgs(
+                header: header, text: text, key: key));
+
+  static const String name = 'CheckInProcedurePageRoute';
+}
+
+class CheckInProcedurePageRouteArgs {
+  const CheckInProcedurePageRouteArgs(
+      {required this.header, required this.text, this.key});
+
+  final String header;
+
+  final String text;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'CheckInProcedurePageRouteArgs{header: $header, text: $text, key: $key}';
+  }
+}
+
+/// generated route for
+/// [ForeignCitizensPage]
+class ForeignCitizensPageRoute
+    extends PageRouteInfo<ForeignCitizensPageRouteArgs> {
+  ForeignCitizensPageRoute({required String text, Key? key})
+      : super(ForeignCitizensPageRoute.name,
+            path: 'foreign-citizens-page',
+            args: ForeignCitizensPageRouteArgs(text: text, key: key));
+
+  static const String name = 'ForeignCitizensPageRoute';
+}
+
+class ForeignCitizensPageRouteArgs {
+  const ForeignCitizensPageRouteArgs({required this.text, this.key});
+
+  final String text;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'ForeignCitizensPageRouteArgs{text: $text, key: $key}';
+  }
 }
