@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:narxoz/src/core/extension/extensions.dart';
 import 'package:narxoz/src/core/resources/resources.dart';
 import 'package:narxoz/src/feautures/app/presentation/base_appbar.dart';
 
@@ -63,7 +64,9 @@ class _ProfilePageState extends State<ProfilePage> {
                               Object exception,
                               StackTrace? stackTrace,
                             ) {
-                              return const Text('Image Error');
+                              return Center(
+                                child: Text(context.appLocale.imageError),
+                              );
                             },
                           ),
                         ),

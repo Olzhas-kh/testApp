@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:narxoz/src/core/extension/extensions.dart';
 import 'package:narxoz/src/core/resources/resources.dart';
 import 'package:narxoz/src/feautures/app/presentation/base_appbar.dart';
+import 'package:narxoz/src/feautures/app/widgets/custom/custom_alert_dialog.dart';
 import 'package:narxoz/src/feautures/sections/presentation/widgets/section_card_widget.dart';
 
 class SectionsPage extends StatefulWidget {
@@ -14,17 +15,23 @@ class SectionsPage extends StatefulWidget {
 class _SectionsPageState extends State<SectionsPage> {
   late List<SectionCardPayload> payloads = [
     SectionCardPayload(
-      onTap: () {},
+      onTap: () {
+        buildDevelopAlertDialog(context);
+      },
       text: context.appLocale.jobOpenings,
       localImage: 'assets/temp/section1.png',
     ),
     SectionCardPayload(
-      onTap: () {},
+      onTap: () {
+        buildDevelopAlertDialog(context);
+      },
       text: 'Academic mobility',
       localImage: 'assets/temp/section2.png',
     ),
     SectionCardPayload(
-      onTap: () {},
+      onTap: () {
+        buildDevelopAlertDialog(context);
+      },
       text: 'Student Life',
       localImage: 'assets/temp/section3.png',
     ),

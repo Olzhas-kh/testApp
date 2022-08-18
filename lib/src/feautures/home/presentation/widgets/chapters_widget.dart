@@ -105,6 +105,12 @@ class _ChaptersWidgetState extends State<ChaptersWidget> {
                     onTap: () {
                       if (e.isActive) {
                         switch (e.id) {
+                          case 1:
+                            buildDevelopAlertDialog(context);
+                            break;
+                          case 2:
+                            buildDevelopAlertDialog(context);
+                            break;
                           case 3:
                             context.router.push(const HostelPageRoute());
                             break;
