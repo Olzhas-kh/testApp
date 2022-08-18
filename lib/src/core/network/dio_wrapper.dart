@@ -68,6 +68,7 @@ class _NarxozDioInterceptor extends Interceptor {
     //   options.headers['Authorization'] = 'Bearer ${user.token}';
     // }
     options.headers['Accept'] = "application/json";
+    options.headers['Content-Language'] = "ru";
     super.onRequest(options, handler);
   }
 

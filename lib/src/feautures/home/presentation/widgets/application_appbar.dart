@@ -40,8 +40,8 @@ class ApplicationAppBar extends StatelessWidget {
                   style: AppTextStyles.gilroy20w500,
                 ),
                 const SizedBox(height: 10),
-                const Text(
-                  'Заполните данные',
+                Text(
+                  context.appLocale.fillInTheData,
                   style: AppTextStyles.gilroy16w500,
                 ),
               ],
