@@ -1,7 +1,9 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.g.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:narxoz/src/core/l10n/l10n.dart';
 import 'package:narxoz/src/core/resources/resources.dart';
 import 'package:narxoz/src/core/services/locator_service.dart';
 import 'package:narxoz/src/feautures/app/presentation/multibloc_wrapper.dart';
@@ -45,17 +47,17 @@ class _NarxozAppState extends State<NarxozApp> {
         title: 'Narxoz',
         debugShowCheckedModeBanner: false,
         // navigatorKey: GlobalVariable.navigatorKey,
-        // localizationsDelegates: const [
-        //   GlobalMaterialLocalizations.delegate,
-        //   GlobalCupertinoLocalizations.delegate,
-        //   DefaultWidgetsLocalizations.delegate,
-        // ],
-        // supportedLocales: const [
-        //   Locale('ru'),
-        // ],
-        localizationsDelegates: context.localizationDelegates,
-        supportedLocales: context.supportedLocales,
-        locale: context.locale,
+        localizationsDelegates: const [
+          AppLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          // DefaultWidgetsLocalizations.delegate,
+        ],
+        supportedLocales: L10n.all,
+        // localizationsDelegates: context.localizationDelegates,
+        // supportedLocales: context.supportedLocales,
+        // locale: context.locale,
         theme: AppTheme.light,
         routeInformationParser: sl<AppRouter>().defaultRouteParser(),
         // routerDelegate: sl<AppRouter>().delegate(),

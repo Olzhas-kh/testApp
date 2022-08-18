@@ -21,6 +21,10 @@ class _$AppRouter extends RootStackRouter {
       return MaterialPageX<dynamic>(
           routeData: routeData, child: const Launcher());
     },
+    WebRequestsPageRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+          routeData: routeData, child: const WebRequestsPage());
+    },
     BaseHomeRouter.name: (routeData) {
       return MaterialPageX<dynamic>(
           routeData: routeData, child: const EmptyRouterPage());
@@ -83,7 +87,8 @@ class _$AppRouter extends RootStackRouter {
               path: 'sections-page', parent: LauncherRoute.name),
           RouteConfig(ProfilePageRoute.name,
               path: 'profile-page', parent: LauncherRoute.name)
-        ])
+        ]),
+        RouteConfig(WebRequestsPageRoute.name, path: '/web-requests-page')
       ];
 }
 
@@ -94,6 +99,15 @@ class LauncherRoute extends PageRouteInfo<void> {
       : super(LauncherRoute.name, path: '/', initialChildren: children);
 
   static const String name = 'LauncherRoute';
+}
+
+/// generated route for
+/// [WebRequestsPage]
+class WebRequestsPageRoute extends PageRouteInfo<void> {
+  const WebRequestsPageRoute()
+      : super(WebRequestsPageRoute.name, path: '/web-requests-page');
+
+  static const String name = 'WebRequestsPageRoute';
 }
 
 /// generated route for

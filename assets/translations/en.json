@@ -1,0 +1,13 @@
+{
+  "login": "Login",
+  "password": "Password",
+  "enter_login": "Enter your username",
+  "enter_password": "Enter the password",
+  "apply_for_a_hostel": "Apply for a hostel",
+  "enter": "Login",
+  "you_have_entered_an_incorrect_username_or_password": "You have entered an incorrect username or password",
+  "the_section_is_under_development": "The section is under development",
+  "clearly": "Clear",
+  "gpa": "GPA",
+  "date_of_birth": "Date of birth"
+}

@@ -1,0 +1,17 @@
+{
+  "applications": "Өтінімдер",
+  "applyForAHostel": "Жатақханаға өтініш беру",
+  "back": "Артқа",
+  "clearly": "Түсінікті",
+  "dateOfBirth": "Туған күн",
+  "development": "Әзірлеу",
+  "enter": "Кіру",
+  "enterLogin": "Логинді енгізіңіз",
+  "enterPassword": "Құпия сөзді енгізіңіз",
+  "good": "Жақсы!",
+  "gpa": "GPA",
+  "login": "Логин",
+  "password": "Пароль",
+  "theSectionIsUnderDevelopment": "Бөлім әзірленуде",
+  "youHaveEnteredAnIncorrectUsernameOrPassword": "Сіз Қате логин немесе пароль енгіздіңіз"
+}

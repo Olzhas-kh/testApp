@@ -1,4 +1,3 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:narxoz/src/core/extension/src/string_extension.dart';
 
 String? cityValidator(String? value) {
@@ -10,42 +9,42 @@ String? cityValidator(String? value) {
 
 String? notEmptyValidator(String? value) {
   if (value == null || value.isEmpty) {
-    return 'the_field_cannot_be_empty'.tr();
+    return 'the_field_cannot_be_empty';
   }
   return null;
 }
 
 String? nameValidator(String? value) {
   if (value == null || value.isEmpty) {
-    return 'enter_your_name'.tr();
+    return 'enter_your_name';
   }
   return null;
 }
 
 String? surnameValidator(String? value) {
   if (value == null || value.isEmpty) {
-    return 'enter_your_lastname'.tr();
+    return 'enter_your_lastname';
   }
   return null;
 }
 
 String? phoneOrEmailValidator(String? value) {
   if (value == null || value.isEmpty) {
-    return 'valid_enter_your_phone_number_or_email'.tr();
+    return 'valid_enter_your_phone_number_or_email';
   }
   return null;
 }
 
 String? emailOrValidator(String? value) {
   if (value == null || value.isEmpty) {
-    return 'valid_enter_your_email'.tr();
+    return 'valid_enter_your_email';
   }
   return null;
 }
 
 String? phoneOrValidator(String? value) {
   if (value == null || value.isEmpty) {
-    return 'valid_enter_your_phone_number'.tr();
+    return 'valid_enter_your_phone_number';
   }
   return null;
 }
@@ -103,7 +102,7 @@ String? emailValidator(String? value) {
     if (value.emailValidator()) {
       return null;
     } else {
-      return 'incorrect_input'.tr();
+      return 'incorrect_input';
     }
   }
 }
@@ -116,7 +115,7 @@ String? phoneValidator(String? value) {
     if (value.numberValidator()) {
       return null;
     } else {
-      return 'incorrect_input'.tr();
+      return 'incorrect_input';
     }
   }
 }

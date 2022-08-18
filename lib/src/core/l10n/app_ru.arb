@@ -1,0 +1,17 @@
+{
+  "applications": "Заявки",
+  "applyForAHostel": "Подать заявку на общежитие",
+  "back": "Назад",
+  "clearly": "Понятно",
+  "dateOfBirth": "Дата рождения",
+  "development": "Разработка",
+  "enter": "Войти",
+  "enterLogin": "Введите логин",
+  "enterPassword": "Введите пароль",
+  "good": "Хорошо!",
+  "gpa": "GPA",
+  "login": "Логин",
+  "password": "Пароль",
+  "theSectionIsUnderDevelopment": "Раздел находится в разработке",
+  "youHaveEnteredAnIncorrectUsernameOrPassword": "Вы ввели неверный логин или пароль"
+}

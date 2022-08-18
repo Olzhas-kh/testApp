@@ -1,5 +1,4 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:narxoz/src/core/resources/resources.dart';
 import 'package:narxoz/src/feautures/app/presentation/base_appbar.dart';
@@ -150,13 +149,13 @@ class _ProfilePageState extends State<ProfilePage> {
           child: Text(
             text,
             style: AppTextStyles.gilroy15w500,
-          ).tr(),
+          ),
         ),
         Expanded(
           child: Text(
             value,
             style: AppTextStyles.gilroy15w500Red,
-          ).tr(),
+          ),
         ),
       ],
     );

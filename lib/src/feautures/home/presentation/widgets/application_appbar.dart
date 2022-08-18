@@ -1,4 +1,3 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:narxoz/src/core/extension/extensions.dart';
 import 'package:narxoz/src/core/resources/resources.dart';
@@ -44,7 +43,7 @@ class ApplicationAppBar extends StatelessWidget {
                 const Text(
                   'Заполните данные',
                   style: AppTextStyles.gilroy16w500,
-                ).tr()
+                ),
               ],
             ),
             const Spacer(flex: 9),

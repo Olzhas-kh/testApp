@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:narxoz/src/core/extension/extensions.dart';
 import 'package:narxoz/src/core/resources/resources.dart';
 
 class CustomButton extends StatefulWidget {
@@ -25,7 +26,7 @@ class _CustomButtonState extends State<CustomButton> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: widget.width ?? MediaQuery.of(context).size.width,
+      width: widget.width ?? context.screenSize.width,
       height: widget.height == 0 ? null : widget.height,
       margin: const EdgeInsets.symmetric(vertical: 3),
       child: ElevatedButton(

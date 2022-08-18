@@ -2,14 +2,20 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:narxoz/src/core/extension/extensions.dart';
 import 'package:narxoz/src/core/resources/resources.dart';
 import 'package:narxoz/src/feautures/app/router/app_router.dart';
 import 'package:narxoz/src/feautures/app/widgets/custom/custom_alert_dialog.dart';
 
-class ChaptersWidget extends StatelessWidget {
-  ChaptersWidget({super.key});
+class ChaptersWidget extends StatefulWidget {
+  const ChaptersWidget({super.key});
 
-  final List<_Chapter> chapters = [
+  @override
+  State<ChaptersWidget> createState() => _ChaptersWidgetState();
+}
+
+class _ChaptersWidgetState extends State<ChaptersWidget> {
+  late List<_Chapter> chapters = [
     _Chapter(
       id: 1,
       text: "Banner",
@@ -33,7 +39,7 @@ class ChaptersWidget extends StatelessWidget {
     ),
     _Chapter(
       id: 4,
-      text: 'Заяки',
+      text: context.appLocale.applications,
       // onTap: () {},
       isActive: true,
       image: 'assets/icons/chapter_4.svg',
@@ -64,7 +70,7 @@ class ChaptersWidget extends StatelessWidget {
     ),
     _Chapter(
       id: 9,
-      text: 'Библиотека',
+      text: context.appLocale.back,
       // onTap: () {},
       image: 'assets/icons/chapter_9.svg',
     ),
@@ -101,6 +107,9 @@ class ChaptersWidget extends StatelessWidget {
                         switch (e.id) {
                           case 3:
                             context.router.push(const HostelPageRoute());
+                            break;
+                          case 4:
+                            context.router.push(const WebRequestsPageRoute());
                             break;
                           default:
                         }

@@ -41,6 +41,7 @@ abstract class IDependenciesStorage {
 }
 
 class DependenciesStorage implements IDependenciesStorage {
+  @override
   final SharedPreferences sharedPreferences;
   // final PackageInfo packageInfo;
 

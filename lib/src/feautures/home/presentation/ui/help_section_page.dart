@@ -1,8 +1,6 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:narxoz/src/core/resources/resources.dart';
-import 'package:narxoz/src/feautures/app/router/app_router.dart';
 import 'package:narxoz/src/feautures/app/widgets/custom/custom_appbar.dart';
 import 'package:narxoz/src/feautures/app/widgets/custom/custom_button.dart';
 import 'package:narxoz/src/feautures/app/widgets/custom/scroll_wrapper.dart';
@@ -43,12 +41,12 @@ class _HelpSectionPageState extends State<HelpSectionPage> {
                         height: 48,
                         body: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            const Text(
+                          children: const [
+                            Text(
                               'Описание общежития',
                               style: AppTextStyles.gilroy16w600,
-                            ).tr(),
-                            const Icon(
+                            ),
+                            Icon(
                               Icons.arrow_forward_ios,
                             ),
                           ],
@@ -66,12 +64,12 @@ class _HelpSectionPageState extends State<HelpSectionPage> {
                         height: 48,
                         body: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            const Text(
+                          children: const [
+                            Text(
                               'Процедура заселения',
                               style: AppTextStyles.gilroy16w600,
-                            ).tr(),
-                            const Icon(
+                            ),
+                            Icon(
                               Icons.arrow_forward_ios,
                             ),
                           ],
@@ -89,12 +87,12 @@ class _HelpSectionPageState extends State<HelpSectionPage> {
                         height: 48,
                         body: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            const Text(
+                          children: const [
+                            Text(
                               'Для иностранных граждан',
                               style: AppTextStyles.gilroy16w600,
-                            ).tr(),
-                            const Icon(
+                            ),
+                            Icon(
                               Icons.arrow_forward_ios,
                             ),
                           ],

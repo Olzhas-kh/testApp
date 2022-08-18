@@ -1,0 +1,17 @@
+{
+  "applications": "Applications",
+  "applyForAHostel": "Apply for a hostel",
+  "back": "Back",
+  "clearly": "Clear",
+  "dateOfBirth": "Date of birth",
+  "development": "Development",
+  "enter": "Login",
+  "enterLogin": "Enter your username",
+  "enterPassword": "Enter the password",
+  "good": "Good!",
+  "gpa": "GPA",
+  "login": "Login",
+  "password": "Password",
+  "theSectionIsUnderDevelopment": "The section is under development",
+  "youHaveEnteredAnIncorrectUsernameOrPassword": "You have entered an incorrect username or password"
+}

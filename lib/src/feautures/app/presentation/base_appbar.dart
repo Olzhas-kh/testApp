@@ -1,4 +1,3 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:narxoz/src/core/resources/resources.dart';
@@ -26,7 +25,7 @@ class BaseAppBar extends StatelessWidget {
               child: const Text(
                 'Русский',
                 style: AppTextStyles.gilroy15w500Red,
-              ).tr(),
+              ),
             ),
           ],
         ),
