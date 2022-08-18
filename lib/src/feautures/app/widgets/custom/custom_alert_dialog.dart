@@ -1,18 +1,21 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:narxoz/src/core/extension/extensions.dart';
 import 'package:narxoz/src/core/resources/resources.dart';
 import 'package:narxoz/src/feautures/app/widgets/custom/custom_button.dart';
 
 Future<void> buildAlertDialog(BuildContext context) async => showDialog<String>(
       context: context,
       builder: (BuildContext context) => AlertDialog(
-        title: const Text('Разработка'),
+        title: Text(context.appLocale.development),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             Lottie.asset('assets/lotties/sad_lottie.json'),
-            const Text('Данный раздел в разработке!'),
+            Text(
+              context.appLocale.theSectionIsUnderDevelopment,
+            ),
           ],
         ),
         elevation: 2,
@@ -27,9 +30,9 @@ Future<void> buildAlertDialog(BuildContext context) async => showDialog<String>(
             onClick: () {
               Navigator.pop(context);
             },
-            body: const Text(
-              'Хорошо!',
-              style: TextStyle(),
+            body: Text(
+              context.appLocale.good,
+              style: const TextStyle(),
             ),
             style: pinkButtonStyle(),
           ),
@@ -42,15 +45,15 @@ Future<void> buildDevelopAlertDialog(BuildContext context) async =>
       context: context,
       builder: (BuildContext context) => CupertinoAlertDialog(
         // title: const Text('Разработка'),
-        content: const Text(
-          'Раздел находится в разработке',
+        content: Text(
+          context.appLocale.theSectionIsUnderDevelopment,
           style: AppTextStyles.gilroy17w600,
         ),
 
         actions: <Widget>[
           CupertinoDialogAction(
-            child: const Text(
-              "clearly",
+            child: Text(
+              context.appLocale.clearly,
               style: AppTextStyles.gilroy17w600Red,
             ),
             onPressed: () {

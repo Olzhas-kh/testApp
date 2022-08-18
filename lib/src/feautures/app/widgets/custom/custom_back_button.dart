@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:narxoz/src/core/extension/extensions.dart';
 import 'package:narxoz/src/core/resources/resources.dart';
 
 class BackButtonWidget extends StatelessWidget {
@@ -41,11 +42,11 @@ class BackButtonWidget extends StatelessWidget {
 
 class CustomBackButton extends StatelessWidget {
   final Function() onTap;
-  final String buttonWord;
+  final String? buttonWord;
   const CustomBackButton({
     super.key,
     required this.onTap,
-    this.buttonWord = 'back_text',
+    this.buttonWord,
   });
 
   @override
@@ -67,7 +68,7 @@ class CustomBackButton extends StatelessWidget {
                 color: Colors.black,
               ),
               Text(
-                buttonWord,
+                buttonWord ?? context.appLocale.back,
                 // style: TextStyle(),
               ),
             ],

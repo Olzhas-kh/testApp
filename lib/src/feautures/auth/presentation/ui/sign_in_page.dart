@@ -79,7 +79,7 @@ class _SignInPageState extends State<SignInPage> {
                     ),
                     isVisible: _passwordVisible,
                     controller: passwordController,
-                    hintText: 'enter_password',
+                    hintText: context.appLocale.enterPassword,
                     maxLines: 1,
                     validator: passwordRepeatValidator,
                     borderRadius: 12,
@@ -87,8 +87,8 @@ class _SignInPageState extends State<SignInPage> {
                   const Spacer(flex: 3),
                   CustomButton(
                     height: 50,
-                    body: const Text(
-                      'apply_for_a_hostel',
+                    body: Text(
+                      context.appLocale.applyForAHostel,
                       style: AppTextStyles.gilroy19w600white,
                     ),
                     onClick: () {},
@@ -97,8 +97,8 @@ class _SignInPageState extends State<SignInPage> {
                   const SizedBox(height: 19),
                   CustomButton(
                     height: 50,
-                    body: const Text(
-                      'enter',
+                    body: Text(
+                      context.appLocale.enter,
                       style: AppTextStyles.gilroy19w600white,
                     ),
                     onClick: () {

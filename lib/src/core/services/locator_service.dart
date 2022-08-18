@@ -4,6 +4,7 @@ import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:narxoz/src/feautures/app/bloc/app_bloc.dart';
 import 'package:narxoz/src/feautures/app/router/app_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.g.dart';
 
 final sl = GetIt.instance;
 
@@ -11,12 +12,12 @@ Future<void> initLocator() async {
   // BLoC / Cubit
   sl.registerFactory(
     () => AppBloc(
-      // sl(),
-      // sl(),
-      // sl(),
-      // sl(),
-      // sl(),
-    ),
+        // sl(),
+        // sl(),
+        // sl(),
+        // sl(),
+        // sl(),
+        ),
   );
   // sl.registerFactory(() => SignInCubit(sl()));
   // sl.registerFactory(() => CategoryCubit(sl()));
@@ -86,5 +87,10 @@ Future<void> initLocator() async {
   sl.registerLazySingleton(() => Dio());
   // sl.registerLazySingleton(() => DioWrapper(sl()));
   sl.registerLazySingleton(() => InternetConnectionChecker());
+
+  ///
+  ///
+  /// Internal
   sl.registerLazySingleton(() => AppRouter());
+  // sl.registerLazySingleton(() => AppLocalizations());
 }
