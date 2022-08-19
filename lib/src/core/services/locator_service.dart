@@ -2,12 +2,17 @@ import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:narxoz/src/core/network/dio_wrapper.dart';
+import 'package:narxoz/src/core/network/network_info.dart';
 import 'package:narxoz/src/feautures/app/bloc/app_bloc.dart';
 import 'package:narxoz/src/feautures/app/router/app_router.dart';
+import 'package:narxoz/src/feautures/auth/data/datasource/auth_local_ds.dart';
+import 'package:narxoz/src/feautures/home/data/datasource/help_section_remote_ds.dart';
 import 'package:narxoz/src/feautures/home/data/datasource/hostel_remote_ds.dart';
+import 'package:narxoz/src/feautures/home/data/repository/help_section_repository.dart';
 import 'package:narxoz/src/feautures/home/data/repository/hostel_repository.dart';
+import 'package:narxoz/src/feautures/home/presentation/bloc/help_section_cubit.dart';
+import 'package:narxoz/src/feautures/home/presentation/bloc/help_section_detail_cubit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.g.dart';
 
 final sl = GetIt.instance;
 
@@ -22,7 +27,8 @@ Future<void> initLocator() async {
         // sl(),
         ),
   );
-  // sl.registerFactory(() => SignInCubit(sl()));
+  sl.registerFactory(() => HelpSectionCubit(sl()));
+  sl.registerFactory(() => HelpSectionDetailCubit(sl()));
   // sl.registerFactory(() => CategoryCubit(sl()));
   // sl.registerFactory(() => CategoryNameCubit(sl()));
   // sl.registerFactory(() => CityCubit(sl()));
@@ -33,9 +39,9 @@ Future<void> initLocator() async {
   ///
   ///
   /// Core
-  // sl.registerLazySingleton<NetworkInfo>(
-  //   () => NetworkInfoImp(sl()),
-  // );
+  sl.registerLazySingleton<NetworkInfo>(
+    () => NetworkInfoImp(sl()),
+  );
 
   ///
   ///
@@ -47,20 +53,19 @@ Future<void> initLocator() async {
   //     networkInfo: sl(),
   //   ),
   // );
-  sl.registerLazySingleton<HostelRepository>(
-    () => HostelRepositoryImpl(
-      // networkInfo: sl(),
-      // authLocalDS: sl(),
-      // newAdRemoteDS: sl(),
+  sl.registerLazySingleton<HelpSectionRepository>(
+    () => HelpSectionRepositoryImpl(
+      networkInfo: sl(),
+      remoteDs: sl(),
     ),
   );
-  // sl.registerLazySingleton<AddressRepository>(
-  //   () => AddressRepositoryImpl(
-  //     networkInfo: sl(),
-  //     authLocalDS: sl(),
-  //     addressRemoteDs: sl(),
-  //   ),
-  // );
+  sl.registerLazySingleton<HostelRepository>(
+    () => HostelRepositoryImpl(
+        // networkInfo: sl(),
+        // authLocalDS: sl(),
+        // newAdRemoteDS: sl(),
+        ),
+  );
 
   ///
   ///
@@ -68,6 +73,9 @@ Future<void> initLocator() async {
   // sl.registerLazySingleton<AuthRemoteDS>(
   //   () => AuthRemoteDsImpl(sl()),
   // );
+  sl.registerLazySingleton<HelpSectionRemoteDS>(
+    () => HelpSectionRemoteDSImpl(sl()),
+  );
   sl.registerLazySingleton<HostelRemoteDS>(
     () => HostelRemoteDSImpl(sl()),
   );
@@ -78,9 +86,9 @@ Future<void> initLocator() async {
   ///
   ///
   /// LS
-  // sl.registerLazySingleton<AuthLocalDS>(
-  //   () => AuthLocalDSImpl(sharedPreferences: sl()),
-  // );
+  sl.registerLazySingleton<AuthLocalDS>(
+    () => AuthLocalDSImpl(sharedPreferences: sl()),
+  );
 
   ///
   ///
