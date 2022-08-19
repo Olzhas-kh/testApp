@@ -8,6 +8,7 @@ import 'package:narxoz/src/feautures/home/presentation/ui/application_page2.dart
 import 'package:narxoz/src/feautures/home/presentation/ui/help_section/check_in_procedure_page.dart';
 import 'package:narxoz/src/feautures/home/presentation/ui/help_section/description_hostel_page.dart';
 import 'package:narxoz/src/feautures/home/presentation/ui/help_section/foreign_citizens_page.dart';
+import 'package:narxoz/src/feautures/home/presentation/ui/help_section/settlement_conditions_page.dart';
 import 'package:narxoz/src/feautures/home/presentation/ui/help_section_page.dart';
 import 'package:narxoz/src/feautures/home/presentation/ui/home_page.dart';
 import 'package:narxoz/src/feautures/home/presentation/ui/hostel_page.dart';
@@ -39,6 +40,8 @@ part 'app_router.gr.dart';
             AutoRoute(page: DescriptionHostelPage),
             AutoRoute(page: CheckInProcedurePage),
             AutoRoute(page: ForeignCitizensPage),
+            AutoRoute(page: SettlementConditionsPage),
+            
           ],
         ),
 

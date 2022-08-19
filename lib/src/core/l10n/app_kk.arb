@@ -1,5 +1,6 @@
 {
   "adviser": "Эдвайзер",
+  "applicationSubmission": "Өтінім беру",
   "applications": "Өтінімдер",
   "applyForAHostel": "Жатақханаға өтініш беру",
   "back": "Артқа",
@@ -26,6 +27,8 @@
   "library": "Кітапхана",
   "login": "Логин",
   "password": "Пароль",
+  "selectTheAppropriateFields": "Тиісті өрістерді таңдаңыз",
+  "settlementConditions": "Тұру шарттары",
   "submitAnApplication": "Өтініш беру",
   "termsOfSettlement": "Қоныстандыру мерзімі",
   "theSectionIsUnderDevelopment": "Бөлім әзірленуде",

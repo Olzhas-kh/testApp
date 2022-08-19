@@ -1,5 +1,6 @@
 {
   "adviser": "Эдвайзер",
+  "applicationSubmission": "Подача заявки",
   "applications": "Заявки",
   "applyForAHostel": "Подать заявку на общежитие",
   "back": "Назад",
@@ -26,6 +27,8 @@
   "library": "Библиотека",
   "login": "Логин",
   "password": "Пароль",
+  "selectTheAppropriateFields": "Выберите подходящие поля",
+  "settlementConditions": "Условия заселения",
   "submitAnApplication": "Подать заявку",
   "termsOfSettlement": "Сроки заселения",
   "theSectionIsUnderDevelopment": "Раздел находится в разработке",

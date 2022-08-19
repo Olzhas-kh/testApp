@@ -1,5 +1,6 @@
 {
   "adviser": "Adviser",
+  "applicationSubmission": "Application submission",
   "applications": "Applications",
   "applyForAHostel": "Apply for a hostel",
   "back": "Back",
@@ -26,6 +27,8 @@
   "library": "Library",
   "login": "Login",
   "password": "Password",
+  "selectTheAppropriateFields": "Select the appropriate fields",
+  "settlementConditions": "Settlement conditions",
   "submitAnApplication": "Submit an application",
   "termsOfSettlement": "Terms of settlement",
   "theSectionIsUnderDevelopment": "The section is under development",

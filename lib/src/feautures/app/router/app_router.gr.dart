@@ -79,6 +79,12 @@ class _$AppRouter extends RootStackRouter {
       return MaterialPageX<dynamic>(
           routeData: routeData,
           child: ForeignCitizensPage(text: args.text, key: args.key));
+    },
+    SettlementConditionsPageRoute.name: (routeData) {
+      final args = routeData.argsAs<SettlementConditionsPageRouteArgs>();
+      return MaterialPageX<dynamic>(
+          routeData: routeData,
+          child: SettlementConditionsPage(text: args.text, key: args.key));
     }
   };
 
@@ -108,7 +114,10 @@ class _$AppRouter extends RootStackRouter {
                     path: 'check-in-procedure-page',
                     parent: BaseHomeRouter.name),
                 RouteConfig(ForeignCitizensPageRoute.name,
-                    path: 'foreign-citizens-page', parent: BaseHomeRouter.name)
+                    path: 'foreign-citizens-page', parent: BaseHomeRouter.name),
+                RouteConfig(SettlementConditionsPageRoute.name,
+                    path: 'settlement-conditions-page',
+                    parent: BaseHomeRouter.name)
               ]),
           RouteConfig(SectionsPageRoute.name,
               path: 'sections-page', parent: LauncherRoute.name),
@@ -293,5 +302,30 @@ class ForeignCitizensPageRouteArgs {
   @override
   String toString() {
     return 'ForeignCitizensPageRouteArgs{text: $text, key: $key}';
+  }
+}
+
+/// generated route for
+/// [SettlementConditionsPage]
+class SettlementConditionsPageRoute
+    extends PageRouteInfo<SettlementConditionsPageRouteArgs> {
+  SettlementConditionsPageRoute({required String text, Key? key})
+      : super(SettlementConditionsPageRoute.name,
+            path: 'settlement-conditions-page',
+            args: SettlementConditionsPageRouteArgs(text: text, key: key));
+
+  static const String name = 'SettlementConditionsPageRoute';
+}
+
+class SettlementConditionsPageRouteArgs {
+  const SettlementConditionsPageRouteArgs({required this.text, this.key});
+
+  final String text;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'SettlementConditionsPageRouteArgs{text: $text, key: $key}';
   }
 }
