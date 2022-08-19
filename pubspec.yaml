@@ -40,6 +40,7 @@ dependencies:
     sdk: flutter
   flutter_bloc: ^8.1.1
   # flutter_blurhash: ^0.7.0
+  flutter_html: ^3.0.0-alpha.5 # TODO
   # flutter_local_notifications: ^9.6.1
   flutter_localizations:
     sdk: flutter
