@@ -4,6 +4,7 @@ import 'package:narxoz/src/core/error/failure.dart';
 import 'package:narxoz/src/core/network/network_info.dart';
 import 'package:narxoz/src/core/resources/constants.dart';
 import 'package:narxoz/src/feautures/home/data/datasource/hostel_remote_ds.dart';
+import 'package:narxoz/src/feautures/home/data/model/answer_payload.dart';
 import 'package:narxoz/src/feautures/home/data/model/education_dto.dart';
 import 'package:narxoz/src/feautures/home/data/model/hostel_info_dto.dart';
 import 'package:narxoz/src/feautures/home/data/model/question_dto.dart';
@@ -19,6 +20,11 @@ abstract class HostelRepository {
 
   Future<Either<Failure, List<QuestionDTO>>> getCategoryQuestions({
     required int catId,
+  });
+
+  Future<Either<Failure, String>> questionsCheck({
+    required int catId,
+    required List<AnswerPayload> answers,
   });
 }
 
@@ -92,6 +98,27 @@ class HostelRepositoryImpl extends HostelRepository {
         );
 
         return Right(questions);
+      } on ServerException catch (e) {
+        return Left(ServerFailure(message: e.message));
+      }
+    } else {
+      return Left(ServerFailure(message: NO_INTERNET_TEXT));
+    }
+  }
+
+  @override
+  Future<Either<Failure, String>> questionsCheck({
+    required int catId,
+    required List<AnswerPayload> answers,
+  }) async {
+    if (await networkInfo.isConnected) {
+      try {
+        final String msg = await remoteDs.questionsCheck(
+          catId: catId,
+          answers: answers,
+        );
+
+        return Right(msg);
       } on ServerException catch (e) {
         return Left(ServerFailure(message: e.message));
       }

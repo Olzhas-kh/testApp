@@ -7,7 +7,7 @@ part 'answer_payload.g.dart';
 
 @unfreezed
 class AnswerPayload with _$AnswerPayload {
-   factory AnswerPayload({
+  factory AnswerPayload({
     @JsonKey(name: 'question_id') required String questionID,
     required dynamic value,
     @JsonKey(defaultValue: false) bool? isFile,
@@ -17,4 +17,3 @@ class AnswerPayload with _$AnswerPayload {
   factory AnswerPayload.fromJson(Map<String, dynamic> json) =>
       _$AnswerPayloadFromJson(json);
 }
- 
