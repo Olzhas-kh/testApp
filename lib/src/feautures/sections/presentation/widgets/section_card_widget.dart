@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:narxoz/src/core/extension/extensions.dart';
 import 'package:narxoz/src/core/resources/resources.dart';
 
 class SectionCardPayload {
   final String text;
+  final String localImage;
   final void Function()? onTap;
 
   SectionCardPayload({
     required this.text,
     required this.onTap,
+    required this.localImage,
   });
 }
 
@@ -49,31 +52,32 @@ class SectionCard extends StatelessWidget {
                     topRight: Radius.circular(20),
                     bottomRight: Radius.circular(20),
                   ),
-                  child: Image.network(
-                    'https://pbs.twimg.com/media/FJ96vOQWUAwbIah?format=jpg&name=large',
+                  child: Image.asset(
+                    sectionCardPayload.localImage,
+                    // 'https://pbs.twimg.com/media/FJ96vOQWUAwbIah?format=jpg&name=large',
                     fit: BoxFit.cover,
                     // width: 154,
                     // height: 154,
-                    loadingBuilder: (context, child, loadingProgress) {
-                      if (loadingProgress == null) {
-                        return child;
-                      }
-                      return Center(
-                        child: CircularProgressIndicator(
-                          color: AppColors.kRedPrimary,
-                          value: loadingProgress.expectedTotalBytes != null
-                              ? loadingProgress.cumulativeBytesLoaded /
-                                  loadingProgress.expectedTotalBytes!
-                              : null,
-                        ),
-                      );
-                    },
+                    // loadingBuilder: (context, child, loadingProgress) {
+                    //   if (loadingProgress == null) {
+                    //     return child;
+                    //   }
+                    //   return Center(
+                    //     child: CircularProgressIndicator(
+                    //       color: AppColors.kRedPrimary,
+                    //       value: loadingProgress.expectedTotalBytes != null
+                    //           ? loadingProgress.cumulativeBytesLoaded /
+                    //               loadingProgress.expectedTotalBytes!
+                    //           : null,
+                    //     ),
+                    //   );
+                    // },
                     errorBuilder: (
                       BuildContext context,
                       Object exception,
                       StackTrace? stackTrace,
                     ) {
-                      return const Text('Image Error');
+                      return Center(child: Text(context.appLocale.imageError));
                     },
                   ),
                 ),
@@ -100,8 +104,7 @@ class SectionCard extends StatelessWidget {
                     Flexible(
                       child: ConstrainedBox(
                         constraints: BoxConstraints(
-                          maxWidth:
-                              MediaQuery.of(context).size.width * 6 / 15,
+                          maxWidth: MediaQuery.of(context).size.width * 6 / 15,
                           maxHeight: 84,
                         ),
                         child: Text(

@@ -20,19 +20,19 @@ class _ChaptersWidgetState extends State<ChaptersWidget> {
       id: 1,
       text: "Banner",
       // onTap: () {},
-      isActive: true,
+      // isActive: true,
       image: 'assets/icons/chapter_1.svg',
     ),
     _Chapter(
       id: 2,
       text: 'Canvas',
       // onTap: () {},
-      isActive: true,
+      // isActive: true,
       image: 'assets/icons/chapter_2.svg',
     ),
     _Chapter(
       id: 3,
-      text: 'Общежитие',
+      text: context.appLocale.hostel,
       // onTap: () {},
       isActive: true,
       image: 'assets/icons/chapter_3.svg',
@@ -46,31 +46,31 @@ class _ChaptersWidgetState extends State<ChaptersWidget> {
     ),
     _Chapter(
       id: 5,
-      text: 'Финансы',
+      text: context.appLocale.finance,
       // onTap: () {},
       image: 'assets/icons/chapter_5.svg',
     ),
     _Chapter(
       id: 6,
-      text: 'Документы',
+      text: context.appLocale.documents,
       // onTap: () {},
       image: 'assets/icons/chapter_6.svg',
     ),
     _Chapter(
       id: 7,
-      text: 'Каталог',
+      text: context.appLocale.catalog,
       // onTap: () {},
       image: 'assets/icons/chapter_7.svg',
     ),
     _Chapter(
       id: 8,
-      text: 'Эдвайзер',
+      text: context.appLocale.adviser,
       // onTap: () {},
       image: 'assets/icons/chapter_8.svg',
     ),
     _Chapter(
       id: 9,
-      text: context.appLocale.back,
+      text: context.appLocale.library,
       // onTap: () {},
       image: 'assets/icons/chapter_9.svg',
     ),
@@ -105,6 +105,12 @@ class _ChaptersWidgetState extends State<ChaptersWidget> {
                     onTap: () {
                       if (e.isActive) {
                         switch (e.id) {
+                          case 1:
+                            buildDevelopAlertDialog(context);
+                            break;
+                          case 2:
+                            buildDevelopAlertDialog(context);
+                            break;
                           case 3:
                             context.router.push(const HostelPageRoute());
                             break;

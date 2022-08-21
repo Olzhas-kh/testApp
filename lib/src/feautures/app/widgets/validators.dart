@@ -73,13 +73,6 @@ String? passwordRepeatValidator(String? value) {
   return null;
 }
 
-String? sortValidator(String? value) {
-  if (value == null || value.isEmpty) {
-    return 'Введите сорт';
-  }
-  return null;
-}
-
 String? priceValidator(String? value) {
   if (value == "0" || value == null || value.isEmpty) {
     return 'Введите цену';
@@ -94,18 +87,18 @@ String? quantityValidator(String? value) {
   return null;
 }
 
-String? emailValidator(String? value) {
-  if (value == null || value.isEmpty) {
-    return null;
-    // return 'enter_email'.tr();
-  } else {
-    if (value.emailValidator()) {
-      return null;
-    } else {
-      return 'incorrect_input';
-    }
-  }
-}
+// String? emailValidator(String? value) {
+//   if (value == null || value.isEmpty) {
+//     return null;
+//     // return 'enter_email'.tr();
+//   } else {
+//     if (value.emailValidator()) {
+//       return null;
+//     } else {
+//       return 'incorrect_input';
+//     }
+//   }
+// }
 
 String? phoneValidator(String? value) {
   if (value == null || value.isEmpty) {

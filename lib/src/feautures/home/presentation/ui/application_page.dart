@@ -1,10 +1,13 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:narxoz/src/core/extension/extensions.dart';
 import 'package:narxoz/src/core/resources/resources.dart';
+import 'package:narxoz/src/feautures/app/router/app_router.dart';
 import 'package:narxoz/src/feautures/app/widgets/custom/custom_button.dart';
 import 'package:narxoz/src/feautures/app/widgets/custom/custom_textfield.dart';
 import 'package:narxoz/src/feautures/app/widgets/validators.dart';
+import 'package:narxoz/src/feautures/home/presentation/ui/help_section/mock_help_section.dart';
 import 'package:narxoz/src/feautures/home/presentation/widgets/application_appbar.dart';
 
 enum GenderCharacter {
@@ -56,7 +59,7 @@ class _ApplicationPageState extends State<ApplicationPage> {
                   onTap: () {
                     context.router.pop();
                   },
-                  text: 'Подача заявки',
+                  text: context.appLocale.applicationSubmission,
                   isSafeArea: true,
                 ),
                 const SizedBox(height: 26),
@@ -294,19 +297,34 @@ class _ApplicationPageState extends State<ApplicationPage> {
                       Row(
                         children: [
                           const SizedBox(width: 12),
-                          Checkbox(
-                            value: false,
-                            onChanged: (bool? value) {},
+                          Container(
+                            height: 30,
+                            width: 30,
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                color: AppColors.kRedPrimary,
+                              ),
+                              borderRadius: BorderRadius.circular(5),
+                            ),
                           ),
-                          const SizedBox(width: 16),
+                          const SizedBox(width: 15),
                           RichText(
-                            text: const TextSpan(
+                            text: TextSpan(
                               text: 'Согласен с ',
                               style: AppTextStyles.gilroy15w500,
                               children: [
                                 TextSpan(
                                   text: 'условиями заселения',
-                                  style: AppTextStyles.gilroy15w500Red,
+                                  style: AppTextStyles.gilroy15w500RedUnderline,
+                                  recognizer: TapGestureRecognizer()
+                                    ..onTap = () {
+                                      context.router.push(
+                                        SettlementConditionsPageRoute(
+                                          text: MockHelpSection
+                                              .settlementConditionBody,
+                                        ),
+                                      );
+                                    },
                                 )
                               ],
                             ),

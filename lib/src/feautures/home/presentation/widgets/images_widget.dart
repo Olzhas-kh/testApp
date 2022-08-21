@@ -5,7 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:narxoz/src/core/resources/resources.dart';
 
 class ImagesWidget extends StatefulWidget {
-  const ImagesWidget({super.key});
+  final List<String> images;
+  const ImagesWidget({
+    super.key,
+    required this.images,
+  });
 
   @override
   State<ImagesWidget> createState() => _ImagesWidgetState();
@@ -14,10 +18,10 @@ class ImagesWidget extends StatefulWidget {
 class _ImagesWidgetState extends State<ImagesWidget> {
   int currentIndex = 0;
 
-  List<String> pics = [
-    'https://images.wallpapersden.com/image/download/4k-talking-to-the-moon_a2pubmuUmZqaraWkpJRobWllrWdma2U.jpg',
-    'https://images.hdqwalls.com/wallpapers/the-valley-minimal-4k-9y.jpg',
-  ];
+  // List<String> pics = [
+  //   'https://images.wallpapersden.com/image/download/4k-talking-to-the-moon_a2pubmuUmZqaraWkpJRobWllrWdma2U.jpg',
+  //   'https://images.hdqwalls.com/wallpapers/the-valley-minimal-4k-9y.jpg',
+  // ];
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +39,7 @@ class _ImagesWidgetState extends State<ImagesWidget> {
             color: const Color(0xffD9D9D9),
             child: ExtendedImageGesturePageView.builder(
               itemBuilder: (BuildContext context, int index) {
-                final item = pics[index];
+                final item = widget.images[index];
                 final Widget image = ExtendedImage.network(
                   item,
                   fit: BoxFit.contain,
@@ -59,7 +63,7 @@ class _ImagesWidgetState extends State<ImagesWidget> {
                   return image;
                 }
               },
-              itemCount: pics.length,
+              itemCount: widget.images.length,
               onPageChanged: (int index) {
                 log('message');
                 currentIndex = index;
@@ -83,7 +87,7 @@ class _ImagesWidgetState extends State<ImagesWidget> {
               ),
               alignment: Alignment.center,
               child: Text(
-                '${currentIndex + 1}/${pics.length}',
+                '${currentIndex + 1}/${widget.images.length}',
                 style: const TextStyle(
                   fontSize: 12,
                   color: AppColors.kWhite,

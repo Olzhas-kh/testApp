@@ -15,6 +15,14 @@ mixin AppTextStyles {
     fontWeight: FontWeight.w500,
   );
 
+  static const gilroy15w500RedUnderline = TextStyle(
+    // fontFamily: AppFonts.gilroy,
+    fontSize: 15,
+    color: AppColors.kRedPrimary,
+    fontWeight: FontWeight.w500,
+    decoration: TextDecoration.underline,
+  );
+
   static const gilroy15w600White = TextStyle(
     // fontFamily: AppFonts.gilroy,
     fontSize: 15,
@@ -64,6 +72,13 @@ mixin AppTextStyles {
     fontWeight: FontWeight.w600,
   );
 
+  static const gilroy18w500 = TextStyle(
+    // fontFamily: AppFonts.gilroy,
+    fontSize: 18,
+    color: AppColors.kBlack,
+    fontWeight: FontWeight.w500,
+  );
+
   static const gilroy19w500 = TextStyle(
     // fontFamily: AppFonts.gilroy,
     fontSize: 19,
@@ -83,6 +98,13 @@ mixin AppTextStyles {
     fontSize: 20,
     color: AppColors.kBlack,
     fontWeight: FontWeight.w500,
+  );
+
+  static const gilroy20w600 = TextStyle(
+    // fontFamily: AppFonts.gilroy,
+    fontSize: 20,
+    color: AppColors.kBlack,
+    fontWeight: FontWeight.w600,
   );
 
   static const gilroy20w600Red = TextStyle(

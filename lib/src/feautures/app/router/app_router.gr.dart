@@ -49,17 +49,25 @@ class _$AppRouter extends RootStackRouter {
       return MaterialPageX<dynamic>(
           routeData: routeData, child: const HelpSectionPage());
     },
-    ApplicationPage1Route.name: (routeData) {
+    HelpSectionDetailPageRoute.name: (routeData) {
+      final args = routeData.argsAs<HelpSectionDetailPageRouteArgs>();
       return MaterialPageX<dynamic>(
-          routeData: routeData, child: const ApplicationPage1());
+          routeData: routeData,
+          child: HelpSectionDetailPage(id: args.id, key: args.key));
     },
-    ApplicationPage2Route.name: (routeData) {
+    ChooseEduPageRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
-          routeData: routeData, child: const ApplicationPage2());
+          routeData: routeData, child: const ChooseEduPage());
     },
     ApplicationPageRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
           routeData: routeData, child: const ApplicationPage());
+    },
+    SettlementConditionsPageRoute.name: (routeData) {
+      final args = routeData.argsAs<SettlementConditionsPageRouteArgs>();
+      return MaterialPageX<dynamic>(
+          routeData: routeData,
+          child: SettlementConditionsPage(text: args.text, key: args.key));
     }
   };
 
@@ -76,12 +84,16 @@ class _$AppRouter extends RootStackRouter {
                     path: 'hostel-page', parent: BaseHomeRouter.name),
                 RouteConfig(HelpSectionPageRoute.name,
                     path: 'help-section-page', parent: BaseHomeRouter.name),
-                RouteConfig(ApplicationPage1Route.name,
-                    path: 'application-page1', parent: BaseHomeRouter.name),
-                RouteConfig(ApplicationPage2Route.name,
-                    path: 'application-page2', parent: BaseHomeRouter.name),
+                RouteConfig(HelpSectionDetailPageRoute.name,
+                    path: 'help-section-detail-page',
+                    parent: BaseHomeRouter.name),
+                RouteConfig(ChooseEduPageRoute.name,
+                    path: 'choose-edu-page', parent: BaseHomeRouter.name),
                 RouteConfig(ApplicationPageRoute.name,
-                    path: 'application-page', parent: BaseHomeRouter.name)
+                    path: 'application-page', parent: BaseHomeRouter.name),
+                RouteConfig(SettlementConditionsPageRoute.name,
+                    path: 'settlement-conditions-page',
+                    parent: BaseHomeRouter.name)
               ]),
           RouteConfig(SectionsPageRoute.name,
               path: 'sections-page', parent: LauncherRoute.name),
@@ -163,21 +175,37 @@ class HelpSectionPageRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [ApplicationPage1]
-class ApplicationPage1Route extends PageRouteInfo<void> {
-  const ApplicationPage1Route()
-      : super(ApplicationPage1Route.name, path: 'application-page1');
+/// [HelpSectionDetailPage]
+class HelpSectionDetailPageRoute
+    extends PageRouteInfo<HelpSectionDetailPageRouteArgs> {
+  HelpSectionDetailPageRoute({required int id, Key? key})
+      : super(HelpSectionDetailPageRoute.name,
+            path: 'help-section-detail-page',
+            args: HelpSectionDetailPageRouteArgs(id: id, key: key));
 
-  static const String name = 'ApplicationPage1Route';
+  static const String name = 'HelpSectionDetailPageRoute';
+}
+
+class HelpSectionDetailPageRouteArgs {
+  const HelpSectionDetailPageRouteArgs({required this.id, this.key});
+
+  final int id;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'HelpSectionDetailPageRouteArgs{id: $id, key: $key}';
+  }
 }
 
 /// generated route for
-/// [ApplicationPage2]
-class ApplicationPage2Route extends PageRouteInfo<void> {
-  const ApplicationPage2Route()
-      : super(ApplicationPage2Route.name, path: 'application-page2');
+/// [ChooseEduPage]
+class ChooseEduPageRoute extends PageRouteInfo<void> {
+  const ChooseEduPageRoute()
+      : super(ChooseEduPageRoute.name, path: 'choose-edu-page');
 
-  static const String name = 'ApplicationPage2Route';
+  static const String name = 'ChooseEduPageRoute';
 }
 
 /// generated route for
@@ -187,4 +215,29 @@ class ApplicationPageRoute extends PageRouteInfo<void> {
       : super(ApplicationPageRoute.name, path: 'application-page');
 
   static const String name = 'ApplicationPageRoute';
+}
+
+/// generated route for
+/// [SettlementConditionsPage]
+class SettlementConditionsPageRoute
+    extends PageRouteInfo<SettlementConditionsPageRouteArgs> {
+  SettlementConditionsPageRoute({required String text, Key? key})
+      : super(SettlementConditionsPageRoute.name,
+            path: 'settlement-conditions-page',
+            args: SettlementConditionsPageRouteArgs(text: text, key: key));
+
+  static const String name = 'SettlementConditionsPageRoute';
+}
+
+class SettlementConditionsPageRouteArgs {
+  const SettlementConditionsPageRouteArgs({required this.text, this.key});
+
+  final String text;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'SettlementConditionsPageRouteArgs{text: $text, key: $key}';
+  }
 }

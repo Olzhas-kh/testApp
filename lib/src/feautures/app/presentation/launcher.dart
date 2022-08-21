@@ -30,6 +30,11 @@ class _LauncherState extends State<Launcher> {
 
   @override
   Widget build(BuildContext context) {
+    // return Consumer<LocaleProvider>(
+    //   builder: (context, model, child) {
+    //     return const Base();
+    //   },
+    // );
     return BlocConsumer<AppBloc, AppState>(
       listener: (context, state) {},
       builder: (context, state) {

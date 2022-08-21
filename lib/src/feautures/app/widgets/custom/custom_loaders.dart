@@ -20,5 +20,5 @@ const kSpinKitFadingCircle = SpinKitFadingCircle(
 
 const kWaveLoader = SpinKitWave(
   size: 60,
-  color: AppColors.kPrimaryColor,
+  color: AppColors.kRedPrimary,
 );
