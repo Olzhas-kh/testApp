@@ -23,7 +23,7 @@ class _HelpSectionPageState extends State<HelpSectionPage> {
   void initState() {
     final cubit = BlocProvider.of<HelpSectionCubit>(context);
     cubit.state.maybeWhen(
-      loadedState: (List<HelpSectionDTO> sections) {},
+      // loadedState: (List<HelpSectionDTO> sections) {},
       orElse: () {
         cubit.getHelpSections();
       },

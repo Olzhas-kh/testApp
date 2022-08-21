@@ -4,7 +4,6 @@ import 'package:narxoz/src/core/error/failure.dart';
 import 'package:narxoz/src/core/network/network_info.dart';
 import 'package:narxoz/src/core/resources/constants.dart';
 import 'package:narxoz/src/feautures/home/data/datasource/help_section_remote_ds.dart';
-import 'package:narxoz/src/feautures/home/data/datasource/hostel_remote_ds.dart';
 import 'package:narxoz/src/feautures/home/data/model/help_section_dto.dart';
 
 abstract class HelpSectionRepository {
@@ -30,7 +29,7 @@ class HelpSectionRepositoryImpl extends HelpSectionRepository {
     if (await networkInfo.isConnected) {
       try {
         final List<HelpSectionDTO> sections = await remoteDs.helpSections();
-        
+
         return Right(sections);
       } on ServerException catch (e) {
         return Left(ServerFailure(message: e.message));

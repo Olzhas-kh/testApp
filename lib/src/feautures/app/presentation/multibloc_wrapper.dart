@@ -5,6 +5,7 @@ import 'package:narxoz/src/feautures/app/bloc/app_bloc.dart';
 import 'package:narxoz/src/feautures/app/presentation/locale_provider.dart';
 import 'package:narxoz/src/feautures/home/presentation/bloc/help_section_cubit.dart';
 import 'package:narxoz/src/feautures/home/presentation/bloc/help_section_detail_cubit.dart';
+import 'package:narxoz/src/feautures/home/presentation/bloc/hostel_cubit.dart';
 import 'package:provider/provider.dart';
 
 class MultiblocWrapper extends StatelessWidget {
@@ -32,6 +33,9 @@ class MultiblocWrapper extends StatelessWidget {
           ),
           BlocProvider<HelpSectionDetailCubit>(
             create: (_) => sl<HelpSectionDetailCubit>(),
+          ),
+          BlocProvider<HostelCubit>(
+            create: (_) => sl<HostelCubit>(),
           ),
         ],
         child: child,

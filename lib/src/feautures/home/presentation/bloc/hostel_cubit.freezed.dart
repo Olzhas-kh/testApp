@@ -19,24 +19,24 @@ mixin _$HostelState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialState,
-    required TResult Function() loadedState,
-    required TResult Function(HostelInfoDTO hostelInfo) loadingState,
+    required TResult Function(HostelInfoDTO hostelInfo) loadedState,
+    required TResult Function() loadingState,
     required TResult Function(String message) errorState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initialState,
-    TResult Function()? loadedState,
-    TResult Function(HostelInfoDTO hostelInfo)? loadingState,
+    TResult Function(HostelInfoDTO hostelInfo)? loadedState,
+    TResult Function()? loadingState,
     TResult Function(String message)? errorState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialState,
-    TResult Function()? loadedState,
-    TResult Function(HostelInfoDTO hostelInfo)? loadingState,
+    TResult Function(HostelInfoDTO hostelInfo)? loadedState,
+    TResult Function()? loadingState,
     TResult Function(String message)? errorState,
     required TResult orElse(),
   }) =>
@@ -126,8 +126,8 @@ class _$_InitialState implements _InitialState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialState,
-    required TResult Function() loadedState,
-    required TResult Function(HostelInfoDTO hostelInfo) loadingState,
+    required TResult Function(HostelInfoDTO hostelInfo) loadedState,
+    required TResult Function() loadingState,
     required TResult Function(String message) errorState,
   }) {
     return initialState();
@@ -137,8 +137,8 @@ class _$_InitialState implements _InitialState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initialState,
-    TResult Function()? loadedState,
-    TResult Function(HostelInfoDTO hostelInfo)? loadingState,
+    TResult Function(HostelInfoDTO hostelInfo)? loadedState,
+    TResult Function()? loadingState,
     TResult Function(String message)? errorState,
   }) {
     return initialState?.call();
@@ -148,8 +148,8 @@ class _$_InitialState implements _InitialState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialState,
-    TResult Function()? loadedState,
-    TResult Function(HostelInfoDTO hostelInfo)? loadingState,
+    TResult Function(HostelInfoDTO hostelInfo)? loadedState,
+    TResult Function()? loadingState,
     TResult Function(String message)? errorState,
     required TResult orElse(),
   }) {
@@ -206,6 +206,9 @@ abstract class _$$_LoadedStateCopyWith<$Res> {
   factory _$$_LoadedStateCopyWith(
           _$_LoadedState value, $Res Function(_$_LoadedState) then) =
       __$$_LoadedStateCopyWithImpl<$Res>;
+  $Res call({HostelInfoDTO hostelInfo});
+
+  $HostelInfoDTOCopyWith<$Res> get hostelInfo;
 }
 
 /// @nodoc
@@ -217,60 +220,91 @@ class __$$_LoadedStateCopyWithImpl<$Res> extends _$HostelStateCopyWithImpl<$Res>
 
   @override
   _$_LoadedState get _value => super._value as _$_LoadedState;
+
+  @override
+  $Res call({
+    Object? hostelInfo = freezed,
+  }) {
+    return _then(_$_LoadedState(
+      hostelInfo: hostelInfo == freezed
+          ? _value.hostelInfo
+          : hostelInfo // ignore: cast_nullable_to_non_nullable
+              as HostelInfoDTO,
+    ));
+  }
+
+  @override
+  $HostelInfoDTOCopyWith<$Res> get hostelInfo {
+    return $HostelInfoDTOCopyWith<$Res>(_value.hostelInfo, (value) {
+      return _then(_value.copyWith(hostelInfo: value));
+    });
+  }
 }
 
 /// @nodoc
 
 class _$_LoadedState implements _LoadedState {
-  const _$_LoadedState();
+  const _$_LoadedState({required this.hostelInfo});
+
+  @override
+  final HostelInfoDTO hostelInfo;
 
   @override
   String toString() {
-    return 'HostelState.loadedState()';
+    return 'HostelState.loadedState(hostelInfo: $hostelInfo)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_LoadedState);
+        (other.runtimeType == runtimeType &&
+            other is _$_LoadedState &&
+            const DeepCollectionEquality()
+                .equals(other.hostelInfo, hostelInfo));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(hostelInfo));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_LoadedStateCopyWith<_$_LoadedState> get copyWith =>
+      __$$_LoadedStateCopyWithImpl<_$_LoadedState>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialState,
-    required TResult Function() loadedState,
-    required TResult Function(HostelInfoDTO hostelInfo) loadingState,
+    required TResult Function(HostelInfoDTO hostelInfo) loadedState,
+    required TResult Function() loadingState,
     required TResult Function(String message) errorState,
   }) {
-    return loadedState();
+    return loadedState(hostelInfo);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initialState,
-    TResult Function()? loadedState,
-    TResult Function(HostelInfoDTO hostelInfo)? loadingState,
+    TResult Function(HostelInfoDTO hostelInfo)? loadedState,
+    TResult Function()? loadingState,
     TResult Function(String message)? errorState,
   }) {
-    return loadedState?.call();
+    return loadedState?.call(hostelInfo);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialState,
-    TResult Function()? loadedState,
-    TResult Function(HostelInfoDTO hostelInfo)? loadingState,
+    TResult Function(HostelInfoDTO hostelInfo)? loadedState,
+    TResult Function()? loadingState,
     TResult Function(String message)? errorState,
     required TResult orElse(),
   }) {
     if (loadedState != null) {
-      return loadedState();
+      return loadedState(hostelInfo);
     }
     return orElse();
   }
@@ -314,7 +348,13 @@ class _$_LoadedState implements _LoadedState {
 }
 
 abstract class _LoadedState implements HostelState {
-  const factory _LoadedState() = _$_LoadedState;
+  const factory _LoadedState({required final HostelInfoDTO hostelInfo}) =
+      _$_LoadedState;
+
+  HostelInfoDTO get hostelInfo;
+  @JsonKey(ignore: true)
+  _$$_LoadedStateCopyWith<_$_LoadedState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -322,9 +362,6 @@ abstract class _$$_LoadingStateCopyWith<$Res> {
   factory _$$_LoadingStateCopyWith(
           _$_LoadingState value, $Res Function(_$_LoadingState) then) =
       __$$_LoadingStateCopyWithImpl<$Res>;
-  $Res call({HostelInfoDTO hostelInfo});
-
-  $HostelInfoDTOCopyWith<$Res> get hostelInfo;
 }
 
 /// @nodoc
@@ -337,91 +374,60 @@ class __$$_LoadingStateCopyWithImpl<$Res>
 
   @override
   _$_LoadingState get _value => super._value as _$_LoadingState;
-
-  @override
-  $Res call({
-    Object? hostelInfo = freezed,
-  }) {
-    return _then(_$_LoadingState(
-      hostelInfo: hostelInfo == freezed
-          ? _value.hostelInfo
-          : hostelInfo // ignore: cast_nullable_to_non_nullable
-              as HostelInfoDTO,
-    ));
-  }
-
-  @override
-  $HostelInfoDTOCopyWith<$Res> get hostelInfo {
-    return $HostelInfoDTOCopyWith<$Res>(_value.hostelInfo, (value) {
-      return _then(_value.copyWith(hostelInfo: value));
-    });
-  }
 }
 
 /// @nodoc
 
 class _$_LoadingState implements _LoadingState {
-  const _$_LoadingState({required this.hostelInfo});
-
-  @override
-  final HostelInfoDTO hostelInfo;
+  const _$_LoadingState();
 
   @override
   String toString() {
-    return 'HostelState.loadingState(hostelInfo: $hostelInfo)';
+    return 'HostelState.loadingState()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_LoadingState &&
-            const DeepCollectionEquality()
-                .equals(other.hostelInfo, hostelInfo));
+        (other.runtimeType == runtimeType && other is _$_LoadingState);
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(hostelInfo));
-
-  @JsonKey(ignore: true)
-  @override
-  _$$_LoadingStateCopyWith<_$_LoadingState> get copyWith =>
-      __$$_LoadingStateCopyWithImpl<_$_LoadingState>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialState,
-    required TResult Function() loadedState,
-    required TResult Function(HostelInfoDTO hostelInfo) loadingState,
+    required TResult Function(HostelInfoDTO hostelInfo) loadedState,
+    required TResult Function() loadingState,
     required TResult Function(String message) errorState,
   }) {
-    return loadingState(hostelInfo);
+    return loadingState();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initialState,
-    TResult Function()? loadedState,
-    TResult Function(HostelInfoDTO hostelInfo)? loadingState,
+    TResult Function(HostelInfoDTO hostelInfo)? loadedState,
+    TResult Function()? loadingState,
     TResult Function(String message)? errorState,
   }) {
-    return loadingState?.call(hostelInfo);
+    return loadingState?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialState,
-    TResult Function()? loadedState,
-    TResult Function(HostelInfoDTO hostelInfo)? loadingState,
+    TResult Function(HostelInfoDTO hostelInfo)? loadedState,
+    TResult Function()? loadingState,
     TResult Function(String message)? errorState,
     required TResult orElse(),
   }) {
     if (loadingState != null) {
-      return loadingState(hostelInfo);
+      return loadingState();
     }
     return orElse();
   }
@@ -465,13 +471,7 @@ class _$_LoadingState implements _LoadingState {
 }
 
 abstract class _LoadingState implements HostelState {
-  const factory _LoadingState({required final HostelInfoDTO hostelInfo}) =
-      _$_LoadingState;
-
-  HostelInfoDTO get hostelInfo;
-  @JsonKey(ignore: true)
-  _$$_LoadingStateCopyWith<_$_LoadingState> get copyWith =>
-      throw _privateConstructorUsedError;
+  const factory _LoadingState() = _$_LoadingState;
 }
 
 /// @nodoc
@@ -539,8 +539,8 @@ class _$_ErrorState implements _ErrorState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialState,
-    required TResult Function() loadedState,
-    required TResult Function(HostelInfoDTO hostelInfo) loadingState,
+    required TResult Function(HostelInfoDTO hostelInfo) loadedState,
+    required TResult Function() loadingState,
     required TResult Function(String message) errorState,
   }) {
     return errorState(message);
@@ -550,8 +550,8 @@ class _$_ErrorState implements _ErrorState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initialState,
-    TResult Function()? loadedState,
-    TResult Function(HostelInfoDTO hostelInfo)? loadingState,
+    TResult Function(HostelInfoDTO hostelInfo)? loadedState,
+    TResult Function()? loadingState,
     TResult Function(String message)? errorState,
   }) {
     return errorState?.call(message);
@@ -561,8 +561,8 @@ class _$_ErrorState implements _ErrorState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialState,
-    TResult Function()? loadedState,
-    TResult Function(HostelInfoDTO hostelInfo)? loadingState,
+    TResult Function(HostelInfoDTO hostelInfo)? loadedState,
+    TResult Function()? loadingState,
     TResult Function(String message)? errorState,
     required TResult orElse(),
   }) {

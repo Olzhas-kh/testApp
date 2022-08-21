@@ -12,6 +12,7 @@ import 'package:narxoz/src/feautures/home/data/repository/help_section_repositor
 import 'package:narxoz/src/feautures/home/data/repository/hostel_repository.dart';
 import 'package:narxoz/src/feautures/home/presentation/bloc/help_section_cubit.dart';
 import 'package:narxoz/src/feautures/home/presentation/bloc/help_section_detail_cubit.dart';
+import 'package:narxoz/src/feautures/home/presentation/bloc/hostel_cubit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 final sl = GetIt.instance;
@@ -29,7 +30,7 @@ Future<void> initLocator() async {
   );
   sl.registerFactory(() => HelpSectionCubit(sl()));
   sl.registerFactory(() => HelpSectionDetailCubit(sl()));
-  // sl.registerFactory(() => CategoryCubit(sl()));
+  sl.registerFactory(() => HostelCubit(sl()));
   // sl.registerFactory(() => CategoryNameCubit(sl()));
   // sl.registerFactory(() => CityCubit(sl()));
   // sl.registerFactory(() => RegionCubit(sl()));
@@ -61,10 +62,10 @@ Future<void> initLocator() async {
   );
   sl.registerLazySingleton<HostelRepository>(
     () => HostelRepositoryImpl(
-        // networkInfo: sl(),
-        // authLocalDS: sl(),
-        // newAdRemoteDS: sl(),
-        ),
+      networkInfo: sl(),
+      remoteDs: sl(),
+      // newAdRemoteDS: sl(),
+    ),
   );
 
   ///
