@@ -3,7 +3,6 @@ import 'dart:developer';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:narxoz/src/core/error/failure.dart';
 
 part 'app_bloc.freezed.dart';
 part 'app_state.dart';
@@ -23,6 +22,7 @@ class AppBloc extends Bloc<AppEvent, AppState> {
         exiting: (_Exiting event) async => _exit(event, emit),
         checkAuth: (_CheckAuth event) async => _checkAuth(event, emit),
         logining: (_Logining event) async => _login(event, emit),
+        refreshLocal: (_RefreshLocal event) async => _refreshLocal(event, emit),
       ),
     );
   }
@@ -32,7 +32,7 @@ class AppBloc extends Bloc<AppEvent, AppState> {
     Emitter<AppState> emit,
   ) async {
     // TODO
-    emit(const AppState.notAuthorizedState());
+    emit(const AppState.inAppState());
     // await _tokenCheck(emit);
   }
 
@@ -90,5 +90,23 @@ class AppBloc extends Bloc<AppEvent, AppState> {
     //   },
     //   (r) => emit(const AppState.notAuthorizedState()),
     // );
+  }
+
+  Future<void> _refreshLocal(
+    _RefreshLocal event,
+    Emitter<AppState> emit,
+  ) async {
+    await state.maybeWhen(
+      inAppState: () async {
+        emit(const AppState.loadingState());
+        await Future.delayed(const Duration(milliseconds: 100));
+        emit(const AppState.inAppState());
+      },
+      orElse: () async {
+        emit(const AppState.loadingState());
+        await Future.delayed(const Duration(milliseconds: 100));
+        emit(const AppState.notAuthorizedState());
+      },
+    );
   }
 }

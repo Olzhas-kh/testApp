@@ -612,6 +612,7 @@ mixin _$AppEvent {
     required TResult Function() checkAuth,
     required TResult Function() logining,
     required TResult Function() exiting,
+    required TResult Function() refreshLocal,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -619,6 +620,7 @@ mixin _$AppEvent {
     TResult Function()? checkAuth,
     TResult Function()? logining,
     TResult Function()? exiting,
+    TResult Function()? refreshLocal,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -626,6 +628,7 @@ mixin _$AppEvent {
     TResult Function()? checkAuth,
     TResult Function()? logining,
     TResult Function()? exiting,
+    TResult Function()? refreshLocal,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -634,6 +637,7 @@ mixin _$AppEvent {
     required TResult Function(_CheckAuth value) checkAuth,
     required TResult Function(_Logining value) logining,
     required TResult Function(_Exiting value) exiting,
+    required TResult Function(_RefreshLocal value) refreshLocal,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -641,6 +645,7 @@ mixin _$AppEvent {
     TResult Function(_CheckAuth value)? checkAuth,
     TResult Function(_Logining value)? logining,
     TResult Function(_Exiting value)? exiting,
+    TResult Function(_RefreshLocal value)? refreshLocal,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -648,6 +653,7 @@ mixin _$AppEvent {
     TResult Function(_CheckAuth value)? checkAuth,
     TResult Function(_Logining value)? logining,
     TResult Function(_Exiting value)? exiting,
+    TResult Function(_RefreshLocal value)? refreshLocal,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -717,6 +723,7 @@ class _$_CheckAuth with DiagnosticableTreeMixin implements _CheckAuth {
     required TResult Function() checkAuth,
     required TResult Function() logining,
     required TResult Function() exiting,
+    required TResult Function() refreshLocal,
   }) {
     return checkAuth();
   }
@@ -727,6 +734,7 @@ class _$_CheckAuth with DiagnosticableTreeMixin implements _CheckAuth {
     TResult Function()? checkAuth,
     TResult Function()? logining,
     TResult Function()? exiting,
+    TResult Function()? refreshLocal,
   }) {
     return checkAuth?.call();
   }
@@ -737,6 +745,7 @@ class _$_CheckAuth with DiagnosticableTreeMixin implements _CheckAuth {
     TResult Function()? checkAuth,
     TResult Function()? logining,
     TResult Function()? exiting,
+    TResult Function()? refreshLocal,
     required TResult orElse(),
   }) {
     if (checkAuth != null) {
@@ -751,6 +760,7 @@ class _$_CheckAuth with DiagnosticableTreeMixin implements _CheckAuth {
     required TResult Function(_CheckAuth value) checkAuth,
     required TResult Function(_Logining value) logining,
     required TResult Function(_Exiting value) exiting,
+    required TResult Function(_RefreshLocal value) refreshLocal,
   }) {
     return checkAuth(this);
   }
@@ -761,6 +771,7 @@ class _$_CheckAuth with DiagnosticableTreeMixin implements _CheckAuth {
     TResult Function(_CheckAuth value)? checkAuth,
     TResult Function(_Logining value)? logining,
     TResult Function(_Exiting value)? exiting,
+    TResult Function(_RefreshLocal value)? refreshLocal,
   }) {
     return checkAuth?.call(this);
   }
@@ -771,6 +782,7 @@ class _$_CheckAuth with DiagnosticableTreeMixin implements _CheckAuth {
     TResult Function(_CheckAuth value)? checkAuth,
     TResult Function(_Logining value)? logining,
     TResult Function(_Exiting value)? exiting,
+    TResult Function(_RefreshLocal value)? refreshLocal,
     required TResult orElse(),
   }) {
     if (checkAuth != null) {
@@ -833,6 +845,7 @@ class _$_Logining with DiagnosticableTreeMixin implements _Logining {
     required TResult Function() checkAuth,
     required TResult Function() logining,
     required TResult Function() exiting,
+    required TResult Function() refreshLocal,
   }) {
     return logining();
   }
@@ -843,6 +856,7 @@ class _$_Logining with DiagnosticableTreeMixin implements _Logining {
     TResult Function()? checkAuth,
     TResult Function()? logining,
     TResult Function()? exiting,
+    TResult Function()? refreshLocal,
   }) {
     return logining?.call();
   }
@@ -853,6 +867,7 @@ class _$_Logining with DiagnosticableTreeMixin implements _Logining {
     TResult Function()? checkAuth,
     TResult Function()? logining,
     TResult Function()? exiting,
+    TResult Function()? refreshLocal,
     required TResult orElse(),
   }) {
     if (logining != null) {
@@ -867,6 +882,7 @@ class _$_Logining with DiagnosticableTreeMixin implements _Logining {
     required TResult Function(_CheckAuth value) checkAuth,
     required TResult Function(_Logining value) logining,
     required TResult Function(_Exiting value) exiting,
+    required TResult Function(_RefreshLocal value) refreshLocal,
   }) {
     return logining(this);
   }
@@ -877,6 +893,7 @@ class _$_Logining with DiagnosticableTreeMixin implements _Logining {
     TResult Function(_CheckAuth value)? checkAuth,
     TResult Function(_Logining value)? logining,
     TResult Function(_Exiting value)? exiting,
+    TResult Function(_RefreshLocal value)? refreshLocal,
   }) {
     return logining?.call(this);
   }
@@ -887,6 +904,7 @@ class _$_Logining with DiagnosticableTreeMixin implements _Logining {
     TResult Function(_CheckAuth value)? checkAuth,
     TResult Function(_Logining value)? logining,
     TResult Function(_Exiting value)? exiting,
+    TResult Function(_RefreshLocal value)? refreshLocal,
     required TResult orElse(),
   }) {
     if (logining != null) {
@@ -948,6 +966,7 @@ class _$_Exiting with DiagnosticableTreeMixin implements _Exiting {
     required TResult Function() checkAuth,
     required TResult Function() logining,
     required TResult Function() exiting,
+    required TResult Function() refreshLocal,
   }) {
     return exiting();
   }
@@ -958,6 +977,7 @@ class _$_Exiting with DiagnosticableTreeMixin implements _Exiting {
     TResult Function()? checkAuth,
     TResult Function()? logining,
     TResult Function()? exiting,
+    TResult Function()? refreshLocal,
   }) {
     return exiting?.call();
   }
@@ -968,6 +988,7 @@ class _$_Exiting with DiagnosticableTreeMixin implements _Exiting {
     TResult Function()? checkAuth,
     TResult Function()? logining,
     TResult Function()? exiting,
+    TResult Function()? refreshLocal,
     required TResult orElse(),
   }) {
     if (exiting != null) {
@@ -982,6 +1003,7 @@ class _$_Exiting with DiagnosticableTreeMixin implements _Exiting {
     required TResult Function(_CheckAuth value) checkAuth,
     required TResult Function(_Logining value) logining,
     required TResult Function(_Exiting value) exiting,
+    required TResult Function(_RefreshLocal value) refreshLocal,
   }) {
     return exiting(this);
   }
@@ -992,6 +1014,7 @@ class _$_Exiting with DiagnosticableTreeMixin implements _Exiting {
     TResult Function(_CheckAuth value)? checkAuth,
     TResult Function(_Logining value)? logining,
     TResult Function(_Exiting value)? exiting,
+    TResult Function(_RefreshLocal value)? refreshLocal,
   }) {
     return exiting?.call(this);
   }
@@ -1002,6 +1025,7 @@ class _$_Exiting with DiagnosticableTreeMixin implements _Exiting {
     TResult Function(_CheckAuth value)? checkAuth,
     TResult Function(_Logining value)? logining,
     TResult Function(_Exiting value)? exiting,
+    TResult Function(_RefreshLocal value)? refreshLocal,
     required TResult orElse(),
   }) {
     if (exiting != null) {
@@ -1013,4 +1037,126 @@ class _$_Exiting with DiagnosticableTreeMixin implements _Exiting {
 
 abstract class _Exiting implements AppEvent {
   const factory _Exiting() = _$_Exiting;
+}
+
+/// @nodoc
+abstract class _$$_RefreshLocalCopyWith<$Res> {
+  factory _$$_RefreshLocalCopyWith(
+          _$_RefreshLocal value, $Res Function(_$_RefreshLocal) then) =
+      __$$_RefreshLocalCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_RefreshLocalCopyWithImpl<$Res> extends _$AppEventCopyWithImpl<$Res>
+    implements _$$_RefreshLocalCopyWith<$Res> {
+  __$$_RefreshLocalCopyWithImpl(
+      _$_RefreshLocal _value, $Res Function(_$_RefreshLocal) _then)
+      : super(_value, (v) => _then(v as _$_RefreshLocal));
+
+  @override
+  _$_RefreshLocal get _value => super._value as _$_RefreshLocal;
+}
+
+/// @nodoc
+
+class _$_RefreshLocal with DiagnosticableTreeMixin implements _RefreshLocal {
+  const _$_RefreshLocal();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'AppEvent.refreshLocal()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'AppEvent.refreshLocal'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_RefreshLocal);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() checkAuth,
+    required TResult Function() logining,
+    required TResult Function() exiting,
+    required TResult Function() refreshLocal,
+  }) {
+    return refreshLocal();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? checkAuth,
+    TResult Function()? logining,
+    TResult Function()? exiting,
+    TResult Function()? refreshLocal,
+  }) {
+    return refreshLocal?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? checkAuth,
+    TResult Function()? logining,
+    TResult Function()? exiting,
+    TResult Function()? refreshLocal,
+    required TResult orElse(),
+  }) {
+    if (refreshLocal != null) {
+      return refreshLocal();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_CheckAuth value) checkAuth,
+    required TResult Function(_Logining value) logining,
+    required TResult Function(_Exiting value) exiting,
+    required TResult Function(_RefreshLocal value) refreshLocal,
+  }) {
+    return refreshLocal(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_CheckAuth value)? checkAuth,
+    TResult Function(_Logining value)? logining,
+    TResult Function(_Exiting value)? exiting,
+    TResult Function(_RefreshLocal value)? refreshLocal,
+  }) {
+    return refreshLocal?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CheckAuth value)? checkAuth,
+    TResult Function(_Logining value)? logining,
+    TResult Function(_Exiting value)? exiting,
+    TResult Function(_RefreshLocal value)? refreshLocal,
+    required TResult orElse(),
+  }) {
+    if (refreshLocal != null) {
+      return refreshLocal(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _RefreshLocal implements AppEvent {
+  const factory _RefreshLocal() = _$_RefreshLocal;
 }
