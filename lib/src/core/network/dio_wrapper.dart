@@ -11,38 +11,59 @@ import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 class DioWrapper {
   final AuthLocalDS _authLocalDS;
 
-  Dio dio = Dio(BaseOptions(baseUrl: EndPoints.baseUrl));
+  Dio dio = Dio(
+    BaseOptions(
+      baseUrl: EndPoints.baseUrl,
+      headers: {
+        'Content-Language': 'ru', //default
+      },
+    ),
+  );
 
   Dio get instance => dio;
 
-  void path(String path) {
-    dio = Dio(
-      BaseOptions(baseUrl: EndPoints.baseUrl + path.trim()),
-    )..interceptors.addAll([
-        // IcDioInterceptor(
-        //   _authLocalDS,
-        // ),
-        // LogInterceptor(
-        //   request: true,
-        //   requestBody: true,
-        //   requestHeader: true,
-        //   responseBody: true,
-        //   responseHeader: false,
-        //   error: true,
-        // ),
-        PrettyDioLogger(
-          requestHeader: true,
-          requestBody: true,
-          responseBody: true,
-          responseHeader: false,
-          compact: true,
-        ),
-      ]);
+  // void path(String path) {
+  //   dio = Dio(
+  //     BaseOptions(
+  //       baseUrl: EndPoints.baseUrl + path.trim(),
+  //       headers: {
+  //         'Content-Language': 'ru', //default
+  //       },
+  //     ),
+  //   )..interceptors.addAll([
+  //       _NarxozDioInterceptor(_authLocalDS),
+  //       // LogInterceptor(
+  //       //   request: true,
+  //       //   requestBody: true,
+  //       //   requestHeader: true,
+  //       //   responseBody: true,
+  //       //   responseHeader: false,
+  //       //   error: true,
+  //       // ),
+  //       PrettyDioLogger(
+  //         requestHeader: true,
+  //         requestBody: true,
+  //         responseBody: true,
+  //         responseHeader: false,
+  //         compact: true,
+  //       ),
+  //     ]);
+  // }
+
+  void changeLang(String lang) {
+    dio.options.headers['Content-Language'] = lang;
   }
 
   DioWrapper(this._authLocalDS) {
     dio.interceptors.addAll([
       _NarxozDioInterceptor(_authLocalDS),
+      PrettyDioLogger(
+        requestHeader: true,
+        requestBody: true,
+        responseBody: true,
+        responseHeader: false,
+        compact: true,
+      ),
       // LogInterceptor(
       //   request: true,
       //   requestBody: true,
@@ -68,7 +89,7 @@ class _NarxozDioInterceptor extends Interceptor {
     //   options.headers['Authorization'] = 'Bearer ${user.token}';
     // }
     options.headers['Accept'] = "application/json";
-    options.headers['Content-Language'] = "ru";
+    // options.headers['Content-Language'] = 'ru';
     super.onRequest(options, handler);
   }
 
