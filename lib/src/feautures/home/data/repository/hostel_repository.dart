@@ -4,10 +4,17 @@ import 'package:narxoz/src/core/error/failure.dart';
 import 'package:narxoz/src/core/network/network_info.dart';
 import 'package:narxoz/src/core/resources/constants.dart';
 import 'package:narxoz/src/feautures/home/data/datasource/hostel_remote_ds.dart';
+import 'package:narxoz/src/feautures/home/data/model/education_dto.dart';
 import 'package:narxoz/src/feautures/home/data/model/hostel_info_dto.dart';
 
 abstract class HostelRepository {
   Future<Either<Failure, HostelInfoDTO>> getInfo();
+
+  Future<Either<Failure, List<EducationDTO>>> getEducationDegrees();
+
+  Future<Either<Failure, List<EducationDTO>>> getEducationCategories({
+    required int degreeId,
+  });
 }
 
 class HostelRepositoryImpl extends HostelRepository {
@@ -27,6 +34,40 @@ class HostelRepositoryImpl extends HostelRepository {
         final HostelInfoDTO section = await remoteDs.getInfo();
 
         return Right(section);
+      } on ServerException catch (e) {
+        return Left(ServerFailure(message: e.message));
+      }
+    } else {
+      return Left(ServerFailure(message: NO_INTERNET_TEXT));
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<EducationDTO>>> getEducationDegrees() async {
+    if (await networkInfo.isConnected) {
+      try {
+        final List<EducationDTO> degrees = await remoteDs.getEducationDegrees();
+
+        return Right(degrees);
+      } on ServerException catch (e) {
+        return Left(ServerFailure(message: e.message));
+      }
+    } else {
+      return Left(ServerFailure(message: NO_INTERNET_TEXT));
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<EducationDTO>>> getEducationCategories({
+    required int degreeId,
+  }) async {
+    if (await networkInfo.isConnected) {
+      try {
+        final List<EducationDTO> cats = await remoteDs.getEducationCategories(
+          degreeId: degreeId,
+        );
+
+        return Right(cats);
       } on ServerException catch (e) {
         return Left(ServerFailure(message: e.message));
       }

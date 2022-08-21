@@ -62,21 +62,31 @@ class _HostelPageState extends State<HostelPage> {
                                   images: hostelInfo.images ?? [],
                                 ),
                                 const SizedBox(height: 26),
-                                Padding(
+                                Container(
+                                  constraints: const BoxConstraints(
+                                    maxHeight: 80,
+                                  ),
                                   padding: const EdgeInsets.symmetric(
                                     horizontal: 12,
                                   ),
                                   child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                    // mainAxisAlignment:
+                                    //     MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Text(
-                                        '${context.appLocale.termsOfSettlement}:',
-                                        style: AppTextStyles.gilroy19w500,
+                                      Expanded(
+                                        flex: 5,
+                                        child: Text(
+                                          '${context.appLocale.termsOfSettlement}:',
+                                          style: AppTextStyles.gilroy18w500,
+                                        ),
                                       ),
-                                      Text(
-                                        '${hostelInfo.settlmentStartsAt} - ${hostelInfo.settlmentEndsAt}',
-                                        style: AppTextStyles.gilroy19w500,
+                                      const Spacer(),
+                                      Expanded(
+                                        flex: 8,
+                                        child: Text(
+                                          '${hostelInfo.settlmentStartsAt} - ${hostelInfo.settlmentEndsAt}',
+                                          style: AppTextStyles.gilroy18w500,
+                                        ),
                                       ),
                                     ],
                                   ),
@@ -139,8 +149,7 @@ class _HostelPageState extends State<HostelPage> {
                               ],
                             ),
                             onClick: () {
-                              context.router
-                                  .push(const ApplicationPage1Route());
+                              context.router.push(const ChooseEduPageRoute());
                             },
                             style: redButtonStyle(elevation: 1),
                           ),

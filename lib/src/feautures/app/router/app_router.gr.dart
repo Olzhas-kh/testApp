@@ -55,13 +55,9 @@ class _$AppRouter extends RootStackRouter {
           routeData: routeData,
           child: HelpSectionDetailPage(id: args.id, key: args.key));
     },
-    ApplicationPage1Route.name: (routeData) {
+    ChooseEduPageRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
-          routeData: routeData, child: const ApplicationPage1());
-    },
-    ApplicationPage2Route.name: (routeData) {
-      return MaterialPageX<dynamic>(
-          routeData: routeData, child: const ApplicationPage2());
+          routeData: routeData, child: const ChooseEduPage());
     },
     ApplicationPageRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
@@ -91,10 +87,8 @@ class _$AppRouter extends RootStackRouter {
                 RouteConfig(HelpSectionDetailPageRoute.name,
                     path: 'help-section-detail-page',
                     parent: BaseHomeRouter.name),
-                RouteConfig(ApplicationPage1Route.name,
-                    path: 'application-page1', parent: BaseHomeRouter.name),
-                RouteConfig(ApplicationPage2Route.name,
-                    path: 'application-page2', parent: BaseHomeRouter.name),
+                RouteConfig(ChooseEduPageRoute.name,
+                    path: 'choose-edu-page', parent: BaseHomeRouter.name),
                 RouteConfig(ApplicationPageRoute.name,
                     path: 'application-page', parent: BaseHomeRouter.name),
                 RouteConfig(SettlementConditionsPageRoute.name,
@@ -206,21 +200,12 @@ class HelpSectionDetailPageRouteArgs {
 }
 
 /// generated route for
-/// [ApplicationPage1]
-class ApplicationPage1Route extends PageRouteInfo<void> {
-  const ApplicationPage1Route()
-      : super(ApplicationPage1Route.name, path: 'application-page1');
+/// [ChooseEduPage]
+class ChooseEduPageRoute extends PageRouteInfo<void> {
+  const ChooseEduPageRoute()
+      : super(ChooseEduPageRoute.name, path: 'choose-edu-page');
 
-  static const String name = 'ApplicationPage1Route';
-}
-
-/// generated route for
-/// [ApplicationPage2]
-class ApplicationPage2Route extends PageRouteInfo<void> {
-  const ApplicationPage2Route()
-      : super(ApplicationPage2Route.name, path: 'application-page2');
-
-  static const String name = 'ApplicationPage2Route';
+  static const String name = 'ChooseEduPageRoute';
 }
 
 /// generated route for

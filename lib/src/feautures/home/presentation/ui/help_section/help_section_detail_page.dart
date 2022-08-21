@@ -31,7 +31,6 @@ class _HelpSectionDetailPageState extends State<HelpSectionDetailPage> {
 
   @override
   Widget build(BuildContext context) {
-    print(Localizations.localeOf(context));
 
     return Scaffold(
       // appBar:
