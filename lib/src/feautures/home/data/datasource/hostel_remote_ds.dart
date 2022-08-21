@@ -4,6 +4,7 @@ import 'package:narxoz/src/core/network/dio_wrapper.dart';
 import 'package:narxoz/src/core/network/network_helper.dart';
 import 'package:narxoz/src/feautures/home/data/model/education_dto.dart';
 import 'package:narxoz/src/feautures/home/data/model/hostel_info_dto.dart';
+import 'package:narxoz/src/feautures/home/data/model/question_dto.dart';
 
 abstract class HostelRemoteDS {
   Future<HostelInfoDTO> getInfo();
@@ -12,6 +13,10 @@ abstract class HostelRemoteDS {
 
   Future<List<EducationDTO>> getEducationCategories({
     required int degreeId,
+  });
+
+  Future<List<QuestionDTO>> getCategoryQuestions({
+    required int catId,
   });
 }
 
@@ -68,6 +73,26 @@ class HostelRemoteDSImpl extends HostelRemoteDS {
 
       return (response.data as List)
           .map((e) => EducationDTO.fromJson(e as Map<String, dynamic>))
+          .toList();
+    } on DioError catch (e) {
+      throw ServerException(
+        message:
+            (e.response!.data as Map<String, dynamic>)['message'] as String,
+      );
+    }
+  }
+
+  @override
+  Future<List<QuestionDTO>> getCategoryQuestions({
+    required int catId,
+  }) async {
+    try {
+      final response = await dio.get(
+        EndPoints.categoryQuestions(catId),
+      );
+
+      return (response.data as List)
+          .map((e) => QuestionDTO.fromJson(e as Map<String, dynamic>))
           .toList();
     } on DioError catch (e) {
       throw ServerException(

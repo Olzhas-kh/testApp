@@ -83,8 +83,11 @@ class _ApplicationPageState extends State<ChooseEduPage> {
                                   '${context.appLocale.numberOfAvailableSeats}: ${categories[index].availableSeatsCount}\n'
                                   '${context.appLocale.location}: ${categories[index].dormitoryName}',
                               onTap: () {
-                                context.router
-                                    .push(const ApplicationPageRoute());
+                                context.router.push(
+                                  ApplicationPageRoute(
+                                    catId: categories[index].id,
+                                  ),
+                                );
                               },
                             );
                           },

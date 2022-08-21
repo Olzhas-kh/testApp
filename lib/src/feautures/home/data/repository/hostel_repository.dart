@@ -6,6 +6,7 @@ import 'package:narxoz/src/core/resources/constants.dart';
 import 'package:narxoz/src/feautures/home/data/datasource/hostel_remote_ds.dart';
 import 'package:narxoz/src/feautures/home/data/model/education_dto.dart';
 import 'package:narxoz/src/feautures/home/data/model/hostel_info_dto.dart';
+import 'package:narxoz/src/feautures/home/data/model/question_dto.dart';
 
 abstract class HostelRepository {
   Future<Either<Failure, HostelInfoDTO>> getInfo();
@@ -14,6 +15,10 @@ abstract class HostelRepository {
 
   Future<Either<Failure, List<EducationDTO>>> getEducationCategories({
     required int degreeId,
+  });
+
+  Future<Either<Failure, List<QuestionDTO>>> getCategoryQuestions({
+    required int catId,
   });
 }
 
@@ -68,6 +73,25 @@ class HostelRepositoryImpl extends HostelRepository {
         );
 
         return Right(cats);
+      } on ServerException catch (e) {
+        return Left(ServerFailure(message: e.message));
+      }
+    } else {
+      return Left(ServerFailure(message: NO_INTERNET_TEXT));
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<QuestionDTO>>> getCategoryQuestions({
+    required int catId,
+  }) async {
+    if (await networkInfo.isConnected) {
+      try {
+        final List<QuestionDTO> questions = await remoteDs.getCategoryQuestions(
+          catId: catId,
+        );
+
+        return Right(questions);
       } on ServerException catch (e) {
         return Left(ServerFailure(message: e.message));
       }

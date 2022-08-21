@@ -60,8 +60,10 @@ class _$AppRouter extends RootStackRouter {
           routeData: routeData, child: const ChooseEduPage());
     },
     ApplicationPageRoute.name: (routeData) {
+      final args = routeData.argsAs<ApplicationPageRouteArgs>();
       return MaterialPageX<dynamic>(
-          routeData: routeData, child: const ApplicationPage());
+          routeData: routeData,
+          child: ApplicationPage(key: args.key, catId: args.catId));
     },
     SettlementConditionsPageRoute.name: (routeData) {
       final args = routeData.argsAs<SettlementConditionsPageRouteArgs>();
@@ -210,11 +212,26 @@ class ChooseEduPageRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [ApplicationPage]
-class ApplicationPageRoute extends PageRouteInfo<void> {
-  const ApplicationPageRoute()
-      : super(ApplicationPageRoute.name, path: 'application-page');
+class ApplicationPageRoute extends PageRouteInfo<ApplicationPageRouteArgs> {
+  ApplicationPageRoute({Key? key, required int catId})
+      : super(ApplicationPageRoute.name,
+            path: 'application-page',
+            args: ApplicationPageRouteArgs(key: key, catId: catId));
 
   static const String name = 'ApplicationPageRoute';
+}
+
+class ApplicationPageRouteArgs {
+  const ApplicationPageRouteArgs({this.key, required this.catId});
+
+  final Key? key;
+
+  final int catId;
+
+  @override
+  String toString() {
+    return 'ApplicationPageRouteArgs{key: $key, catId: $catId}';
+  }
 }
 
 /// generated route for

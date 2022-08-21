@@ -11,10 +11,22 @@ class QuestionDTO with _$QuestionDTO {
     required String id,
     @JsonKey(name: 'display_name') String? displayName,
     @JsonKey(name: 'field_type') String? fieldType,
+    List<OptionsDTO>? options,
   }) = _QuestionDTO;
 
   factory QuestionDTO.fromJson(Map<String, dynamic> json) =>
       _$QuestionDTOFromJson(json);
+}
+
+@freezed
+class OptionsDTO with _$OptionsDTO {
+  const factory OptionsDTO({
+    required String id,
+    @JsonKey(name: 'display_name') String? displayName,
+  }) = _OptionsDTO;
+
+  factory OptionsDTO.fromJson(Map<String, dynamic> json) =>
+      _$OptionsDTOFromJson(json);
 }
 
 /* 
@@ -24,8 +36,18 @@ class QuestionDTO with _$QuestionDTO {
         "field_type": "2"
     },
     {
-        "id": "2",
-        "display_name": "Введите фамилию",
-        "field_type": "2"
+        "id": "4",
+        "display_name": "Пол",
+        "field_type": "6",
+        "options": [
+            {
+                "id": "male",
+                "option": "Мужской"
+            },
+            {
+                "id": "female",
+                "option": "Женский"
+            }
+        ]
     },
 */
