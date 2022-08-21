@@ -20,14 +20,14 @@ class _ChaptersWidgetState extends State<ChaptersWidget> {
       id: 1,
       text: "Banner",
       // onTap: () {},
-      isActive: true,
+      // isActive: true,
       image: 'assets/icons/chapter_1.svg',
     ),
     _Chapter(
       id: 2,
       text: 'Canvas',
       // onTap: () {},
-      isActive: true,
+      // isActive: true,
       image: 'assets/icons/chapter_2.svg',
     ),
     _Chapter(
@@ -70,7 +70,7 @@ class _ChaptersWidgetState extends State<ChaptersWidget> {
     ),
     _Chapter(
       id: 9,
-      text: context.appLocale.back,
+      text: context.appLocale.library,
       // onTap: () {},
       image: 'assets/icons/chapter_9.svg',
     ),

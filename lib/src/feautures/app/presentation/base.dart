@@ -30,6 +30,7 @@ class _BaseState extends State<Base> {
   @override
   Widget build(BuildContext context) {
     return AutoTabsScaffold(
+      // lazyLoad: fga,
       // appBarBuilder: (_, tabsRouter) => PreferredSize(
       //   preferredSize: const Size.fromHeight(100),
       //   child: Container(

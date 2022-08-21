@@ -6,9 +6,11 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:narxoz/src/core/l10n/l10n.dart';
 import 'package:narxoz/src/core/resources/resources.dart';
 import 'package:narxoz/src/core/services/locator_service.dart';
+import 'package:narxoz/src/feautures/app/presentation/locale_provider.dart';
 import 'package:narxoz/src/feautures/app/presentation/multibloc_wrapper.dart';
 import 'package:narxoz/src/feautures/app/router/app_router.dart';
 import 'package:narxoz/src/feautures/app/router/router_observer.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class NarxozApp extends StatefulWidget {
@@ -43,29 +45,31 @@ class _NarxozAppState extends State<NarxozApp> {
     // );
 
     return MultiblocWrapper(
-      child: MaterialApp.router(
-        title: 'Narxoz',
-        debugShowCheckedModeBanner: false,
-        // navigatorKey: GlobalVariable.navigatorKey,
-        localizationsDelegates: const [
-          AppLocalizations.delegate,
-          GlobalMaterialLocalizations.delegate,
-          GlobalCupertinoLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-          // DefaultWidgetsLocalizations.delegate,
-        ],
-        supportedLocales: L10n.all,
-        // localizationsDelegates: context.localizationDelegates,
-        // supportedLocales: context.supportedLocales,
-        // locale: context.locale,
-        theme: AppTheme.light,
-        routeInformationParser: sl<AppRouter>().defaultRouteParser(),
-        // routerDelegate: sl<AppRouter>().delegate(),
-        routerDelegate: AutoRouterDelegate(
-          sl<AppRouter>(),
-          navigatorObservers: () => [RouterObserver()],
+      child: Consumer<LocaleProvider>(
+        builder: (context, model, child) => MaterialApp.router(
+          title: 'Narxoz',
+          debugShowCheckedModeBanner: false,
+          // navigatorKey: GlobalVariable.navigatorKey,
+          localizationsDelegates: const [
+            AppLocalizations.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            // DefaultWidgetsLocalizations.delegate,
+          ],
+          supportedLocales: L10n.all,
+          // localizationsDelegates: context.localizationDelegates,
+          // supportedLocales: context.supportedLocales,
+          locale: model.locale,
+          theme: AppTheme.light,
+          routeInformationParser: sl<AppRouter>().defaultRouteParser(),
+          // routerDelegate: sl<AppRouter>().delegate(),
+          routerDelegate: AutoRouterDelegate(
+            sl<AppRouter>(),
+            navigatorObservers: () => [RouterObserver()],
+          ),
+          // home: const Launcher(),
         ),
-        // home: const Launcher(),
       ),
     );
   }

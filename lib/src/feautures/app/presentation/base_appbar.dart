@@ -1,9 +1,89 @@
+import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:narxoz/src/core/resources/resources.dart';
+import 'package:narxoz/src/feautures/app/bloc/app_bloc.dart';
+import 'package:narxoz/src/feautures/app/presentation/locale_provider.dart';
+import 'package:provider/provider.dart';
 
-class BaseAppBar extends StatelessWidget {
+class BaseAppBar extends StatefulWidget {
   const BaseAppBar({super.key});
+
+  @override
+  State<BaseAppBar> createState() => _BaseAppBarState();
+}
+
+class _BaseAppBarState extends State<BaseAppBar> {
+  Map<String, String> langMap = {
+    'Русский': 'ru',
+    'Қазақша': 'kk',
+    'English': 'en',
+  };
+
+  Map<String, String> localMap = {
+    'ru': 'Русский',
+    'kk': 'Қазақша',
+    'en': 'English',
+  };
+
+  List<String> items = [
+    'Русский',
+    'Қазақша',
+    'English',
+  ];
+
+  String? chosenLang;
+
+  @override
+  void initState() {
+    chosenLang = localMap[Provider.of<LocaleProvider>(context, listen: false)
+        .locale
+        .languageCode];
+    super.initState();
+  }
+
+  List<DropdownMenuItem<String>> _addDividersAfterItems(List<String> items) {
+    final List<DropdownMenuItem<String>> menuItems = [];
+    for (final item in items) {
+      menuItems.addAll(
+        [
+          DropdownMenuItem<String>(
+            value: item,
+            child: Center(
+              child: Text(
+                item,
+                style: const TextStyle(
+                  fontSize: 14,
+                ),
+              ),
+            ),
+          ),
+          if (item != items.last)
+            const DropdownMenuItem<String>(
+              enabled: false,
+              child: Divider(
+                thickness: 1,
+                indent: 0,
+                endIndent: 0,
+                color: Color(0xff9C9C9C),
+              ),
+            ),
+        ],
+      );
+    }
+    return menuItems;
+  }
+
+  List<int> _getDividersIndexes() {
+    final List<int> dividersIndexes = [];
+    for (var i = 0; i < (items.length * 2) - 1; i++) {
+      if (i.isOdd) {
+        dividersIndexes.add(i);
+      }
+    }
+    return dividersIndexes;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -12,42 +92,82 @@ class BaseAppBar extends StatelessWidget {
       child: Container(
         color: AppColors.kWhite,
         padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 15),
-        // padding:
-        //     const EdgeInsets.symmetric(horizontal: 25, vertical: 15).copyWith(
-        //   top: context.screenSize.height * .07,
-        // ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             SvgPicture.asset(AppSvgImages.narxozProfile),
-            TextButton(
-              onPressed: () {},
-              child: const Text(
-                'Русский',
+            DropdownButtonHideUnderline(
+              child: DropdownButton2(
+                hint: const Text(
+                  'Select Item',
+                  style: AppTextStyles.gilroy15w500Red,
+                ),
+                items: _addDividersAfterItems(items),
+                // items: langMap.keys
+                //     .map(
+                //       (item) => DropdownMenuItem<String>(
+                //         value: item,
+                //         child: Text(
+                //           item,
+                //           style: AppTextStyles.gilroy15w500Red,
+                //         ),
+                //       ),
+                //     )
+                //     .toList(),
+                value: chosenLang,
+                customItemsIndexes: _getDividersIndexes(),
+                customItemsHeight: 4,
                 style: AppTextStyles.gilroy15w500Red,
+                onChanged: (value) {
+                  setState(() {
+                    chosenLang = value as String?;
+                  });
+                  if (chosenLang != null) {
+                    Provider.of<LocaleProvider>(context, listen: false).locale =
+                        Locale(langMap[chosenLang]!);
+
+                    BlocProvider.of<AppBloc>(context)
+                        .add(const AppEvent.refreshLocal());
+                  }
+                },
+                customButton: SizedBox(
+                  width: 137,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Text(
+                        chosenLang.toString(),
+                        style: AppTextStyles.gilroy15w500Red,
+                      ),
+                      const SizedBox(width: 12),
+                    ],
+                  ),
+                ),
+                buttonHeight: 40,
+                buttonWidth: 140,
+                dropdownPadding: EdgeInsets.zero,
+                itemPadding: EdgeInsets.zero,
+                itemHeight: 40,
+                alignment: AlignmentDirectional.centerEnd,
+                dropdownWidth: 137,
+                // dropdownPadding: const EdgeInsets.only(right: 25),
+                dropdownDecoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(14),
+                  border: Border.all(color: const Color(0xff9C9C9C)),
+                ),
               ),
             ),
+
+            // TextButton(
+            //   onPressed: () {},
+            //   child: const Text(
+            //     'Русский',
+            //     style: AppTextStyles.gilroy15w500Red,
+            //   ),
+            // ),
           ],
         ),
       ), // here the desired height
-      // child: AppBar(
-      //   title: Padding(
-      //     padding: const EdgeInsets.symmetric(vertical: 20),
-      //     child: SvgPicture.asset(AppSvgImages.narxozProfile),
-      //   ),
-      //   centerTitle: false,
-      //   actions: [
-      //     Padding(
-      //       padding: const EdgeInsets.only(right: 25),
-      //       child: TextButton(
-      //         onPressed: () {},
-      //         child: Text(
-      //           'Русский',
-      //         ),
-      //       ),
-      //     ),
-      //   ],
-      // ),
     );
   }
 }

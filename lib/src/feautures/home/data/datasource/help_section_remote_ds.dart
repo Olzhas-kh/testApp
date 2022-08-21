@@ -16,7 +16,7 @@ class HelpSectionRemoteDSImpl extends HelpSectionRemoteDS {
   late final Dio dio;
   final DioWrapper dioWrapper;
   HelpSectionRemoteDSImpl(this.dioWrapper) {
-    dioWrapper.path('');
+    // dioWrapper.path('');
     dio = dioWrapper.dio;
   }
 
