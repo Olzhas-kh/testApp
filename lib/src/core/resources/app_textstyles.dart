@@ -72,6 +72,13 @@ mixin AppTextStyles {
     fontWeight: FontWeight.w600,
   );
 
+  static const gilroy18w500 = TextStyle(
+    // fontFamily: AppFonts.gilroy,
+    fontSize: 18,
+    color: AppColors.kBlack,
+    fontWeight: FontWeight.w500,
+  );
+
   static const gilroy19w500 = TextStyle(
     // fontFamily: AppFonts.gilroy,
     fontSize: 19,

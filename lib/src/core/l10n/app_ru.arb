@@ -26,6 +26,7 @@
   "jobOpenings": "Вакансии",
   "library": "Библиотека",
   "login": "Логин",
+  "numberOfAvailableSeats": "Количество свободных мест",
   "password": "Пароль",
   "selectTheAppropriateFields": "Выберите подходящие поля",
   "settlementConditions": "Условия заселения",
