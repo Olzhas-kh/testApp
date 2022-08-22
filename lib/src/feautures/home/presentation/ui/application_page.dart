@@ -2,8 +2,6 @@ import 'dart:developer';
 import 'dart:io';
 
 import 'package:auto_route/auto_route.dart';
-import 'package:file_picker/file_picker.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -21,20 +19,19 @@ import 'package:narxoz/src/feautures/home/data/model/answer_payload.dart';
 import 'package:narxoz/src/feautures/home/data/model/question_dto.dart';
 import 'package:narxoz/src/feautures/home/presentation/bloc/application_cubit.dart';
 import 'package:narxoz/src/feautures/home/presentation/bloc/application_verify_cubit.dart';
-import 'package:narxoz/src/feautures/home/presentation/ui/help_section/mock_help_section.dart';
+import 'package:narxoz/src/feautures/home/presentation/widgets/accept_privacy_widget.dart';
 import 'package:narxoz/src/feautures/home/presentation/widgets/application_appbar.dart';
-import 'package:path/path.dart' as path;
-import 'package:path_provider/path_provider.dart';
+import 'package:narxoz/src/feautures/home/presentation/widgets/file_picker_widget.dart';
 
-enum GenderCharacter {
-  male,
-  female,
-}
+// enum GenderCharacter {
+//   male,
+//   female,
+// }
 
-enum Training {
-  grant,
-  paid,
-}
+// enum Training {
+//   grant,
+//   paid,
+// }
 
 class ApplicationPage extends StatefulWidget {
   final int catId;
@@ -226,6 +223,21 @@ class _ApplicationPageState extends State<ApplicationPage> {
                                                   initialDate: DateTime.now(),
                                                   firstDate: DateTime(2000),
                                                   lastDate: DateTime(2050),
+                                                  builder: (context, child) {
+                                                    return Theme(
+                                                      data: Theme.of(context).copyWith(
+                                                        colorScheme: const ColorScheme.light(
+                                                          primary: AppColors.kRedPrimary, // header background color
+                                                        ),
+                                                        textButtonTheme: TextButtonThemeData(
+                                                          style: TextButton.styleFrom(
+                                                            primary: Colors.red, // button text color
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      child: child!,
+                                                    );
+                                                  },
                                                 );
 
                                                 if (pickedDate != null) {
@@ -258,82 +270,89 @@ class _ApplicationPageState extends State<ApplicationPage> {
                                             style: AppTextStyles.gilroy16w500,
                                           ),
                                           const SizedBox(height: 12),
-                                          Row(
-                                            children: [
-                                              const SizedBox(
-                                                width: 20,
-                                              ),
-                                              InkWell(
-                                                onTap: () async {
-                                                  final FilePickerResult? result = await FilePicker.platform.pickFiles(
-                                                    type: FileType.custom,
-                                                    allowedExtensions: ['pdf', 'jpg', 'png'],
-                                                  );
-
-                                                  if (!mounted) return;
-                                                  if (result != null) {
-                                                    File file = File(
-                                                      result.files.single.path!,
-                                                    );
-
-                                                    if (Platform.isIOS) {
-                                                      final documentPath =
-                                                          (await getApplicationDocumentsDirectory()).path;
-                                                      file =
-                                                          await file.copy('$documentPath/${path.basename(file.path)}');
-                                                    }
-                                                    answers[index].value = file;
-                                                  } else {
-                                                    // buildErrorCustomSnackBar(
-                                                    //   context,
-                                                    //   'File Picker Error',
-                                                    // );
-                                                  }
-                                                  setState(() {});
-                                                },
-                                                child: Container(
-                                                  height: 80,
-                                                  width: 80,
-                                                  decoration: BoxDecoration(
-                                                    border: Border.all(
-                                                      color: AppColors.kGray2,
-                                                    ),
-                                                    borderRadius: BorderRadius.circular(
-                                                      10,
-                                                    ),
-                                                  ),
-                                                  alignment: Alignment.center,
-                                                  child: answers[index].value != null
-                                                      ? Text(
-                                                          (answers[index].value as File).path.substring(
-                                                                (answers[index].value as File).path.length - 3,
-                                                              ),
-                                                          style: const TextStyle(
-                                                            fontSize: 30,
-                                                            fontWeight: FontWeight.w600,
-                                                          ),
-                                                        )
-                                                      : const Icon(
-                                                          Icons.add,
-                                                          color: AppColors.kGray2,
-                                                        ),
-                                                ),
-                                              ),
-                                              const SizedBox(
-                                                width: 16,
-                                              ),
-                                              Expanded(
-                                                child: Text(
-                                                  '${context.appLocale.noteAttachSupportingDocumentsFormatPdfJpg} '
-                                                  '${context.appLocale.maximumFileSize}: 200kB',
-                                                  style: AppTextStyles.rubik14w400Red,
-                                                ),
-                                              ),
-                                              const SizedBox(
-                                                width: 20,
-                                              ),
-                                            ],
+                                          FilePickerWidget(
+                                            file: answers[index].value as File?,
+                                            callback: (File? lFile) {
+                                              answers[index].value = lFile;
+                                              setState(() {});
+                                            },
                                           ),
+                                          // Row(
+                                          //   children: [
+                                          //     const SizedBox(
+                                          //       width: 20,
+                                          //     ),
+                                          //     InkWell(
+                                          //       onTap: () async {
+                                          //         final FilePickerResult? result = await FilePicker.platform.pickFiles(
+                                          //           type: FileType.custom,
+                                          //           allowedExtensions: ['pdf', 'jpg', 'png'],
+                                          //         );
+
+                                          //         if (!mounted) return;
+                                          //         if (result != null) {
+                                          //           File file = File(
+                                          //             result.files.single.path!,
+                                          //           );
+
+                                          //           if (Platform.isIOS) {
+                                          //             final documentPath =
+                                          //                 (await getApplicationDocumentsDirectory()).path;
+                                          //             file =
+                                          //                 await file.copy('$documentPath/${path.basename(file.path)}');
+                                          //           }
+                                          //           answers[index].value = file;
+                                          //         } else {
+                                          //           // buildErrorCustomSnackBar(
+                                          //           //   context,
+                                          //           //   'File Picker Error',
+                                          //           // );
+                                          //         }
+                                          //         setState(() {});
+                                          //       },
+                                          //       child: Container(
+                                          //         height: 80,
+                                          //         width: 80,
+                                          //         decoration: BoxDecoration(
+                                          //           border: Border.all(
+                                          //             color: AppColors.kGray2,
+                                          //           ),
+                                          //           borderRadius: BorderRadius.circular(
+                                          //             10,
+                                          //           ),
+                                          //         ),
+                                          //         alignment: Alignment.center,
+                                          //         child: answers[index].value != null
+                                          //             ? Text(
+                                          //                 (answers[index].value as File).path.substring(
+                                          //                       (answers[index].value as File).path.length - 3,
+                                          //                     ),
+                                          //                 style: const TextStyle(
+                                          //                   fontSize: 30,
+                                          //                   fontWeight: FontWeight.w600,
+                                          //                 ),
+                                          //               )
+                                          //             : const Icon(
+                                          //                 Icons.add,
+                                          //                 color: AppColors.kGray2,
+                                          //               ),
+                                          //       ),
+                                          //     ),
+                                          //     const SizedBox(
+                                          //       width: 16,
+                                          //     ),
+                                          //     Expanded(
+                                          //       child: Text(
+                                          //         '${context.appLocale.noteAttachSupportingDocumentsFormatPdfJpg} '
+                                          //         '${context.appLocale.maximumFileSize}: 200kB',
+                                          //         style: AppTextStyles.rubik14w400Red,
+                                          //       ),
+                                          //     ),
+                                          //     const SizedBox(
+                                          //       width: 20,
+                                          //     ),
+                                          //   ],
+                                          // ),
                                         ],
                                       );
                                     case '6':
@@ -388,60 +407,69 @@ class _ApplicationPageState extends State<ApplicationPage> {
 
                               ///
                               const SizedBox(height: 16),
-                              Row(
-                                children: [
-                                  const SizedBox(width: 12),
-                                  InkWell(
-                                    onTap: () {
-                                      setState(() {
-                                        isAcceptedPrivacy = !isAcceptedPrivacy;
-                                      });
-                                    },
-                                    child: Container(
-                                      height: 30,
-                                      width: 30,
-                                      padding: const EdgeInsets.all(5),
-                                      decoration: BoxDecoration(
-                                        border: Border.all(
-                                          color: AppColors.kRedPrimary,
-                                        ),
-                                        borderRadius: BorderRadius.circular(5),
-                                      ),
-                                      child: isAcceptedPrivacy
-                                          ? Container(
-                                              width: 20,
-                                              height: 20,
-                                              decoration: BoxDecoration(
-                                                color: AppColors.kRedPrimary,
-                                                borderRadius: BorderRadius.circular(5),
-                                              ),
-                                            )
-                                          : const SizedBox(),
-                                    ),
-                                  ),
-                                  const SizedBox(width: 15),
-                                  RichText(
-                                    text: TextSpan(
-                                      text: 'Согласен с ',
-                                      style: AppTextStyles.gilroy15w500,
-                                      children: [
-                                        TextSpan(
-                                          text: 'условиями заселения',
-                                          style: AppTextStyles.gilroy15w500RedUnderline,
-                                          recognizer: TapGestureRecognizer()
-                                            ..onTap = () {
-                                              context.router.push(
-                                                SettlementConditionsPageRoute(
-                                                  text: MockHelpSection.settlementConditionBody,
-                                                ),
-                                              );
-                                            },
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                ],
+                              AcceptPrivacyWidget(
+                                isAcceptedPrivacy: isAcceptedPrivacy,
+                                callBack: (bool b) {
+                                  setState(() {
+                                    isAcceptedPrivacy = b;
+                                  });
+                                },
+                                fromApplicationPage: true,
                               ),
+                              // Row(
+                              //   children: [
+                              //     const SizedBox(width: 12),
+                              //     InkWell(
+                              //       onTap: () {
+                              //         setState(() {
+                              //           isAcceptedPrivacy = !isAcceptedPrivacy;
+                              //         });
+                              //       },
+                              //       child: Container(
+                              //         height: 30,
+                              //         width: 30,
+                              //         padding: const EdgeInsets.all(5),
+                              //         decoration: BoxDecoration(
+                              //           border: Border.all(
+                              //             color: AppColors.kRedPrimary,
+                              //           ),
+                              //           borderRadius: BorderRadius.circular(5),
+                              //         ),
+                              //         child: isAcceptedPrivacy
+                              //             ? Container(
+                              //                 width: 20,
+                              //                 height: 20,
+                              //                 decoration: BoxDecoration(
+                              //                   color: AppColors.kRedPrimary,
+                              //                   borderRadius: BorderRadius.circular(5),
+                              //                 ),
+                              //               )
+                              //             : const SizedBox(),
+                              //       ),
+                              //     ),
+                              //     const SizedBox(width: 15),
+                              //     RichText(
+                              //       text: TextSpan(
+                              //         text: 'Согласен с ',
+                              //         style: AppTextStyles.gilroy15w500,
+                              //         children: [
+                              //           TextSpan(
+                              //             text: 'условиями заселения',
+                              //             style: AppTextStyles.gilroy15w500RedUnderline,
+                              //             recognizer: TapGestureRecognizer()
+                              //               ..onTap = () {
+                              //                 context.router.push(
+                              //                   SettlementConditionsPageRoute(
+                              //                     text: MockHelpSection.settlementConditionBody,
+                              //                   ),
+                              //                 );
+                              //               },
+                              //           )
+                              //         ],
+                              //       ),
+                              //     ),
+                              //   ],
+                              // ),
 
                               ///
                               const SizedBox(height: 34),
@@ -451,7 +479,16 @@ class _ApplicationPageState extends State<ApplicationPage> {
                                     loadedState: (
                                       int catId,
                                       List<AnswerPayload> answers,
-                                    ) {},
+                                      String gender,
+                                    ) {
+                                      context.router.push(
+                                        DormCardPageRoute(
+                                          answers: answers,
+                                          catId: catId,
+                                          gender: gender,
+                                        ),
+                                      );
+                                    },
                                     errorState: (String message) {
                                       buildErrorCustomSnackBar(
                                         context,
@@ -483,14 +520,19 @@ class _ApplicationPageState extends State<ApplicationPage> {
                                               if (!isAcceptedPrivacy) {
                                                 buildErrorCustomSnackBar(
                                                   context,
-                                                  'message',
+                                                  'Вы не согласны с условиями заселения',
                                                 );
                                                 return;
                                               }
 
+                                              String gender = 'male';
                                               for (int i = 0; i < controllers.length; i++) {
                                                 if (!(answers[i].isFile ?? false)) {
                                                   answers[i].value = controllers[i].text;
+                                                }
+
+                                                if (controllers[i].text == 'male' || controllers[i].text == 'female') {
+                                                  gender = controllers[i].text;
                                                 }
                                               }
                                               log(answers.toString());
@@ -499,6 +541,7 @@ class _ApplicationPageState extends State<ApplicationPage> {
                                               ).questionsCheck(
                                                 catId: widget.catId,
                                                 answers: answers,
+                                                gender: gender,
                                               );
                                             }
                                           }

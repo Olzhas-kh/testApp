@@ -23,4 +23,6 @@ mixin EndPoints {
   static String dormPlacements(int id) {
     return '/dormitories/orders/categories/$id/placements';
   }
+
+  static const paymentDorm = '/dormitories/orders/categories';
 }

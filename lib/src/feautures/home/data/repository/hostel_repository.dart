@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:dartz/dartz.dart';
 import 'package:narxoz/src/core/error/excepteion.dart';
 import 'package:narxoz/src/core/error/failure.dart';
@@ -7,7 +9,9 @@ import 'package:narxoz/src/feautures/home/data/datasource/hostel_remote_ds.dart'
 import 'package:narxoz/src/feautures/home/data/model/answer_payload.dart';
 import 'package:narxoz/src/feautures/home/data/model/education_dto.dart';
 import 'package:narxoz/src/feautures/home/data/model/hostel_info_dto.dart';
+import 'package:narxoz/src/feautures/home/data/model/payment_dto.dart';
 import 'package:narxoz/src/feautures/home/data/model/question_dto.dart';
+import 'package:narxoz/src/feautures/home/data/model/seats_count_dto.dart';
 
 abstract class HostelRepository {
   Future<Either<Failure, HostelInfoDTO>> getInfo();
@@ -25,6 +29,18 @@ abstract class HostelRepository {
   Future<Either<Failure, String>> questionsCheck({
     required int catId,
     required List<AnswerPayload> answers,
+  });
+
+  Future<Either<Failure, SeatsCountDTO>> getFreeSeatsCount({
+    required int catId,
+    required String gender,
+  });
+
+  Future<Either<Failure, PaymentDTO?>> paymentDorm({
+    required int catId,
+    required List<AnswerPayload> answers,
+    required String placementId,
+    required File? chequeFile,
   });
 }
 
@@ -119,6 +135,52 @@ class HostelRepositoryImpl extends HostelRepository {
         );
 
         return Right(msg);
+      } on ServerException catch (e) {
+        return Left(ServerFailure(message: e.message));
+      }
+    } else {
+      return Left(ServerFailure(message: NO_INTERNET_TEXT));
+    }
+  }
+
+  @override
+  Future<Either<Failure, SeatsCountDTO>> getFreeSeatsCount({
+    required int catId,
+    required String gender,
+  }) async {
+    if (await networkInfo.isConnected) {
+      try {
+        final SeatsCountDTO seatsCount = await remoteDs.getFreeSeatsCount(
+          catId: catId,
+          gender: gender,
+        );
+
+        return Right(seatsCount);
+      } on ServerException catch (e) {
+        return Left(ServerFailure(message: e.message));
+      }
+    } else {
+      return Left(ServerFailure(message: NO_INTERNET_TEXT));
+    }
+  }
+
+  @override
+  Future<Either<Failure, PaymentDTO?>> paymentDorm({
+    required int catId,
+    required List<AnswerPayload> answers,
+    required String placementId,
+    required File? chequeFile,
+  }) async {
+    if (await networkInfo.isConnected) {
+      try {
+        final PaymentDTO? paymentDTO = await remoteDs.paymentDorm(
+          catId: catId,
+          answers: answers,
+          chequeFile: chequeFile,
+          placementId: placementId,
+        );
+
+        return Right(paymentDTO);
       } on ServerException catch (e) {
         return Left(ServerFailure(message: e.message));
       }

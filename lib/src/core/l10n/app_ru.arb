@@ -1,5 +1,5 @@
 {
-  "@payTenge": "{\"placeholders\": {\"value\": {\"type\": \"String\" }}}",
+  "aDocumentConfirmingTheOrderHasBeenSentToYourEmail": "На вашу почту отправлен документ подтверждающий ордер",
   "adviser": "Эдвайзер",
   "applicationSubmission": "Подача заявки",
   "applications": "Заявки",
@@ -21,6 +21,7 @@
   "finance": "Финансы",
   "forForeignCitizens": "Для иностранных граждан",
   "frequentlyAskedQuestions": "Часто задаваемые вопросы",
+  "goBackToTheMainPage": "Вернуться на главную",
   "good": "Хорошо!",
   "gpa": "GPA",
   "helpSection": "Раздел помощи",
@@ -44,5 +45,6 @@
   "tenge": "тг",
   "termsOfSettlement": "Сроки заселения",
   "theSectionIsUnderDevelopment": "Раздел находится в разработке",
-  "youHaveEnteredAnIncorrectUsernameOrPassword": "Вы ввели неверный логин или пароль"
+  "youHaveEnteredAnIncorrectUsernameOrPassword": "Вы ввели неверный логин или пароль",
+  "yourApplicationHasBeenSuccessfullyProcessed": "Ваша заявка успешно оформлена"
 }

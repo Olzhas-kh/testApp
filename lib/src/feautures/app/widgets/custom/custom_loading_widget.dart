@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:narxoz/src/feautures/app/widgets/custom/custom_loaders.dart';
 
 class CustomLoadingWidget extends StatefulWidget {
   const CustomLoadingWidget({super.key});
@@ -8,12 +9,12 @@ class CustomLoadingWidget extends StatefulWidget {
   State<CustomLoadingWidget> createState() => _CustomLoadingWidgetState();
 }
 
-class _CustomLoadingWidgetState extends State<CustomLoadingWidget>
-    with SingleTickerProviderStateMixin {
+class _CustomLoadingWidgetState extends State<CustomLoadingWidget> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Lottie.asset('assets/lotties/loading.json'),
+    return const Center(
+      child: kWaveLoader,
+      // child: Lottie.asset('assets/lotties/loading.json'),
     );
   }
 }

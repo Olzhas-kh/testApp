@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'application_verify_cubit.dart';
+part of 'dorm_card_verify_cubit.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,13 +15,11 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$ApplicationVerifyState {
+mixin _$DormCardVerifyState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialState,
-    required TResult Function(
-            int catId, List<AnswerPayload> answers, String gender)
-        loadedState,
+    required TResult Function(PaymentDTO? payment) loadedState,
     required TResult Function() loadingState,
     required TResult Function(String message) errorState,
   }) =>
@@ -29,8 +27,7 @@ mixin _$ApplicationVerifyState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initialState,
-    TResult Function(int catId, List<AnswerPayload> answers, String gender)?
-        loadedState,
+    TResult Function(PaymentDTO? payment)? loadedState,
     TResult Function()? loadingState,
     TResult Function(String message)? errorState,
   }) =>
@@ -38,8 +35,7 @@ mixin _$ApplicationVerifyState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialState,
-    TResult Function(int catId, List<AnswerPayload> answers, String gender)?
-        loadedState,
+    TResult Function(PaymentDTO? payment)? loadedState,
     TResult Function()? loadingState,
     TResult Function(String message)? errorState,
     required TResult orElse(),
@@ -73,20 +69,20 @@ mixin _$ApplicationVerifyState {
 }
 
 /// @nodoc
-abstract class $ApplicationVerifyStateCopyWith<$Res> {
-  factory $ApplicationVerifyStateCopyWith(ApplicationVerifyState value,
-          $Res Function(ApplicationVerifyState) then) =
-      _$ApplicationVerifyStateCopyWithImpl<$Res>;
+abstract class $DormCardVerifyStateCopyWith<$Res> {
+  factory $DormCardVerifyStateCopyWith(
+          DormCardVerifyState value, $Res Function(DormCardVerifyState) then) =
+      _$DormCardVerifyStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$ApplicationVerifyStateCopyWithImpl<$Res>
-    implements $ApplicationVerifyStateCopyWith<$Res> {
-  _$ApplicationVerifyStateCopyWithImpl(this._value, this._then);
+class _$DormCardVerifyStateCopyWithImpl<$Res>
+    implements $DormCardVerifyStateCopyWith<$Res> {
+  _$DormCardVerifyStateCopyWithImpl(this._value, this._then);
 
-  final ApplicationVerifyState _value;
+  final DormCardVerifyState _value;
   // ignore: unused_field
-  final $Res Function(ApplicationVerifyState) _then;
+  final $Res Function(DormCardVerifyState) _then;
 }
 
 /// @nodoc
@@ -98,7 +94,7 @@ abstract class _$$_InitialStateCopyWith<$Res> {
 
 /// @nodoc
 class __$$_InitialStateCopyWithImpl<$Res>
-    extends _$ApplicationVerifyStateCopyWithImpl<$Res>
+    extends _$DormCardVerifyStateCopyWithImpl<$Res>
     implements _$$_InitialStateCopyWith<$Res> {
   __$$_InitialStateCopyWithImpl(
       _$_InitialState _value, $Res Function(_$_InitialState) _then)
@@ -115,7 +111,7 @@ class _$_InitialState implements _InitialState {
 
   @override
   String toString() {
-    return 'ApplicationVerifyState.initialState()';
+    return 'DormCardVerifyState.initialState()';
   }
 
   @override
@@ -131,9 +127,7 @@ class _$_InitialState implements _InitialState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialState,
-    required TResult Function(
-            int catId, List<AnswerPayload> answers, String gender)
-        loadedState,
+    required TResult Function(PaymentDTO? payment) loadedState,
     required TResult Function() loadingState,
     required TResult Function(String message) errorState,
   }) {
@@ -144,8 +138,7 @@ class _$_InitialState implements _InitialState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initialState,
-    TResult Function(int catId, List<AnswerPayload> answers, String gender)?
-        loadedState,
+    TResult Function(PaymentDTO? payment)? loadedState,
     TResult Function()? loadingState,
     TResult Function(String message)? errorState,
   }) {
@@ -156,8 +149,7 @@ class _$_InitialState implements _InitialState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialState,
-    TResult Function(int catId, List<AnswerPayload> answers, String gender)?
-        loadedState,
+    TResult Function(PaymentDTO? payment)? loadedState,
     TResult Function()? loadingState,
     TResult Function(String message)? errorState,
     required TResult orElse(),
@@ -206,7 +198,7 @@ class _$_InitialState implements _InitialState {
   }
 }
 
-abstract class _InitialState implements ApplicationVerifyState {
+abstract class _InitialState implements DormCardVerifyState {
   const factory _InitialState() = _$_InitialState;
 }
 
@@ -215,12 +207,14 @@ abstract class _$$_LoadedStateCopyWith<$Res> {
   factory _$$_LoadedStateCopyWith(
           _$_LoadedState value, $Res Function(_$_LoadedState) then) =
       __$$_LoadedStateCopyWithImpl<$Res>;
-  $Res call({int catId, List<AnswerPayload> answers, String gender});
+  $Res call({PaymentDTO? payment});
+
+  $PaymentDTOCopyWith<$Res>? get payment;
 }
 
 /// @nodoc
 class __$$_LoadedStateCopyWithImpl<$Res>
-    extends _$ApplicationVerifyStateCopyWithImpl<$Res>
+    extends _$DormCardVerifyStateCopyWithImpl<$Res>
     implements _$$_LoadedStateCopyWith<$Res> {
   __$$_LoadedStateCopyWithImpl(
       _$_LoadedState _value, $Res Function(_$_LoadedState) _then)
@@ -231,51 +225,39 @@ class __$$_LoadedStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? catId = freezed,
-    Object? answers = freezed,
-    Object? gender = freezed,
+    Object? payment = freezed,
   }) {
     return _then(_$_LoadedState(
-      catId: catId == freezed
-          ? _value.catId
-          : catId // ignore: cast_nullable_to_non_nullable
-              as int,
-      answers: answers == freezed
-          ? _value._answers
-          : answers // ignore: cast_nullable_to_non_nullable
-              as List<AnswerPayload>,
-      gender: gender == freezed
-          ? _value.gender
-          : gender // ignore: cast_nullable_to_non_nullable
-              as String,
+      payment: payment == freezed
+          ? _value.payment
+          : payment // ignore: cast_nullable_to_non_nullable
+              as PaymentDTO?,
     ));
+  }
+
+  @override
+  $PaymentDTOCopyWith<$Res>? get payment {
+    if (_value.payment == null) {
+      return null;
+    }
+
+    return $PaymentDTOCopyWith<$Res>(_value.payment!, (value) {
+      return _then(_value.copyWith(payment: value));
+    });
   }
 }
 
 /// @nodoc
 
 class _$_LoadedState implements _LoadedState {
-  const _$_LoadedState(
-      {required this.catId,
-      required final List<AnswerPayload> answers,
-      required this.gender})
-      : _answers = answers;
+  const _$_LoadedState({required this.payment});
 
   @override
-  final int catId;
-  final List<AnswerPayload> _answers;
-  @override
-  List<AnswerPayload> get answers {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_answers);
-  }
-
-  @override
-  final String gender;
+  final PaymentDTO? payment;
 
   @override
   String toString() {
-    return 'ApplicationVerifyState.loadedState(catId: $catId, answers: $answers, gender: $gender)';
+    return 'DormCardVerifyState.loadedState(payment: $payment)';
   }
 
   @override
@@ -283,17 +265,12 @@ class _$_LoadedState implements _LoadedState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_LoadedState &&
-            const DeepCollectionEquality().equals(other.catId, catId) &&
-            const DeepCollectionEquality().equals(other._answers, _answers) &&
-            const DeepCollectionEquality().equals(other.gender, gender));
+            const DeepCollectionEquality().equals(other.payment, payment));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(catId),
-      const DeepCollectionEquality().hash(_answers),
-      const DeepCollectionEquality().hash(gender));
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(payment));
 
   @JsonKey(ignore: true)
   @override
@@ -304,39 +281,35 @@ class _$_LoadedState implements _LoadedState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialState,
-    required TResult Function(
-            int catId, List<AnswerPayload> answers, String gender)
-        loadedState,
+    required TResult Function(PaymentDTO? payment) loadedState,
     required TResult Function() loadingState,
     required TResult Function(String message) errorState,
   }) {
-    return loadedState(catId, answers, gender);
+    return loadedState(payment);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initialState,
-    TResult Function(int catId, List<AnswerPayload> answers, String gender)?
-        loadedState,
+    TResult Function(PaymentDTO? payment)? loadedState,
     TResult Function()? loadingState,
     TResult Function(String message)? errorState,
   }) {
-    return loadedState?.call(catId, answers, gender);
+    return loadedState?.call(payment);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialState,
-    TResult Function(int catId, List<AnswerPayload> answers, String gender)?
-        loadedState,
+    TResult Function(PaymentDTO? payment)? loadedState,
     TResult Function()? loadingState,
     TResult Function(String message)? errorState,
     required TResult orElse(),
   }) {
     if (loadedState != null) {
-      return loadedState(catId, answers, gender);
+      return loadedState(payment);
     }
     return orElse();
   }
@@ -379,15 +352,11 @@ class _$_LoadedState implements _LoadedState {
   }
 }
 
-abstract class _LoadedState implements ApplicationVerifyState {
-  const factory _LoadedState(
-      {required final int catId,
-      required final List<AnswerPayload> answers,
-      required final String gender}) = _$_LoadedState;
+abstract class _LoadedState implements DormCardVerifyState {
+  const factory _LoadedState({required final PaymentDTO? payment}) =
+      _$_LoadedState;
 
-  int get catId;
-  List<AnswerPayload> get answers;
-  String get gender;
+  PaymentDTO? get payment;
   @JsonKey(ignore: true)
   _$$_LoadedStateCopyWith<_$_LoadedState> get copyWith =>
       throw _privateConstructorUsedError;
@@ -402,7 +371,7 @@ abstract class _$$_LoadingStateCopyWith<$Res> {
 
 /// @nodoc
 class __$$_LoadingStateCopyWithImpl<$Res>
-    extends _$ApplicationVerifyStateCopyWithImpl<$Res>
+    extends _$DormCardVerifyStateCopyWithImpl<$Res>
     implements _$$_LoadingStateCopyWith<$Res> {
   __$$_LoadingStateCopyWithImpl(
       _$_LoadingState _value, $Res Function(_$_LoadingState) _then)
@@ -419,7 +388,7 @@ class _$_LoadingState implements _LoadingState {
 
   @override
   String toString() {
-    return 'ApplicationVerifyState.loadingState()';
+    return 'DormCardVerifyState.loadingState()';
   }
 
   @override
@@ -435,9 +404,7 @@ class _$_LoadingState implements _LoadingState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialState,
-    required TResult Function(
-            int catId, List<AnswerPayload> answers, String gender)
-        loadedState,
+    required TResult Function(PaymentDTO? payment) loadedState,
     required TResult Function() loadingState,
     required TResult Function(String message) errorState,
   }) {
@@ -448,8 +415,7 @@ class _$_LoadingState implements _LoadingState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initialState,
-    TResult Function(int catId, List<AnswerPayload> answers, String gender)?
-        loadedState,
+    TResult Function(PaymentDTO? payment)? loadedState,
     TResult Function()? loadingState,
     TResult Function(String message)? errorState,
   }) {
@@ -460,8 +426,7 @@ class _$_LoadingState implements _LoadingState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialState,
-    TResult Function(int catId, List<AnswerPayload> answers, String gender)?
-        loadedState,
+    TResult Function(PaymentDTO? payment)? loadedState,
     TResult Function()? loadingState,
     TResult Function(String message)? errorState,
     required TResult orElse(),
@@ -510,7 +475,7 @@ class _$_LoadingState implements _LoadingState {
   }
 }
 
-abstract class _LoadingState implements ApplicationVerifyState {
+abstract class _LoadingState implements DormCardVerifyState {
   const factory _LoadingState() = _$_LoadingState;
 }
 
@@ -524,7 +489,7 @@ abstract class _$$_ErrorStateCopyWith<$Res> {
 
 /// @nodoc
 class __$$_ErrorStateCopyWithImpl<$Res>
-    extends _$ApplicationVerifyStateCopyWithImpl<$Res>
+    extends _$DormCardVerifyStateCopyWithImpl<$Res>
     implements _$$_ErrorStateCopyWith<$Res> {
   __$$_ErrorStateCopyWithImpl(
       _$_ErrorState _value, $Res Function(_$_ErrorState) _then)
@@ -556,7 +521,7 @@ class _$_ErrorState implements _ErrorState {
 
   @override
   String toString() {
-    return 'ApplicationVerifyState.errorState(message: $message)';
+    return 'DormCardVerifyState.errorState(message: $message)';
   }
 
   @override
@@ -580,9 +545,7 @@ class _$_ErrorState implements _ErrorState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialState,
-    required TResult Function(
-            int catId, List<AnswerPayload> answers, String gender)
-        loadedState,
+    required TResult Function(PaymentDTO? payment) loadedState,
     required TResult Function() loadingState,
     required TResult Function(String message) errorState,
   }) {
@@ -593,8 +556,7 @@ class _$_ErrorState implements _ErrorState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initialState,
-    TResult Function(int catId, List<AnswerPayload> answers, String gender)?
-        loadedState,
+    TResult Function(PaymentDTO? payment)? loadedState,
     TResult Function()? loadingState,
     TResult Function(String message)? errorState,
   }) {
@@ -605,8 +567,7 @@ class _$_ErrorState implements _ErrorState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialState,
-    TResult Function(int catId, List<AnswerPayload> answers, String gender)?
-        loadedState,
+    TResult Function(PaymentDTO? payment)? loadedState,
     TResult Function()? loadingState,
     TResult Function(String message)? errorState,
     required TResult orElse(),
@@ -655,7 +616,7 @@ class _$_ErrorState implements _ErrorState {
   }
 }
 
-abstract class _ErrorState implements ApplicationVerifyState {
+abstract class _ErrorState implements DormCardVerifyState {
   const factory _ErrorState({required final String message}) = _$_ErrorState;
 
   String get message;

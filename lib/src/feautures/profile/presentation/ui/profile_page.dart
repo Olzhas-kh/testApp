@@ -51,10 +51,8 @@ class _ProfilePageState extends State<ProfilePage> {
                               return Center(
                                 child: CircularProgressIndicator(
                                   color: AppColors.kRedPrimary,
-                                  value: loadingProgress.expectedTotalBytes !=
-                                          null
-                                      ? loadingProgress.cumulativeBytesLoaded /
-                                          loadingProgress.expectedTotalBytes!
+                                  value: loadingProgress.expectedTotalBytes != null
+                                      ? loadingProgress.cumulativeBytesLoaded / loadingProgress.expectedTotalBytes!
                                       : null,
                                 ),
                               );

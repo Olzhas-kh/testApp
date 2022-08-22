@@ -1,5 +1,5 @@
 {
-  "@payTenge": "{\"placeholders\": {\"value\": {\"type\": \"String\" }}}",
+  "aDocumentConfirmingTheOrderHasBeenSentToYourEmail": "Сіздің поштаңызға ордерді растайтын құжат жіберілді",
   "adviser": "Эдвайзер",
   "applicationSubmission": "Өтінім беру",
   "applications": "Өтінімдер",
@@ -21,6 +21,7 @@
   "finance": "Қаржы",
   "forForeignCitizens": "Шетел азаматтары үшін",
   "frequentlyAskedQuestions": "Жиі қойылатын сұрақтар",
+  "goBackToTheMainPage": "Басты бетке оралу",
   "good": "Жақсы!",
   "gpa": "GPA",
   "helpSection": "Көмек бөлімі",
@@ -44,5 +45,6 @@
   "tenge": "тг",
   "termsOfSettlement": "Қоныстандыру мерзімі",
   "theSectionIsUnderDevelopment": "Бөлім әзірленуде",
-  "youHaveEnteredAnIncorrectUsernameOrPassword": "Сіз Қате логин немесе пароль енгіздіңіз"
+  "youHaveEnteredAnIncorrectUsernameOrPassword": "Сіз Қате логин немесе пароль енгіздіңіз",
+  "yourApplicationHasBeenSuccessfullyProcessed": "Сіздің өтініміңіз сәтті рәсімделді"
 }

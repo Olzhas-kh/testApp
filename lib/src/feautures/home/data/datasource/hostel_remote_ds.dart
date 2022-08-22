@@ -7,7 +7,9 @@ import 'package:narxoz/src/core/network/network_helper.dart';
 import 'package:narxoz/src/feautures/home/data/model/answer_payload.dart';
 import 'package:narxoz/src/feautures/home/data/model/education_dto.dart';
 import 'package:narxoz/src/feautures/home/data/model/hostel_info_dto.dart';
+import 'package:narxoz/src/feautures/home/data/model/payment_dto.dart';
 import 'package:narxoz/src/feautures/home/data/model/question_dto.dart';
+import 'package:narxoz/src/feautures/home/data/model/seats_count_dto.dart';
 
 abstract class HostelRemoteDS {
   Future<HostelInfoDTO> getInfo();
@@ -25,6 +27,18 @@ abstract class HostelRemoteDS {
   Future<String> questionsCheck({
     required int catId,
     required List<AnswerPayload> answers,
+  });
+
+  Future<SeatsCountDTO> getFreeSeatsCount({
+    required int catId,
+    required String gender,
+  });
+
+  Future<PaymentDTO?> paymentDorm({
+    required int catId,
+    required List<AnswerPayload> answers,
+    required String placementId,
+    required File? chequeFile,
   });
 }
 
@@ -112,7 +126,7 @@ class HostelRemoteDSImpl extends HostelRemoteDS {
         if (answers[i].isFile ?? false) {
         } else {
           mapp['answers[$i]'] = {
-            'question_id':  answers[i].questionID,
+            'question_id': answers[i].questionID,
             'value': answers[i].value,
           };
           // mapp['answers[$i]']['question_id'] = answers[i].questionID;
@@ -148,6 +162,96 @@ class HostelRemoteDSImpl extends HostelRemoteDS {
       } else {
         throw ServerException(message: 'questionsCheck - ${response.statusCode}');
       }
+    } on DioError catch (e) {
+      throw ServerException(
+        message: (e.response!.data as Map<String, dynamic>)['message'] as String,
+      );
+    }
+  }
+
+  @override
+  Future<SeatsCountDTO> getFreeSeatsCount({
+    required int catId,
+    required String gender,
+  }) async {
+    try {
+      final response = await dio.get(
+        EndPoints.dormPlacements(catId),
+        queryParameters: {
+          'gender': gender,
+        },
+      );
+
+      return SeatsCountDTO.fromJson(response.data as Map<String, dynamic>);
+    } on DioError catch (e) {
+      throw ServerException(
+        message: (e.response!.data as Map<String, dynamic>)['message'] as String,
+      );
+    }
+  }
+
+  @override
+  Future<PaymentDTO?> paymentDorm({
+    required int catId,
+    required List<AnswerPayload> answers,
+    required String placementId,
+    required File? chequeFile,
+  }) async {
+    try {
+      final Map<String, dynamic> mapp = {};
+
+      for (int i = 0; i < answers.length; i++) {
+        if (answers[i].isFile ?? false) {
+        } else {
+          mapp['answers[$i]'] = {
+            'question_id': answers[i].questionID,
+            'value': answers[i].value,
+          };
+        }
+      }
+
+      final FormData formData = FormData.fromMap(mapp);
+      for (int i = 0; i < answers.length; i++) {
+        if (answers[i].isFile ?? false) {
+          formData.fields.add(
+            MapEntry(
+              'answers[$i][question_id]',
+              answers[i].questionID,
+            ),
+          );
+          formData.files.add(
+            MapEntry(
+              'answers[$i][value]',
+              await MultipartFile.fromFile((answers[i].value as File).path),
+            ),
+          );
+        }
+      }
+
+      formData.fields.add(
+        MapEntry(
+          'placement_type',
+          placementId.toString(),
+        ),
+      );
+      if (chequeFile != null) {
+        formData.files.add(
+          MapEntry(
+            'cheque',
+            await MultipartFile.fromFile(chequeFile.path),
+          ),
+        );
+      }
+
+      final response = await dio.post(
+        '${EndPoints.paymentDorm}/$catId',
+        data: formData,
+      );
+
+      if (response.data == null || response.statusCode == 204) {
+        return null;
+      }
+      return PaymentDTO.fromJson(response.data as Map<String, dynamic>);
     } on DioError catch (e) {
       throw ServerException(
         message: (e.response!.data as Map<String, dynamic>)['message'] as String,
