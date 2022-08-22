@@ -7,7 +7,22 @@ mixin EndPoints {
   // orders folder
   static const dormitoriesInfo = '/dormitories/information';
   static const dormitoriesOrdersDegree = '/dormitories/orders/degrees';
+
   static String educationCategories(int id) {
     return '$dormitoriesOrdersDegree/$id/categories';
   }
+
+  static String categoryQuestions(int id) {
+    return '/dormitories/orders/categories/$id/questions';
+  }
+
+  static String categoryQuestionsCheck(int id) {
+    return '/dormitories/orders/categories/$id/questions/check';
+  }
+
+  static String dormPlacements(int id) {
+    return '/dormitories/orders/categories/$id/placements';
+  }
+
+  static const paymentDorm = '/dormitories/orders/categories';
 }

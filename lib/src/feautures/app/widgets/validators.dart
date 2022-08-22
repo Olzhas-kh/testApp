@@ -9,7 +9,7 @@ String? cityValidator(String? value) {
 
 String? notEmptyValidator(String? value) {
   if (value == null || value.isEmpty) {
-    return 'the_field_cannot_be_empty';
+    return 'Поле не может быть пустым';
   }
   return null;
 }

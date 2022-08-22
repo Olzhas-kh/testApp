@@ -1,5 +1,4 @@
 {
-  "aDocumentConfirmingTheOrderHasBeenSentToYourEmail": "A document confirming the order has been sent to your email",
   "adviser": "Adviser",
   "applicationSubmission": "Application submission",
   "applications": "Applications",
@@ -21,7 +20,6 @@
   "finance": "Finance",
   "forForeignCitizens": "For foreign citizens",
   "frequentlyAskedQuestions": "Frequently Asked Questions",
-  "goBackToTheMainPage": "Go back to the main page",
   "good": "Good!",
   "gpa": "GPA",
   "helpSection": "Help section",
@@ -53,6 +51,5 @@
   "tenge": "tenge",
   "termsOfSettlement": "Terms of settlement",
   "theSectionIsUnderDevelopment": "The section is under development",
-  "youHaveEnteredAnIncorrectUsernameOrPassword": "You have entered an incorrect username or password",
-  "yourApplicationHasBeenSuccessfullyProcessed": "Your application has been successfully processed"
+  "youHaveEnteredAnIncorrectUsernameOrPassword": "You have entered an incorrect username or password"
 }

@@ -25,6 +25,7 @@ mixin _$QuestionDTO {
   String? get displayName => throw _privateConstructorUsedError;
   @JsonKey(name: 'field_type')
   String? get fieldType => throw _privateConstructorUsedError;
+  List<OptionsDTO>? get options => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -40,7 +41,8 @@ abstract class $QuestionDTOCopyWith<$Res> {
   $Res call(
       {String id,
       @JsonKey(name: 'display_name') String? displayName,
-      @JsonKey(name: 'field_type') String? fieldType});
+      @JsonKey(name: 'field_type') String? fieldType,
+      List<OptionsDTO>? options});
 }
 
 /// @nodoc
@@ -56,6 +58,7 @@ class _$QuestionDTOCopyWithImpl<$Res> implements $QuestionDTOCopyWith<$Res> {
     Object? id = freezed,
     Object? displayName = freezed,
     Object? fieldType = freezed,
+    Object? options = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -70,6 +73,10 @@ class _$QuestionDTOCopyWithImpl<$Res> implements $QuestionDTOCopyWith<$Res> {
           ? _value.fieldType
           : fieldType // ignore: cast_nullable_to_non_nullable
               as String?,
+      options: options == freezed
+          ? _value.options
+          : options // ignore: cast_nullable_to_non_nullable
+              as List<OptionsDTO>?,
     ));
   }
 }
@@ -84,7 +91,8 @@ abstract class _$$_QuestionDTOCopyWith<$Res>
   $Res call(
       {String id,
       @JsonKey(name: 'display_name') String? displayName,
-      @JsonKey(name: 'field_type') String? fieldType});
+      @JsonKey(name: 'field_type') String? fieldType,
+      List<OptionsDTO>? options});
 }
 
 /// @nodoc
@@ -102,6 +110,7 @@ class __$$_QuestionDTOCopyWithImpl<$Res> extends _$QuestionDTOCopyWithImpl<$Res>
     Object? id = freezed,
     Object? displayName = freezed,
     Object? fieldType = freezed,
+    Object? options = freezed,
   }) {
     return _then(_$_QuestionDTO(
       id: id == freezed
@@ -116,6 +125,10 @@ class __$$_QuestionDTOCopyWithImpl<$Res> extends _$QuestionDTOCopyWithImpl<$Res>
           ? _value.fieldType
           : fieldType // ignore: cast_nullable_to_non_nullable
               as String?,
+      options: options == freezed
+          ? _value._options
+          : options // ignore: cast_nullable_to_non_nullable
+              as List<OptionsDTO>?,
     ));
   }
 }
@@ -126,7 +139,9 @@ class _$_QuestionDTO implements _QuestionDTO {
   const _$_QuestionDTO(
       {required this.id,
       @JsonKey(name: 'display_name') this.displayName,
-      @JsonKey(name: 'field_type') this.fieldType});
+      @JsonKey(name: 'field_type') this.fieldType,
+      final List<OptionsDTO>? options})
+      : _options = options;
 
   factory _$_QuestionDTO.fromJson(Map<String, dynamic> json) =>
       _$$_QuestionDTOFromJson(json);
@@ -139,10 +154,18 @@ class _$_QuestionDTO implements _QuestionDTO {
   @override
   @JsonKey(name: 'field_type')
   final String? fieldType;
+  final List<OptionsDTO>? _options;
+  @override
+  List<OptionsDTO>? get options {
+    final value = _options;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString() {
-    return 'QuestionDTO(id: $id, displayName: $displayName, fieldType: $fieldType)';
+    return 'QuestionDTO(id: $id, displayName: $displayName, fieldType: $fieldType, options: $options)';
   }
 
   @override
@@ -153,7 +176,8 @@ class _$_QuestionDTO implements _QuestionDTO {
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality()
                 .equals(other.displayName, displayName) &&
-            const DeepCollectionEquality().equals(other.fieldType, fieldType));
+            const DeepCollectionEquality().equals(other.fieldType, fieldType) &&
+            const DeepCollectionEquality().equals(other._options, _options));
   }
 
   @JsonKey(ignore: true)
@@ -162,7 +186,8 @@ class _$_QuestionDTO implements _QuestionDTO {
       runtimeType,
       const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(displayName),
-      const DeepCollectionEquality().hash(fieldType));
+      const DeepCollectionEquality().hash(fieldType),
+      const DeepCollectionEquality().hash(_options));
 
   @JsonKey(ignore: true)
   @override
@@ -181,7 +206,8 @@ abstract class _QuestionDTO implements QuestionDTO {
   const factory _QuestionDTO(
       {required final String id,
       @JsonKey(name: 'display_name') final String? displayName,
-      @JsonKey(name: 'field_type') final String? fieldType}) = _$_QuestionDTO;
+      @JsonKey(name: 'field_type') final String? fieldType,
+      final List<OptionsDTO>? options}) = _$_QuestionDTO;
 
   factory _QuestionDTO.fromJson(Map<String, dynamic> json) =
       _$_QuestionDTO.fromJson;
@@ -195,7 +221,167 @@ abstract class _QuestionDTO implements QuestionDTO {
   @JsonKey(name: 'field_type')
   String? get fieldType;
   @override
+  List<OptionsDTO>? get options;
+  @override
   @JsonKey(ignore: true)
   _$$_QuestionDTOCopyWith<_$_QuestionDTO> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+OptionsDTO _$OptionsDTOFromJson(Map<String, dynamic> json) {
+  return _OptionsDTO.fromJson(json);
+}
+
+/// @nodoc
+mixin _$OptionsDTO {
+  String get id => throw _privateConstructorUsedError;
+  @JsonKey(name: 'display_name')
+  String? get displayName => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $OptionsDTOCopyWith<OptionsDTO> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $OptionsDTOCopyWith<$Res> {
+  factory $OptionsDTOCopyWith(
+          OptionsDTO value, $Res Function(OptionsDTO) then) =
+      _$OptionsDTOCopyWithImpl<$Res>;
+  $Res call({String id, @JsonKey(name: 'display_name') String? displayName});
+}
+
+/// @nodoc
+class _$OptionsDTOCopyWithImpl<$Res> implements $OptionsDTOCopyWith<$Res> {
+  _$OptionsDTOCopyWithImpl(this._value, this._then);
+
+  final OptionsDTO _value;
+  // ignore: unused_field
+  final $Res Function(OptionsDTO) _then;
+
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? displayName = freezed,
+  }) {
+    return _then(_value.copyWith(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      displayName: displayName == freezed
+          ? _value.displayName
+          : displayName // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$$_OptionsDTOCopyWith<$Res>
+    implements $OptionsDTOCopyWith<$Res> {
+  factory _$$_OptionsDTOCopyWith(
+          _$_OptionsDTO value, $Res Function(_$_OptionsDTO) then) =
+      __$$_OptionsDTOCopyWithImpl<$Res>;
+  @override
+  $Res call({String id, @JsonKey(name: 'display_name') String? displayName});
+}
+
+/// @nodoc
+class __$$_OptionsDTOCopyWithImpl<$Res> extends _$OptionsDTOCopyWithImpl<$Res>
+    implements _$$_OptionsDTOCopyWith<$Res> {
+  __$$_OptionsDTOCopyWithImpl(
+      _$_OptionsDTO _value, $Res Function(_$_OptionsDTO) _then)
+      : super(_value, (v) => _then(v as _$_OptionsDTO));
+
+  @override
+  _$_OptionsDTO get _value => super._value as _$_OptionsDTO;
+
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? displayName = freezed,
+  }) {
+    return _then(_$_OptionsDTO(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      displayName: displayName == freezed
+          ? _value.displayName
+          : displayName // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_OptionsDTO implements _OptionsDTO {
+  const _$_OptionsDTO(
+      {required this.id, @JsonKey(name: 'display_name') this.displayName});
+
+  factory _$_OptionsDTO.fromJson(Map<String, dynamic> json) =>
+      _$$_OptionsDTOFromJson(json);
+
+  @override
+  final String id;
+  @override
+  @JsonKey(name: 'display_name')
+  final String? displayName;
+
+  @override
+  String toString() {
+    return 'OptionsDTO(id: $id, displayName: $displayName)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_OptionsDTO &&
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality()
+                .equals(other.displayName, displayName));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(displayName));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_OptionsDTOCopyWith<_$_OptionsDTO> get copyWith =>
+      __$$_OptionsDTOCopyWithImpl<_$_OptionsDTO>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_OptionsDTOToJson(
+      this,
+    );
+  }
+}
+
+abstract class _OptionsDTO implements OptionsDTO {
+  const factory _OptionsDTO(
+          {required final String id,
+          @JsonKey(name: 'display_name') final String? displayName}) =
+      _$_OptionsDTO;
+
+  factory _OptionsDTO.fromJson(Map<String, dynamic> json) =
+      _$_OptionsDTO.fromJson;
+
+  @override
+  String get id;
+  @override
+  @JsonKey(name: 'display_name')
+  String? get displayName;
+  @override
+  @JsonKey(ignore: true)
+  _$$_OptionsDTOCopyWith<_$_OptionsDTO> get copyWith =>
       throw _privateConstructorUsedError;
 }

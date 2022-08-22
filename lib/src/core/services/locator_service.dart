@@ -10,7 +10,11 @@ import 'package:narxoz/src/feautures/home/data/datasource/help_section_remote_ds
 import 'package:narxoz/src/feautures/home/data/datasource/hostel_remote_ds.dart';
 import 'package:narxoz/src/feautures/home/data/repository/help_section_repository.dart';
 import 'package:narxoz/src/feautures/home/data/repository/hostel_repository.dart';
+import 'package:narxoz/src/feautures/home/presentation/bloc/application_cubit.dart';
+import 'package:narxoz/src/feautures/home/presentation/bloc/application_verify_cubit.dart';
 import 'package:narxoz/src/feautures/home/presentation/bloc/choose_edu_cubit.dart';
+import 'package:narxoz/src/feautures/home/presentation/bloc/dorm_card_cubit.dart';
+import 'package:narxoz/src/feautures/home/presentation/bloc/dorm_card_verify_cubit.dart';
 import 'package:narxoz/src/feautures/home/presentation/bloc/help_section_cubit.dart';
 import 'package:narxoz/src/feautures/home/presentation/bloc/help_section_detail_cubit.dart';
 import 'package:narxoz/src/feautures/home/presentation/bloc/hostel_cubit.dart';
@@ -33,10 +37,10 @@ Future<void> initLocator() async {
   sl.registerFactory(() => HelpSectionDetailCubit(sl()));
   sl.registerFactory(() => HostelCubit(sl()));
   sl.registerFactory(() => ChooseEduCubit(sl()));
-  // sl.registerFactory(() => CityCubit(sl()));
-  // sl.registerFactory(() => RegionCubit(sl()));
-  // sl.registerFactory(() => CountryCubit(sl()));
-  // sl.registerFactory(() => ProfileCubit(sl()));
+  sl.registerFactory(() => ApplicationCubit(sl()));
+  sl.registerFactory(() => ApplicationVerifyCubit(sl()));
+  sl.registerFactory(() => DormCardCubit(sl()));
+  sl.registerFactory(() => DormCardVerifyCubit(sl()));
 
   ///
   ///

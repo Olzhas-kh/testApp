@@ -62,7 +62,7 @@ class DioWrapper {
         requestBody: true,
         responseBody: true,
         responseHeader: false,
-        compact: true,
+        compact: false,
       ),
       // LogInterceptor(
       //   request: true,
