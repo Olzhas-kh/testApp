@@ -1,4 +1,5 @@
 {
+  "@payTenge": "{\"placeholders\": {\"value\": {\"type\": \"String\" }}}",
   "adviser": "Эдвайзер",
   "applicationSubmission": "Өтінім беру",
   "applications": "Өтінімдер",
@@ -33,11 +34,14 @@
   "next": "Әрі қарай",
   "noteAttachSupportingDocumentsFormatPdfJpg": "Ескерту: растайтын құжаттарды тіркеңіз, пішімі: pdf, jpg",
   "numberOfAvailableSeats": "Бос орындар саны",
+  "paidEarlierAndThereIsAReceipt": "Бұрын төленген және чек бар",
   "password": "Пароль",
   "payTenge": "{value} тг төлеу",
+  "paymentPerSemester": "Семестр үшін төлем",
   "selectTheAppropriateFields": "Тиісті өрістерді таңдаңыз",
   "settlementConditions": "Тұру шарттары",
   "submitAnApplication": "Өтініш беру",
+  "tenge": "тг",
   "termsOfSettlement": "Қоныстандыру мерзімі",
   "theSectionIsUnderDevelopment": "Бөлім әзірленуде",
   "youHaveEnteredAnIncorrectUsernameOrPassword": "Сіз Қате логин немесе пароль енгіздіңіз"

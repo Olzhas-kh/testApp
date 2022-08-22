@@ -1,4 +1,5 @@
 {
+  "@payTenge": "{\"placeholders\": {\"value\": {\"type\": \"String\" }}}",
   "adviser": "Эдвайзер",
   "applicationSubmission": "Подача заявки",
   "applications": "Заявки",
@@ -33,11 +34,14 @@
   "next": "Далее",
   "noteAttachSupportingDocumentsFormatPdfJpg": "Примечание: прикрепите подтверждающие документы, формат: pdf, jpg",
   "numberOfAvailableSeats": "Количество свободных мест",
+  "paidEarlierAndThereIsAReceipt": "Оплатил ранее и есть чек",
   "password": "Пароль",
   "payTenge": "Оплатить {value} тг",
+  "paymentPerSemester": "Оплата за семестр",
   "selectTheAppropriateFields": "Выберите подходящие поля",
   "settlementConditions": "Условия заселения",
   "submitAnApplication": "Подать заявку",
+  "tenge": "тг",
   "termsOfSettlement": "Сроки заселения",
   "theSectionIsUnderDevelopment": "Раздел находится в разработке",
   "youHaveEnteredAnIncorrectUsernameOrPassword": "Вы ввели неверный логин или пароль"

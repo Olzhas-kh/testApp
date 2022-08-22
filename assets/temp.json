@@ -37,12 +37,12 @@
   "password": "Password",
   "payTenge": "Pay {value} tenge",
   "@payTenge": {
-      "description": "Pay 1000 tenge",
-      "placeholders": {
-        "value": {
-          "type": "String"
-        }
+    "description": "Pay 1000 tenge",
+    "placeholders": {
+      "value": {
+        "type": "String"
       }
+    }
   },
   "paymentPerSemester": "Payment per semester",
   "selectTheAppropriateFields": "Select the appropriate fields",

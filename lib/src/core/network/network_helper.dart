@@ -19,4 +19,8 @@ mixin EndPoints {
   static String categoryQuestionsCheck(int id) {
     return '/dormitories/orders/categories/$id/questions/check';
   }
+
+  static String dormPlacements(int id) {
+    return '/dormitories/orders/categories/$id/placements';
+  }
 }
