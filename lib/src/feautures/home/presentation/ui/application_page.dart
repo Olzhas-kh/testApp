@@ -534,6 +534,11 @@ class _ApplicationPageState extends State<ApplicationPage> {
                                                 if (controllers[i].text == 'male' || controllers[i].text == 'female') {
                                                   gender = controllers[i].text;
                                                 }
+
+                                                if (answers[i].value == null) {
+                                                  buildErrorCustomSnackBar(context, 'Не все поля заполнены');
+                                                  return;
+                                                }
                                               }
                                               log(answers.toString());
                                               BlocProvider.of<ApplicationVerifyCubit>(
