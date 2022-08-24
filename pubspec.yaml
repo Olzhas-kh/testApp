@@ -1,7 +1,7 @@
 name: narxoz
 description: A new Flutter project.
 
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -17,7 +17,7 @@ version: 1.0.0+1
 
 environment:
   sdk: ">=2.17.6"
-  flutter: ">=3.0.5" 
+  flutter: ">=3.0.5"
 
 dependencies:
   auto_route: ^5.0.0
@@ -42,6 +42,7 @@ dependencies:
   flutter_bloc: ^8.1.1
   # flutter_blurhash: ^0.7.0
   flutter_html: ^3.0.0-alpha.5 # TODO
+  flutter_launcher_icons: ^0.10.0
   # flutter_local_notifications: ^9.6.1
   flutter_localizations:
     sdk: flutter
@@ -93,7 +94,12 @@ dev_dependencies:
   lint: ^1.10.0
   # mocktail: ^0.3.0
 
-
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/narxoz_appicon.png"
+  adaptive_icon_background: "#FFFFFF"
+  adaptive_icon_foreground: "assets/images/narxoz_appicon.png"
 
 flutter:
   generate: true
@@ -105,12 +111,6 @@ flutter:
     - assets/lotties/
     - assets/temp/
     # - assets/translations/
-
-  # An image asset can refer to one or more resolution-specific "variants", see
-  # https://flutter.dev/assets-and-images/#resolution-aware
-
-  # For details regarding adding assets from package dependencies, see
-  # https://flutter.dev/assets-and-images/#from-packages
 
   fonts:
     - family: Rubik
