@@ -25,4 +25,8 @@ mixin EndPoints {
   }
 
   static const paymentDorm = '/dormitories/orders/categories';
+
+  static const login = '/auth/login';
+  static const profile = '/user/account/profile';
+  static const logout = '/user/logout';
 }
