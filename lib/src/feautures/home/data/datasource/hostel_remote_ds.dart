@@ -231,7 +231,7 @@ class HostelRemoteDSImpl extends HostelRemoteDS {
       formData.fields.add(
         MapEntry(
           'placement_type',
-          placementId.toString(),
+          placementId,
         ),
       );
       if (chequeFile != null) {

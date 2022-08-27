@@ -21,6 +21,10 @@ class _$AppRouter extends RootStackRouter {
       return MaterialPageX<dynamic>(
           routeData: routeData, child: const Launcher());
     },
+    CanvasPageRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+          routeData: routeData, child: const CanvasPage());
+    },
     WebRequestsPageRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
           routeData: routeData, child: const WebRequestsPage());
@@ -127,6 +131,7 @@ class _$AppRouter extends RootStackRouter {
           RouteConfig(ProfilePageRoute.name,
               path: 'profile-page', parent: LauncherRoute.name)
         ]),
+        RouteConfig(CanvasPageRoute.name, path: '/canvas-page'),
         RouteConfig(WebRequestsPageRoute.name, path: '/web-requests-page'),
         RouteConfig(SuccessPageRoute.name, path: '/success-page'),
         RouteConfig(PaymentPageRoute.name, path: '/payment-page')
@@ -140,6 +145,14 @@ class LauncherRoute extends PageRouteInfo<void> {
       : super(LauncherRoute.name, path: '/', initialChildren: children);
 
   static const String name = 'LauncherRoute';
+}
+
+/// generated route for
+/// [CanvasPage]
+class CanvasPageRoute extends PageRouteInfo<void> {
+  const CanvasPageRoute() : super(CanvasPageRoute.name, path: '/canvas-page');
+
+  static const String name = 'CanvasPageRoute';
 }
 
 /// generated route for

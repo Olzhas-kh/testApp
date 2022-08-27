@@ -101,7 +101,7 @@ class _BaseState extends State<Base> {
               // log('Before ontap ${context.router.stack}', name: _tag);
 
               if (tabsRouter.activeIndex == index) {
-                log('${tabsRouter.canPopSelfOrChildren}');
+                // log('${tabsRouter.canPopSelfOrChildren}');
                 tabsRouter.popTop();
                 // context.router.popUntilRoot();
                 // context

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:narxoz/src/core/extension/extensions.dart';
 import 'package:narxoz/src/core/resources/resources.dart';
 import 'package:narxoz/src/feautures/app/router/app_router.dart';
-import 'package:narxoz/src/feautures/home/presentation/ui/help_section/mock_help_section.dart';
+import 'package:narxoz/src/feautures/home/presentation/ui/hostel/help_section/mock_help_section.dart';
 
 class AcceptPrivacyWidget extends StatefulWidget {
   final bool isAcceptedPrivacy;
