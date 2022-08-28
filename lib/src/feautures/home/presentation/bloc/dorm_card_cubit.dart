@@ -1,7 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:narxoz/src/core/error/failure.dart';
-import 'package:narxoz/src/feautures/home/data/model/seats_count_dto.dart';
+import 'package:narxoz/src/feautures/home/data/model/payment_dto.dart';
 import 'package:narxoz/src/feautures/home/data/repository/hostel_repository.dart';
 
 part 'dorm_card_cubit.freezed.dart';
@@ -15,26 +17,28 @@ class DormCardCubit extends Cubit<DormCardState> {
   ) : super(const DormCardState.initialState());
   final HostelRepository _hostelRepository;
 
-  // Future<void> getFreeSeatsCount({
-  //   required int catId,
-  //   required String gender,
-  // }) async {
-  //   emit(const DormCardState.loadingState());
+  Future<void> paymentDorm({
+    required int orderId,
+    File? file,
+  }) async {
+    emit(const DormCardState.loadingState());
 
-  //   final result = await _hostelRepository.getFreeSeatsCount(
-  //     catId: catId,
-  //     gender: gender,
-  //   );
+    final result = await _hostelRepository.paymentDorm(
+      orderId: orderId,
+      chequeFile: file,
+    );
 
-  //   result.fold(
-  //     (l) {
-  //       emit(DormCardState.errorState(message: mapFailureToMessage(l)));
-  //     },
-  //     (r) {
-  //       emit(DormCardState.loadedState(seatsCount: r));
-  //     },
-  //   );
-  // }
+    result.fold(
+      (l) async {
+        emit(DormCardState.errorState(message: mapFailureToMessage(l)));
+        await Future.delayed(const Duration(milliseconds: 1500));
+        emit(const DormCardState.initialState());
+      },
+      (r) {
+        emit(DormCardState.loadedState(payment: r));
+      },
+    );
+  }
 
   // @override
   // void onChange(Change<LanguageState> change) {
@@ -48,7 +52,7 @@ class DormCardState with _$DormCardState {
   const factory DormCardState.initialState() = _InitialState;
 
   const factory DormCardState.loadedState({
-    required SeatsCountDTO seatsCount,
+    required PaymentDTO? payment,
   }) = _LoadedState;
 
   const factory DormCardState.loadingState() = _LoadingState;

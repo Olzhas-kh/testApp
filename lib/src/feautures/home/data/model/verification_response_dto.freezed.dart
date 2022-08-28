@@ -225,6 +225,7 @@ ArendatorDTO _$ArendatorDTOFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ArendatorDTO {
+  @JsonKey(name: 'fullname')
   String? get fullName => throw _privateConstructorUsedError;
   int? get amount => throw _privateConstructorUsedError;
 
@@ -239,7 +240,7 @@ abstract class $ArendatorDTOCopyWith<$Res> {
   factory $ArendatorDTOCopyWith(
           ArendatorDTO value, $Res Function(ArendatorDTO) then) =
       _$ArendatorDTOCopyWithImpl<$Res>;
-  $Res call({String? fullName, int? amount});
+  $Res call({@JsonKey(name: 'fullname') String? fullName, int? amount});
 }
 
 /// @nodoc
@@ -275,7 +276,7 @@ abstract class _$$_ArendatorDTOCopyWith<$Res>
           _$_ArendatorDTO value, $Res Function(_$_ArendatorDTO) then) =
       __$$_ArendatorDTOCopyWithImpl<$Res>;
   @override
-  $Res call({String? fullName, int? amount});
+  $Res call({@JsonKey(name: 'fullname') String? fullName, int? amount});
 }
 
 /// @nodoc
@@ -310,12 +311,14 @@ class __$$_ArendatorDTOCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_ArendatorDTO implements _ArendatorDTO {
-  const _$_ArendatorDTO({this.fullName, this.amount});
+  const _$_ArendatorDTO(
+      {@JsonKey(name: 'fullname') this.fullName, this.amount});
 
   factory _$_ArendatorDTO.fromJson(Map<String, dynamic> json) =>
       _$$_ArendatorDTOFromJson(json);
 
   @override
+  @JsonKey(name: 'fullname')
   final String? fullName;
   @override
   final int? amount;
@@ -355,13 +358,15 @@ class _$_ArendatorDTO implements _ArendatorDTO {
 }
 
 abstract class _ArendatorDTO implements ArendatorDTO {
-  const factory _ArendatorDTO({final String? fullName, final int? amount}) =
-      _$_ArendatorDTO;
+  const factory _ArendatorDTO(
+      {@JsonKey(name: 'fullname') final String? fullName,
+      final int? amount}) = _$_ArendatorDTO;
 
   factory _ArendatorDTO.fromJson(Map<String, dynamic> json) =
       _$_ArendatorDTO.fromJson;
 
   @override
+  @JsonKey(name: 'fullname')
   String? get fullName;
   @override
   int? get amount;

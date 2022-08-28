@@ -44,7 +44,12 @@ class _MyApplicationPageState extends State<MyApplicationPage> {
                   context.loaderOverlay.hide();
 
                   if (verificationResponse.paymentStatus ?? false) {
-                    context.router.push(DormCardPageRoute(orderId: orderId));
+                    context.router.push(
+                      PreparationPaymentRoute(
+                        orderId: orderId,
+                        verificationResponse: verificationResponse,
+                      ),
+                    );
                   } else {
                     showDialog<String>(
                       context: context,

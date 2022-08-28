@@ -92,11 +92,14 @@ class _$AppRouter extends RootStackRouter {
           routeData: routeData,
           child: ApplicationPage(key: args.key, catId: args.catId));
     },
-    DormCardPageRoute.name: (routeData) {
-      final args = routeData.argsAs<DormCardPageRouteArgs>();
+    PreparationPaymentRoute.name: (routeData) {
+      final args = routeData.argsAs<PreparationPaymentRouteArgs>();
       return MaterialPageX<dynamic>(
           routeData: routeData,
-          child: DormCardPage(orderId: args.orderId, key: args.key));
+          child: PreparationPayment(
+              verificationResponse: args.verificationResponse,
+              orderId: args.orderId,
+              key: args.key));
     },
     MyApplicationPageRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
@@ -130,8 +133,8 @@ class _$AppRouter extends RootStackRouter {
                     path: 'choose-edu-page', parent: BaseHomeRouter.name),
                 RouteConfig(ApplicationPageRoute.name,
                     path: 'application-page', parent: BaseHomeRouter.name),
-                RouteConfig(DormCardPageRoute.name,
-                    path: 'dorm-card-page', parent: BaseHomeRouter.name),
+                RouteConfig(PreparationPaymentRoute.name,
+                    path: 'preparation-payment', parent: BaseHomeRouter.name),
                 RouteConfig(MyApplicationPageRoute.name,
                     path: 'my-application-page', parent: BaseHomeRouter.name),
                 RouteConfig(SettlementConditionsPageRoute.name,
@@ -371,18 +374,28 @@ class ApplicationPageRouteArgs {
 }
 
 /// generated route for
-/// [DormCardPage]
-class DormCardPageRoute extends PageRouteInfo<DormCardPageRouteArgs> {
-  DormCardPageRoute({required int orderId, Key? key})
-      : super(DormCardPageRoute.name,
-            path: 'dorm-card-page',
-            args: DormCardPageRouteArgs(orderId: orderId, key: key));
+/// [PreparationPayment]
+class PreparationPaymentRoute
+    extends PageRouteInfo<PreparationPaymentRouteArgs> {
+  PreparationPaymentRoute(
+      {required VerificationResponseDTO verificationResponse,
+      required int orderId,
+      Key? key})
+      : super(PreparationPaymentRoute.name,
+            path: 'preparation-payment',
+            args: PreparationPaymentRouteArgs(
+                verificationResponse: verificationResponse,
+                orderId: orderId,
+                key: key));
 
-  static const String name = 'DormCardPageRoute';
+  static const String name = 'PreparationPaymentRoute';
 }
 
-class DormCardPageRouteArgs {
-  const DormCardPageRouteArgs({required this.orderId, this.key});
+class PreparationPaymentRouteArgs {
+  const PreparationPaymentRouteArgs(
+      {required this.verificationResponse, required this.orderId, this.key});
+
+  final VerificationResponseDTO verificationResponse;
 
   final int orderId;
 
@@ -390,7 +403,7 @@ class DormCardPageRouteArgs {
 
   @override
   String toString() {
-    return 'DormCardPageRouteArgs{orderId: $orderId, key: $key}';
+    return 'PreparationPaymentRouteArgs{verificationResponse: $verificationResponse, orderId: $orderId, key: $key}';
   }
 }
 

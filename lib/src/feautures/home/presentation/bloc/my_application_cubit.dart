@@ -25,8 +25,10 @@ class MyApplicationCubit extends Cubit<MyApplicationState> {
     );
 
     result.fold(
-      (l) {
+      (l) async {
         emit(MyApplicationState.errorState(message: mapFailureToMessage(l)));
+        await Future.delayed(const Duration(milliseconds: 1500));
+        emit(const MyApplicationState.initialState());
       },
       (r) {
         emit(

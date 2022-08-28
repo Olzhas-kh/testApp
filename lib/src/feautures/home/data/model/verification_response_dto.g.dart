@@ -26,12 +26,12 @@ Map<String, dynamic> _$$_VerificationResponseDTOToJson(
 
 _$_ArendatorDTO _$$_ArendatorDTOFromJson(Map<String, dynamic> json) =>
     _$_ArendatorDTO(
-      fullName: json['fullName'] as String?,
+      fullName: json['fullname'] as String?,
       amount: json['amount'] as int?,
     );
 
 Map<String, dynamic> _$$_ArendatorDTOToJson(_$_ArendatorDTO instance) =>
     <String, dynamic>{
-      'fullName': instance.fullName,
+      'fullname': instance.fullName,
       'amount': instance.amount,
     };

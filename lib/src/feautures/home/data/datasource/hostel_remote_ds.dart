@@ -9,7 +9,6 @@ import 'package:narxoz/src/feautures/home/data/model/education_dto.dart';
 import 'package:narxoz/src/feautures/home/data/model/hostel_info_dto.dart';
 import 'package:narxoz/src/feautures/home/data/model/payment_dto.dart';
 import 'package:narxoz/src/feautures/home/data/model/question_dto.dart';
-import 'package:narxoz/src/feautures/home/data/model/seats_count_dto.dart';
 import 'package:narxoz/src/feautures/home/data/model/verification_response_dto.dart';
 
 abstract class HostelRemoteDS {
@@ -199,7 +198,7 @@ class HostelRemoteDSImpl extends HostelRemoteDS {
     required File? chequeFile,
   }) async {
     try {
-      final Map<String, dynamic> mapp = {};
+      // final Map<String, dynamic> mapp = {};
 
       // for (int i = 0; i < answers.length; i++) {
       //   if (answers[i].isFile ?? false) {
@@ -211,7 +210,7 @@ class HostelRemoteDSImpl extends HostelRemoteDS {
       //   }
       // }
 
-      final FormData formData = FormData.fromMap(mapp);
+      final FormData formData = FormData.fromMap({});
       // for (int i = 0; i < answers.length; i++) {
       //   if (answers[i].isFile ?? false) {
       //     formData.fields.add(

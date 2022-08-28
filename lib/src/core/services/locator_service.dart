@@ -17,7 +17,6 @@ import 'package:narxoz/src/feautures/home/presentation/bloc/application_cubit.da
 import 'package:narxoz/src/feautures/home/presentation/bloc/application_verify_cubit.dart';
 import 'package:narxoz/src/feautures/home/presentation/bloc/choose_edu_cubit.dart';
 import 'package:narxoz/src/feautures/home/presentation/bloc/dorm_card_cubit.dart';
-import 'package:narxoz/src/feautures/home/presentation/bloc/dorm_card_verify_cubit.dart';
 import 'package:narxoz/src/feautures/home/presentation/bloc/help_section_cubit.dart';
 import 'package:narxoz/src/feautures/home/presentation/bloc/help_section_detail_cubit.dart';
 import 'package:narxoz/src/feautures/home/presentation/bloc/hostel_cubit.dart';
@@ -47,7 +46,7 @@ Future<void> initLocator() async {
   sl.registerFactory(() => MyApplicationCubit(sl()));
   sl.registerFactory(() => ApplicationVerifyCubit(sl()));
   sl.registerFactory(() => DormCardCubit(sl()));
-  sl.registerFactory(() => DormCardVerifyCubit(sl()));
+  // sl.registerFactory(() => DormCardVerifyCubit(sl()));
   sl.registerFactory(() => ProfileCubit(sl()));
 
   ///

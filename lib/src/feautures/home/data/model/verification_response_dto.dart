@@ -19,7 +19,7 @@ class VerificationResponseDTO with _$VerificationResponseDTO {
 @freezed
 class ArendatorDTO with _$ArendatorDTO {
   const factory ArendatorDTO({
-    String? fullName,
+    @JsonKey(name: 'fullname') String? fullName,
     int? amount,
   }) = _ArendatorDTO;
 
