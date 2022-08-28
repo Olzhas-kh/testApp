@@ -3,13 +3,13 @@ import 'package:narxoz/src/core/resources/resources.dart';
 
 class ApplicationCard extends StatelessWidget {
   final String title;
-  final String body;
+  final String? body;
   final String? titleContent;
   final void Function()? onTap;
   const ApplicationCard({
     super.key,
     required this.title,
-    required this.body,
+    this.body,
     this.titleContent,
     this.onTap,
   });
@@ -50,7 +50,7 @@ class ApplicationCard extends StatelessWidget {
                           children: [
                             Text(
                               title,
-                              style: AppTextStyles.gilroy20w600Red,
+                              style: AppTextStyles.gilroy20w500Red,
                             ),
                             if (titleContent != null) const SizedBox(height: 10),
                             if (titleContent != null)
@@ -69,16 +69,17 @@ class ApplicationCard extends StatelessWidget {
                   ),
                 ),
               ),
-              Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 18,
-                  vertical: 10,
+              if (body != null)
+                Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 18,
+                    vertical: 10,
+                  ),
+                  child: Text(
+                    body!,
+                    style: AppTextStyles.gilroy15w600White,
+                  ),
                 ),
-                child: Text(
-                  body,
-                  style: AppTextStyles.gilroy15w600White,
-                ),
-              ),
             ],
           ),
         ),

@@ -58,18 +58,16 @@ class _ApplicationPageState extends State<ChooseEduPage> {
                           itemBuilder: (context, index) {
                             return ApplicationCard(
                               title: '${degrees[index].name}',
-                              body:
-                                  '${context.appLocale.numberOfAvailableSeats}: ${degrees[index].availableSeatsCount}',
+                              // body:
+                              //     '${context.appLocale.numberOfAvailableSeats}: ${degrees[index].availableSeatsCount}',
                               onTap: () {
-                                BlocProvider.of<ChooseEduCubit>(context)
-                                    .getEducationCategories(
+                                BlocProvider.of<ChooseEduCubit>(context).getEducationCategories(
                                   degreeId: degrees[index].id,
                                 );
                               },
                             );
                           },
-                          separatorBuilder: (context, index) =>
-                              const SizedBox(height: 30),
+                          separatorBuilder: (context, index) => const SizedBox(height: 30),
                         );
                       },
                       categoriesState: (List<EducationDTO> categories) {
@@ -78,11 +76,19 @@ class _ApplicationPageState extends State<ChooseEduPage> {
                           itemBuilder: (context, index) {
                             return ApplicationCard(
                               title: '${categories[index].name}',
-                              titleContent: '${categories[index].description}',
-                              body:
-                                  '${context.appLocale.numberOfAvailableSeats}: ${categories[index].availableSeatsCount}\n'
-                                  '${context.appLocale.location}: ${categories[index].dormitoryName}',
+                              titleContent:
+                                  categories[index].description == null || categories[index].description!.isEmpty
+                                      ? null
+                                      : categories[index].description,
+                              body: '${context.appLocale.location}: ${categories[index].dormitoryName}'
+                                  '${categories[index].availableSeatsCount == null || categories[index].availableSeatsCount == 0 ? '\n${context.appLocale.thereAreNoSeats}' : ""}',
                               onTap: () {
+                                if (categories[index].availableSeatsCount == null ||
+                                    categories[index].availableSeatsCount == 0) {
+                                  buildErrorCustomSnackBar(context, context.appLocale.thereAreNoSeats);
+                                  return;
+                                }
+
                                 context.router.push(
                                   ApplicationPageRoute(
                                     catId: categories[index].id,
@@ -91,8 +97,7 @@ class _ApplicationPageState extends State<ChooseEduPage> {
                               },
                             );
                           },
-                          separatorBuilder: (context, index) =>
-                              const SizedBox(height: 30),
+                          separatorBuilder: (context, index) => const SizedBox(height: 30),
                         );
                       },
                       orElse: () {

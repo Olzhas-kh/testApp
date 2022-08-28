@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:loader_overlay/loader_overlay.dart';
-import 'package:lottie/lottie.dart';
 import 'package:narxoz/src/core/extension/extensions.dart';
 import 'package:narxoz/src/core/resources/resources.dart';
 import 'package:narxoz/src/feautures/app/bloc/app_bloc.dart';
 import 'package:narxoz/src/feautures/app/widgets/custom/custom_button.dart';
 import 'package:narxoz/src/feautures/app/widgets/custom/custom_loading_widget.dart';
-import 'package:narxoz/src/feautures/app/widgets/custom/custom_snackbars.dart';
 import 'package:narxoz/src/feautures/app/widgets/custom/custom_textfield.dart';
 import 'package:narxoz/src/feautures/app/widgets/custom/scroll_wrapper.dart';
 import 'package:narxoz/src/feautures/app/widgets/validators.dart';
@@ -70,24 +68,10 @@ class _SignInPageState extends State<SignInPage> {
                         ),
                         const Spacer(flex: 2),
                         CustomTextField(
-                          // suffixIcon: IconButton(
-                          //   icon: Icon(
-                          //     _passwordVisible
-                          //         ? Icons.visibility
-                          //         : Icons.visibility_off,
-                          //     color: AppColors.kGray1,
-                          //   ),
-                          //   onPressed: () {
-                          //     setState(() {
-                          //       _passwordVisible = !_passwordVisible;
-                          //     });
-                          //   },
-                          // ),
-                          // isVisible: _passwordVisible,
                           controller: loginController,
-                          hintText: context.appLocale.enterLogin, //'enter_login',
+                          hintText: context.appLocale.enterLogin,
                           maxLines: 1,
-                          validator: passwordRepeatValidator,
+                          validator: notEmptyValidator,
                           borderRadius: 12,
                         ),
                         const SizedBox(height: 20),
