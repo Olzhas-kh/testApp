@@ -1,4 +1,12 @@
 {
+  "@payTenge": {
+    "description": "Pay 1000 tenge",
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
   "aDocumentConfirmingTheOrderHasBeenSentToYourEmail": "На вашу почту отправлен документ подтверждающий ордер",
   "adviser": "Эдвайзер",
   "applicationSubmission": "Подача заявки",
@@ -14,6 +22,7 @@
   "development": "Разработка",
   "documents": "Документы",
   "dormCard": "Карта общежития",
+  "email": "Почта",
   "enter": "Войти",
   "enterLogin": "Введите логин",
   "enterPassword": "Введите пароль",
@@ -26,34 +35,30 @@
   "gpa": "GPA",
   "helpSection": "Раздел помощи",
   "hostel": "Общежитие",
+  "iin": "ИИН",
   "imageError": "Ошибка изображения",
   "jobOpenings": "Вакансии",
   "library": "Библиотека",
   "location": "Расположение",
-  "login": "Логин",
   "logOutOfAccount": "Выйти из учетной записи",
+  "login": "Логин",
   "maximumFileSize": "Максимальный размер файла",
   "next": "Далее",
+  "notSpecified": "Не указано",
   "noteAttachSupportingDocumentsFormatPdfJpg": "Примечание: прикрепите подтверждающие документы, формат: pdf, jpg",
   "numberOfAvailableSeats": "Количество свободных мест",
   "paidEarlierAndThereIsAReceipt": "Оплатил ранее и есть чек",
   "password": "Пароль",
   "payTenge": "Оплатить {value} тг",
-  "@payTenge": {
-    "description": "Pay 1000 tenge",
-    "placeholders": {
-      "value": {
-        "type": "String"
-      }
-    }
-  },
   "paymentPerSemester": "Оплата за семестр",
+  "phoneNumber": "Номер телефона",
   "selectTheAppropriateFields": "Выберите подходящие поля",
   "settlementConditions": "Условия заселения",
   "submitAnApplication": "Подать заявку",
   "tenge": "тг",
   "termsOfSettlement": "Сроки заселения",
   "theSectionIsUnderDevelopment": "Раздел находится в разработке",
+  "typeOfGrant": "Тип гранта",
   "youHaveEnteredAnIncorrectUsernameOrPassword": "Вы ввели неверный логин или пароль",
   "yourApplicationHasBeenSuccessfullyProcessed": "Ваша заявка успешно оформлена"
 }

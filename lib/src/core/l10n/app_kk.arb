@@ -1,4 +1,12 @@
 {
+  "@payTenge": {
+    "description": "Pay 1000 tenge",
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
   "aDocumentConfirmingTheOrderHasBeenSentToYourEmail": "Сіздің поштаңызға ордерді растайтын құжат жіберілді",
   "adviser": "Эдвайзер",
   "applicationSubmission": "Өтінім беру",
@@ -14,6 +22,7 @@
   "development": "Әзірлеу",
   "documents": "Құжаттар",
   "dormCard": "Жатақхана картасы",
+  "email": "Пошта",
   "enter": "Кіру",
   "enterLogin": "Логинді енгізіңіз",
   "enterPassword": "Құпия сөзді енгізіңіз",
@@ -26,34 +35,30 @@
   "gpa": "GPA",
   "helpSection": "Көмек бөлімі",
   "hostel": "Жатақхана",
+  "iin": "ЖСН",
   "imageError": "Сурет қатесі",
   "jobOpenings": "Бос орындар",
   "library": "Кітапхана",
   "location": "Орналасуы",
-  "login": "Логин",
   "logOutOfAccount": "Аккаунттан шығу",
+  "login": "Логин",
   "maximumFileSize": "Максималды файл өлшемі",
   "next": "Әрі қарай",
+  "notSpecified": "Көрсетілмеген",
   "noteAttachSupportingDocumentsFormatPdfJpg": "Ескерту: растайтын құжаттарды тіркеңіз, пішімі: pdf, jpg",
   "numberOfAvailableSeats": "Бос орындар саны",
   "paidEarlierAndThereIsAReceipt": "Бұрын төленген және чек бар",
   "password": "Пароль",
   "payTenge": "{value} тг төлеу",
-  "@payTenge": {
-    "description": "Pay 1000 tenge",
-    "placeholders": {
-      "value": {
-        "type": "String"
-      }
-    }
-  },
   "paymentPerSemester": "Семестр үшін төлем",
+  "phoneNumber": "Телефон нөмірі",
   "selectTheAppropriateFields": "Тиісті өрістерді таңдаңыз",
   "settlementConditions": "Тұру шарттары",
   "submitAnApplication": "Өтініш беру",
   "tenge": "тг",
   "termsOfSettlement": "Қоныстандыру мерзімі",
   "theSectionIsUnderDevelopment": "Бөлім әзірленуде",
+  "typeOfGrant": "Грант түрі",
   "youHaveEnteredAnIncorrectUsernameOrPassword": "Сіз Қате логин немесе пароль енгіздіңіз",
   "yourApplicationHasBeenSuccessfullyProcessed": "Сіздің өтініміңіз сәтті рәсімделді"
 }

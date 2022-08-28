@@ -12,6 +12,7 @@ import 'package:narxoz/src/feautures/home/presentation/bloc/dorm_card_verify_cub
 import 'package:narxoz/src/feautures/home/presentation/bloc/help_section_cubit.dart';
 import 'package:narxoz/src/feautures/home/presentation/bloc/help_section_detail_cubit.dart';
 import 'package:narxoz/src/feautures/home/presentation/bloc/hostel_cubit.dart';
+import 'package:narxoz/src/feautures/profile/presentation/bloc/profile_cubit.dart';
 import 'package:provider/provider.dart';
 
 class MultiblocWrapper extends StatelessWidget {
@@ -60,6 +61,9 @@ class MultiblocWrapper extends StatelessWidget {
           ),
           BlocProvider<DormCardVerifyCubit>(
             create: (_) => sl<DormCardVerifyCubit>(),
+          ),
+          BlocProvider<ProfileCubit>(
+            create: (_) => sl<ProfileCubit>(),
           ),
         ],
         child: child,

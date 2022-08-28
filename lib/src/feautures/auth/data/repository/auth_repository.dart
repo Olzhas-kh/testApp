@@ -23,6 +23,10 @@ abstract class AuthRepository {
     required String login,
     required String password,
   });
+
+  Future<Either<Failure, UserDTO>> getUserFromCache();
+
+  Future<Either<Failure, UserDTO>> getUserFromBack();
 }
 
 class AuthRepositoryImpl extends AuthRepository {
@@ -98,6 +102,38 @@ class AuthRepositoryImpl extends AuthRepository {
       }
     } else {
       return Left(ServerFailure(message: NO_INTERNET_TEXT));
+    }
+  }
+
+  @override
+  Future<Either<Failure, UserDTO>> getUserFromBack() async {
+    if (await networkInfo.isConnected) {
+      try {
+        final UserDTO? localUser = localDS.getUserFromCacheNull();
+
+        if (localUser == null && localUser!.token == null) {
+          return Left(CacheFailure(message: 'Token not found! You must re-log in!'));
+        }
+
+        final UserDTO user = await remoteDS.getProfile();
+
+        return Right(user.copyWith(token: localUser.token));
+      } on ServerException catch (e) {
+        return Left(ServerFailure(message: e.message));
+      }
+    } else {
+      return Left(ServerFailure(message: NO_INTERNET_TEXT));
+    }
+  }
+
+  @override
+  Future<Either<Failure, UserDTO>> getUserFromCache() async {
+    try {
+      final user = await localDS.getUserFromCache();
+
+      return Right(user);
+    } on CacheException catch (e) {
+      return Left(CacheFailure(message: e.message));
     }
   }
 }

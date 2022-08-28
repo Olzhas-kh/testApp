@@ -21,6 +21,7 @@ import 'package:narxoz/src/feautures/home/presentation/bloc/dorm_card_verify_cub
 import 'package:narxoz/src/feautures/home/presentation/bloc/help_section_cubit.dart';
 import 'package:narxoz/src/feautures/home/presentation/bloc/help_section_detail_cubit.dart';
 import 'package:narxoz/src/feautures/home/presentation/bloc/hostel_cubit.dart';
+import 'package:narxoz/src/feautures/profile/presentation/bloc/profile_cubit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 final sl = GetIt.instance;
@@ -45,6 +46,7 @@ Future<void> initLocator() async {
   sl.registerFactory(() => ApplicationVerifyCubit(sl()));
   sl.registerFactory(() => DormCardCubit(sl()));
   sl.registerFactory(() => DormCardVerifyCubit(sl()));
+  sl.registerFactory(() => ProfileCubit(sl()));
 
   ///
   ///
