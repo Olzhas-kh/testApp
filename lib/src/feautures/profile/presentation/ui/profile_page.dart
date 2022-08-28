@@ -1,6 +1,4 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:narxoz/src/core/extension/extensions.dart';
 import 'package:narxoz/src/core/resources/resources.dart';
 import 'package:narxoz/src/feautures/app/presentation/base_appbar.dart';
 
@@ -32,41 +30,45 @@ class _ProfilePageState extends State<ProfilePage> {
                         height: 154,
                         width: 154,
                         decoration: const BoxDecoration(
-                          color: Colors.green,
+                          // color: Colors.green,
                           // borderRadius: BorderRadius.circular(100),
                           shape: BoxShape.circle,
                         ),
                         // alignment: Alignment.center,
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(100),
-                          child: Image.network(
-                            'https://pbs.twimg.com/media/FJ96vOQWUAwbIah?format=jpg&name=large',
+                          child: Image.asset(
+                            'assets/images/profile.png',
                             fit: BoxFit.cover,
-                            // width: 154,
-                            // height: 154,
-                            loadingBuilder: (context, child, loadingProgress) {
-                              if (loadingProgress == null) {
-                                return child;
-                              }
-                              return Center(
-                                child: CircularProgressIndicator(
-                                  color: AppColors.kRedPrimary,
-                                  value: loadingProgress.expectedTotalBytes != null
-                                      ? loadingProgress.cumulativeBytesLoaded / loadingProgress.expectedTotalBytes!
-                                      : null,
-                                ),
-                              );
-                            },
-                            errorBuilder: (
-                              BuildContext context,
-                              Object exception,
-                              StackTrace? stackTrace,
-                            ) {
-                              return Center(
-                                child: Text(context.appLocale.imageError),
-                              );
-                            },
                           ),
+                          // child: Image.network(
+                          //   'https://pbs.twimg.com/media/FJ96vOQWUAwbIah?format=jpg&name=large',
+                          //   fit: BoxFit.cover,
+                          //   // width: 154,
+                          //   // height: 154,
+                          //   loadingBuilder: (context, child, loadingProgress) {
+                          //     if (loadingProgress == null) {
+                          //       return child;
+                          //     }
+                          //     return Center(
+                          //       child: CircularProgressIndicator(
+                          //         color: AppColors.kRedPrimary,
+                          //         value: loadingProgress.expectedTotalBytes != null
+                          //             ? loadingProgress.cumulativeBytesLoaded / loadingProgress.expectedTotalBytes!
+                          //             : null,
+                          //       ),
+                          //     );
+                          //   },
+                          //   errorBuilder: (
+                          //     BuildContext context,
+                          //     Object exception,
+                          //     StackTrace? stackTrace,
+                          //   ) {
+                          //     return Center(
+                          //       child: Text(context.appLocale.imageError),
+                          //     );
+                          //   },
+                          // ),
                         ),
                       ),
                       const Spacer(),
