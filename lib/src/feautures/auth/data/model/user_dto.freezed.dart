@@ -33,6 +33,7 @@ mixin _$UserDTO {
   String? get address => throw _privateConstructorUsedError;
   @JsonKey(name: 'postal_code')
   dynamic get postCode => throw _privateConstructorUsedError;
+  String? get token => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -52,7 +53,8 @@ abstract class $UserDTOCopyWith<$Res> {
       dynamic telephone,
       dynamic country,
       String? address,
-      @JsonKey(name: 'postal_code') dynamic postCode});
+      @JsonKey(name: 'postal_code') dynamic postCode,
+      String? token});
 }
 
 /// @nodoc
@@ -74,6 +76,7 @@ class _$UserDTOCopyWithImpl<$Res> implements $UserDTOCopyWith<$Res> {
     Object? country = freezed,
     Object? address = freezed,
     Object? postCode = freezed,
+    Object? token = freezed,
   }) {
     return _then(_value.copyWith(
       firstName: firstName == freezed
@@ -112,6 +115,10 @@ class _$UserDTOCopyWithImpl<$Res> implements $UserDTOCopyWith<$Res> {
           ? _value.postCode
           : postCode // ignore: cast_nullable_to_non_nullable
               as dynamic,
+      token: token == freezed
+          ? _value.token
+          : token // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -131,7 +138,8 @@ abstract class _$$_UserDTOCopyWith<$Res> implements $UserDTOCopyWith<$Res> {
       dynamic telephone,
       dynamic country,
       String? address,
-      @JsonKey(name: 'postal_code') dynamic postCode});
+      @JsonKey(name: 'postal_code') dynamic postCode,
+      String? token});
 }
 
 /// @nodoc
@@ -154,6 +162,7 @@ class __$$_UserDTOCopyWithImpl<$Res> extends _$UserDTOCopyWithImpl<$Res>
     Object? country = freezed,
     Object? address = freezed,
     Object? postCode = freezed,
+    Object? token = freezed,
   }) {
     return _then(_$_UserDTO(
       firstName: firstName == freezed
@@ -192,6 +201,10 @@ class __$$_UserDTOCopyWithImpl<$Res> extends _$UserDTOCopyWithImpl<$Res>
           ? _value.postCode
           : postCode // ignore: cast_nullable_to_non_nullable
               as dynamic,
+      token: token == freezed
+          ? _value.token
+          : token // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -208,7 +221,8 @@ class _$_UserDTO implements _UserDTO {
       this.telephone,
       this.country,
       this.address,
-      @JsonKey(name: 'postal_code') this.postCode});
+      @JsonKey(name: 'postal_code') this.postCode,
+      this.token});
 
   factory _$_UserDTO.fromJson(Map<String, dynamic> json) =>
       _$$_UserDTOFromJson(json);
@@ -235,10 +249,12 @@ class _$_UserDTO implements _UserDTO {
   @override
   @JsonKey(name: 'postal_code')
   final dynamic postCode;
+  @override
+  final String? token;
 
   @override
   String toString() {
-    return 'UserDTO(firstName: $firstName, lastName: $lastName, fullName: $fullName, login: $login, email: $email, telephone: $telephone, country: $country, address: $address, postCode: $postCode)';
+    return 'UserDTO(firstName: $firstName, lastName: $lastName, fullName: $fullName, login: $login, email: $email, telephone: $telephone, country: $country, address: $address, postCode: $postCode, token: $token)';
   }
 
   @override
@@ -254,7 +270,8 @@ class _$_UserDTO implements _UserDTO {
             const DeepCollectionEquality().equals(other.telephone, telephone) &&
             const DeepCollectionEquality().equals(other.country, country) &&
             const DeepCollectionEquality().equals(other.address, address) &&
-            const DeepCollectionEquality().equals(other.postCode, postCode));
+            const DeepCollectionEquality().equals(other.postCode, postCode) &&
+            const DeepCollectionEquality().equals(other.token, token));
   }
 
   @JsonKey(ignore: true)
@@ -269,7 +286,8 @@ class _$_UserDTO implements _UserDTO {
       const DeepCollectionEquality().hash(telephone),
       const DeepCollectionEquality().hash(country),
       const DeepCollectionEquality().hash(address),
-      const DeepCollectionEquality().hash(postCode));
+      const DeepCollectionEquality().hash(postCode),
+      const DeepCollectionEquality().hash(token));
 
   @JsonKey(ignore: true)
   @override
@@ -294,7 +312,8 @@ abstract class _UserDTO implements UserDTO {
       final dynamic telephone,
       final dynamic country,
       final String? address,
-      @JsonKey(name: 'postal_code') final dynamic postCode}) = _$_UserDTO;
+      @JsonKey(name: 'postal_code') final dynamic postCode,
+      final String? token}) = _$_UserDTO;
 
   factory _UserDTO.fromJson(Map<String, dynamic> json) = _$_UserDTO.fromJson;
 
@@ -320,6 +339,8 @@ abstract class _UserDTO implements UserDTO {
   @override
   @JsonKey(name: 'postal_code')
   dynamic get postCode;
+  @override
+  String? get token;
   @override
   @JsonKey(ignore: true)
   _$$_UserDTOCopyWith<_$_UserDTO> get copyWith =>

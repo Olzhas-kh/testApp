@@ -6,6 +6,9 @@ import 'package:narxoz/src/core/network/network_info.dart';
 import 'package:narxoz/src/feautures/app/bloc/app_bloc.dart';
 import 'package:narxoz/src/feautures/app/router/app_router.dart';
 import 'package:narxoz/src/feautures/auth/data/datasource/auth_local_ds.dart';
+import 'package:narxoz/src/feautures/auth/data/datasource/auth_remote_ds.dart';
+import 'package:narxoz/src/feautures/auth/data/repository/auth_repository.dart';
+import 'package:narxoz/src/feautures/auth/presentation/bloc/sign_in_cubit.dart';
 import 'package:narxoz/src/feautures/home/data/datasource/help_section_remote_ds.dart';
 import 'package:narxoz/src/feautures/home/data/datasource/hostel_remote_ds.dart';
 import 'package:narxoz/src/feautures/home/data/repository/help_section_repository.dart';
@@ -26,13 +29,14 @@ Future<void> initLocator() async {
   // BLoC / Cubit
   sl.registerFactory(
     () => AppBloc(
-        // sl(),
-        // sl(),
-        // sl(),
-        // sl(),
-        // sl(),
-        ),
+      sl(),
+      // sl(),
+      // sl(),
+      // sl(),
+      // sl(),
+    ),
   );
+  sl.registerFactory(() => SignInCubit(sl()));
   sl.registerFactory(() => HelpSectionCubit(sl()));
   sl.registerFactory(() => HelpSectionDetailCubit(sl()));
   sl.registerFactory(() => HostelCubit(sl()));
@@ -52,13 +56,13 @@ Future<void> initLocator() async {
   ///
   ///
   /// Repository
-  // sl.registerLazySingleton<AuthRepository>(
-  //   () => AuthRepositoryImpl(
-  //     localDS: sl(),
-  //     remoteDS: sl(),
-  //     networkInfo: sl(),
-  //   ),
-  // );
+  sl.registerLazySingleton<AuthRepository>(
+    () => AuthRepositoryImpl(
+      localDS: sl(),
+      remoteDS: sl(),
+      networkInfo: sl(),
+    ),
+  );
   sl.registerLazySingleton<HelpSectionRepository>(
     () => HelpSectionRepositoryImpl(
       networkInfo: sl(),
@@ -76,9 +80,9 @@ Future<void> initLocator() async {
   ///
   ///
   /// DS
-  // sl.registerLazySingleton<AuthRemoteDS>(
-  //   () => AuthRemoteDsImpl(sl()),
-  // );
+  sl.registerLazySingleton<AuthRemoteDS>(
+    () => AuthRemoteDSImpl(sl()),
+  );
   sl.registerLazySingleton<HelpSectionRemoteDS>(
     () => HelpSectionRemoteDSImpl(sl()),
   );

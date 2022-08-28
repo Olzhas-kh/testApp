@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:narxoz/src/core/extension/extensions.dart';
 import 'package:narxoz/src/core/resources/resources.dart';
+import 'package:narxoz/src/feautures/app/bloc/app_bloc.dart';
 import 'package:narxoz/src/feautures/app/presentation/base_appbar.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -134,6 +137,19 @@ class _ProfilePageState extends State<ProfilePage> {
                     ],
                   ),
                 ],
+              ),
+            ),
+            Container(
+              alignment: Alignment.centerRight,
+              padding: const EdgeInsets.all(12),
+              child: TextButton(
+                onPressed: () {
+                  BlocProvider.of<AppBloc>(context).add(const AppEvent.exiting());
+                },
+                child: Text(
+                  context.appLocale.logOutOfAccount,
+                  style: AppTextStyles.gilroy15w500Red,
+                ),
               ),
             ),
           ],

@@ -17,6 +17,7 @@ class UserDTO with _$UserDTO {
     dynamic country,
     String? address,
     @JsonKey(name: 'postal_code') dynamic postCode,
+    String? token,
   }) = _UserDTO;
 
   factory UserDTO.fromJson(Map<String, dynamic> json) => _$UserDTOFromJson(json);

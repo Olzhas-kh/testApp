@@ -1,13 +1,18 @@
+import 'dart:developer';
+
 import 'package:dio/dio.dart';
 import 'package:narxoz/src/core/error/excepteion.dart';
 import 'package:narxoz/src/core/network/dio_wrapper.dart';
 import 'package:narxoz/src/core/network/network_helper.dart';
 
+const _tag = 'AuthRemoteDS';
 abstract class AuthRemoteDS {
   Future<String> login({
     required String login,
     required String password,
   });
+
+  Future<String> logOut();
 }
 
 class AuthRemoteDSImpl extends AuthRemoteDS {
@@ -34,6 +39,26 @@ class AuthRemoteDSImpl extends AuthRemoteDS {
 
       return (response.data as Map<String, dynamic>)['token'] as String;
     } on DioError catch (e) {
+      throw ServerException(
+        message: (e.response!.data as Map<String, dynamic>)['message'] as String,
+      );
+    }
+  }
+
+  @override
+  Future<String> logOut() async {
+    try {
+      final response = await dio.post(
+        EndPoints.logout,
+      );
+
+      if (response.statusCode == 200 || response.statusCode == 204) {
+        return 'Success';
+      } else {
+        return 'Some bugs';
+      }
+    } on DioError catch (e) {
+      log('##### signIn api error::: ${e.response}, ${e.error}', name: _tag);
       throw ServerException(
         message: (e.response!.data as Map<String, dynamic>)['message'] as String,
       );

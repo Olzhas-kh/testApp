@@ -16,6 +16,7 @@ _$_UserDTO _$$_UserDTOFromJson(Map<String, dynamic> json) => _$_UserDTO(
       country: json['country'],
       address: json['address'] as String?,
       postCode: json['postal_code'],
+      token: json['token'] as String?,
     );
 
 Map<String, dynamic> _$$_UserDTOToJson(_$_UserDTO instance) =>
@@ -29,4 +30,5 @@ Map<String, dynamic> _$$_UserDTOToJson(_$_UserDTO instance) =>
       'country': instance.country,
       'address': instance.address,
       'postal_code': instance.postCode,
+      'token': instance.token,
     };

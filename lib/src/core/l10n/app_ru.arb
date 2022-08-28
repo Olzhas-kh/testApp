@@ -31,6 +31,7 @@
   "library": "Библиотека",
   "location": "Расположение",
   "login": "Логин",
+  "logOutOfAccount": "Выйти из учетной записи",
   "maximumFileSize": "Максимальный размер файла",
   "next": "Далее",
   "noteAttachSupportingDocumentsFormatPdfJpg": "Примечание: прикрепите подтверждающие документы, формат: pdf, jpg",
@@ -38,6 +39,14 @@
   "paidEarlierAndThereIsAReceipt": "Оплатил ранее и есть чек",
   "password": "Пароль",
   "payTenge": "Оплатить {value} тг",
+  "@payTenge": {
+    "description": "Pay 1000 tenge",
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
   "paymentPerSemester": "Оплата за семестр",
   "selectTheAppropriateFields": "Выберите подходящие поля",
   "settlementConditions": "Условия заселения",

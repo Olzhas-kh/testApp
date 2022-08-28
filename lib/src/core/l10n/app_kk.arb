@@ -31,6 +31,7 @@
   "library": "Кітапхана",
   "location": "Орналасуы",
   "login": "Логин",
+  "logOutOfAccount": "Аккаунттан шығу",
   "maximumFileSize": "Максималды файл өлшемі",
   "next": "Әрі қарай",
   "noteAttachSupportingDocumentsFormatPdfJpg": "Ескерту: растайтын құжаттарды тіркеңіз, пішімі: pdf, jpg",
@@ -38,6 +39,14 @@
   "paidEarlierAndThereIsAReceipt": "Бұрын төленген және чек бар",
   "password": "Пароль",
   "payTenge": "{value} тг төлеу",
+  "@payTenge": {
+    "description": "Pay 1000 tenge",
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
   "paymentPerSemester": "Семестр үшін төлем",
   "selectTheAppropriateFields": "Тиісті өрістерді таңдаңыз",
   "settlementConditions": "Тұру шарттары",
