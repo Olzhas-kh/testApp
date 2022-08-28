@@ -26,7 +26,7 @@ abstract class HostelRepository {
     required int catId,
   });
 
-  Future<Either<Failure, String>> questionsCheck({
+  Future<Either<Failure, int>> createApplication({
     required int catId,
     required List<AnswerPayload> answers,
   });
@@ -37,9 +37,9 @@ abstract class HostelRepository {
   });
 
   Future<Either<Failure, PaymentDTO?>> paymentDorm({
-    required int catId,
-    required List<AnswerPayload> answers,
-    required String placementId,
+    required int orderId,
+    // required List<AnswerPayload> answers,
+    // required String placementId,
     required File? chequeFile,
   });
 }
@@ -123,18 +123,18 @@ class HostelRepositoryImpl extends HostelRepository {
   }
 
   @override
-  Future<Either<Failure, String>> questionsCheck({
+  Future<Either<Failure, int>> createApplication({
     required int catId,
     required List<AnswerPayload> answers,
   }) async {
     if (await networkInfo.isConnected) {
       try {
-        final String msg = await remoteDs.questionsCheck(
+        final int orderId = await remoteDs.createApplication(
           catId: catId,
           answers: answers,
         );
 
-        return Right(msg);
+        return Right(orderId);
       } on ServerException catch (e) {
         return Left(ServerFailure(message: e.message));
       }
@@ -166,18 +166,18 @@ class HostelRepositoryImpl extends HostelRepository {
 
   @override
   Future<Either<Failure, PaymentDTO?>> paymentDorm({
-    required int catId,
-    required List<AnswerPayload> answers,
-    required String placementId,
+    required int orderId,
     required File? chequeFile,
+    // required List<AnswerPayload> answers,
+    // required String placementId,
   }) async {
     if (await networkInfo.isConnected) {
       try {
         final PaymentDTO? paymentDTO = await remoteDs.paymentDorm(
-          catId: catId,
-          answers: answers,
+          orderId: orderId,
           chequeFile: chequeFile,
-          placementId: placementId,
+          // answers: answers,
+          // placementId: placementId,
         );
 
         return Right(paymentDTO);

@@ -31,7 +31,6 @@ class _BaseState extends State<Base> {
 
   @override
   Widget build(BuildContext context) {
-
     return AutoTabsScaffold(
       routes: const [
         BaseHomeRouter(),
@@ -60,17 +59,19 @@ class _BaseState extends State<Base> {
               if (tabsRouter.activeIndex == index) {
                 // log('${tabsRouter.canPopSelfOrChildren}');
                 tabsRouter.popTop();
-                // context.router.popUntilRoot();
-                // context
-                //     .innerRouterOf<TabsRouter>(LauncherRoute.name)
-                //     ?.root
-                //     .popUntil((route) => route.isFirst);
-                // print(tabsRouter.isRoot);
-                // while (tabsRouter.canPopSelfOrChildren) {
-                //   tabsRouter.popTop();
-                // }
 
-                // context.router.replace(LauncherRoute());
+                // context.router.replaceAll([
+                //   LauncherRoute(
+                //     children:
+                //   )
+                // ]);
+
+                // tabsRouter.replaceAll([
+                //   BaseHomeRouter(),
+                //   SectionsPageRoute(),
+                //   ProfilePageRoute(),
+                // ], ProfilePageRoute());
+                // setState(() {});
 
                 // context.router.popUntil((route) {
                 //   log('${route}', name: _tag);

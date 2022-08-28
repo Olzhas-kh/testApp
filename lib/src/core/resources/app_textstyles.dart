@@ -128,6 +128,15 @@ mixin AppTextStyles {
     fontWeight: FontWeight.w500,
   );
 
+  static const gilroy32w500 = TextStyle(
+    // fontFamily: AppFonts.gilroy,
+    fontSize: 32,
+    color: AppColors.kBlack,
+    fontWeight: FontWeight.w500,
+  );
+
+  //
+  //
   //
   static const rubik14w400 = TextStyle(
     fontFamily: AppFonts.rubik,

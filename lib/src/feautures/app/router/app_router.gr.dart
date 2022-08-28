@@ -33,6 +33,12 @@ class _$AppRouter extends RootStackRouter {
       return MaterialPageX<dynamic>(
           routeData: routeData, child: const WebRequestsPage());
     },
+    ApplicationSuccessPageRoute.name: (routeData) {
+      final args = routeData.argsAs<ApplicationSuccessPageRouteArgs>();
+      return MaterialPageX<dynamic>(
+          routeData: routeData,
+          child: ApplicationSuccessPage(key: args.key, orderId: args.orderId));
+    },
     SuccessPageRoute.name: (routeData) {
       final args = routeData.argsAs<SuccessPageRouteArgs>(
           orElse: () => const SuccessPageRouteArgs());
@@ -91,10 +97,7 @@ class _$AppRouter extends RootStackRouter {
       return MaterialPageX<dynamic>(
           routeData: routeData,
           child: DormCardPage(
-              answers: args.answers,
-              catId: args.catId,
-              gender: args.gender,
-              key: args.key));
+              orderId: args.orderId, gender: args.gender, key: args.key));
     },
     MyApplicationPageRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
@@ -144,6 +147,8 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(BannerPageRoute.name, path: '/banner-page'),
         RouteConfig(CanvasPageRoute.name, path: '/canvas-page'),
         RouteConfig(WebRequestsPageRoute.name, path: '/web-requests-page'),
+        RouteConfig(ApplicationSuccessPageRoute.name,
+            path: '/application-success-page'),
         RouteConfig(SuccessPageRoute.name, path: '/success-page'),
         RouteConfig(PaymentPageRoute.name, path: '/payment-page')
       ];
@@ -181,6 +186,31 @@ class WebRequestsPageRoute extends PageRouteInfo<void> {
       : super(WebRequestsPageRoute.name, path: '/web-requests-page');
 
   static const String name = 'WebRequestsPageRoute';
+}
+
+/// generated route for
+/// [ApplicationSuccessPage]
+class ApplicationSuccessPageRoute
+    extends PageRouteInfo<ApplicationSuccessPageRouteArgs> {
+  ApplicationSuccessPageRoute({Key? key, required int orderId})
+      : super(ApplicationSuccessPageRoute.name,
+            path: '/application-success-page',
+            args: ApplicationSuccessPageRouteArgs(key: key, orderId: orderId));
+
+  static const String name = 'ApplicationSuccessPageRoute';
+}
+
+class ApplicationSuccessPageRouteArgs {
+  const ApplicationSuccessPageRouteArgs({this.key, required this.orderId});
+
+  final Key? key;
+
+  final int orderId;
+
+  @override
+  String toString() {
+    return 'ApplicationSuccessPageRouteArgs{key: $key, orderId: $orderId}';
+  }
 }
 
 /// generated route for
@@ -344,29 +374,20 @@ class ApplicationPageRouteArgs {
 /// generated route for
 /// [DormCardPage]
 class DormCardPageRoute extends PageRouteInfo<DormCardPageRouteArgs> {
-  DormCardPageRoute(
-      {required List<AnswerPayload> answers,
-      required int catId,
-      String gender = 'male',
-      Key? key})
+  DormCardPageRoute({required int orderId, String gender = 'male', Key? key})
       : super(DormCardPageRoute.name,
             path: 'dorm-card-page',
             args: DormCardPageRouteArgs(
-                answers: answers, catId: catId, gender: gender, key: key));
+                orderId: orderId, gender: gender, key: key));
 
   static const String name = 'DormCardPageRoute';
 }
 
 class DormCardPageRouteArgs {
   const DormCardPageRouteArgs(
-      {required this.answers,
-      required this.catId,
-      this.gender = 'male',
-      this.key});
+      {required this.orderId, this.gender = 'male', this.key});
 
-  final List<AnswerPayload> answers;
-
-  final int catId;
+  final int orderId;
 
   final String gender;
 
@@ -374,7 +395,7 @@ class DormCardPageRouteArgs {
 
   @override
   String toString() {
-    return 'DormCardPageRouteArgs{answers: $answers, catId: $catId, gender: $gender, key: $key}';
+    return 'DormCardPageRouteArgs{orderId: $orderId, gender: $gender, key: $key}';
   }
 }
 

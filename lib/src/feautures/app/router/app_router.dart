@@ -2,12 +2,12 @@ import 'package:auto_route/auto_route.dart';
 import 'package:auto_route/empty_router_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:narxoz/src/feautures/app/presentation/launcher.dart';
-import 'package:narxoz/src/feautures/home/data/model/answer_payload.dart';
 import 'package:narxoz/src/feautures/home/data/model/payment_dto.dart';
 import 'package:narxoz/src/feautures/home/presentation/ui/banner_page.dart';
 import 'package:narxoz/src/feautures/home/presentation/ui/canvas_page.dart';
 import 'package:narxoz/src/feautures/home/presentation/ui/home_page.dart';
 import 'package:narxoz/src/feautures/home/presentation/ui/hostel/application_page.dart';
+import 'package:narxoz/src/feautures/home/presentation/ui/hostel/application_success_page.dart';
 import 'package:narxoz/src/feautures/home/presentation/ui/hostel/choose_edu_page.dart';
 import 'package:narxoz/src/feautures/home/presentation/ui/hostel/dorm_card_page.dart';
 import 'package:narxoz/src/feautures/home/presentation/ui/hostel/help_section/help_section_detail_page.dart';
@@ -64,6 +64,7 @@ part 'app_router.gr.dart';
     AutoRoute(page: BannerPage),
     AutoRoute(page: CanvasPage),
     AutoRoute(page: WebRequestsPage),
+    AutoRoute(page: ApplicationSuccessPage),
     AutoRoute(page: SuccessPage),
     AutoRoute(page: PaymentPage),
   ],

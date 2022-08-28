@@ -24,7 +24,7 @@ abstract class HostelRemoteDS {
     required int catId,
   });
 
-  Future<String> questionsCheck({
+  Future<int> createApplication({
     required int catId,
     required List<AnswerPayload> answers,
   });
@@ -35,9 +35,9 @@ abstract class HostelRemoteDS {
   });
 
   Future<PaymentDTO?> paymentDorm({
-    required int catId,
-    required List<AnswerPayload> answers,
-    required String placementId,
+    required int orderId,
+    // required List<AnswerPayload> answers,
+    // required String placementId,
     required File? chequeFile,
   });
 }
@@ -115,7 +115,7 @@ class HostelRemoteDSImpl extends HostelRemoteDS {
   }
 
   @override
-  Future<String> questionsCheck({
+  Future<int> createApplication({
     required int catId,
     required List<AnswerPayload> answers,
   }) async {
@@ -153,15 +153,11 @@ class HostelRemoteDSImpl extends HostelRemoteDS {
       }
 
       final response = await dio.post(
-        EndPoints.categoryQuestionsCheck(catId),
+        EndPoints.createApplication(catId),
         data: formData,
       );
 
-      if (response.statusCode == 200 || response.statusCode == 204) {
-        return 'Success';
-      } else {
-        throw ServerException(message: 'questionsCheck - ${response.statusCode}');
-      }
+      return (response.data as Map<String, dynamic>)['order_id'] as int;
     } on DioError catch (e) {
       throw ServerException(
         message: (e.response!.data as Map<String, dynamic>)['message'] as String,
@@ -192,48 +188,48 @@ class HostelRemoteDSImpl extends HostelRemoteDS {
 
   @override
   Future<PaymentDTO?> paymentDorm({
-    required int catId,
-    required List<AnswerPayload> answers,
-    required String placementId,
+    required int orderId,
+    // required List<AnswerPayload> answers,
+    // required String placementId,
     required File? chequeFile,
   }) async {
     try {
       final Map<String, dynamic> mapp = {};
 
-      for (int i = 0; i < answers.length; i++) {
-        if (answers[i].isFile ?? false) {
-        } else {
-          mapp['answers[$i]'] = {
-            'question_id': answers[i].questionID,
-            'value': answers[i].value,
-          };
-        }
-      }
+      // for (int i = 0; i < answers.length; i++) {
+      //   if (answers[i].isFile ?? false) {
+      //   } else {
+      //     mapp['answers[$i]'] = {
+      //       'question_id': answers[i].questionID,
+      //       'value': answers[i].value,
+      //     };
+      //   }
+      // }
 
       final FormData formData = FormData.fromMap(mapp);
-      for (int i = 0; i < answers.length; i++) {
-        if (answers[i].isFile ?? false) {
-          formData.fields.add(
-            MapEntry(
-              'answers[$i][question_id]',
-              answers[i].questionID,
-            ),
-          );
-          formData.files.add(
-            MapEntry(
-              'answers[$i][value]',
-              await MultipartFile.fromFile((answers[i].value as File).path),
-            ),
-          );
-        }
-      }
+      // for (int i = 0; i < answers.length; i++) {
+      //   if (answers[i].isFile ?? false) {
+      //     formData.fields.add(
+      //       MapEntry(
+      //         'answers[$i][question_id]',
+      //         answers[i].questionID,
+      //       ),
+      //     );
+      //     formData.files.add(
+      //       MapEntry(
+      //         'answers[$i][value]',
+      //         await MultipartFile.fromFile((answers[i].value as File).path),
+      //       ),
+      //     );
+      //   }
+      // }
 
-      formData.fields.add(
-        MapEntry(
-          'placement_type',
-          placementId,
-        ),
-      );
+      // formData.fields.add(
+      //   MapEntry(
+      //     'placement_type',
+      //     placementId,
+      //   ),
+      // );
       if (chequeFile != null) {
         formData.files.add(
           MapEntry(
@@ -244,7 +240,7 @@ class HostelRemoteDSImpl extends HostelRemoteDS {
       }
 
       final response = await dio.post(
-        '${EndPoints.paymentDorm}/$catId',
+        EndPoints.paymentDorm(orderId),
         data: formData,
       );
 

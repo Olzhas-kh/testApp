@@ -16,15 +16,22 @@ mixin EndPoints {
     return '/dormitories/orders/categories/$id/questions';
   }
 
-  static String categoryQuestionsCheck(int id) {
-    return '/dormitories/orders/categories/$id/questions/check';
-  }
+  // deleted
+  // static String categoryQuestionsCheck(int id) {
+  //   return '/dormitories/orders/categories/$id/questions/check';
+  // }
 
   static String dormPlacements(int id) {
     return '/dormitories/orders/categories/$id/placements';
   }
 
-  static const paymentDorm = '/dormitories/orders/categories';
+  static String paymentDorm(int orderId) {
+    return '/dormitories/orders/$orderId/pay';
+  }
+
+  static String createApplication(int id) {
+    return '/dormitories/orders/categories/$id'; // post
+  }
 
   static const login = '/auth/login';
   static const profile = '/user/account/profile';

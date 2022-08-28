@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:narxoz/src/core/error/failure.dart';
-import 'package:narxoz/src/feautures/home/data/model/answer_payload.dart';
 import 'package:narxoz/src/feautures/home/data/model/payment_dto.dart';
 import 'package:narxoz/src/feautures/home/data/repository/hostel_repository.dart';
 
@@ -19,18 +18,18 @@ class DormCardVerifyCubit extends Cubit<DormCardVerifyState> {
   final HostelRepository _hostelRepository;
 
   Future<void> paymentDorm({
-    required int catId,
+    required int orderId,
     required File? chequeFile,
-    required List<AnswerPayload> answers,
-    required String placementId,
+    // required List<AnswerPayload> answers,
+    // required String placementId,
   }) async {
     emit(const DormCardVerifyState.loadingState());
 
     final result = await _hostelRepository.paymentDorm(
-      catId: catId,
-      answers: answers,
+      orderId: orderId,
+      // answers: answers,
       chequeFile: chequeFile,
-      placementId: placementId,
+      // placementId: placementId,
     );
 
     result.fold(

@@ -477,15 +477,19 @@ class _ApplicationPageState extends State<ApplicationPage> {
                                 listener: (context, state) {
                                   state.whenOrNull(
                                     loadedState: (
-                                      int catId,
-                                      List<AnswerPayload> answers,
-                                      String gender,
+                                      int orderId,
                                     ) {
+                                      // context.router.push(
+                                      //   DormCardPageRoute(
+                                      //     // answers: answers,
+                                      //     // catId: catId,
+                                      //     orderId: ,
+                                      //     gender: gender,
+                                      //   ),
+                                      // );
                                       context.router.push(
-                                        DormCardPageRoute(
-                                          answers: answers,
-                                          catId: catId,
-                                          gender: gender,
+                                        ApplicationSuccessPageRoute(
+                                          orderId: orderId,
                                         ),
                                       );
                                     },
@@ -543,7 +547,7 @@ class _ApplicationPageState extends State<ApplicationPage> {
                                               log(answers.toString());
                                               BlocProvider.of<ApplicationVerifyCubit>(
                                                 context,
-                                              ).questionsCheck(
+                                              ).createApplication(
                                                 catId: widget.catId,
                                                 answers: answers,
                                                 gender: gender,

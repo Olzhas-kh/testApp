@@ -28,6 +28,7 @@
   "enter": "Login",
   "enterLogin": "Enter your username",
   "enterPassword": "Enter the password",
+  "expectResponseToYourEmail": "Expect a response to your email",
   "fillInTheData": "Fill in the data",
   "finance": "Finance",
   "forForeignCitizens": "For foreign citizens",

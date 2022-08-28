@@ -6,11 +6,11 @@ import 'package:narxoz/src/core/resources/resources.dart';
 import 'package:narxoz/src/feautures/app/router/app_router.dart';
 import 'package:narxoz/src/feautures/app/widgets/custom/custom_button.dart';
 
-class SuccessPage extends StatelessWidget {
-  final bool hasCheque;
-  const SuccessPage({
+class ApplicationSuccessPage extends StatelessWidget {
+  final int orderId;
+  const ApplicationSuccessPage({
     super.key,
-    this.hasCheque = false,
+    required this.orderId,
   });
 
   @override
@@ -36,7 +36,15 @@ class SuccessPage extends StatelessWidget {
                   height: 20,
                 ),
                 Text(
-                  context.appLocale.aDocumentConfirmingTheOrderHasBeenSentToYourEmail,
+                  '№ $orderId',
+                  style: AppTextStyles.gilroy32w500,
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Text(
+                  context.appLocale.expectResponseToYourEmail,
                   style: AppTextStyles.gilroy16w500.copyWith(color: const Color(0xff828282)),
                   textAlign: TextAlign.center,
                 ),
@@ -62,28 +70,6 @@ class SuccessPage extends StatelessWidget {
               const LauncherRoute(),
               predicate: (route) => false,
             );
-            // if (hasCheque) {
-            //   // context.router.popUntilRouteWithName('HomePage');
-            //   context.router.replaceAll([
-            //     // const HomePageRoute(),
-            //     // const BaseHomeRouter(),
-            //     const LauncherRoute(),
-            //   ]);
-            //   int count = 0;
-            //   context.router.popUntil((route) {
-            //     return count++ == 4;
-            //   });
-            // } else {
-            //   context.router.replaceAll([
-            //     // const HomePageRoute(),
-            //     // const BaseHomeRouter(),
-            //     const LauncherRoute(),
-            //   ]);
-            //   int count = 0;
-            //   context.router.popUntil((route) {
-            //     return count++ == 5;
-            //   });
-            // }
           },
           style: redButtonStyle(),
         ),

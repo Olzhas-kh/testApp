@@ -9,7 +9,6 @@ import 'package:narxoz/src/feautures/app/router/app_router.dart';
 import 'package:narxoz/src/feautures/app/widgets/custom/custom_button.dart';
 import 'package:narxoz/src/feautures/app/widgets/custom/custom_loaders.dart';
 import 'package:narxoz/src/feautures/app/widgets/custom/custom_snackbars.dart';
-import 'package:narxoz/src/feautures/home/data/model/answer_payload.dart';
 import 'package:narxoz/src/feautures/home/data/model/payment_dto.dart';
 import 'package:narxoz/src/feautures/home/data/model/placement_dto.dart';
 import 'package:narxoz/src/feautures/home/data/model/seats_count_dto.dart';
@@ -19,12 +18,12 @@ import 'package:narxoz/src/feautures/home/presentation/widgets/accept_privacy_wi
 import 'package:narxoz/src/feautures/home/presentation/widgets/file_picker_widget.dart';
 
 class DormCardPage extends StatefulWidget {
-  final int catId;
-  final List<AnswerPayload> answers;
+  final int orderId;
+  // final List<AnswerPayload> answers;
   final String gender;
   const DormCardPage({
-    required this.answers,
-    required this.catId,
+    // required this.answers,
+    required this.orderId,
     this.gender = 'male',
     super.key,
   });
@@ -41,7 +40,7 @@ class _DormCardPageState extends State<DormCardPage> {
   @override
   void initState() {
     BlocProvider.of<DormCardCubit>(context).getFreeSeatsCount(
-      catId: widget.catId,
+      catId: widget.orderId,
       gender: widget.gender,
     );
     BlocProvider.of<DormCardVerifyCubit>(context).resetState();
@@ -208,10 +207,10 @@ class _DormCardPageState extends State<DormCardPage> {
                                 }
 
                                 BlocProvider.of<DormCardVerifyCubit>(context).paymentDorm(
-                                  catId: widget.catId,
+                                  orderId: widget.orderId,
                                   chequeFile: hasCheque ? cheque : null,
-                                  answers: widget.answers,
-                                  placementId: chosenPlacement!.id,
+                                  // answers: widget.answers,
+                                  // placementId: chosenPlacement!.id,
                                 );
                               }
                             : null,

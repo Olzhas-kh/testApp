@@ -19,14 +19,17 @@ class ApplicationVerifyCubit extends Cubit<ApplicationVerifyState> {
     emit(const ApplicationVerifyState.initialState());
   }
 
-  Future<void> questionsCheck({
+  Future<void> createApplication({
     required int catId,
     required List<AnswerPayload> answers,
     required String gender,
   }) async {
     emit(const ApplicationVerifyState.loadingState());
 
-    final result = await _hostelRepository.questionsCheck(
+    // testing
+    // emit(ApplicationVerifyState.loadedState(orderId: 0));
+
+    final result = await _hostelRepository.createApplication(
       catId: catId,
       answers: answers,
     );
@@ -40,9 +43,7 @@ class ApplicationVerifyCubit extends Cubit<ApplicationVerifyState> {
       (r) {
         emit(
           ApplicationVerifyState.loadedState(
-            catId: catId,
-            answers: answers,
-            gender: gender,
+            orderId: r,
           ),
         );
       },
@@ -61,9 +62,9 @@ class ApplicationVerifyState with _$ApplicationVerifyState {
   const factory ApplicationVerifyState.initialState() = _InitialState;
 
   const factory ApplicationVerifyState.loadedState({
-    required int catId,
-    required List<AnswerPayload> answers,
-    required String gender,
+    required int orderId,
+    // required List<AnswerPayload> answers,
+    // required String gender,
   }) = _LoadedState;
 
   const factory ApplicationVerifyState.loadingState() = _LoadingState;
