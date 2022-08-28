@@ -14,6 +14,7 @@
   "applyForAHostel": "Подать заявку на общежитие",
   "back": "Назад",
   "catalog": "Каталог",
+  "check": "Проверить",
   "checkInProcedure": "Процедура заселения",
   "chooseTheTypeOfPlacement": "Выберите тип размещения",
   "clearly": "Понятно",
@@ -43,6 +44,7 @@
   "logOutOfAccount": "Выйти из учетной записи",
   "login": "Логин",
   "maximumFileSize": "Максимальный размер файла",
+  "myApplication": "Моя заявка",
   "next": "Далее",
   "notSpecified": "Не указано",
   "noteAttachSupportingDocumentsFormatPdfJpg": "Примечание: прикрепите подтверждающие документы, формат: pdf, jpg",
@@ -59,6 +61,7 @@
   "termsOfSettlement": "Сроки заселения",
   "theSectionIsUnderDevelopment": "Раздел находится в разработке",
   "typeOfGrant": "Тип гранта",
+  "writeTheApplicationNumber": "Напишите номер заявки",
   "youHaveEnteredAnIncorrectUsernameOrPassword": "Вы ввели неверный логин или пароль",
   "yourApplicationHasBeenSuccessfullyProcessed": "Ваша заявка успешно оформлена"
 }

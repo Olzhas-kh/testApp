@@ -14,6 +14,7 @@
   "applyForAHostel": "Apply for a hostel",
   "back": "Back",
   "catalog": "Catalog",
+  "check": "Check",
   "checkInProcedure": "Check-in procedure",
   "chooseTheTypeOfPlacement": "Choose the type of placement",
   "clearly": "Clear",
@@ -43,6 +44,7 @@
   "logOutOfAccount": "Log out of account",
   "login": "Login",
   "maximumFileSize": "Maximum file size",
+  "myApplication": "My application",
   "next": "Next",
   "notSpecified": "Not specified",
   "noteAttachSupportingDocumentsFormatPdfJpg": "Note: attach supporting documents, format: pdf, jpg",
@@ -59,6 +61,7 @@
   "termsOfSettlement": "Terms of settlement",
   "theSectionIsUnderDevelopment": "The section is under development",
   "typeOfGrant": "Type of grant",
+  "writeTheApplicationNumber": "Write the application number",
   "youHaveEnteredAnIncorrectUsernameOrPassword": "You have entered an incorrect username or password",
   "yourApplicationHasBeenSuccessfullyProcessed": "Your application has been successfully processed"
 }

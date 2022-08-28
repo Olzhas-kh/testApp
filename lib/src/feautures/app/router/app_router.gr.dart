@@ -96,6 +96,10 @@ class _$AppRouter extends RootStackRouter {
               gender: args.gender,
               key: args.key));
     },
+    MyApplicationPageRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+          routeData: routeData, child: const MyApplicationPage());
+    },
     SettlementConditionsPageRoute.name: (routeData) {
       final args = routeData.argsAs<SettlementConditionsPageRouteArgs>();
       return MaterialPageX<dynamic>(
@@ -126,6 +130,8 @@ class _$AppRouter extends RootStackRouter {
                     path: 'application-page', parent: BaseHomeRouter.name),
                 RouteConfig(DormCardPageRoute.name,
                     path: 'dorm-card-page', parent: BaseHomeRouter.name),
+                RouteConfig(MyApplicationPageRoute.name,
+                    path: 'my-application-page', parent: BaseHomeRouter.name),
                 RouteConfig(SettlementConditionsPageRoute.name,
                     path: 'settlement-conditions-page',
                     parent: BaseHomeRouter.name)
@@ -370,6 +376,15 @@ class DormCardPageRouteArgs {
   String toString() {
     return 'DormCardPageRouteArgs{answers: $answers, catId: $catId, gender: $gender, key: $key}';
   }
+}
+
+/// generated route for
+/// [MyApplicationPage]
+class MyApplicationPageRoute extends PageRouteInfo<void> {
+  const MyApplicationPageRoute()
+      : super(MyApplicationPageRoute.name, path: 'my-application-page');
+
+  static const String name = 'MyApplicationPageRoute';
 }
 
 /// generated route for

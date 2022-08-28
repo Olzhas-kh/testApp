@@ -14,6 +14,7 @@ import 'package:narxoz/src/feautures/home/presentation/ui/hostel/help_section/he
 import 'package:narxoz/src/feautures/home/presentation/ui/hostel/help_section/settlement_conditions_page.dart';
 import 'package:narxoz/src/feautures/home/presentation/ui/hostel/help_section_page.dart';
 import 'package:narxoz/src/feautures/home/presentation/ui/hostel/hostel_page.dart';
+import 'package:narxoz/src/feautures/home/presentation/ui/hostel/my_application_page.dart';
 import 'package:narxoz/src/feautures/home/presentation/ui/hostel/payment_page.dart';
 import 'package:narxoz/src/feautures/home/presentation/ui/hostel/success_page.dart';
 import 'package:narxoz/src/feautures/home/presentation/ui/requests/web_requests_page.dart';
@@ -46,7 +47,7 @@ part 'app_router.gr.dart';
             AutoRoute(page: DormCardPage),
             // AutoRoute(page: DescriptionHostelPage),
             // AutoRoute(page: CheckInProcedurePage),
-            // AutoRoute(page: ForeignCitizensPage),
+            AutoRoute(page: MyApplicationPage),
             AutoRoute(page: SettlementConditionsPage),
           ],
         ),
@@ -54,17 +55,6 @@ part 'app_router.gr.dart';
         //
         AutoRoute(page: SectionsPage),
         AutoRoute(page: ProfilePage),
-        // AutoRoute(
-        //   page: EmptyRouterPage,
-        //   name: 'BaseProfileRouter',
-        //   children: [
-        //     AutoRoute(
-        //       page: ProfilePage,
-        //       initial: true,
-        //     ),
-        //     AutoRoute(page: ResponsePage),
-        //   ],
-        // ),
       ],
     ),
 
