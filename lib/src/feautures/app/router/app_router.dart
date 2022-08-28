@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:narxoz/src/feautures/app/presentation/launcher.dart';
 import 'package:narxoz/src/feautures/home/data/model/answer_payload.dart';
 import 'package:narxoz/src/feautures/home/data/model/payment_dto.dart';
+import 'package:narxoz/src/feautures/home/presentation/ui/banner_page.dart';
 import 'package:narxoz/src/feautures/home/presentation/ui/canvas_page.dart';
 import 'package:narxoz/src/feautures/home/presentation/ui/home_page.dart';
 import 'package:narxoz/src/feautures/home/presentation/ui/hostel/application_page.dart';
@@ -70,6 +71,7 @@ part 'app_router.gr.dart';
     //
     //
     // Home Section
+    AutoRoute(page: BannerPage),
     AutoRoute(page: CanvasPage),
     AutoRoute(page: WebRequestsPage),
     AutoRoute(page: SuccessPage),

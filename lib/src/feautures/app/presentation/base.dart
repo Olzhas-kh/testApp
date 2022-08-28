@@ -125,13 +125,6 @@ class _BaseState extends State<Base> {
 
               // log('After ontap ${context.router.stack}', name: _tag);
             },
-            // selectedLabelStyle: TextStyle(
-            //   fontSize: 9,
-            //   color: Colors.black,
-            // ),
-            // unselectedLabelStyle:  TextStyle(
-            //   fontSize: 9,
-            // ),
             items: [
               BottomNavigationBarItem(
                 backgroundColor: AppColors.kWhite,
