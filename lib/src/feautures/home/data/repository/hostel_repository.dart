@@ -11,7 +11,7 @@ import 'package:narxoz/src/feautures/home/data/model/education_dto.dart';
 import 'package:narxoz/src/feautures/home/data/model/hostel_info_dto.dart';
 import 'package:narxoz/src/feautures/home/data/model/payment_dto.dart';
 import 'package:narxoz/src/feautures/home/data/model/question_dto.dart';
-import 'package:narxoz/src/feautures/home/data/model/seats_count_dto.dart';
+import 'package:narxoz/src/feautures/home/data/model/verification_response_dto.dart';
 
 abstract class HostelRepository {
   Future<Either<Failure, HostelInfoDTO>> getInfo();
@@ -31,9 +31,13 @@ abstract class HostelRepository {
     required List<AnswerPayload> answers,
   });
 
-  Future<Either<Failure, SeatsCountDTO>> getFreeSeatsCount({
-    required int catId,
-    required String gender,
+  // Future<Either<Failure, SeatsCountDTO>> getFreeSeatsCount({
+  //   required int catId,
+  //   required String gender,
+  // });
+
+  Future<Either<Failure, VerificationResponseDTO>> checkApplication({
+    required int orderId,
   });
 
   Future<Either<Failure, PaymentDTO?>> paymentDorm({
@@ -143,26 +147,26 @@ class HostelRepositoryImpl extends HostelRepository {
     }
   }
 
-  @override
-  Future<Either<Failure, SeatsCountDTO>> getFreeSeatsCount({
-    required int catId,
-    required String gender,
-  }) async {
-    if (await networkInfo.isConnected) {
-      try {
-        final SeatsCountDTO seatsCount = await remoteDs.getFreeSeatsCount(
-          catId: catId,
-          gender: gender,
-        );
+  // @override
+  // Future<Either<Failure, SeatsCountDTO>> getFreeSeatsCount({
+  //   required int catId,
+  //   required String gender,
+  // }) async {
+  //   if (await networkInfo.isConnected) {
+  //     try {
+  //       final SeatsCountDTO seatsCount = await remoteDs.getFreeSeatsCount(
+  //         catId: catId,
+  //         gender: gender,
+  //       );
 
-        return Right(seatsCount);
-      } on ServerException catch (e) {
-        return Left(ServerFailure(message: e.message));
-      }
-    } else {
-      return Left(ServerFailure(message: NO_INTERNET_TEXT));
-    }
-  }
+  //       return Right(seatsCount);
+  //     } on ServerException catch (e) {
+  //       return Left(ServerFailure(message: e.message));
+  //     }
+  //   } else {
+  //     return Left(ServerFailure(message: NO_INTERNET_TEXT));
+  //   }
+  // }
 
   @override
   Future<Either<Failure, PaymentDTO?>> paymentDorm({
@@ -181,6 +185,25 @@ class HostelRepositoryImpl extends HostelRepository {
         );
 
         return Right(paymentDTO);
+      } on ServerException catch (e) {
+        return Left(ServerFailure(message: e.message));
+      }
+    } else {
+      return Left(ServerFailure(message: NO_INTERNET_TEXT));
+    }
+  }
+
+  @override
+  Future<Either<Failure, VerificationResponseDTO>> checkApplication({
+    required int orderId,
+  }) async {
+    if (await networkInfo.isConnected) {
+      try {
+        final VerificationResponseDTO verificationResponse = await remoteDs.checkApplication(
+          orderId: orderId,
+        );
+
+        return Right(verificationResponse);
       } on ServerException catch (e) {
         return Left(ServerFailure(message: e.message));
       }

@@ -10,6 +10,7 @@ import 'package:narxoz/src/feautures/home/data/model/hostel_info_dto.dart';
 import 'package:narxoz/src/feautures/home/data/model/payment_dto.dart';
 import 'package:narxoz/src/feautures/home/data/model/question_dto.dart';
 import 'package:narxoz/src/feautures/home/data/model/seats_count_dto.dart';
+import 'package:narxoz/src/feautures/home/data/model/verification_response_dto.dart';
 
 abstract class HostelRemoteDS {
   Future<HostelInfoDTO> getInfo();
@@ -29,9 +30,13 @@ abstract class HostelRemoteDS {
     required List<AnswerPayload> answers,
   });
 
-  Future<SeatsCountDTO> getFreeSeatsCount({
-    required int catId,
-    required String gender,
+  // Future<SeatsCountDTO> getFreeSeatsCount({
+  //   required int catId,
+  //   required String gender,
+  // });
+
+  Future<VerificationResponseDTO> checkApplication({
+    required int orderId,
   });
 
   Future<PaymentDTO?> paymentDorm({
@@ -165,26 +170,26 @@ class HostelRemoteDSImpl extends HostelRemoteDS {
     }
   }
 
-  @override
-  Future<SeatsCountDTO> getFreeSeatsCount({
-    required int catId,
-    required String gender,
-  }) async {
-    try {
-      final response = await dio.get(
-        EndPoints.dormPlacements(catId),
-        queryParameters: {
-          'gender': gender,
-        },
-      );
+  // @override
+  // Future<SeatsCountDTO> getFreeSeatsCount({
+  //   required int catId,
+  //   required String gender,
+  // }) async {
+  //   try {
+  //     final response = await dio.get(
+  //       EndPoints.dormPlacements(catId),
+  //       queryParameters: {
+  //         'gender': gender,
+  //       },
+  //     );
 
-      return SeatsCountDTO.fromJson(response.data as Map<String, dynamic>);
-    } on DioError catch (e) {
-      throw ServerException(
-        message: (e.response!.data as Map<String, dynamic>)['message'] as String,
-      );
-    }
-  }
+  //     return SeatsCountDTO.fromJson(response.data as Map<String, dynamic>);
+  //   } on DioError catch (e) {
+  //     throw ServerException(
+  //       message: (e.response!.data as Map<String, dynamic>)['message'] as String,
+  //     );
+  //   }
+  // }
 
   @override
   Future<PaymentDTO?> paymentDorm({
@@ -248,6 +253,23 @@ class HostelRemoteDSImpl extends HostelRemoteDS {
         return null;
       }
       return PaymentDTO.fromJson(response.data as Map<String, dynamic>);
+    } on DioError catch (e) {
+      throw ServerException(
+        message: (e.response!.data as Map<String, dynamic>)['message'] as String,
+      );
+    }
+  }
+
+  @override
+  Future<VerificationResponseDTO> checkApplication({
+    required int orderId,
+  }) async {
+    try {
+      final response = await dio.post(
+        EndPoints.checkApplication(orderId),
+      );
+
+      return VerificationResponseDTO.fromJson(response.data as Map<String, dynamic>);
     } on DioError catch (e) {
       throw ServerException(
         message: (e.response!.data as Map<String, dynamic>)['message'] as String,

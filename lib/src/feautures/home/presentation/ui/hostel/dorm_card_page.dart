@@ -20,11 +20,11 @@ import 'package:narxoz/src/feautures/home/presentation/widgets/file_picker_widge
 class DormCardPage extends StatefulWidget {
   final int orderId;
   // final List<AnswerPayload> answers;
-  final String gender;
+  // final String gender;
   const DormCardPage({
     // required this.answers,
     required this.orderId,
-    this.gender = 'male',
+    // this.gender = 'male',
     super.key,
   });
 
@@ -39,10 +39,10 @@ class _DormCardPageState extends State<DormCardPage> {
 
   @override
   void initState() {
-    BlocProvider.of<DormCardCubit>(context).getFreeSeatsCount(
-      catId: widget.orderId,
-      gender: widget.gender,
-    );
+    // BlocProvider.of<DormCardCubit>(context).getFreeSeatsCount(
+    //   catId: widget.orderId,
+    //   gender: widget.gender,
+    // );
     BlocProvider.of<DormCardVerifyCubit>(context).resetState();
     super.initState();
   }

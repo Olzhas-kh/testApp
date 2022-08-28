@@ -15,26 +15,26 @@ class DormCardCubit extends Cubit<DormCardState> {
   ) : super(const DormCardState.initialState());
   final HostelRepository _hostelRepository;
 
-  Future<void> getFreeSeatsCount({
-    required int catId,
-    required String gender,
-  }) async {
-    emit(const DormCardState.loadingState());
+  // Future<void> getFreeSeatsCount({
+  //   required int catId,
+  //   required String gender,
+  // }) async {
+  //   emit(const DormCardState.loadingState());
 
-    final result = await _hostelRepository.getFreeSeatsCount(
-      catId: catId,
-      gender: gender,
-    );
+  //   final result = await _hostelRepository.getFreeSeatsCount(
+  //     catId: catId,
+  //     gender: gender,
+  //   );
 
-    result.fold(
-      (l) {
-        emit(DormCardState.errorState(message: mapFailureToMessage(l)));
-      },
-      (r) {
-        emit(DormCardState.loadedState(seatsCount: r));
-      },
-    );
-  }
+  //   result.fold(
+  //     (l) {
+  //       emit(DormCardState.errorState(message: mapFailureToMessage(l)));
+  //     },
+  //     (r) {
+  //       emit(DormCardState.loadedState(seatsCount: r));
+  //     },
+  //   );
+  // }
 
   // @override
   // void onChange(Change<LanguageState> change) {

@@ -25,6 +25,10 @@ mixin EndPoints {
     return '/dormitories/orders/categories/$id/placements';
   }
 
+  static String checkApplication(int orderId) {
+    return '/dormitories/orders/$orderId/check';
+  }
+
   static String paymentDorm(int orderId) {
     return '/dormitories/orders/$orderId/pay';
   }

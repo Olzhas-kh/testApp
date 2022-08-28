@@ -96,8 +96,7 @@ class _$AppRouter extends RootStackRouter {
       final args = routeData.argsAs<DormCardPageRouteArgs>();
       return MaterialPageX<dynamic>(
           routeData: routeData,
-          child: DormCardPage(
-              orderId: args.orderId, gender: args.gender, key: args.key));
+          child: DormCardPage(orderId: args.orderId, key: args.key));
     },
     MyApplicationPageRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
@@ -374,28 +373,24 @@ class ApplicationPageRouteArgs {
 /// generated route for
 /// [DormCardPage]
 class DormCardPageRoute extends PageRouteInfo<DormCardPageRouteArgs> {
-  DormCardPageRoute({required int orderId, String gender = 'male', Key? key})
+  DormCardPageRoute({required int orderId, Key? key})
       : super(DormCardPageRoute.name,
             path: 'dorm-card-page',
-            args: DormCardPageRouteArgs(
-                orderId: orderId, gender: gender, key: key));
+            args: DormCardPageRouteArgs(orderId: orderId, key: key));
 
   static const String name = 'DormCardPageRoute';
 }
 
 class DormCardPageRouteArgs {
-  const DormCardPageRouteArgs(
-      {required this.orderId, this.gender = 'male', this.key});
+  const DormCardPageRouteArgs({required this.orderId, this.key});
 
   final int orderId;
-
-  final String gender;
 
   final Key? key;
 
   @override
   String toString() {
-    return 'DormCardPageRouteArgs{orderId: $orderId, gender: $gender, key: $key}';
+    return 'DormCardPageRouteArgs{orderId: $orderId, key: $key}';
   }
 }
 
