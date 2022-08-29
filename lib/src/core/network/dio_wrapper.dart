@@ -5,6 +5,7 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:narxoz/src/core/network/network_helper.dart';
 import 'package:narxoz/src/feautures/auth/data/datasource/auth_local_ds.dart';
+import 'package:narxoz/src/feautures/auth/data/model/user_dto.dart';
 
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
@@ -84,10 +85,10 @@ class _NarxozDioInterceptor extends Interceptor {
 
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
-    // final UserDTO? user = _authLocalDS.getUserFromCacheNull();
-    // if (user != null && user.token != null) {
-    //   options.headers['Authorization'] = 'Bearer ${user.token}';
-    // }
+    final UserDTO? user = _authLocalDS.getUserFromCacheNull();
+    if (user != null && user.token != null) {
+      options.headers['Authorization'] = 'Bearer ${user.token}';
+    }
     options.headers['Accept'] = "application/json";
     // options.headers['Content-Language'] = 'ru';
     super.onRequest(options, handler);

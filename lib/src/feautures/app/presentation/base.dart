@@ -1,10 +1,10 @@
-import 'dart:developer';
-
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:narxoz/src/core/resources/resources.dart';
 import 'package:narxoz/src/feautures/app/router/app_router.dart';
+import 'package:narxoz/src/feautures/profile/presentation/bloc/profile_cubit.dart';
 
 // ignore: unused_element
 const _tag = 'Base';
@@ -19,7 +19,9 @@ class Base extends StatefulWidget {
 class _BaseState extends State<Base> {
   String iconPath = 'assets/icons';
 
-  Future<void> init() async {}
+  Future<void> init() async {
+    BlocProvider.of<ProfileCubit>(context).getProfile();
+  }
 
   @override
   void initState() {
@@ -30,54 +32,10 @@ class _BaseState extends State<Base> {
   @override
   Widget build(BuildContext context) {
     return AutoTabsScaffold(
-      // lazyLoad: fga,
-      // appBarBuilder: (_, tabsRouter) => PreferredSize(
-      //   preferredSize: const Size.fromHeight(100),
-      //   child: Container(
-      //     color: AppColors.kWhite,
-      //     padding:
-      //         const EdgeInsets.symmetric(horizontal: 25, vertical: 15).copyWith(
-      //       top: context.screenSize.height * .07,
-      //     ),
-      //     child: Row(
-      //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      //       children: [
-      //         SvgPicture.asset(AppSvgImages.narxozProfile),
-      //         TextButton(
-      //           onPressed: () {},
-      //           child: const Text(
-      //             'Русский',
-      //             style: AppTextStyles.gilroy15w500Red,
-      //           ).tr(),
-      //         ),
-      //       ],
-      //     ),
-      //   ), // here the desired height
-      //   // child: AppBar(
-      //   //   title: Padding(
-      //   //     padding: const EdgeInsets.symmetric(vertical: 20),
-      //   //     child: SvgPicture.asset(AppSvgImages.narxozProfile),
-      //   //   ),
-      //   //   centerTitle: false,
-      //   //   actions: [
-      //   //     Padding(
-      //   //       padding: const EdgeInsets.only(right: 25),
-      //   //       child: TextButton(
-      //   //         onPressed: () {},
-      //   //         child: Text(
-      //   //           'Русский',
-      //   //         ),
-      //   //       ),
-      //   //     ),
-      //   //   ],
-      //   // ),
-      // ),
-      //getAppBars().elementAt(tabsRouter.activeIndex),
       routes: const [
         BaseHomeRouter(),
         SectionsPageRoute(),
         ProfilePageRoute(),
-        // BaseProfileRouter() // ProfilePageRoute(),
       ],
       backgroundColor: AppColors.kWhite,
       bottomNavigationBuilder: (_, tabsRouter) {
@@ -92,28 +50,28 @@ class _BaseState extends State<Base> {
             showUnselectedLabels: false,
             selectedFontSize: 9,
             unselectedFontSize: 9,
-            selectedItemColor: tabsRouter.activeIndex == 2
-                ? AppColors.kAzure
-                : Colors.black, //const Color(0xff101828),
+            selectedItemColor: tabsRouter.activeIndex == 2 ? AppColors.kAzure : Colors.black, //const Color(0xff101828),
             unselectedItemColor: AppColors.kGray300,
 
             onTap: (int index) {
               // log('Before ontap ${context.router.stack}', name: _tag);
 
               if (tabsRouter.activeIndex == index) {
-                log('${tabsRouter.canPopSelfOrChildren}');
+                // log('${tabsRouter.canPopSelfOrChildren}');
                 tabsRouter.popTop();
-                // context.router.popUntilRoot();
-                // context
-                //     .innerRouterOf<TabsRouter>(LauncherRoute.name)
-                //     ?.root
-                //     .popUntil((route) => route.isFirst);
-                // print(tabsRouter.isRoot);
-                // while (tabsRouter.canPopSelfOrChildren) {
-                //   tabsRouter.popTop();
-                // }
 
-                // context.router.replace(LauncherRoute());
+                // context.router.replaceAll([
+                //   LauncherRoute(
+                //     children:
+                //   )
+                // ]);
+
+                // tabsRouter.replaceAll([
+                //   BaseHomeRouter(),
+                //   SectionsPageRoute(),
+                //   ProfilePageRoute(),
+                // ], ProfilePageRoute());
+                // setState(() {});
 
                 // context.router.popUntil((route) {
                 //   log('${route}', name: _tag);
@@ -125,13 +83,6 @@ class _BaseState extends State<Base> {
 
               // log('After ontap ${context.router.stack}', name: _tag);
             },
-            // selectedLabelStyle: TextStyle(
-            //   fontSize: 9,
-            //   color: Colors.black,
-            // ),
-            // unselectedLabelStyle:  TextStyle(
-            //   fontSize: 9,
-            // ),
             items: [
               BottomNavigationBarItem(
                 backgroundColor: AppColors.kWhite,

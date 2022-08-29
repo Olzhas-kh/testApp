@@ -2,19 +2,23 @@ import 'package:auto_route/auto_route.dart';
 import 'package:auto_route/empty_router_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:narxoz/src/feautures/app/presentation/launcher.dart';
-import 'package:narxoz/src/feautures/home/data/model/answer_payload.dart';
 import 'package:narxoz/src/feautures/home/data/model/payment_dto.dart';
-import 'package:narxoz/src/feautures/home/presentation/ui/application_page.dart';
-import 'package:narxoz/src/feautures/home/presentation/ui/choose_edu_page.dart';
-import 'package:narxoz/src/feautures/home/presentation/ui/dorm_card_page.dart';
-import 'package:narxoz/src/feautures/home/presentation/ui/help_section/help_section_detail_page.dart';
-import 'package:narxoz/src/feautures/home/presentation/ui/help_section/settlement_conditions_page.dart';
-import 'package:narxoz/src/feautures/home/presentation/ui/help_section_page.dart';
+import 'package:narxoz/src/feautures/home/data/model/verification_response_dto.dart';
+import 'package:narxoz/src/feautures/home/presentation/ui/banner_page.dart';
+import 'package:narxoz/src/feautures/home/presentation/ui/canvas_page.dart';
 import 'package:narxoz/src/feautures/home/presentation/ui/home_page.dart';
-import 'package:narxoz/src/feautures/home/presentation/ui/hostel_page.dart';
-import 'package:narxoz/src/feautures/home/presentation/ui/payment_page.dart';
-import 'package:narxoz/src/feautures/home/presentation/ui/success_page.dart';
-import 'package:narxoz/src/feautures/home/presentation/ui/web_requests_page.dart';
+import 'package:narxoz/src/feautures/home/presentation/ui/hostel/application_page.dart';
+import 'package:narxoz/src/feautures/home/presentation/ui/hostel/application_success_page.dart';
+import 'package:narxoz/src/feautures/home/presentation/ui/hostel/choose_edu_page.dart';
+import 'package:narxoz/src/feautures/home/presentation/ui/hostel/help_section/help_section_detail_page.dart';
+import 'package:narxoz/src/feautures/home/presentation/ui/hostel/help_section/settlement_conditions_page.dart';
+import 'package:narxoz/src/feautures/home/presentation/ui/hostel/help_section_page.dart';
+import 'package:narxoz/src/feautures/home/presentation/ui/hostel/hostel_page.dart';
+import 'package:narxoz/src/feautures/home/presentation/ui/hostel/my_application_page.dart';
+import 'package:narxoz/src/feautures/home/presentation/ui/hostel/payment_page.dart';
+import 'package:narxoz/src/feautures/home/presentation/ui/hostel/preparation_payment.dart';
+import 'package:narxoz/src/feautures/home/presentation/ui/hostel/success_page.dart';
+import 'package:narxoz/src/feautures/home/presentation/ui/requests/web_requests_page.dart';
 import 'package:narxoz/src/feautures/profile/presentation/ui/profile_page.dart';
 import 'package:narxoz/src/feautures/sections/presentation/ui/sections_page.dart';
 
@@ -41,10 +45,10 @@ part 'app_router.gr.dart';
             // AutoRoute(page: ApplicationPage1),
             // AutoRoute(page: ApplicationPage2),
             AutoRoute(page: ApplicationPage),
-            AutoRoute(page: DormCardPage),
+            AutoRoute(page: PreparationPayment),
             // AutoRoute(page: DescriptionHostelPage),
             // AutoRoute(page: CheckInProcedurePage),
-            // AutoRoute(page: ForeignCitizensPage),
+            AutoRoute(page: MyApplicationPage),
             AutoRoute(page: SettlementConditionsPage),
           ],
         ),
@@ -52,24 +56,16 @@ part 'app_router.gr.dart';
         //
         AutoRoute(page: SectionsPage),
         AutoRoute(page: ProfilePage),
-        // AutoRoute(
-        //   page: EmptyRouterPage,
-        //   name: 'BaseProfileRouter',
-        //   children: [
-        //     AutoRoute(
-        //       page: ProfilePage,
-        //       initial: true,
-        //     ),
-        //     AutoRoute(page: ResponsePage),
-        //   ],
-        // ),
       ],
     ),
 
     //
     //
     // Home Section
+    AutoRoute(page: BannerPage),
+    AutoRoute(page: CanvasPage),
     AutoRoute(page: WebRequestsPage),
+    AutoRoute(page: ApplicationSuccessPage),
     AutoRoute(page: SuccessPage),
     AutoRoute(page: PaymentPage),
   ],

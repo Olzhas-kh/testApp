@@ -58,28 +58,32 @@ class SuccessPage extends StatelessWidget {
             style: AppTextStyles.gilroy16w600White,
           ),
           onClick: () {
-            if (hasCheque) {
-              // context.router.popUntilRouteWithName('HomePage');
-              context.router.replaceAll([
-                // const HomePageRoute(),
-                // const BaseHomeRouter(),
-                const LauncherRoute(),
-              ]);
-              int count = 0;
-              context.router.popUntil((route) {
-                return count++ == 4;
-              });
-            } else {
-              context.router.replaceAll([
-                // const HomePageRoute(),
-                // const BaseHomeRouter(),
-                const LauncherRoute(),
-              ]);
-              int count = 0;
-              context.router.popUntil((route) {
-                return count++ == 5;
-              });
-            }
+            context.router.pushAndPopUntil(
+              const LauncherRoute(),
+              predicate: (route) => false,
+            );
+            // if (hasCheque) {
+            //   // context.router.popUntilRouteWithName('HomePage');
+            //   context.router.replaceAll([
+            //     // const HomePageRoute(),
+            //     // const BaseHomeRouter(),
+            //     const LauncherRoute(),
+            //   ]);
+            //   int count = 0;
+            //   context.router.popUntil((route) {
+            //     return count++ == 4;
+            //   });
+            // } else {
+            //   context.router.replaceAll([
+            //     // const HomePageRoute(),
+            //     // const BaseHomeRouter(),
+            //     const LauncherRoute(),
+            //   ]);
+            //   int count = 0;
+            //   context.router.popUntil((route) {
+            //     return count++ == 5;
+            //   });
+            // }
           },
           style: redButtonStyle(),
         ),

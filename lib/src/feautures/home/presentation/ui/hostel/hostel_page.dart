@@ -114,8 +114,7 @@ class _HostelPageState extends State<HostelPage> {
                             child: CustomButton(
                               height: 48,
                               body: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
                                     context.appLocale.helpSection,
@@ -127,8 +126,32 @@ class _HostelPageState extends State<HostelPage> {
                                 ],
                               ),
                               onClick: () {
-                                context.router
-                                    .push(const HelpSectionPageRoute());
+                                context.router.push(const HelpSectionPageRoute());
+                              },
+                              style: whiteButtonStyle(),
+                            ),
+                          ),
+                          const SizedBox(height: 19),
+                          DecoratedBox(
+                            decoration: const BoxDecoration(
+                              boxShadow: AppDecorations.dropShadow,
+                            ),
+                            child: CustomButton(
+                              height: 48,
+                              body: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    context.appLocale.myApplication,
+                                    style: AppTextStyles.gilroy16w600,
+                                  ),
+                                  const Icon(
+                                    Icons.arrow_forward_ios,
+                                  ),
+                                ],
+                              ),
+                              onClick: () {
+                                context.router.push(const MyApplicationPageRoute());
                               },
                               style: whiteButtonStyle(),
                             ),

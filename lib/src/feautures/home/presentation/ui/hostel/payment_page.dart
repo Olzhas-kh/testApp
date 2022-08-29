@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:narxoz/src/core/extension/extensions.dart';
 import 'package:narxoz/src/feautures/app/router/app_router.dart';
 import 'package:narxoz/src/feautures/app/widgets/custom/custom_appbar.dart';
 import 'package:narxoz/src/feautures/home/data/model/payment_dto.dart';
@@ -23,7 +24,7 @@ class _PaymentPageState extends State<PaymentPage> {
   @override
   void initState() {
     super.initState();
-    print(widget.payment);
+    log(widget.payment.toString());
     log(widget.payment.redirectUrl.toString());
     if (Platform.isAndroid) WebView.platform = AndroidWebView();
   }
@@ -36,7 +37,7 @@ class _PaymentPageState extends State<PaymentPage> {
           children: [
             CustomAppBar(
               isSafeArea: true,
-              text: "Оплата",
+              text: context.appLocale.payment,
               onTap: () {
                 context.router.pop();
               },
@@ -45,13 +46,17 @@ class _PaymentPageState extends State<PaymentPage> {
               child: WebView(
                 initialUrl: widget.payment.redirectUrl,
                 onPageStarted: (String value) {
+                  log('onPageStarted: $value');
                   if (value.startsWith(widget.payment.requestUrl.toString()) ||
                       value == widget.payment.requestUrl.toString()) {
                     context.router.push(SuccessPageRoute());
                   }
                 },
                 onProgress: (value) {
-                  log('value is $value');
+                  log('onProgress value is $value');
+                },
+                onPageFinished: (String value) {
+                  log('onPageFinished: $value');
                 },
                 // key: _key,
                 javascriptMode: JavascriptMode.unrestricted,
@@ -63,3 +68,5 @@ class _PaymentPageState extends State<PaymentPage> {
     );
   }
 }
+
+// onPageStarted: https://epay-go.forte.kz/?status=loading3ds

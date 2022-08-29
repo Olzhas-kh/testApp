@@ -11,7 +11,7 @@ import 'package:narxoz/src/feautures/home/data/model/education_dto.dart';
 import 'package:narxoz/src/feautures/home/data/model/hostel_info_dto.dart';
 import 'package:narxoz/src/feautures/home/data/model/payment_dto.dart';
 import 'package:narxoz/src/feautures/home/data/model/question_dto.dart';
-import 'package:narxoz/src/feautures/home/data/model/seats_count_dto.dart';
+import 'package:narxoz/src/feautures/home/data/model/verification_response_dto.dart';
 
 abstract class HostelRepository {
   Future<Either<Failure, HostelInfoDTO>> getInfo();
@@ -26,20 +26,24 @@ abstract class HostelRepository {
     required int catId,
   });
 
-  Future<Either<Failure, String>> questionsCheck({
+  Future<Either<Failure, int>> createApplication({
     required int catId,
     required List<AnswerPayload> answers,
   });
 
-  Future<Either<Failure, SeatsCountDTO>> getFreeSeatsCount({
-    required int catId,
-    required String gender,
+  // Future<Either<Failure, SeatsCountDTO>> getFreeSeatsCount({
+  //   required int catId,
+  //   required String gender,
+  // });
+
+  Future<Either<Failure, VerificationResponseDTO>> checkApplication({
+    required int orderId,
   });
 
   Future<Either<Failure, PaymentDTO?>> paymentDorm({
-    required int catId,
-    required List<AnswerPayload> answers,
-    required String placementId,
+    required int orderId,
+    // required List<AnswerPayload> answers,
+    // required String placementId,
     required File? chequeFile,
   });
 }
@@ -123,18 +127,18 @@ class HostelRepositoryImpl extends HostelRepository {
   }
 
   @override
-  Future<Either<Failure, String>> questionsCheck({
+  Future<Either<Failure, int>> createApplication({
     required int catId,
     required List<AnswerPayload> answers,
   }) async {
     if (await networkInfo.isConnected) {
       try {
-        final String msg = await remoteDs.questionsCheck(
+        final int orderId = await remoteDs.createApplication(
           catId: catId,
           answers: answers,
         );
 
-        return Right(msg);
+        return Right(orderId);
       } on ServerException catch (e) {
         return Left(ServerFailure(message: e.message));
       }
@@ -143,44 +147,63 @@ class HostelRepositoryImpl extends HostelRepository {
     }
   }
 
-  @override
-  Future<Either<Failure, SeatsCountDTO>> getFreeSeatsCount({
-    required int catId,
-    required String gender,
-  }) async {
-    if (await networkInfo.isConnected) {
-      try {
-        final SeatsCountDTO seatsCount = await remoteDs.getFreeSeatsCount(
-          catId: catId,
-          gender: gender,
-        );
+  // @override
+  // Future<Either<Failure, SeatsCountDTO>> getFreeSeatsCount({
+  //   required int catId,
+  //   required String gender,
+  // }) async {
+  //   if (await networkInfo.isConnected) {
+  //     try {
+  //       final SeatsCountDTO seatsCount = await remoteDs.getFreeSeatsCount(
+  //         catId: catId,
+  //         gender: gender,
+  //       );
 
-        return Right(seatsCount);
-      } on ServerException catch (e) {
-        return Left(ServerFailure(message: e.message));
-      }
-    } else {
-      return Left(ServerFailure(message: NO_INTERNET_TEXT));
-    }
-  }
+  //       return Right(seatsCount);
+  //     } on ServerException catch (e) {
+  //       return Left(ServerFailure(message: e.message));
+  //     }
+  //   } else {
+  //     return Left(ServerFailure(message: NO_INTERNET_TEXT));
+  //   }
+  // }
 
   @override
   Future<Either<Failure, PaymentDTO?>> paymentDorm({
-    required int catId,
-    required List<AnswerPayload> answers,
-    required String placementId,
+    required int orderId,
     required File? chequeFile,
+    // required List<AnswerPayload> answers,
+    // required String placementId,
   }) async {
     if (await networkInfo.isConnected) {
       try {
         final PaymentDTO? paymentDTO = await remoteDs.paymentDorm(
-          catId: catId,
-          answers: answers,
+          orderId: orderId,
           chequeFile: chequeFile,
-          placementId: placementId,
+          // answers: answers,
+          // placementId: placementId,
         );
 
         return Right(paymentDTO);
+      } on ServerException catch (e) {
+        return Left(ServerFailure(message: e.message));
+      }
+    } else {
+      return Left(ServerFailure(message: NO_INTERNET_TEXT));
+    }
+  }
+
+  @override
+  Future<Either<Failure, VerificationResponseDTO>> checkApplication({
+    required int orderId,
+  }) async {
+    if (await networkInfo.isConnected) {
+      try {
+        final VerificationResponseDTO verificationResponse = await remoteDs.checkApplication(
+          orderId: orderId,
+        );
+
+        return Right(verificationResponse);
       } on ServerException catch (e) {
         return Left(ServerFailure(message: e.message));
       }

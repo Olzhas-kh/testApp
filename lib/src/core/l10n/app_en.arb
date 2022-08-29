@@ -1,11 +1,21 @@
 {
+  "@payTenge": {
+    "description": "Pay 1000 tenge",
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
   "aDocumentConfirmingTheOrderHasBeenSentToYourEmail": "A document confirming the order has been sent to your email",
   "adviser": "Adviser",
+  "applicationNumber": "Application number",
   "applicationSubmission": "Application submission",
   "applications": "Applications",
   "applyForAHostel": "Apply for a hostel",
   "back": "Back",
   "catalog": "Catalog",
+  "check": "Check",
   "checkInProcedure": "Check-in procedure",
   "chooseTheTypeOfPlacement": "Choose the type of placement",
   "clearly": "Clear",
@@ -14,9 +24,11 @@
   "development": "Development",
   "documents": "Documents",
   "dormCard": "Dorm card",
+  "email": "Email",
   "enter": "Login",
   "enterLogin": "Enter your username",
   "enterPassword": "Enter the password",
+  "expectResponseToYourEmail": "Expect a response to your email",
   "fillInTheData": "Fill in the data",
   "finance": "Finance",
   "forForeignCitizens": "For foreign citizens",
@@ -26,33 +38,34 @@
   "gpa": "GPA",
   "helpSection": "Help section",
   "hostel": "Hostel",
+  "iin": "IIN",
   "imageError": "Image Error",
   "jobOpenings": "Job openings",
   "library": "Library",
   "location": "Location",
+  "logOutOfAccount": "Log out of account",
   "login": "Login",
   "maximumFileSize": "Maximum file size",
+  "myApplication": "My application",
   "next": "Next",
+  "notSpecified": "Not specified",
   "noteAttachSupportingDocumentsFormatPdfJpg": "Note: attach supporting documents, format: pdf, jpg",
   "numberOfAvailableSeats": "Number of available seats",
   "paidEarlierAndThereIsAReceipt": "Paid earlier and there is a receipt",
   "password": "Password",
   "payTenge": "Pay {value} tenge",
-  "@payTenge": {
-    "description": "Pay 1000 tenge",
-    "placeholders": {
-      "value": {
-        "type": "String"
-      }
-    }
-  },
+  "payment": "Payment",
   "paymentPerSemester": "Payment per semester",
+  "phoneNumber": "Phone number",
   "selectTheAppropriateFields": "Select the appropriate fields",
   "settlementConditions": "Settlement conditions",
   "submitAnApplication": "Submit an application",
   "tenge": "tenge",
   "termsOfSettlement": "Terms of settlement",
   "theSectionIsUnderDevelopment": "The section is under development",
+  "thereAreNoSeats": "There are no seats",
+  "typeOfGrant": "Type of grant",
+  "writeTheApplicationNumber": "Write the application number",
   "youHaveEnteredAnIncorrectUsernameOrPassword": "You have entered an incorrect username or password",
   "yourApplicationHasBeenSuccessfullyProcessed": "Your application has been successfully processed"
 }

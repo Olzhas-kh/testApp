@@ -19,15 +19,14 @@ class _ChaptersWidgetState extends State<ChaptersWidget> {
     _Chapter(
       id: 1,
       text: "Banner",
-      // onTap: () {},
-      // isActive: true,
+      isActive: true,
       image: 'assets/icons/chapter_1.svg',
     ),
     _Chapter(
       id: 2,
       text: 'Canvas',
       // onTap: () {},
-      // isActive: true,
+      isActive: true,
       image: 'assets/icons/chapter_2.svg',
     ),
     _Chapter(
@@ -106,10 +105,10 @@ class _ChaptersWidgetState extends State<ChaptersWidget> {
                       if (e.isActive) {
                         switch (e.id) {
                           case 1:
-                            buildDevelopAlertDialog(context);
+                            context.router.push(const BannerPageRoute());
                             break;
                           case 2:
-                            buildDevelopAlertDialog(context);
+                            context.router.push(const CanvasPageRoute());
                             break;
                           case 3:
                             context.router.push(const HostelPageRoute());

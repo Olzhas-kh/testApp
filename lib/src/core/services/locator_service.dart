@@ -6,6 +6,9 @@ import 'package:narxoz/src/core/network/network_info.dart';
 import 'package:narxoz/src/feautures/app/bloc/app_bloc.dart';
 import 'package:narxoz/src/feautures/app/router/app_router.dart';
 import 'package:narxoz/src/feautures/auth/data/datasource/auth_local_ds.dart';
+import 'package:narxoz/src/feautures/auth/data/datasource/auth_remote_ds.dart';
+import 'package:narxoz/src/feautures/auth/data/repository/auth_repository.dart';
+import 'package:narxoz/src/feautures/auth/presentation/bloc/sign_in_cubit.dart';
 import 'package:narxoz/src/feautures/home/data/datasource/help_section_remote_ds.dart';
 import 'package:narxoz/src/feautures/home/data/datasource/hostel_remote_ds.dart';
 import 'package:narxoz/src/feautures/home/data/repository/help_section_repository.dart';
@@ -14,10 +17,11 @@ import 'package:narxoz/src/feautures/home/presentation/bloc/application_cubit.da
 import 'package:narxoz/src/feautures/home/presentation/bloc/application_verify_cubit.dart';
 import 'package:narxoz/src/feautures/home/presentation/bloc/choose_edu_cubit.dart';
 import 'package:narxoz/src/feautures/home/presentation/bloc/dorm_card_cubit.dart';
-import 'package:narxoz/src/feautures/home/presentation/bloc/dorm_card_verify_cubit.dart';
 import 'package:narxoz/src/feautures/home/presentation/bloc/help_section_cubit.dart';
 import 'package:narxoz/src/feautures/home/presentation/bloc/help_section_detail_cubit.dart';
 import 'package:narxoz/src/feautures/home/presentation/bloc/hostel_cubit.dart';
+import 'package:narxoz/src/feautures/home/presentation/bloc/my_application_cubit.dart';
+import 'package:narxoz/src/feautures/profile/presentation/bloc/profile_cubit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 final sl = GetIt.instance;
@@ -26,21 +30,24 @@ Future<void> initLocator() async {
   // BLoC / Cubit
   sl.registerFactory(
     () => AppBloc(
-        // sl(),
-        // sl(),
-        // sl(),
-        // sl(),
-        // sl(),
-        ),
+      sl(),
+      // sl(),
+      // sl(),
+      // sl(),
+      // sl(),
+    ),
   );
+  sl.registerFactory(() => SignInCubit(sl()));
   sl.registerFactory(() => HelpSectionCubit(sl()));
   sl.registerFactory(() => HelpSectionDetailCubit(sl()));
   sl.registerFactory(() => HostelCubit(sl()));
   sl.registerFactory(() => ChooseEduCubit(sl()));
   sl.registerFactory(() => ApplicationCubit(sl()));
+  sl.registerFactory(() => MyApplicationCubit(sl()));
   sl.registerFactory(() => ApplicationVerifyCubit(sl()));
   sl.registerFactory(() => DormCardCubit(sl()));
-  sl.registerFactory(() => DormCardVerifyCubit(sl()));
+  // sl.registerFactory(() => DormCardVerifyCubit(sl()));
+  sl.registerFactory(() => ProfileCubit(sl()));
 
   ///
   ///
@@ -52,13 +59,13 @@ Future<void> initLocator() async {
   ///
   ///
   /// Repository
-  // sl.registerLazySingleton<AuthRepository>(
-  //   () => AuthRepositoryImpl(
-  //     localDS: sl(),
-  //     remoteDS: sl(),
-  //     networkInfo: sl(),
-  //   ),
-  // );
+  sl.registerLazySingleton<AuthRepository>(
+    () => AuthRepositoryImpl(
+      localDS: sl(),
+      remoteDS: sl(),
+      networkInfo: sl(),
+    ),
+  );
   sl.registerLazySingleton<HelpSectionRepository>(
     () => HelpSectionRepositoryImpl(
       networkInfo: sl(),
@@ -76,9 +83,9 @@ Future<void> initLocator() async {
   ///
   ///
   /// DS
-  // sl.registerLazySingleton<AuthRemoteDS>(
-  //   () => AuthRemoteDsImpl(sl()),
-  // );
+  sl.registerLazySingleton<AuthRemoteDS>(
+    () => AuthRemoteDSImpl(sl()),
+  );
   sl.registerLazySingleton<HelpSectionRemoteDS>(
     () => HelpSectionRemoteDSImpl(sl()),
   );

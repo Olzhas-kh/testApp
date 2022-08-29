@@ -3,6 +3,8 @@ import 'dart:developer';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:narxoz/src/core/error/failure.dart';
+import 'package:narxoz/src/feautures/auth/data/repository/auth_repository.dart';
 
 part 'app_bloc.freezed.dart';
 part 'app_state.dart';
@@ -11,12 +13,11 @@ part 'app_event.dart';
 const _tag = 'AppBloc';
 
 class AppBloc extends Bloc<AppEvent, AppState> {
-  // final AuthRepository _authRepository;
+  final AuthRepository _authRepository;
 
   AppBloc(
-      // this._authRepository,
-      )
-      : super(const AppState.loadingState()) {
+    this._authRepository,
+  ) : super(const AppState.loadingState()) {
     on<AppEvent>(
       (AppEvent event, Emitter<AppState> emit) async => event.map(
         exiting: (_Exiting event) async => _exit(event, emit),
@@ -31,28 +32,26 @@ class AppBloc extends Bloc<AppEvent, AppState> {
     _CheckAuth event,
     Emitter<AppState> emit,
   ) async {
-    // TODO
-    emit(const AppState.inAppState());
-    // await _tokenCheck(emit);
+    await _tokenCheck(emit);
   }
 
   Future<void> _tokenCheck(
     Emitter<AppState> emit,
   ) async {
-    // final result = await _authRepository.authCheck();
+    final result = await _authRepository.authCheck();
 
-    // result.fold(
-    //   (l) => emit(const AppState.notAuthorizedState()),
-    //   (r) {
-    //     emit(const AppState.inAppState());
-    //     // if (r.phoneVerify == null) {
-    //     //   emit(AppState.notVerifyed(user: r));
-    //     // } else {
-    //     //   _sendDeviceTokenToBack();
-    //     //   emit(const AppState.clientState());
-    //     // }
-    //   },
-    // );
+    result.fold(
+      (l) => emit(const AppState.notAuthorizedState()),
+      (r) {
+        emit(const AppState.inAppState());
+        // if (r.phoneVerify == null) {
+        //   emit(AppState.notVerifyed(user: r));
+        // } else {
+        //   _sendDeviceTokenToBack();
+        //   emit(const AppState.clientState());
+        // }
+      },
+    );
   }
 
   Future<void> _sendDeviceTokenToBack() async {
@@ -81,15 +80,15 @@ class AppBloc extends Bloc<AppEvent, AppState> {
     _Exiting event,
     Emitter<AppState> emit,
   ) async {
-    // final result = await _authRepository.logOut();
+    final result = await _authRepository.logOut();
 
-    // result.fold(
-    //   (l) {
-    //     log('##### _exit::: ${mapFailureToMessage(l)}');
-    //     emit(const AppState.notAuthorizedState());
-    //   },
-    //   (r) => emit(const AppState.notAuthorizedState()),
-    // );
+    result.fold(
+      (l) {
+        log('##### _exit::: ${mapFailureToMessage(l)}');
+        emit(const AppState.notAuthorizedState());
+      },
+      (r) => emit(const AppState.notAuthorizedState()),
+    );
   }
 
   Future<void> _refreshLocal(

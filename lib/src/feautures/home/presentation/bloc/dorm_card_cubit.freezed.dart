@@ -19,7 +19,7 @@ mixin _$DormCardState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialState,
-    required TResult Function(SeatsCountDTO seatsCount) loadedState,
+    required TResult Function(PaymentDTO? payment) loadedState,
     required TResult Function() loadingState,
     required TResult Function(String message) errorState,
   }) =>
@@ -27,7 +27,7 @@ mixin _$DormCardState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initialState,
-    TResult Function(SeatsCountDTO seatsCount)? loadedState,
+    TResult Function(PaymentDTO? payment)? loadedState,
     TResult Function()? loadingState,
     TResult Function(String message)? errorState,
   }) =>
@@ -35,7 +35,7 @@ mixin _$DormCardState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialState,
-    TResult Function(SeatsCountDTO seatsCount)? loadedState,
+    TResult Function(PaymentDTO? payment)? loadedState,
     TResult Function()? loadingState,
     TResult Function(String message)? errorState,
     required TResult orElse(),
@@ -127,7 +127,7 @@ class _$_InitialState implements _InitialState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialState,
-    required TResult Function(SeatsCountDTO seatsCount) loadedState,
+    required TResult Function(PaymentDTO? payment) loadedState,
     required TResult Function() loadingState,
     required TResult Function(String message) errorState,
   }) {
@@ -138,7 +138,7 @@ class _$_InitialState implements _InitialState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initialState,
-    TResult Function(SeatsCountDTO seatsCount)? loadedState,
+    TResult Function(PaymentDTO? payment)? loadedState,
     TResult Function()? loadingState,
     TResult Function(String message)? errorState,
   }) {
@@ -149,7 +149,7 @@ class _$_InitialState implements _InitialState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialState,
-    TResult Function(SeatsCountDTO seatsCount)? loadedState,
+    TResult Function(PaymentDTO? payment)? loadedState,
     TResult Function()? loadingState,
     TResult Function(String message)? errorState,
     required TResult orElse(),
@@ -207,9 +207,9 @@ abstract class _$$_LoadedStateCopyWith<$Res> {
   factory _$$_LoadedStateCopyWith(
           _$_LoadedState value, $Res Function(_$_LoadedState) then) =
       __$$_LoadedStateCopyWithImpl<$Res>;
-  $Res call({SeatsCountDTO seatsCount});
+  $Res call({PaymentDTO? payment});
 
-  $SeatsCountDTOCopyWith<$Res> get seatsCount;
+  $PaymentDTOCopyWith<$Res>? get payment;
 }
 
 /// @nodoc
@@ -225,20 +225,24 @@ class __$$_LoadedStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? seatsCount = freezed,
+    Object? payment = freezed,
   }) {
     return _then(_$_LoadedState(
-      seatsCount: seatsCount == freezed
-          ? _value.seatsCount
-          : seatsCount // ignore: cast_nullable_to_non_nullable
-              as SeatsCountDTO,
+      payment: payment == freezed
+          ? _value.payment
+          : payment // ignore: cast_nullable_to_non_nullable
+              as PaymentDTO?,
     ));
   }
 
   @override
-  $SeatsCountDTOCopyWith<$Res> get seatsCount {
-    return $SeatsCountDTOCopyWith<$Res>(_value.seatsCount, (value) {
-      return _then(_value.copyWith(seatsCount: value));
+  $PaymentDTOCopyWith<$Res>? get payment {
+    if (_value.payment == null) {
+      return null;
+    }
+
+    return $PaymentDTOCopyWith<$Res>(_value.payment!, (value) {
+      return _then(_value.copyWith(payment: value));
     });
   }
 }
@@ -246,14 +250,14 @@ class __$$_LoadedStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_LoadedState implements _LoadedState {
-  const _$_LoadedState({required this.seatsCount});
+  const _$_LoadedState({required this.payment});
 
   @override
-  final SeatsCountDTO seatsCount;
+  final PaymentDTO? payment;
 
   @override
   String toString() {
-    return 'DormCardState.loadedState(seatsCount: $seatsCount)';
+    return 'DormCardState.loadedState(payment: $payment)';
   }
 
   @override
@@ -261,13 +265,12 @@ class _$_LoadedState implements _LoadedState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_LoadedState &&
-            const DeepCollectionEquality()
-                .equals(other.seatsCount, seatsCount));
+            const DeepCollectionEquality().equals(other.payment, payment));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(seatsCount));
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(payment));
 
   @JsonKey(ignore: true)
   @override
@@ -278,35 +281,35 @@ class _$_LoadedState implements _LoadedState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialState,
-    required TResult Function(SeatsCountDTO seatsCount) loadedState,
+    required TResult Function(PaymentDTO? payment) loadedState,
     required TResult Function() loadingState,
     required TResult Function(String message) errorState,
   }) {
-    return loadedState(seatsCount);
+    return loadedState(payment);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initialState,
-    TResult Function(SeatsCountDTO seatsCount)? loadedState,
+    TResult Function(PaymentDTO? payment)? loadedState,
     TResult Function()? loadingState,
     TResult Function(String message)? errorState,
   }) {
-    return loadedState?.call(seatsCount);
+    return loadedState?.call(payment);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialState,
-    TResult Function(SeatsCountDTO seatsCount)? loadedState,
+    TResult Function(PaymentDTO? payment)? loadedState,
     TResult Function()? loadingState,
     TResult Function(String message)? errorState,
     required TResult orElse(),
   }) {
     if (loadedState != null) {
-      return loadedState(seatsCount);
+      return loadedState(payment);
     }
     return orElse();
   }
@@ -350,10 +353,10 @@ class _$_LoadedState implements _LoadedState {
 }
 
 abstract class _LoadedState implements DormCardState {
-  const factory _LoadedState({required final SeatsCountDTO seatsCount}) =
+  const factory _LoadedState({required final PaymentDTO? payment}) =
       _$_LoadedState;
 
-  SeatsCountDTO get seatsCount;
+  PaymentDTO? get payment;
   @JsonKey(ignore: true)
   _$$_LoadedStateCopyWith<_$_LoadedState> get copyWith =>
       throw _privateConstructorUsedError;
@@ -401,7 +404,7 @@ class _$_LoadingState implements _LoadingState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialState,
-    required TResult Function(SeatsCountDTO seatsCount) loadedState,
+    required TResult Function(PaymentDTO? payment) loadedState,
     required TResult Function() loadingState,
     required TResult Function(String message) errorState,
   }) {
@@ -412,7 +415,7 @@ class _$_LoadingState implements _LoadingState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initialState,
-    TResult Function(SeatsCountDTO seatsCount)? loadedState,
+    TResult Function(PaymentDTO? payment)? loadedState,
     TResult Function()? loadingState,
     TResult Function(String message)? errorState,
   }) {
@@ -423,7 +426,7 @@ class _$_LoadingState implements _LoadingState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialState,
-    TResult Function(SeatsCountDTO seatsCount)? loadedState,
+    TResult Function(PaymentDTO? payment)? loadedState,
     TResult Function()? loadingState,
     TResult Function(String message)? errorState,
     required TResult orElse(),
@@ -542,7 +545,7 @@ class _$_ErrorState implements _ErrorState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialState,
-    required TResult Function(SeatsCountDTO seatsCount) loadedState,
+    required TResult Function(PaymentDTO? payment) loadedState,
     required TResult Function() loadingState,
     required TResult Function(String message) errorState,
   }) {
@@ -553,7 +556,7 @@ class _$_ErrorState implements _ErrorState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initialState,
-    TResult Function(SeatsCountDTO seatsCount)? loadedState,
+    TResult Function(PaymentDTO? payment)? loadedState,
     TResult Function()? loadingState,
     TResult Function(String message)? errorState,
   }) {
@@ -564,7 +567,7 @@ class _$_ErrorState implements _ErrorState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialState,
-    TResult Function(SeatsCountDTO seatsCount)? loadedState,
+    TResult Function(PaymentDTO? payment)? loadedState,
     TResult Function()? loadingState,
     TResult Function(String message)? errorState,
     required TResult orElse(),
