@@ -16,12 +16,12 @@ class _BannersWidgetState extends State<BannersWidget> {
   CarouselController carouselController = CarouselController();
 
   List<String> banners = [
+    'https://narxoz.edu.kz/images_1/tild3736-3437-4433-b632-313966366331__whatsapp_image_2022-.jpeg',
+    'https://narxoz.edu.kz/images_1/tild3538-6638-4937-b333-333339333436__whatsapp_image_2022-.jpeg',
+    'https://narxoz.edu.kz/images_1/tild6365-3139-4362-b336-356137636136____.png',
     'https://narxoz.edu.kz/images_1/tild6234-3464-4163-b962-306230326635__whatsapp_image_2022-.jpeg',
     'https://narxoz.edu.kz/images_1/tild3064-6639-4662-b839-373531616564__whatsapp_image_2022-.jpeg',
-    'https://narxoz.edu.kz/images_1/tild3039-6231-4034-a436-393064343137_____.png',
     'https://narxoz.edu.kz/images_1/tild3563-6661-4831-a634-623938643064__whatsapp_image_2022-.jpeg',
-    // 'https://pbs.twimg.com/media/FJ96vOQWUAwbIah?format=jpg&name=large',
-    // 'https://pbs.twimg.com/media/Eu7e3mQVgAImK2o?format=png&name=large'
   ];
   @override
   Widget build(BuildContext context) {

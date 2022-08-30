@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:auto_route/auto_route.dart';
@@ -35,9 +36,24 @@ class _CanvasPageState extends State<CanvasPage> {
                 context.router.pop();
               },
             ),
-            const Expanded(
+            Expanded(
               child: WebView(
                 initialUrl: 'https://canvas.narxoz.kz/login/canvas',
+                onPageStarted: (String value) {
+                  log('onPageStarted: $value');
+                  // if (value.startsWith(widget.payment.requestUrl.toString()) ||
+                  //     value == widget.payment.requestUrl.toString()) {
+                  //   context.router.push(SuccessPageRoute());
+                  // }
+                },
+                onProgress: (value) {
+                  log('onProgress value is $value');
+                },
+                onPageFinished: (String value) {
+                  log('onPageFinished: $value');
+                },
+                // key: _key,
+                javascriptMode: JavascriptMode.unrestricted,
               ),
             ),
           ],
