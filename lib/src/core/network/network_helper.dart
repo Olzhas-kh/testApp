@@ -1,5 +1,7 @@
 mixin EndPoints {
-  static const baseUrl = 'https://dev.api.narxozapp.kz/v1/mobile';
+  static const devBaseUrl = 'https://dev.api.narxozapp.kz/v1/mobile';
+
+  static const baseUrl = 'https://api.narxozapp.kz/v1/mobile';
 
   // help section
   static const helpSections = '/dormitories/help-sections';
