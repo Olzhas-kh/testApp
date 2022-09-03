@@ -7,6 +7,7 @@ import 'package:narxoz/src/core/resources/constants.dart';
 import 'package:narxoz/src/core/resources/resources.dart';
 import 'package:narxoz/src/feautures/home/data/model/banner_dto.dart';
 import 'package:narxoz/src/feautures/home/presentation/bloc/banners_cubit.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class BannersWidget extends StatefulWidget {
   const BannersWidget({super.key});
@@ -34,6 +35,15 @@ class _BannersWidgetState extends State<BannersWidget> {
     super.initState();
   }
 
+  Future<void> _launchInBrowser(Uri url) async {
+    if (!await launchUrl(
+      url,
+      mode: LaunchMode.externalApplication,
+    )) {
+      throw 'Could not launch $url';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<BannersCubit, BannersState>(
@@ -42,7 +52,9 @@ class _BannersWidgetState extends State<BannersWidget> {
           loadingState: () => const SizedBox(
             height: 156,
             child: Center(
-              child: CircularProgressIndicator(),
+              child: CircularProgressIndicator(
+                color: AppColors.kRedPrimary,
+              ),
             ),
           ),
           emptyState: () {
@@ -165,6 +177,7 @@ class _BannersWidgetState extends State<BannersWidget> {
                     options: CarouselOptions(
                       viewportFraction: 1,
                       autoPlay: true,
+                      autoPlayAnimationDuration: const Duration(milliseconds: 1500),
                       onPageChanged: (index, reason) {
                         setState(() {
                           _current = index;
@@ -194,17 +207,25 @@ class _BannersWidgetState extends State<BannersWidget> {
                             ),
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(15),
-                              child: CachedNetworkImage(
-                                imageUrl: e.image ?? NOT_FOUND_IMAGE,
-                                progressIndicatorBuilder: (context, url, downloadProgress) {
-                                  return const Center(
-                                    child: CircularProgressIndicator(
-                                      color: AppColors.kRedPrimary,
-                                    ),
-                                  );
-                                },
-                                errorWidget: (context, url, error) => const Icon(Icons.error),
-                                fit: BoxFit.cover,
+                              child: InkWell(
+                                borderRadius: BorderRadius.circular(15),
+                                onTap: e.link == null
+                                    ? null
+                                    : () {
+                                        _launchInBrowser(Uri.parse(e.link!));
+                                      },
+                                child: CachedNetworkImage(
+                                  imageUrl: e.image ?? NOT_FOUND_IMAGE,
+                                  progressIndicatorBuilder: (context, url, downloadProgress) {
+                                    return const Center(
+                                      child: CircularProgressIndicator(
+                                        color: AppColors.kRedPrimary,
+                                      ),
+                                    );
+                                  },
+                                  errorWidget: (context, url, error) => const Icon(Icons.error),
+                                  fit: BoxFit.cover,
+                                ),
                               ),
                             ),
                           ),
