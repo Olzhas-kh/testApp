@@ -5,6 +5,7 @@ import 'package:narxoz/src/core/error/excepteion.dart';
 import 'package:narxoz/src/core/network/dio_wrapper.dart';
 import 'package:narxoz/src/core/network/network_helper.dart';
 import 'package:narxoz/src/feautures/auth/data/model/user_dto.dart';
+import 'package:narxoz/src/feautures/home/data/model/banner_dto.dart';
 
 const _tag = 'AuthRemoteDS';
 
@@ -17,6 +18,8 @@ abstract class AuthRemoteDS {
   Future<String> logOut();
 
   Future<UserDTO> getProfile();
+
+  Future<List<BannerDTO>> getBanners();
 }
 
 class AuthRemoteDSImpl extends AuthRemoteDS {
@@ -77,6 +80,21 @@ class AuthRemoteDSImpl extends AuthRemoteDS {
       );
 
       return UserDTO.fromJson(response.data as Map<String, dynamic>);
+    } on DioError catch (e) {
+      throw ServerException(
+        message: (e.response!.data as Map<String, dynamic>)['message'] as String,
+      );
+    }
+  }
+
+  @override
+  Future<List<BannerDTO>> getBanners() async {
+    try {
+      final response = await dio.get(
+        EndPoints.banners,
+      );
+
+      return (response.data as List).map((e) => BannerDTO.fromJson(e as Map<String, dynamic>)).toList();
     } on DioError catch (e) {
       throw ServerException(
         message: (e.response!.data as Map<String, dynamic>)['message'] as String,

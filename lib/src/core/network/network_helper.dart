@@ -39,6 +39,7 @@ mixin EndPoints {
     return '/dormitories/orders/categories/$id'; // post
   }
 
+  static const banners = '/user/banners';
   static const login = '/auth/login';
   static const profile = '/user/account/profile';
   static const logout = '/user/logout';

@@ -6,6 +6,7 @@ import 'package:narxoz/src/feautures/app/presentation/locale_provider.dart';
 import 'package:narxoz/src/feautures/auth/presentation/bloc/sign_in_cubit.dart';
 import 'package:narxoz/src/feautures/home/presentation/bloc/application_cubit.dart';
 import 'package:narxoz/src/feautures/home/presentation/bloc/application_verify_cubit.dart';
+import 'package:narxoz/src/feautures/home/presentation/bloc/banners_cubit.dart';
 import 'package:narxoz/src/feautures/home/presentation/bloc/choose_edu_cubit.dart';
 import 'package:narxoz/src/feautures/home/presentation/bloc/dorm_card_cubit.dart';
 import 'package:narxoz/src/feautures/home/presentation/bloc/help_section_cubit.dart';
@@ -67,6 +68,9 @@ class MultiblocWrapper extends StatelessWidget {
           // ),
           BlocProvider<ProfileCubit>(
             create: (_) => sl<ProfileCubit>(),
+          ),
+          BlocProvider<BannersCubit>(
+            create: (_) => sl<BannersCubit>(),
           ),
         ],
         child: child,

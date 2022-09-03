@@ -103,18 +103,12 @@ class __$$_LoadingStateCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LoadingState with DiagnosticableTreeMixin implements _LoadingState {
+class _$_LoadingState implements _LoadingState {
   const _$_LoadingState();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'AppState.loadingState()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'AppState.loadingState'));
   }
 
   @override
@@ -226,20 +220,12 @@ class __$$_NotAuthorizedStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_NotAuthorizedState
-    with DiagnosticableTreeMixin
-    implements _NotAuthorizedState {
+class _$_NotAuthorizedState implements _NotAuthorizedState {
   const _$_NotAuthorizedState();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'AppState.notAuthorizedState()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'AppState.notAuthorizedState'));
   }
 
   @override
@@ -350,18 +336,12 @@ class __$$_InAppStateCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_InAppState with DiagnosticableTreeMixin implements _InAppState {
+class _$_InAppState implements _InAppState {
   const _$_InAppState();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'AppState.inAppState()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'AppState.inAppState'));
   }
 
   @override
@@ -485,23 +465,15 @@ class __$$_ErrorStateCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ErrorState with DiagnosticableTreeMixin implements _ErrorState {
+class _$_ErrorState implements _ErrorState {
   const _$_ErrorState({required this.message});
 
   @override
   final String message;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'AppState.errorState(message: $message)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'AppState.errorState'))
-      ..add(DiagnosticsProperty('message', message));
   }
 
   @override
@@ -694,18 +666,12 @@ class __$$_CheckAuthCopyWithImpl<$Res> extends _$AppEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_CheckAuth with DiagnosticableTreeMixin implements _CheckAuth {
+class _$_CheckAuth implements _CheckAuth {
   const _$_CheckAuth();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'AppEvent.checkAuth()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'AppEvent.checkAuth'));
   }
 
   @override
@@ -816,18 +782,12 @@ class __$$_LoginingCopyWithImpl<$Res> extends _$AppEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Logining with DiagnosticableTreeMixin implements _Logining {
+class _$_Logining implements _Logining {
   const _$_Logining();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'AppEvent.logining()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'AppEvent.logining'));
   }
 
   @override
@@ -937,18 +897,12 @@ class __$$_ExitingCopyWithImpl<$Res> extends _$AppEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Exiting with DiagnosticableTreeMixin implements _Exiting {
+class _$_Exiting implements _Exiting {
   const _$_Exiting();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'AppEvent.exiting()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'AppEvent.exiting'));
   }
 
   @override
@@ -1059,18 +1013,12 @@ class __$$_RefreshLocalCopyWithImpl<$Res> extends _$AppEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_RefreshLocal with DiagnosticableTreeMixin implements _RefreshLocal {
+class _$_RefreshLocal implements _RefreshLocal {
   const _$_RefreshLocal();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'AppEvent.refreshLocal()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'AppEvent.refreshLocal'));
   }
 
   @override
