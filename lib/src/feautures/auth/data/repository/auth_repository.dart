@@ -9,6 +9,7 @@ import 'package:narxoz/src/core/resources/constants.dart';
 import 'package:narxoz/src/feautures/auth/data/datasource/auth_local_ds.dart';
 import 'package:narxoz/src/feautures/auth/data/datasource/auth_remote_ds.dart';
 import 'package:narxoz/src/feautures/auth/data/model/user_dto.dart';
+import 'package:narxoz/src/feautures/home/data/model/banner_dto.dart';
 
 const _tag = 'AuthRepository';
 
@@ -27,6 +28,8 @@ abstract class AuthRepository {
   Future<Either<Failure, UserDTO>> getUserFromCache();
 
   Future<Either<Failure, UserDTO>> getUserFromBack();
+
+  Future<Either<Failure, List<BannerDTO>>> getBanners();
 }
 
 class AuthRepositoryImpl extends AuthRepository {
@@ -134,6 +137,21 @@ class AuthRepositoryImpl extends AuthRepository {
       return Right(user);
     } on CacheException catch (e) {
       return Left(CacheFailure(message: e.message));
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<BannerDTO>>> getBanners() async {
+    if (await networkInfo.isConnected) {
+      try {
+        final banners = await remoteDS.getBanners();
+
+        return Right(banners);
+      } on ServerException catch (e) {
+        return Left(ServerFailure(message: e.message));
+      }
+    } else {
+      return Left(ServerFailure(message: NO_INTERNET_TEXT));
     }
   }
 }

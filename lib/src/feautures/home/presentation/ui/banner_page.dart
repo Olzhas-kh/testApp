@@ -1,7 +1,9 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:narxoz/src/core/resources/constants.dart';
 import 'package:narxoz/src/feautures/app/widgets/custom/custom_appbar.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -35,10 +37,24 @@ class _BannerPageState extends State<BannerPage> {
                 context.router.pop();
               },
             ),
-            const Expanded(
+            Expanded(
               child: WebView(
-                initialUrl: 'https://sis-pprd-eis.narxoz.kz:8447/authenticationendpoint/login.do'
-                '?commonAuthCallerPath=%252Fcas%252Flogin&forceAuth=false&passiveAuth=false&tenantDomain=carbon.super&sessionDataKey=21300719-7c63-4f12-957d-51302e0c7ae2&relyingParty=StudentSSB&type=cassso&sp=StudentSSB&isSaaSApp=false&authenticators=BasicAuthenticator:LOCAL',
+                initialUrl: NarxozLinks.newBannerLink,
+                onPageStarted: (String value) {
+                  log('onPageStarted: $value');
+                  // if (value.startsWith(widget.payment.requestUrl.toString()) ||
+                  //     value == widget.payment.requestUrl.toString()) {
+                  //   context.router.push(SuccessPageRoute());
+                  // }
+                },
+                onProgress: (value) {
+                  log('onProgress value is $value');
+                },
+                onPageFinished: (String value) {
+                  log('onPageFinished: $value');
+                },
+                // key: _key,
+                javascriptMode: JavascriptMode.unrestricted,
               ),
             ),
           ],

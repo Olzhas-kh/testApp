@@ -1,11 +1,15 @@
+import 'dart:io';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:narxoz/src/core/extension/extensions.dart';
+import 'package:narxoz/src/core/resources/constants.dart';
 import 'package:narxoz/src/core/resources/resources.dart';
 import 'package:narxoz/src/feautures/app/router/app_router.dart';
 import 'package:narxoz/src/feautures/app/widgets/custom/custom_alert_dialog.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ChaptersWidget extends StatefulWidget {
   const ChaptersWidget({super.key});
@@ -75,6 +79,15 @@ class _ChaptersWidgetState extends State<ChaptersWidget> {
     ),
   ];
 
+  Future<void> _launchInBrowser(Uri url) async {
+    if (!await launchUrl(
+      url,
+      mode: LaunchMode.externalApplication,
+    )) {
+      throw 'Could not launch $url';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -105,7 +118,11 @@ class _ChaptersWidgetState extends State<ChaptersWidget> {
                       if (e.isActive) {
                         switch (e.id) {
                           case 1:
-                            context.router.push(const BannerPageRoute());
+                            if (Platform.isIOS) {
+                              _launchInBrowser(Uri.parse(NarxozLinks.newBannerLink));
+                            } else {
+                              context.router.push(const BannerPageRoute());
+                            }
                             break;
                           case 2:
                             context.router.push(const CanvasPageRoute());
@@ -127,9 +144,7 @@ class _ChaptersWidgetState extends State<ChaptersWidget> {
                       padding: const EdgeInsets.all(20),
                       child: SvgPicture.asset(
                         e.image,
-                        color: e.isActive
-                            ? AppColors.kRedPrimary
-                            : AppColors.kGray2,
+                        color: e.isActive ? AppColors.kRedPrimary : AppColors.kGray2,
                       ),
                     ),
                   ),
