@@ -136,6 +136,7 @@ class _SignInPageState extends State<SignInPage> {
                           },
                           style: redButtonStyle(),
                         ),
+                        const SizedBox(height: 32),
                       ],
                     ),
                   ),

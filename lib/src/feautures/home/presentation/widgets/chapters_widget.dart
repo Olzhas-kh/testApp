@@ -118,11 +118,11 @@ class _ChaptersWidgetState extends State<ChaptersWidget> {
                       if (e.isActive) {
                         switch (e.id) {
                           case 1:
-                            if (Platform.isIOS) {
-                              _launchInBrowser(Uri.parse(NarxozLinks.newBannerLink));
-                            } else {
+                            // if (Platform.isIOS) {
+                            //   _launchInBrowser(Uri.parse(NarxozLinks.newBannerLink));
+                            // } else {
                               context.router.push(const BannerPageRoute());
-                            }
+                            // }
                             break;
                           case 2:
                             context.router.push(const CanvasPageRoute());

@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -5,8 +6,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:narxoz/src/core/extension/extensions.dart';
 import 'package:narxoz/src/core/resources/constants.dart';
 import 'package:narxoz/src/core/resources/resources.dart';
+import 'package:narxoz/src/feautures/app/router/app_router.dart';
 import 'package:narxoz/src/feautures/home/data/model/banner_dto.dart';
 import 'package:narxoz/src/feautures/home/presentation/bloc/banners_cubit.dart';
+import 'package:narxoz/src/feautures/home/presentation/ui/banners_detail_page.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class BannersWidget extends StatefulWidget {
@@ -212,7 +215,8 @@ class _BannersWidgetState extends State<BannersWidget> {
                                 onTap: e.link == null
                                     ? null
                                     : () {
-                                        _launchInBrowser(Uri.parse(e.link!));
+                                        // _launchInBrowser(Uri.parse(e.link!));
+                                        context.router.push(BannersDetailPageRoute(link: e.link!));
                                       },
                                 child: CachedNetworkImage(
                                   imageUrl: e.image ?? NOT_FOUND_IMAGE,
