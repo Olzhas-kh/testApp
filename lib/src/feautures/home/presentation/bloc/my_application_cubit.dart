@@ -41,6 +41,14 @@ class MyApplicationCubit extends Cubit<MyApplicationState> {
     );
   }
 
+  Future<void> fakeLoading() async {
+    emit(const MyApplicationState.loadingState());
+
+    await Future.delayed(const Duration(milliseconds: 1500));
+
+    emit(const MyApplicationState.initialState());
+  }
+
   // @override
   // void onChange(Change<LanguageState> change) {
   //   print(change);

@@ -13,8 +13,10 @@ import 'package:narxoz/src/feautures/app/widgets/custom/custom_snackbars.dart';
 import 'package:narxoz/src/feautures/home/data/model/payment_dto.dart';
 import 'package:narxoz/src/feautures/home/data/model/verification_response_dto.dart';
 import 'package:narxoz/src/feautures/home/presentation/bloc/dorm_card_cubit.dart';
+import 'package:narxoz/src/feautures/home/presentation/bloc/my_application_cubit.dart';
 import 'package:narxoz/src/feautures/home/presentation/widgets/accept_privacy_widget.dart';
 import 'package:narxoz/src/feautures/home/presentation/widgets/file_picker_widget.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class PreparationPayment extends StatefulWidget {
   final VerificationResponseDTO verificationResponse;
@@ -38,6 +40,19 @@ class _PreparationPaymentState extends State<PreparationPayment> {
   @override
   void initState() {
     super.initState();
+  }
+
+  Future<void> _launchInBrowser(
+    Uri url, {
+    LaunchMode mode = LaunchMode.inAppWebView,
+  }) async {
+    if (!await launchUrl(
+      url,
+      mode: mode,
+      // webViewConfiguration: WebViewConfiguration()
+    )) {
+      throw 'Could not launch $url';
+    }
   }
 
   @override
@@ -65,13 +80,31 @@ class _PreparationPaymentState extends State<PreparationPayment> {
                     context.loaderOverlay.show();
                     buildErrorCustomSnackBar(context, message);
                   },
-                  loadedState: (PaymentDTO? payment) {
+                  loadedState: (PaymentDTO? payment) async {
                     context.loaderOverlay.hide();
 
                     if (payment == null || payment.redirectUrl == null) {
                       context.router.push(SuccessPageRoute());
                     } else {
-                      context.router.push(PaymentPageRoute(payment: payment));
+                      if (Platform.isIOS) {
+                        await _launchInBrowser(Uri.parse(payment.redirectUrl!))
+                            .then(
+                              (value) => context.router.pop(),
+                            )
+                            .then((value) => BlocProvider.of<MyApplicationCubit>(context).fakeLoading());
+                      } else {
+                        await _launchInBrowser(
+                          Uri.parse(
+                            payment.redirectUrl!,
+                          ),
+                          mode: LaunchMode.externalApplication,
+                        )
+                            .then(
+                              (value) => context.router.pop(),
+                            )
+                            .then((value) => BlocProvider.of<MyApplicationCubit>(context).fakeLoading());
+                        // context.router.push(PaymentPageRoute(payment: payment));
+                      }
                     }
                   },
                   orElse: () => context.loaderOverlay.hide(),
@@ -157,7 +190,11 @@ class _PreparationPaymentState extends State<PreparationPayment> {
                     const Spacer(),
                     CustomButton(
                       height: 50,
-                      body: Text(context.appLocale.payTenge('${widget.verificationResponse.data?.amount}')),
+                      body: Text(
+                        hasCheque
+                            ? context.appLocale.send
+                            : context.appLocale.payTenge('${widget.verificationResponse.data?.amount}'),
+                      ),
                       onClick: () {
                         // if (chosenPlacement == null) {
                         //   buildErrorCustomSnackBar(context, context.appLocale.chooseTheTypeOfPlacement);
@@ -171,7 +208,7 @@ class _PreparationPaymentState extends State<PreparationPayment> {
 
                         BlocProvider.of<DormCardCubit>(context).paymentDorm(
                           orderId: widget.orderId,
-                          file: cheque,
+                          file: hasCheque ? cheque : null,
                         );
                       },
                       style: redButtonStyle(),

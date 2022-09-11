@@ -25,6 +25,12 @@ class _$AppRouter extends RootStackRouter {
       return MaterialPageX<dynamic>(
           routeData: routeData, child: const BannerPage());
     },
+    BannersDetailPageRoute.name: (routeData) {
+      final args = routeData.argsAs<BannersDetailPageRouteArgs>();
+      return MaterialPageX<dynamic>(
+          routeData: routeData,
+          child: BannersDetailPage(link: args.link, key: args.key));
+    },
     CanvasPageRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
           routeData: routeData, child: const CanvasPage());
@@ -51,6 +57,12 @@ class _$AppRouter extends RootStackRouter {
       return MaterialPageX<dynamic>(
           routeData: routeData,
           child: PaymentPage(payment: args.payment, key: args.key));
+    },
+    PaymentPage1Route.name: (routeData) {
+      final args = routeData.argsAs<PaymentPage1RouteArgs>();
+      return MaterialPageX<dynamic>(
+          routeData: routeData,
+          child: PaymentPage1(payment: args.payment, key: args.key));
     },
     BaseHomeRouter.name: (routeData) {
       return MaterialPageX<dynamic>(
@@ -147,12 +159,14 @@ class _$AppRouter extends RootStackRouter {
               path: 'profile-page', parent: LauncherRoute.name)
         ]),
         RouteConfig(BannerPageRoute.name, path: '/banner-page'),
+        RouteConfig(BannersDetailPageRoute.name, path: '/banners-detail-page'),
         RouteConfig(CanvasPageRoute.name, path: '/canvas-page'),
         RouteConfig(WebRequestsPageRoute.name, path: '/web-requests-page'),
         RouteConfig(ApplicationSuccessPageRoute.name,
             path: '/application-success-page'),
         RouteConfig(SuccessPageRoute.name, path: '/success-page'),
-        RouteConfig(PaymentPageRoute.name, path: '/payment-page')
+        RouteConfig(PaymentPageRoute.name, path: '/payment-page'),
+        RouteConfig(PaymentPage1Route.name, path: '/payment-page1')
       ];
 }
 
@@ -171,6 +185,30 @@ class BannerPageRoute extends PageRouteInfo<void> {
   const BannerPageRoute() : super(BannerPageRoute.name, path: '/banner-page');
 
   static const String name = 'BannerPageRoute';
+}
+
+/// generated route for
+/// [BannersDetailPage]
+class BannersDetailPageRoute extends PageRouteInfo<BannersDetailPageRouteArgs> {
+  BannersDetailPageRoute({required String link, Key? key})
+      : super(BannersDetailPageRoute.name,
+            path: '/banners-detail-page',
+            args: BannersDetailPageRouteArgs(link: link, key: key));
+
+  static const String name = 'BannersDetailPageRoute';
+}
+
+class BannersDetailPageRouteArgs {
+  const BannersDetailPageRouteArgs({required this.link, this.key});
+
+  final String link;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'BannersDetailPageRouteArgs{link: $link, key: $key}';
+  }
 }
 
 /// generated route for
@@ -260,6 +298,30 @@ class PaymentPageRouteArgs {
   @override
   String toString() {
     return 'PaymentPageRouteArgs{payment: $payment, key: $key}';
+  }
+}
+
+/// generated route for
+/// [PaymentPage1]
+class PaymentPage1Route extends PageRouteInfo<PaymentPage1RouteArgs> {
+  PaymentPage1Route({required PaymentDTO payment, Key? key})
+      : super(PaymentPage1Route.name,
+            path: '/payment-page1',
+            args: PaymentPage1RouteArgs(payment: payment, key: key));
+
+  static const String name = 'PaymentPage1Route';
+}
+
+class PaymentPage1RouteArgs {
+  const PaymentPage1RouteArgs({required this.payment, this.key});
+
+  final PaymentDTO payment;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'PaymentPage1RouteArgs{payment: $payment, key: $key}';
   }
 }
 

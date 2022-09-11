@@ -23,9 +23,8 @@ class PaymentPage extends StatefulWidget {
 
 class _PaymentPageState extends State<PaymentPage> {
   // TODO
-  final Completer<WebViewController> _controller =
-      Completer<WebViewController>();
-
+  final Completer<WebViewController> _controller = Completer<WebViewController>();
+  late WebViewController _webViewController;
 
   @override
   void initState() {
@@ -57,15 +56,33 @@ class _PaymentPageState extends State<PaymentPage> {
                       value == widget.payment.requestUrl.toString()) {
                     context.router.push(SuccessPageRoute());
                   }
+                  if (value.startsWith(widget.payment.failureUrl.toString()) ||
+                      value == widget.payment.failureUrl.toString()) {
+                    context.router.pop();
+                  }
                 },
                 onProgress: (value) {
                   log('onProgress value is $value');
                 },
-                onPageFinished: (String value) {
+                onPageFinished: (String value) async {
                   log('onPageFinished: $value');
+
+                  // if (value.startsWith('https://epay-go.forte.kz/?status=loading3ds')) {
+                  //   if (await _webViewController.canGoBack()) {
+                  //     _webViewController.goBack();
+                  //   }
+                  // }
                 },
+                onWebViewCreated: (WebViewController webViewController) {
+                  // _controller.complete(webViewController);
+                  _webViewController = webViewController;
+                },
+
                 // key: _key,
                 javascriptMode: JavascriptMode.unrestricted,
+                onWebResourceError: (WebResourceError error) {
+                  log(error.toString(), name: 'onWebResourceError', error: error);
+                },
               ),
             ),
           ],

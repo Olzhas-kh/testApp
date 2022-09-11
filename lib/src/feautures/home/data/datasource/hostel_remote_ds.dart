@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:dio/dio.dart';
@@ -253,9 +254,12 @@ class HostelRemoteDSImpl extends HostelRemoteDS {
       }
       return PaymentDTO.fromJson(response.data as Map<String, dynamic>);
     } on DioError catch (e) {
+      log(e.toString());
       throw ServerException(
-        message: (e.response!.data as Map<String, dynamic>)['message'] as String,
+        message: e.response.toString(), //(e.response!.data as Map<String, dynamic>)['message'] as String,
       );
+    } catch (e) {
+      throw ServerException(message: e.toString());
     }
   }
 

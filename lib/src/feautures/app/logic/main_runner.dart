@@ -1,8 +1,10 @@
 import 'dart:async';
+import 'dart:io';
 
 // import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:narxoz/src/core/services/locator_service.dart';
 // import 'package:kausar/core/services/locator_service.dart';
 
@@ -33,6 +35,13 @@ mixin MainRunner {
     // EasyLocalization.logger.enableLevels = [];
 
     // await Firebase.initializeApp();
+
+    if (!kIsWeb) {
+      if (Platform.isAndroid) {
+        await AndroidInAppWebViewController.setWebContentsDebuggingEnabled(true);
+      }
+    }
+
     final app = await _initApp(shouldSend, asyncDependencies, appBuilder);
     await initLocator();
 
