@@ -1,5 +1,8 @@
 // ignore_for_file: constant_identifier_names
 
+import 'package:flutter/material.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
+
 const NOT_FOUND_IMAGE =
     'https://cdn.shopify.com/shopifycloud/shopify/assets/no-image-2048-5e88c1b20e087fb7bbe9a3771824e743c244f437e4f8ba93bbf7b11b53f7824c_600x600.gif';
 
@@ -18,3 +21,11 @@ mixin NarxozLinks {
 
   static const newBannerLink = 'http://sis-pprd-xess2.narxoz.kz:8080/StudentSSB/ssb/studentProfile';
 }
+
+Widget refreshClassicHeader = const ClassicHeader(
+  completeText: 'Успешно обновлено!',
+  releaseText: 'Обновить!',
+  idleText: 'Потяните вниз, чтобы обновить',
+  failedText: 'Неизвестная ошибка',
+  refreshingText: 'Обновление...',
+);
