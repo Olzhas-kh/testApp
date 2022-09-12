@@ -127,7 +127,10 @@ class _ProfilePageState extends State<ProfilePage> {
                                 style: AppTextStyles.gilroy16w500Red,
                               ),
                               const SizedBox(height: 33),
-                              buildRow(text: context.appLocale.dateOfBirth, value: '15.12.2000'),
+                              buildRow(
+                                text: context.appLocale.dateOfBirth,
+                                value: user.dateOfBirth ?? context.appLocale.notSpecified,
+                              ),
                               const Divider(
                                 color: Color(0xff909090),
                               ),
@@ -139,21 +142,53 @@ class _ProfilePageState extends State<ProfilePage> {
                                 color: Color(0xff909090),
                               ),
                               buildRow(
-                                text: context.appLocale.phoneNumber,
-                                value: user.telephone as String? ?? context.appLocale.notSpecified,
+                                text: context.appLocale.gender,
+                                value: user.gender ?? context.appLocale.notSpecified,
                               ),
                               const Divider(
                                 color: Color(0xff909090),
                               ),
-                              buildRow(text: context.appLocale.typeOfGrant, value: 'Гос грант'),
-                              // TODO
+                              buildRow(
+                                text: context.appLocale.formOfTraining,
+                                value: user.formOfTraining ?? context.appLocale.notSpecified,
+                              ),
+                              const Divider(
+                                color: Color(0xff909090),
+                              ),
+                              // buildRow(
+                              //   text: 'GPA',
+                              //   value: '3.4',
+                              // ),
                               // const Divider(
                               //   color: Color(0xff909090),
                               // ),
-                              // buildRow(text: 'GPA', value: '3.4'),
+                              buildRow(
+                                text: context.appLocale.level,
+                                value: user.level ?? context.appLocale.notSpecified,
+                              ),
+                              const Divider(
+                                color: Color(0xff909090),
+                              ),
+                              buildRow(
+                                text: context.appLocale.program,
+                                value: user.program ?? context.appLocale.notSpecified,
+                              ),
+                              const Divider(
+                                color: Color(0xff909090),
+                              ),
+                              // buildRow(
+                              //   text: context.appLocale.phoneNumber,
+                              //   value: user.telephone as String? ?? context.appLocale.notSpecified,
+                              // ),
+
+                              // buildRow(
+                              //   text: context.appLocale.typeOfGrant,
+                              //   value: 'Гос грант',
+                              // ),
                               // const Divider(
                               //   color: Color(0xff909090),
                               // ),
+
                               // buildRow(text: context.appLocale.iin, value: '9887887845'),
                             ],
                           ),

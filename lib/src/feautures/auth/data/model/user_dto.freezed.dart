@@ -26,13 +26,19 @@ mixin _$UserDTO {
   String? get lastName => throw _privateConstructorUsedError;
   @JsonKey(name: 'full_name')
   String? get fullName => throw _privateConstructorUsedError;
-  String? get login => throw _privateConstructorUsedError;
   String? get email => throw _privateConstructorUsedError;
-  dynamic get telephone => throw _privateConstructorUsedError;
-  dynamic get country => throw _privateConstructorUsedError;
-  String? get address => throw _privateConstructorUsedError;
-  @JsonKey(name: 'postal_code')
-  dynamic get postCode => throw _privateConstructorUsedError;
+  String? get login => throw _privateConstructorUsedError;
+  String? get gender => throw _privateConstructorUsedError;
+  @JsonKey(name: 'date_of_birth')
+  String? get dateOfBirth => throw _privateConstructorUsedError;
+  @JsonKey(name: 'form_of_training')
+  String? get formOfTraining => throw _privateConstructorUsedError;
+  String? get level => throw _privateConstructorUsedError;
+  String? get program =>
+      throw _privateConstructorUsedError; // dynamic telephone,
+// dynamic country,
+// String? address,
+// @JsonKey(name: 'postal_code') dynamic postCode,
   String? get token => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -48,12 +54,13 @@ abstract class $UserDTOCopyWith<$Res> {
       {@JsonKey(name: 'first_name') String? firstName,
       @JsonKey(name: 'last_name') String? lastName,
       @JsonKey(name: 'full_name') String? fullName,
-      String? login,
       String? email,
-      dynamic telephone,
-      dynamic country,
-      String? address,
-      @JsonKey(name: 'postal_code') dynamic postCode,
+      String? login,
+      String? gender,
+      @JsonKey(name: 'date_of_birth') String? dateOfBirth,
+      @JsonKey(name: 'form_of_training') String? formOfTraining,
+      String? level,
+      String? program,
       String? token});
 }
 
@@ -70,12 +77,13 @@ class _$UserDTOCopyWithImpl<$Res> implements $UserDTOCopyWith<$Res> {
     Object? firstName = freezed,
     Object? lastName = freezed,
     Object? fullName = freezed,
-    Object? login = freezed,
     Object? email = freezed,
-    Object? telephone = freezed,
-    Object? country = freezed,
-    Object? address = freezed,
-    Object? postCode = freezed,
+    Object? login = freezed,
+    Object? gender = freezed,
+    Object? dateOfBirth = freezed,
+    Object? formOfTraining = freezed,
+    Object? level = freezed,
+    Object? program = freezed,
     Object? token = freezed,
   }) {
     return _then(_value.copyWith(
@@ -91,30 +99,34 @@ class _$UserDTOCopyWithImpl<$Res> implements $UserDTOCopyWith<$Res> {
           ? _value.fullName
           : fullName // ignore: cast_nullable_to_non_nullable
               as String?,
-      login: login == freezed
-          ? _value.login
-          : login // ignore: cast_nullable_to_non_nullable
-              as String?,
       email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String?,
-      telephone: telephone == freezed
-          ? _value.telephone
-          : telephone // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      country: country == freezed
-          ? _value.country
-          : country // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      address: address == freezed
-          ? _value.address
-          : address // ignore: cast_nullable_to_non_nullable
+      login: login == freezed
+          ? _value.login
+          : login // ignore: cast_nullable_to_non_nullable
               as String?,
-      postCode: postCode == freezed
-          ? _value.postCode
-          : postCode // ignore: cast_nullable_to_non_nullable
-              as dynamic,
+      gender: gender == freezed
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as String?,
+      dateOfBirth: dateOfBirth == freezed
+          ? _value.dateOfBirth
+          : dateOfBirth // ignore: cast_nullable_to_non_nullable
+              as String?,
+      formOfTraining: formOfTraining == freezed
+          ? _value.formOfTraining
+          : formOfTraining // ignore: cast_nullable_to_non_nullable
+              as String?,
+      level: level == freezed
+          ? _value.level
+          : level // ignore: cast_nullable_to_non_nullable
+              as String?,
+      program: program == freezed
+          ? _value.program
+          : program // ignore: cast_nullable_to_non_nullable
+              as String?,
       token: token == freezed
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
@@ -133,12 +145,13 @@ abstract class _$$_UserDTOCopyWith<$Res> implements $UserDTOCopyWith<$Res> {
       {@JsonKey(name: 'first_name') String? firstName,
       @JsonKey(name: 'last_name') String? lastName,
       @JsonKey(name: 'full_name') String? fullName,
-      String? login,
       String? email,
-      dynamic telephone,
-      dynamic country,
-      String? address,
-      @JsonKey(name: 'postal_code') dynamic postCode,
+      String? login,
+      String? gender,
+      @JsonKey(name: 'date_of_birth') String? dateOfBirth,
+      @JsonKey(name: 'form_of_training') String? formOfTraining,
+      String? level,
+      String? program,
       String? token});
 }
 
@@ -156,12 +169,13 @@ class __$$_UserDTOCopyWithImpl<$Res> extends _$UserDTOCopyWithImpl<$Res>
     Object? firstName = freezed,
     Object? lastName = freezed,
     Object? fullName = freezed,
-    Object? login = freezed,
     Object? email = freezed,
-    Object? telephone = freezed,
-    Object? country = freezed,
-    Object? address = freezed,
-    Object? postCode = freezed,
+    Object? login = freezed,
+    Object? gender = freezed,
+    Object? dateOfBirth = freezed,
+    Object? formOfTraining = freezed,
+    Object? level = freezed,
+    Object? program = freezed,
     Object? token = freezed,
   }) {
     return _then(_$_UserDTO(
@@ -177,30 +191,34 @@ class __$$_UserDTOCopyWithImpl<$Res> extends _$UserDTOCopyWithImpl<$Res>
           ? _value.fullName
           : fullName // ignore: cast_nullable_to_non_nullable
               as String?,
-      login: login == freezed
-          ? _value.login
-          : login // ignore: cast_nullable_to_non_nullable
-              as String?,
       email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String?,
-      telephone: telephone == freezed
-          ? _value.telephone
-          : telephone // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      country: country == freezed
-          ? _value.country
-          : country // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      address: address == freezed
-          ? _value.address
-          : address // ignore: cast_nullable_to_non_nullable
+      login: login == freezed
+          ? _value.login
+          : login // ignore: cast_nullable_to_non_nullable
               as String?,
-      postCode: postCode == freezed
-          ? _value.postCode
-          : postCode // ignore: cast_nullable_to_non_nullable
-              as dynamic,
+      gender: gender == freezed
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as String?,
+      dateOfBirth: dateOfBirth == freezed
+          ? _value.dateOfBirth
+          : dateOfBirth // ignore: cast_nullable_to_non_nullable
+              as String?,
+      formOfTraining: formOfTraining == freezed
+          ? _value.formOfTraining
+          : formOfTraining // ignore: cast_nullable_to_non_nullable
+              as String?,
+      level: level == freezed
+          ? _value.level
+          : level // ignore: cast_nullable_to_non_nullable
+              as String?,
+      program: program == freezed
+          ? _value.program
+          : program // ignore: cast_nullable_to_non_nullable
+              as String?,
       token: token == freezed
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
@@ -216,12 +234,13 @@ class _$_UserDTO implements _UserDTO {
       {@JsonKey(name: 'first_name') this.firstName,
       @JsonKey(name: 'last_name') this.lastName,
       @JsonKey(name: 'full_name') this.fullName,
-      required this.login,
       this.email,
-      this.telephone,
-      this.country,
-      this.address,
-      @JsonKey(name: 'postal_code') this.postCode,
+      required this.login,
+      this.gender,
+      @JsonKey(name: 'date_of_birth') this.dateOfBirth,
+      @JsonKey(name: 'form_of_training') this.formOfTraining,
+      this.level,
+      this.program,
       this.token});
 
   factory _$_UserDTO.fromJson(Map<String, dynamic> json) =>
@@ -237,24 +256,31 @@ class _$_UserDTO implements _UserDTO {
   @JsonKey(name: 'full_name')
   final String? fullName;
   @override
-  final String? login;
-  @override
   final String? email;
   @override
-  final dynamic telephone;
+  final String? login;
   @override
-  final dynamic country;
+  final String? gender;
   @override
-  final String? address;
+  @JsonKey(name: 'date_of_birth')
+  final String? dateOfBirth;
   @override
-  @JsonKey(name: 'postal_code')
-  final dynamic postCode;
+  @JsonKey(name: 'form_of_training')
+  final String? formOfTraining;
+  @override
+  final String? level;
+  @override
+  final String? program;
+// dynamic telephone,
+// dynamic country,
+// String? address,
+// @JsonKey(name: 'postal_code') dynamic postCode,
   @override
   final String? token;
 
   @override
   String toString() {
-    return 'UserDTO(firstName: $firstName, lastName: $lastName, fullName: $fullName, login: $login, email: $email, telephone: $telephone, country: $country, address: $address, postCode: $postCode, token: $token)';
+    return 'UserDTO(firstName: $firstName, lastName: $lastName, fullName: $fullName, email: $email, login: $login, gender: $gender, dateOfBirth: $dateOfBirth, formOfTraining: $formOfTraining, level: $level, program: $program, token: $token)';
   }
 
   @override
@@ -265,12 +291,15 @@ class _$_UserDTO implements _UserDTO {
             const DeepCollectionEquality().equals(other.firstName, firstName) &&
             const DeepCollectionEquality().equals(other.lastName, lastName) &&
             const DeepCollectionEquality().equals(other.fullName, fullName) &&
-            const DeepCollectionEquality().equals(other.login, login) &&
             const DeepCollectionEquality().equals(other.email, email) &&
-            const DeepCollectionEquality().equals(other.telephone, telephone) &&
-            const DeepCollectionEquality().equals(other.country, country) &&
-            const DeepCollectionEquality().equals(other.address, address) &&
-            const DeepCollectionEquality().equals(other.postCode, postCode) &&
+            const DeepCollectionEquality().equals(other.login, login) &&
+            const DeepCollectionEquality().equals(other.gender, gender) &&
+            const DeepCollectionEquality()
+                .equals(other.dateOfBirth, dateOfBirth) &&
+            const DeepCollectionEquality()
+                .equals(other.formOfTraining, formOfTraining) &&
+            const DeepCollectionEquality().equals(other.level, level) &&
+            const DeepCollectionEquality().equals(other.program, program) &&
             const DeepCollectionEquality().equals(other.token, token));
   }
 
@@ -281,12 +310,13 @@ class _$_UserDTO implements _UserDTO {
       const DeepCollectionEquality().hash(firstName),
       const DeepCollectionEquality().hash(lastName),
       const DeepCollectionEquality().hash(fullName),
-      const DeepCollectionEquality().hash(login),
       const DeepCollectionEquality().hash(email),
-      const DeepCollectionEquality().hash(telephone),
-      const DeepCollectionEquality().hash(country),
-      const DeepCollectionEquality().hash(address),
-      const DeepCollectionEquality().hash(postCode),
+      const DeepCollectionEquality().hash(login),
+      const DeepCollectionEquality().hash(gender),
+      const DeepCollectionEquality().hash(dateOfBirth),
+      const DeepCollectionEquality().hash(formOfTraining),
+      const DeepCollectionEquality().hash(level),
+      const DeepCollectionEquality().hash(program),
       const DeepCollectionEquality().hash(token));
 
   @JsonKey(ignore: true)
@@ -307,12 +337,13 @@ abstract class _UserDTO implements UserDTO {
       {@JsonKey(name: 'first_name') final String? firstName,
       @JsonKey(name: 'last_name') final String? lastName,
       @JsonKey(name: 'full_name') final String? fullName,
-      required final String? login,
       final String? email,
-      final dynamic telephone,
-      final dynamic country,
-      final String? address,
-      @JsonKey(name: 'postal_code') final dynamic postCode,
+      required final String? login,
+      final String? gender,
+      @JsonKey(name: 'date_of_birth') final String? dateOfBirth,
+      @JsonKey(name: 'form_of_training') final String? formOfTraining,
+      final String? level,
+      final String? program,
       final String? token}) = _$_UserDTO;
 
   factory _UserDTO.fromJson(Map<String, dynamic> json) = _$_UserDTO.fromJson;
@@ -327,19 +358,25 @@ abstract class _UserDTO implements UserDTO {
   @JsonKey(name: 'full_name')
   String? get fullName;
   @override
-  String? get login;
-  @override
   String? get email;
   @override
-  dynamic get telephone;
+  String? get login;
   @override
-  dynamic get country;
+  String? get gender;
   @override
-  String? get address;
+  @JsonKey(name: 'date_of_birth')
+  String? get dateOfBirth;
   @override
-  @JsonKey(name: 'postal_code')
-  dynamic get postCode;
+  @JsonKey(name: 'form_of_training')
+  String? get formOfTraining;
   @override
+  String? get level;
+  @override
+  String? get program;
+  @override // dynamic telephone,
+// dynamic country,
+// String? address,
+// @JsonKey(name: 'postal_code') dynamic postCode,
   String? get token;
   @override
   @JsonKey(ignore: true)
