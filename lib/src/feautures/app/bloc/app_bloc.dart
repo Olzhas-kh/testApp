@@ -1,7 +1,6 @@
 import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
-import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:narxoz/src/core/error/failure.dart';
 import 'package:narxoz/src/feautures/auth/data/repository/auth_repository.dart';

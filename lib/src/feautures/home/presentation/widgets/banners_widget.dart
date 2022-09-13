@@ -9,8 +9,6 @@ import 'package:narxoz/src/core/resources/resources.dart';
 import 'package:narxoz/src/feautures/app/router/app_router.dart';
 import 'package:narxoz/src/feautures/home/data/model/banner_dto.dart';
 import 'package:narxoz/src/feautures/home/presentation/bloc/banners_cubit.dart';
-import 'package:narxoz/src/feautures/home/presentation/ui/banners_detail_page.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class BannersWidget extends StatefulWidget {
   const BannersWidget({super.key});
@@ -38,14 +36,14 @@ class _BannersWidgetState extends State<BannersWidget> {
     super.initState();
   }
 
-  Future<void> _launchInBrowser(Uri url) async {
-    if (!await launchUrl(
-      url,
-      mode: LaunchMode.externalApplication,
-    )) {
-      throw 'Could not launch $url';
-    }
-  }
+  // Future<void> _launchInBrowser(Uri url) async {
+  //   if (!await launchUrl(
+  //     url,
+  //     mode: LaunchMode.externalApplication,
+  //   )) {
+  //     throw 'Could not launch $url';
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {

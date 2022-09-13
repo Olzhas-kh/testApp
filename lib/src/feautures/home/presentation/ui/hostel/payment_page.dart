@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'dart:developer';
 import 'dart:io';
 
@@ -23,7 +22,7 @@ class PaymentPage extends StatefulWidget {
 
 class _PaymentPageState extends State<PaymentPage> {
   // TODO
-  final Completer<WebViewController> _controller = Completer<WebViewController>();
+  // final Completer<WebViewController> _controller = Completer<WebViewController>();
   late WebViewController _webViewController;
 
   @override

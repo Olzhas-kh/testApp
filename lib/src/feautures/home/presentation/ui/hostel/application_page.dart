@@ -231,7 +231,7 @@ class _ApplicationPageState extends State<ApplicationPage> {
                                                         ),
                                                         textButtonTheme: TextButtonThemeData(
                                                           style: TextButton.styleFrom(
-                                                            primary: Colors.red, // button text color
+                                                            foregroundColor: Colors.red, // button text color
                                                           ),
                                                         ),
                                                       ),
