@@ -37,9 +37,7 @@ class _BaseAppBarState extends State<BaseAppBar> {
 
   @override
   void initState() {
-    chosenLang = localMap[Provider.of<LocaleProvider>(context, listen: false)
-        .locale
-        .languageCode];
+    chosenLang = localMap[Provider.of<LocaleProvider>(context, listen: false).locale.languageCode];
     super.initState();
   }
 
@@ -118,16 +116,14 @@ class _BaseAppBarState extends State<BaseAppBar> {
                 customItemsIndexes: _getDividersIndexes(),
                 customItemsHeight: 4,
                 style: AppTextStyles.gilroy15w500Red,
-                onChanged: (value) {
+                onChanged: (String? value) {
                   setState(() {
-                    chosenLang = value as String?;
+                    chosenLang = value;
                   });
                   if (chosenLang != null) {
-                    Provider.of<LocaleProvider>(context, listen: false).locale =
-                        Locale(langMap[chosenLang]!);
+                    Provider.of<LocaleProvider>(context, listen: false).locale = Locale(langMap[chosenLang]!);
 
-                    BlocProvider.of<AppBloc>(context)
-                        .add(const AppEvent.refreshLocal());
+                    BlocProvider.of<AppBloc>(context).add(const AppEvent.refreshLocal());
                   }
                 },
                 customButton: SizedBox(
