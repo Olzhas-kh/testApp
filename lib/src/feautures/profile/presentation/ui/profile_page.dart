@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:narxoz/src/core/extension/extensions.dart';
 import 'package:narxoz/src/core/resources/resources.dart';
 import 'package:narxoz/src/feautures/app/bloc/app_bloc.dart';
@@ -54,10 +55,41 @@ class _ProfilePageState extends State<ProfilePage> {
                                 // alignment: Alignment.center,
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(100),
-                                  child: Image.asset(
-                                    'assets/images/profile.png',
-                                    fit: BoxFit.cover,
-                                  ),
+                                  child: user.avatar != null
+                                      ? user.avatar!.contains('.svg')
+                                          ? SvgPicture.network(
+                                              user.avatar!,
+                                              fit: BoxFit.cover,
+                                            )
+                                          : Image.network(
+                                              user.avatar!,
+                                              fit: BoxFit.cover,
+                                              loadingBuilder: (context, child, loadingProgress) {
+                                                if (loadingProgress == null) {
+                                                  return child;
+                                                }
+                                                return Center(
+                                                  child: CircularProgressIndicator(
+                                                    color: AppColors.kRedPrimary,
+                                                    value: loadingProgress.expectedTotalBytes != null
+                                                        ? loadingProgress.cumulativeBytesLoaded /
+                                                            loadingProgress.expectedTotalBytes!
+                                                        : null,
+                                                  ),
+                                                );
+                                              },
+                                              errorBuilder: (
+                                                BuildContext context,
+                                                Object exception,
+                                                StackTrace? stackTrace,
+                                              ) {
+                                                return const Center(child: Text('Image Error'));
+                                              },
+                                            )
+                                      : Image.asset(
+                                          'assets/images/profile.png',
+                                          fit: BoxFit.cover,
+                                        ),
                                   // child: Image.network(
                                   //   'https://pbs.twimg.com/media/FJ96vOQWUAwbIah?format=jpg&name=large',
                                   //   fit: BoxFit.cover,
@@ -155,13 +187,13 @@ class _ProfilePageState extends State<ProfilePage> {
                               const Divider(
                                 color: Color(0xff909090),
                               ),
-                              // buildRow(
-                              //   text: 'GPA',
-                              //   value: '3.4',
-                              // ),
-                              // const Divider(
-                              //   color: Color(0xff909090),
-                              // ),
+                              buildRow(
+                                text: 'GPA',
+                                value: user.gpa ?? context.appLocale.notSpecified,
+                              ),
+                              const Divider(
+                                color: Color(0xff909090),
+                              ),
                               buildRow(
                                 text: context.appLocale.level,
                                 value: user.level ?? context.appLocale.notSpecified,
@@ -173,9 +205,9 @@ class _ProfilePageState extends State<ProfilePage> {
                                 text: context.appLocale.program,
                                 value: user.program ?? context.appLocale.notSpecified,
                               ),
-                              const Divider(
-                                color: Color(0xff909090),
-                              ),
+                              // const Divider(
+                              //   color: Color(0xff909090),
+                              // ),
                               // buildRow(
                               //   text: context.appLocale.phoneNumber,
                               //   value: user.telephone as String? ?? context.appLocale.notSpecified,

@@ -34,7 +34,9 @@ mixin _$UserDTO {
   @JsonKey(name: 'form_of_training')
   String? get formOfTraining => throw _privateConstructorUsedError;
   String? get level => throw _privateConstructorUsedError;
-  String? get program =>
+  String? get program => throw _privateConstructorUsedError;
+  String? get gpa => throw _privateConstructorUsedError;
+  String? get avatar =>
       throw _privateConstructorUsedError; // dynamic telephone,
 // dynamic country,
 // String? address,
@@ -61,6 +63,8 @@ abstract class $UserDTOCopyWith<$Res> {
       @JsonKey(name: 'form_of_training') String? formOfTraining,
       String? level,
       String? program,
+      String? gpa,
+      String? avatar,
       String? token});
 }
 
@@ -84,6 +88,8 @@ class _$UserDTOCopyWithImpl<$Res> implements $UserDTOCopyWith<$Res> {
     Object? formOfTraining = freezed,
     Object? level = freezed,
     Object? program = freezed,
+    Object? gpa = freezed,
+    Object? avatar = freezed,
     Object? token = freezed,
   }) {
     return _then(_value.copyWith(
@@ -127,6 +133,14 @@ class _$UserDTOCopyWithImpl<$Res> implements $UserDTOCopyWith<$Res> {
           ? _value.program
           : program // ignore: cast_nullable_to_non_nullable
               as String?,
+      gpa: gpa == freezed
+          ? _value.gpa
+          : gpa // ignore: cast_nullable_to_non_nullable
+              as String?,
+      avatar: avatar == freezed
+          ? _value.avatar
+          : avatar // ignore: cast_nullable_to_non_nullable
+              as String?,
       token: token == freezed
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
@@ -152,6 +166,8 @@ abstract class _$$_UserDTOCopyWith<$Res> implements $UserDTOCopyWith<$Res> {
       @JsonKey(name: 'form_of_training') String? formOfTraining,
       String? level,
       String? program,
+      String? gpa,
+      String? avatar,
       String? token});
 }
 
@@ -176,6 +192,8 @@ class __$$_UserDTOCopyWithImpl<$Res> extends _$UserDTOCopyWithImpl<$Res>
     Object? formOfTraining = freezed,
     Object? level = freezed,
     Object? program = freezed,
+    Object? gpa = freezed,
+    Object? avatar = freezed,
     Object? token = freezed,
   }) {
     return _then(_$_UserDTO(
@@ -219,6 +237,14 @@ class __$$_UserDTOCopyWithImpl<$Res> extends _$UserDTOCopyWithImpl<$Res>
           ? _value.program
           : program // ignore: cast_nullable_to_non_nullable
               as String?,
+      gpa: gpa == freezed
+          ? _value.gpa
+          : gpa // ignore: cast_nullable_to_non_nullable
+              as String?,
+      avatar: avatar == freezed
+          ? _value.avatar
+          : avatar // ignore: cast_nullable_to_non_nullable
+              as String?,
       token: token == freezed
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
@@ -241,6 +267,8 @@ class _$_UserDTO implements _UserDTO {
       @JsonKey(name: 'form_of_training') this.formOfTraining,
       this.level,
       this.program,
+      this.gpa,
+      this.avatar,
       this.token});
 
   factory _$_UserDTO.fromJson(Map<String, dynamic> json) =>
@@ -271,6 +299,10 @@ class _$_UserDTO implements _UserDTO {
   final String? level;
   @override
   final String? program;
+  @override
+  final String? gpa;
+  @override
+  final String? avatar;
 // dynamic telephone,
 // dynamic country,
 // String? address,
@@ -280,7 +312,7 @@ class _$_UserDTO implements _UserDTO {
 
   @override
   String toString() {
-    return 'UserDTO(firstName: $firstName, lastName: $lastName, fullName: $fullName, email: $email, login: $login, gender: $gender, dateOfBirth: $dateOfBirth, formOfTraining: $formOfTraining, level: $level, program: $program, token: $token)';
+    return 'UserDTO(firstName: $firstName, lastName: $lastName, fullName: $fullName, email: $email, login: $login, gender: $gender, dateOfBirth: $dateOfBirth, formOfTraining: $formOfTraining, level: $level, program: $program, gpa: $gpa, avatar: $avatar, token: $token)';
   }
 
   @override
@@ -300,6 +332,8 @@ class _$_UserDTO implements _UserDTO {
                 .equals(other.formOfTraining, formOfTraining) &&
             const DeepCollectionEquality().equals(other.level, level) &&
             const DeepCollectionEquality().equals(other.program, program) &&
+            const DeepCollectionEquality().equals(other.gpa, gpa) &&
+            const DeepCollectionEquality().equals(other.avatar, avatar) &&
             const DeepCollectionEquality().equals(other.token, token));
   }
 
@@ -317,6 +351,8 @@ class _$_UserDTO implements _UserDTO {
       const DeepCollectionEquality().hash(formOfTraining),
       const DeepCollectionEquality().hash(level),
       const DeepCollectionEquality().hash(program),
+      const DeepCollectionEquality().hash(gpa),
+      const DeepCollectionEquality().hash(avatar),
       const DeepCollectionEquality().hash(token));
 
   @JsonKey(ignore: true)
@@ -344,6 +380,8 @@ abstract class _UserDTO implements UserDTO {
       @JsonKey(name: 'form_of_training') final String? formOfTraining,
       final String? level,
       final String? program,
+      final String? gpa,
+      final String? avatar,
       final String? token}) = _$_UserDTO;
 
   factory _UserDTO.fromJson(Map<String, dynamic> json) = _$_UserDTO.fromJson;
@@ -373,6 +411,10 @@ abstract class _UserDTO implements UserDTO {
   String? get level;
   @override
   String? get program;
+  @override
+  String? get gpa;
+  @override
+  String? get avatar;
   @override // dynamic telephone,
 // dynamic country,
 // String? address,

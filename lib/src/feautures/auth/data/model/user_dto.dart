@@ -18,6 +18,8 @@ class UserDTO with _$UserDTO {
     @JsonKey(name: 'form_of_training') String? formOfTraining,
     String? level,
     String? program,
+    String? gpa,
+    String? avatar,
     // dynamic telephone,
     // dynamic country,
     // String? address,

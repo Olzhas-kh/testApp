@@ -17,6 +17,8 @@ _$_UserDTO _$$_UserDTOFromJson(Map<String, dynamic> json) => _$_UserDTO(
       formOfTraining: json['form_of_training'] as String?,
       level: json['level'] as String?,
       program: json['program'] as String?,
+      gpa: json['gpa'] as String?,
+      avatar: json['avatar'] as String?,
       token: json['token'] as String?,
     );
 
@@ -32,5 +34,7 @@ Map<String, dynamic> _$$_UserDTOToJson(_$_UserDTO instance) =>
       'form_of_training': instance.formOfTraining,
       'level': instance.level,
       'program': instance.program,
+      'gpa': instance.gpa,
+      'avatar': instance.avatar,
       'token': instance.token,
     };
