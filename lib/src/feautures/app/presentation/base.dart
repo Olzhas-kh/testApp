@@ -34,6 +34,7 @@ class _BaseState extends State<Base> {
     return AutoTabsScaffold(
       routes: const [
         BaseHomeRouter(),
+        // FIXME
         SectionsPageRoute(),
         ProfilePageRoute(),
       ],
