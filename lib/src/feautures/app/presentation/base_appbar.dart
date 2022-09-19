@@ -73,14 +73,25 @@ class _BaseAppBarState extends State<BaseAppBar> {
     return menuItems;
   }
 
-  List<int> _getDividersIndexes() {
-    final List<int> dividersIndexes = [];
+  List<double> _getDividersIndexes() {
+    // final List<double> dividersIndexes = [];
+    // for (var i = 0; i < (items.length * 2) - 1; i++) {
+    //   if (i.isOdd) {
+    //     dividersIndexes.add(i.toDouble());
+    //   }
+    // }
+    // return dividersIndexes;
+    final List<double> itemsHeights = [];
     for (var i = 0; i < (items.length * 2) - 1; i++) {
+      if (i.isEven) {
+        itemsHeights.add(40);
+      }
+      //Dividers indexes will be the odd indexes
       if (i.isOdd) {
-        dividersIndexes.add(i);
+        itemsHeights.add(4);
       }
     }
-    return dividersIndexes;
+    return itemsHeights;
   }
 
   @override
@@ -113,8 +124,9 @@ class _BaseAppBarState extends State<BaseAppBar> {
                 //     )
                 //     .toList(),
                 value: chosenLang,
-                customItemsIndexes: _getDividersIndexes(),
-                customItemsHeight: 4,
+
+                customItemsHeights: _getDividersIndexes(),
+                // customItemsHeight: 4,
                 style: AppTextStyles.gilroy15w500Red,
                 onChanged: (String? value) {
                   setState(() {
