@@ -1,3 +1,4 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:loader_overlay/loader_overlay.dart';
@@ -24,6 +25,18 @@ class _SignInPageState extends State<SignInPage> {
   TextEditingController loginController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
+
+  late final String? fcmToken;
+
+  Future<void> getDeviceToken() async {
+    fcmToken = await FirebaseMessaging.instance.getToken();
+  }
+
+  @override
+  void initState() {
+    getDeviceToken();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -131,6 +144,7 @@ class _SignInPageState extends State<SignInPage> {
                               BlocProvider.of<SignInCubit>(context).signIn(
                                 login: loginController.text,
                                 password: passwordController.text,
+                                deviceToken: fcmToken ?? '',
                               );
                             }
                           },
