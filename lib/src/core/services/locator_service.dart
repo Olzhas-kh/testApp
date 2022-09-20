@@ -22,6 +22,7 @@ import 'package:narxoz/src/feautures/home/presentation/bloc/help_section_cubit.d
 import 'package:narxoz/src/feautures/home/presentation/bloc/help_section_detail_cubit.dart';
 import 'package:narxoz/src/feautures/home/presentation/bloc/hostel_cubit.dart';
 import 'package:narxoz/src/feautures/home/presentation/bloc/my_application_cubit.dart';
+import 'package:narxoz/src/feautures/notifications/bloc/notification_bloc.dart';
 import 'package:narxoz/src/feautures/profile/presentation/bloc/profile_cubit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -38,6 +39,8 @@ Future<void> initLocator() async {
       // sl(),
     ),
   );
+
+  sl.registerFactory(() => NotificationBloc());
   sl.registerFactory(() => SignInCubit(sl()));
   sl.registerFactory(() => HelpSectionCubit(sl()));
   sl.registerFactory(() => HelpSectionDetailCubit(sl()));

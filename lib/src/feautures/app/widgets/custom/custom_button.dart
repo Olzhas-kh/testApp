@@ -42,7 +42,7 @@ ButtonStyle whiteButtonStyle({
   double elevation = 0,
 }) {
   return ElevatedButton.styleFrom(
-    foregroundColor: Colors.black, backgroundColor: Colors.white, elevation: elevation,
+    primary: Colors.black, onPrimary: Colors.white, elevation: elevation,
     shadowColor: Colors.black,
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(12),
@@ -66,8 +66,8 @@ ButtonStyle azureButtonStyle({
   double elevation = 0,
 }) {
   return ElevatedButton.styleFrom(
-    foregroundColor: AppColors.kPrimaryColor,
-    backgroundColor: AppColors.kAzure,
+    primary: AppColors.kPrimaryColor,
+    onPrimary: AppColors.kAzure,
     shadowColor: const Color.fromRGBO(255, 255, 255, 1),
     elevation: elevation,
     shape: RoundedRectangleBorder(
@@ -81,8 +81,8 @@ ButtonStyle blueAlpha32ButtonStyle({
   double elevation = 0,
 }) {
   return ElevatedButton.styleFrom(
-    foregroundColor: AppColors.kGray400,
-    backgroundColor: const Color(0xffe5f1ff),
+    primary: AppColors.kGray400,
+    onPrimary: const Color(0xffe5f1ff),
     shadowColor: Colors.white,
     elevation: elevation,
     shape: RoundedRectangleBorder(
@@ -109,8 +109,8 @@ ButtonStyle blackButtonStyle() {
 
 ButtonStyle pinkButtonStyle() {
   return ElevatedButton.styleFrom(
-    foregroundColor: Colors.white,
-    backgroundColor: AppColors.kPrimaryColor,
+    primary: Colors.white,
+    onPrimary: AppColors.kPrimaryColor,
     shadowColor: Colors.black,
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(12),
@@ -169,7 +169,7 @@ ButtonStyle redButtonStyle({
 }) {
   return ElevatedButton.styleFrom(
     shadowColor: const Color.fromRGBO(255, 255, 255, 1),
-    backgroundColor: AppColors.kRedPrimary,
+    onPrimary: AppColors.kRedPrimary,
     elevation: elevation,
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(12),

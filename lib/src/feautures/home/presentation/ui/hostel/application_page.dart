@@ -227,11 +227,12 @@ class _ApplicationPageState extends State<ApplicationPage> {
                                                     return Theme(
                                                       data: Theme.of(context).copyWith(
                                                         colorScheme: const ColorScheme.light(
-                                                          primary: AppColors.kRedPrimary, // header background color
+                                                          primary: AppColors
+                                                              .kRedPrimary, // header background color
                                                         ),
                                                         textButtonTheme: TextButtonThemeData(
                                                           style: TextButton.styleFrom(
-                                                            foregroundColor: Colors.red, // button text color
+                                                            primary: Colors.red, // button text color
                                                           ),
                                                         ),
                                                       ),
@@ -535,7 +536,8 @@ class _ApplicationPageState extends State<ApplicationPage> {
                                                   answers[i].value = controllers[i].text;
                                                 }
 
-                                                if (controllers[i].text == 'male' || controllers[i].text == 'female') {
+                                                if (controllers[i].text == 'male' ||
+                                                    controllers[i].text == 'female') {
                                                   gender = controllers[i].text;
                                                 }
 

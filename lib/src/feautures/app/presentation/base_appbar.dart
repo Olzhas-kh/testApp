@@ -1,10 +1,11 @@
-import 'package:dropdown_button2/dropdown_button2.dart';
+// import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:narxoz/src/core/resources/resources.dart';
 import 'package:narxoz/src/feautures/app/bloc/app_bloc.dart';
 import 'package:narxoz/src/feautures/app/presentation/locale_provider.dart';
+import 'package:narxoz/src/feautures/notifications/widget/pages/notifications.dart';
 import 'package:provider/provider.dart';
 
 class BaseAppBar extends StatefulWidget {
@@ -37,7 +38,9 @@ class _BaseAppBarState extends State<BaseAppBar> {
 
   @override
   void initState() {
-    chosenLang = localMap[Provider.of<LocaleProvider>(context, listen: false).locale.languageCode];
+    chosenLang = localMap[Provider.of<LocaleProvider>(context, listen: false)
+        .locale
+        .languageCode];
     super.initState();
   }
 
@@ -105,65 +108,85 @@ class _BaseAppBarState extends State<BaseAppBar> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             SvgPicture.asset(AppSvgImages.narxozProfile),
-            DropdownButtonHideUnderline(
-              child: DropdownButton2(
-                hint: const Text(
-                  'Select Item',
-                  style: AppTextStyles.gilroy15w500Red,
-                ),
-                items: _addDividersAfterItems(items),
-                // items: langMap.keys
-                //     .map(
-                //       (item) => DropdownMenuItem<String>(
-                //         value: item,
-                //         child: Text(
-                //           item,
-                //           style: AppTextStyles.gilroy15w500Red,
-                //         ),
-                //       ),
-                //     )
-                //     .toList(),
-                value: chosenLang,
+            Row(
+              children: [
+                DropdownButtonHideUnderline(
+                  child: DropdownButton(
+                    hint: const Text(
+                      'Select Item',
+                      style: AppTextStyles.gilroy15w500Red,
+                    ),
 
-                customItemsHeights: _getDividersIndexes(),
-                // customItemsHeight: 4,
-                style: AppTextStyles.gilroy15w500Red,
-                onChanged: (String? value) {
-                  setState(() {
-                    chosenLang = value;
-                  });
-                  if (chosenLang != null) {
-                    Provider.of<LocaleProvider>(context, listen: false).locale = Locale(langMap[chosenLang]!);
+                    items: _addDividersAfterItems(items),
+                    // items: langMap.keys
+                    //     .map(
+                    //       (item) => DropdownMenuItem<String>(
+                    //         value: item,
+                    //         child: Text(
+                    //           item,
+                    //           style: AppTextStyles.gilroy15w500Red,
+                    //         ),
+                    //       ),
+                    //     )
+                    //     .toList(),
+                    value: chosenLang,
 
-                    BlocProvider.of<AppBloc>(context).add(const AppEvent.refreshLocal());
-                  }
-                },
-                customButton: SizedBox(
-                  width: 137,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Text(
-                        chosenLang.toString(),
-                        style: AppTextStyles.gilroy15w500Red,
-                      ),
-                      const SizedBox(width: 12),
-                    ],
+                    // customItemsHeights: _getDividersIndexes(),
+                    // customItemsHeight: 4,
+                    style: AppTextStyles.gilroy15w500Red,
+                    onChanged: (String? value) {
+                      setState(() {
+                        chosenLang = value;
+                      });
+                      if (chosenLang != null) {
+                        Provider.of<LocaleProvider>(context, listen: false)
+                            .locale = Locale(langMap[chosenLang]!);
+
+                        BlocProvider.of<AppBloc>(context)
+                            .add(const AppEvent.refreshLocal());
+                      }
+                    },
+                    // customButton: SizedBox(
+                    //   width: 137,
+                    //   child: Row(
+                    //     mainAxisAlignment: MainAxisAlignment.end,
+                    //     children: [
+                    //       Text(
+                    //         chosenLang.toString(),
+                    //         style: AppTextStyles.gilroy15w500Red,
+                    //       ),
+                    //       const SizedBox(width: 12),
+                    //     ],
+                    //   ),
+                    // ),
+                    // buttonHeight: 40,
+                    // buttonWidth: 140,
+                    // dropdownPadding: EdgeInsets.zero,
+                    // itemPadding: EdgeInsets.zero,
+                    // itemHeight: 60,
+                    alignment: AlignmentDirectional.centerEnd,
+                    // dropdownWidth: 137,
+                    // dropdownPadding: const EdgeInsets.only(right: 25),
+                    // dropdownDecoration: BoxDecoration(
+                    //   borderRadius: BorderRadius.circular(14),
+                    //   border: Border.all(color: const Color(0xff9C9C9C)),
+                    // ),
                   ),
                 ),
-                buttonHeight: 40,
-                buttonWidth: 140,
-                dropdownPadding: EdgeInsets.zero,
-                itemPadding: EdgeInsets.zero,
-                itemHeight: 40,
-                alignment: AlignmentDirectional.centerEnd,
-                dropdownWidth: 137,
-                // dropdownPadding: const EdgeInsets.only(right: 25),
-                dropdownDecoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(14),
-                  border: Border.all(color: const Color(0xff9C9C9C)),
+                IconButton(
+                  onPressed: () => Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (_) => const NotificationsScreen(),
+                    ),
+                  ),
+                  padding: EdgeInsets.zero,
+                  constraints: const BoxConstraints(),
+                  icon: const Icon(
+                    Icons.notifications_none,
+                    color: AppColors.kRedPrimary,
+                  ),
                 ),
-              ),
+              ],
             ),
 
             // TextButton(
