@@ -19,154 +19,272 @@ class _$AppRouter extends RootStackRouter {
   final Map<String, PageFactory> pagesMap = {
     LauncherRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
-          routeData: routeData, child: const Launcher());
+        routeData: routeData,
+        child: const Launcher(),
+      );
     },
     BannerPageRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
-          routeData: routeData, child: const BannerPage());
+        routeData: routeData,
+        child: const BannerPage(),
+      );
     },
     BannersDetailPageRoute.name: (routeData) {
       final args = routeData.argsAs<BannersDetailPageRouteArgs>();
       return MaterialPageX<dynamic>(
-          routeData: routeData,
-          child: BannersDetailPage(link: args.link, key: args.key));
+        routeData: routeData,
+        child: BannersDetailPage(
+          link: args.link,
+          key: args.key,
+        ),
+      );
     },
     CanvasPageRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
-          routeData: routeData, child: const CanvasPage());
+        routeData: routeData,
+        child: const CanvasPage(),
+      );
     },
     WebRequestsPageRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
-          routeData: routeData, child: const WebRequestsPage());
+        routeData: routeData,
+        child: const WebRequestsPage(),
+      );
     },
     ApplicationSuccessPageRoute.name: (routeData) {
       final args = routeData.argsAs<ApplicationSuccessPageRouteArgs>();
       return MaterialPageX<dynamic>(
-          routeData: routeData,
-          child: ApplicationSuccessPage(key: args.key, orderId: args.orderId));
+        routeData: routeData,
+        child: ApplicationSuccessPage(
+          key: args.key,
+          orderId: args.orderId,
+        ),
+      );
     },
     SuccessPageRoute.name: (routeData) {
       final args = routeData.argsAs<SuccessPageRouteArgs>(
           orElse: () => const SuccessPageRouteArgs());
       return MaterialPageX<dynamic>(
-          routeData: routeData,
-          child: SuccessPage(key: args.key, hasCheque: args.hasCheque));
+        routeData: routeData,
+        child: SuccessPage(
+          key: args.key,
+          hasCheque: args.hasCheque,
+        ),
+      );
     },
     PaymentPageRoute.name: (routeData) {
       final args = routeData.argsAs<PaymentPageRouteArgs>();
       return MaterialPageX<dynamic>(
-          routeData: routeData,
-          child: PaymentPage(payment: args.payment, key: args.key));
+        routeData: routeData,
+        child: PaymentPage(
+          payment: args.payment,
+          key: args.key,
+        ),
+      );
     },
     PaymentPage1Route.name: (routeData) {
       final args = routeData.argsAs<PaymentPage1RouteArgs>();
       return MaterialPageX<dynamic>(
-          routeData: routeData,
-          child: PaymentPage1(payment: args.payment, key: args.key));
+        routeData: routeData,
+        child: PaymentPage1(
+          payment: args.payment,
+          key: args.key,
+        ),
+      );
     },
     BaseHomeRouter.name: (routeData) {
       return MaterialPageX<dynamic>(
-          routeData: routeData, child: const EmptyRouterPage());
+        routeData: routeData,
+        child: const EmptyRouterPage(),
+      );
     },
     SectionsPageRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
-          routeData: routeData, child: const SectionsPage());
+        routeData: routeData,
+        child: const SectionsPage(),
+      );
     },
     ProfilePageRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
-          routeData: routeData, child: const ProfilePage());
+        routeData: routeData,
+        child: const ProfilePage(),
+      );
     },
     HomePageRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
-          routeData: routeData, child: const HomePage());
+        routeData: routeData,
+        child: const HomePage(),
+      );
     },
     HostelPageRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
-          routeData: routeData, child: const HostelPage());
+        routeData: routeData,
+        child: const HostelPage(),
+      );
     },
     HelpSectionPageRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
-          routeData: routeData, child: const HelpSectionPage());
+        routeData: routeData,
+        child: const HelpSectionPage(),
+      );
     },
     HelpSectionDetailPageRoute.name: (routeData) {
       final args = routeData.argsAs<HelpSectionDetailPageRouteArgs>();
       return MaterialPageX<dynamic>(
-          routeData: routeData,
-          child: HelpSectionDetailPage(id: args.id, key: args.key));
+        routeData: routeData,
+        child: HelpSectionDetailPage(
+          id: args.id,
+          key: args.key,
+        ),
+      );
     },
     ChooseEduPageRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
-          routeData: routeData, child: const ChooseEduPage());
+        routeData: routeData,
+        child: const ChooseEduPage(),
+      );
     },
     ApplicationPageRoute.name: (routeData) {
       final args = routeData.argsAs<ApplicationPageRouteArgs>();
       return MaterialPageX<dynamic>(
-          routeData: routeData,
-          child: ApplicationPage(key: args.key, catId: args.catId));
+        routeData: routeData,
+        child: ApplicationPage(
+          key: args.key,
+          catId: args.catId,
+        ),
+      );
     },
     PreparationPaymentRoute.name: (routeData) {
       final args = routeData.argsAs<PreparationPaymentRouteArgs>();
       return MaterialPageX<dynamic>(
-          routeData: routeData,
-          child: PreparationPayment(
-              verificationResponse: args.verificationResponse,
-              orderId: args.orderId,
-              key: args.key));
+        routeData: routeData,
+        child: PreparationPayment(
+          verificationResponse: args.verificationResponse,
+          orderId: args.orderId,
+          key: args.key,
+        ),
+      );
     },
     MyApplicationPageRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
-          routeData: routeData, child: const MyApplicationPage());
+        routeData: routeData,
+        child: const MyApplicationPage(),
+      );
     },
     SettlementConditionsPageRoute.name: (routeData) {
       final args = routeData.argsAs<SettlementConditionsPageRouteArgs>();
       return MaterialPageX<dynamic>(
-          routeData: routeData,
-          child: SettlementConditionsPage(text: args.text, key: args.key));
-    }
+        routeData: routeData,
+        child: SettlementConditionsPage(
+          text: args.text,
+          key: args.key,
+        ),
+      );
+    },
   };
 
   @override
   List<RouteConfig> get routes => [
-        RouteConfig(LauncherRoute.name, path: '/', children: [
-          RouteConfig(BaseHomeRouter.name,
+        RouteConfig(
+          LauncherRoute.name,
+          path: '/',
+          children: [
+            RouteConfig(
+              BaseHomeRouter.name,
               path: 'empty-router-page',
               parent: LauncherRoute.name,
               children: [
-                RouteConfig(HomePageRoute.name,
-                    path: '', parent: BaseHomeRouter.name),
-                RouteConfig(HostelPageRoute.name,
-                    path: 'hostel-page', parent: BaseHomeRouter.name),
-                RouteConfig(HelpSectionPageRoute.name,
-                    path: 'help-section-page', parent: BaseHomeRouter.name),
-                RouteConfig(HelpSectionDetailPageRoute.name,
-                    path: 'help-section-detail-page',
-                    parent: BaseHomeRouter.name),
-                RouteConfig(ChooseEduPageRoute.name,
-                    path: 'choose-edu-page', parent: BaseHomeRouter.name),
-                RouteConfig(ApplicationPageRoute.name,
-                    path: 'application-page', parent: BaseHomeRouter.name),
-                RouteConfig(PreparationPaymentRoute.name,
-                    path: 'preparation-payment', parent: BaseHomeRouter.name),
-                RouteConfig(MyApplicationPageRoute.name,
-                    path: 'my-application-page', parent: BaseHomeRouter.name),
-                RouteConfig(SettlementConditionsPageRoute.name,
-                    path: 'settlement-conditions-page',
-                    parent: BaseHomeRouter.name)
-              ]),
-          RouteConfig(SectionsPageRoute.name,
-              path: 'sections-page', parent: LauncherRoute.name),
-          RouteConfig(ProfilePageRoute.name,
-              path: 'profile-page', parent: LauncherRoute.name)
-        ]),
-        RouteConfig(BannerPageRoute.name, path: '/banner-page'),
-        RouteConfig(BannersDetailPageRoute.name, path: '/banners-detail-page'),
-        RouteConfig(CanvasPageRoute.name, path: '/canvas-page'),
-        RouteConfig(WebRequestsPageRoute.name, path: '/web-requests-page'),
-        RouteConfig(ApplicationSuccessPageRoute.name,
-            path: '/application-success-page'),
-        RouteConfig(SuccessPageRoute.name, path: '/success-page'),
-        RouteConfig(PaymentPageRoute.name, path: '/payment-page'),
-        RouteConfig(PaymentPage1Route.name, path: '/payment-page1')
+                RouteConfig(
+                  HomePageRoute.name,
+                  path: '',
+                  parent: BaseHomeRouter.name,
+                ),
+                RouteConfig(
+                  HostelPageRoute.name,
+                  path: 'hostel-page',
+                  parent: BaseHomeRouter.name,
+                ),
+                RouteConfig(
+                  HelpSectionPageRoute.name,
+                  path: 'help-section-page',
+                  parent: BaseHomeRouter.name,
+                ),
+                RouteConfig(
+                  HelpSectionDetailPageRoute.name,
+                  path: 'help-section-detail-page',
+                  parent: BaseHomeRouter.name,
+                ),
+                RouteConfig(
+                  ChooseEduPageRoute.name,
+                  path: 'choose-edu-page',
+                  parent: BaseHomeRouter.name,
+                ),
+                RouteConfig(
+                  ApplicationPageRoute.name,
+                  path: 'application-page',
+                  parent: BaseHomeRouter.name,
+                ),
+                RouteConfig(
+                  PreparationPaymentRoute.name,
+                  path: 'preparation-payment',
+                  parent: BaseHomeRouter.name,
+                ),
+                RouteConfig(
+                  MyApplicationPageRoute.name,
+                  path: 'my-application-page',
+                  parent: BaseHomeRouter.name,
+                ),
+                RouteConfig(
+                  SettlementConditionsPageRoute.name,
+                  path: 'settlement-conditions-page',
+                  parent: BaseHomeRouter.name,
+                ),
+              ],
+            ),
+            RouteConfig(
+              SectionsPageRoute.name,
+              path: 'sections-page',
+              parent: LauncherRoute.name,
+            ),
+            RouteConfig(
+              ProfilePageRoute.name,
+              path: 'profile-page',
+              parent: LauncherRoute.name,
+            ),
+          ],
+        ),
+        RouteConfig(
+          BannerPageRoute.name,
+          path: '/banner-page',
+        ),
+        RouteConfig(
+          BannersDetailPageRoute.name,
+          path: '/banners-detail-page',
+        ),
+        RouteConfig(
+          CanvasPageRoute.name,
+          path: '/canvas-page',
+        ),
+        RouteConfig(
+          WebRequestsPageRoute.name,
+          path: '/web-requests-page',
+        ),
+        RouteConfig(
+          ApplicationSuccessPageRoute.name,
+          path: '/application-success-page',
+        ),
+        RouteConfig(
+          SuccessPageRoute.name,
+          path: '/success-page',
+        ),
+        RouteConfig(
+          PaymentPageRoute.name,
+          path: '/payment-page',
+        ),
+        RouteConfig(
+          PaymentPage1Route.name,
+          path: '/payment-page1',
+        ),
       ];
 }
 
@@ -174,7 +292,11 @@ class _$AppRouter extends RootStackRouter {
 /// [Launcher]
 class LauncherRoute extends PageRouteInfo<void> {
   const LauncherRoute({List<PageRouteInfo>? children})
-      : super(LauncherRoute.name, path: '/', initialChildren: children);
+      : super(
+          LauncherRoute.name,
+          path: '/',
+          initialChildren: children,
+        );
 
   static const String name = 'LauncherRoute';
 }
@@ -182,7 +304,11 @@ class LauncherRoute extends PageRouteInfo<void> {
 /// generated route for
 /// [BannerPage]
 class BannerPageRoute extends PageRouteInfo<void> {
-  const BannerPageRoute() : super(BannerPageRoute.name, path: '/banner-page');
+  const BannerPageRoute()
+      : super(
+          BannerPageRoute.name,
+          path: '/banner-page',
+        );
 
   static const String name = 'BannerPageRoute';
 }
@@ -190,16 +316,26 @@ class BannerPageRoute extends PageRouteInfo<void> {
 /// generated route for
 /// [BannersDetailPage]
 class BannersDetailPageRoute extends PageRouteInfo<BannersDetailPageRouteArgs> {
-  BannersDetailPageRoute({required String link, Key? key})
-      : super(BannersDetailPageRoute.name,
-            path: '/banners-detail-page',
-            args: BannersDetailPageRouteArgs(link: link, key: key));
+  BannersDetailPageRoute({
+    required String link,
+    Key? key,
+  }) : super(
+          BannersDetailPageRoute.name,
+          path: '/banners-detail-page',
+          args: BannersDetailPageRouteArgs(
+            link: link,
+            key: key,
+          ),
+        );
 
   static const String name = 'BannersDetailPageRoute';
 }
 
 class BannersDetailPageRouteArgs {
-  const BannersDetailPageRouteArgs({required this.link, this.key});
+  const BannersDetailPageRouteArgs({
+    required this.link,
+    this.key,
+  });
 
   final String link;
 
@@ -214,7 +350,11 @@ class BannersDetailPageRouteArgs {
 /// generated route for
 /// [CanvasPage]
 class CanvasPageRoute extends PageRouteInfo<void> {
-  const CanvasPageRoute() : super(CanvasPageRoute.name, path: '/canvas-page');
+  const CanvasPageRoute()
+      : super(
+          CanvasPageRoute.name,
+          path: '/canvas-page',
+        );
 
   static const String name = 'CanvasPageRoute';
 }
@@ -223,7 +363,10 @@ class CanvasPageRoute extends PageRouteInfo<void> {
 /// [WebRequestsPage]
 class WebRequestsPageRoute extends PageRouteInfo<void> {
   const WebRequestsPageRoute()
-      : super(WebRequestsPageRoute.name, path: '/web-requests-page');
+      : super(
+          WebRequestsPageRoute.name,
+          path: '/web-requests-page',
+        );
 
   static const String name = 'WebRequestsPageRoute';
 }
@@ -232,16 +375,26 @@ class WebRequestsPageRoute extends PageRouteInfo<void> {
 /// [ApplicationSuccessPage]
 class ApplicationSuccessPageRoute
     extends PageRouteInfo<ApplicationSuccessPageRouteArgs> {
-  ApplicationSuccessPageRoute({Key? key, required int orderId})
-      : super(ApplicationSuccessPageRoute.name,
-            path: '/application-success-page',
-            args: ApplicationSuccessPageRouteArgs(key: key, orderId: orderId));
+  ApplicationSuccessPageRoute({
+    Key? key,
+    required int orderId,
+  }) : super(
+          ApplicationSuccessPageRoute.name,
+          path: '/application-success-page',
+          args: ApplicationSuccessPageRouteArgs(
+            key: key,
+            orderId: orderId,
+          ),
+        );
 
   static const String name = 'ApplicationSuccessPageRoute';
 }
 
 class ApplicationSuccessPageRouteArgs {
-  const ApplicationSuccessPageRouteArgs({this.key, required this.orderId});
+  const ApplicationSuccessPageRouteArgs({
+    this.key,
+    required this.orderId,
+  });
 
   final Key? key;
 
@@ -256,16 +409,26 @@ class ApplicationSuccessPageRouteArgs {
 /// generated route for
 /// [SuccessPage]
 class SuccessPageRoute extends PageRouteInfo<SuccessPageRouteArgs> {
-  SuccessPageRoute({Key? key, bool hasCheque = false})
-      : super(SuccessPageRoute.name,
-            path: '/success-page',
-            args: SuccessPageRouteArgs(key: key, hasCheque: hasCheque));
+  SuccessPageRoute({
+    Key? key,
+    bool hasCheque = false,
+  }) : super(
+          SuccessPageRoute.name,
+          path: '/success-page',
+          args: SuccessPageRouteArgs(
+            key: key,
+            hasCheque: hasCheque,
+          ),
+        );
 
   static const String name = 'SuccessPageRoute';
 }
 
 class SuccessPageRouteArgs {
-  const SuccessPageRouteArgs({this.key, this.hasCheque = false});
+  const SuccessPageRouteArgs({
+    this.key,
+    this.hasCheque = false,
+  });
 
   final Key? key;
 
@@ -280,16 +443,26 @@ class SuccessPageRouteArgs {
 /// generated route for
 /// [PaymentPage]
 class PaymentPageRoute extends PageRouteInfo<PaymentPageRouteArgs> {
-  PaymentPageRoute({required PaymentDTO payment, Key? key})
-      : super(PaymentPageRoute.name,
-            path: '/payment-page',
-            args: PaymentPageRouteArgs(payment: payment, key: key));
+  PaymentPageRoute({
+    required PaymentDTO payment,
+    Key? key,
+  }) : super(
+          PaymentPageRoute.name,
+          path: '/payment-page',
+          args: PaymentPageRouteArgs(
+            payment: payment,
+            key: key,
+          ),
+        );
 
   static const String name = 'PaymentPageRoute';
 }
 
 class PaymentPageRouteArgs {
-  const PaymentPageRouteArgs({required this.payment, this.key});
+  const PaymentPageRouteArgs({
+    required this.payment,
+    this.key,
+  });
 
   final PaymentDTO payment;
 
@@ -304,16 +477,26 @@ class PaymentPageRouteArgs {
 /// generated route for
 /// [PaymentPage1]
 class PaymentPage1Route extends PageRouteInfo<PaymentPage1RouteArgs> {
-  PaymentPage1Route({required PaymentDTO payment, Key? key})
-      : super(PaymentPage1Route.name,
-            path: '/payment-page1',
-            args: PaymentPage1RouteArgs(payment: payment, key: key));
+  PaymentPage1Route({
+    required PaymentDTO payment,
+    Key? key,
+  }) : super(
+          PaymentPage1Route.name,
+          path: '/payment-page1',
+          args: PaymentPage1RouteArgs(
+            payment: payment,
+            key: key,
+          ),
+        );
 
   static const String name = 'PaymentPage1Route';
 }
 
 class PaymentPage1RouteArgs {
-  const PaymentPage1RouteArgs({required this.payment, this.key});
+  const PaymentPage1RouteArgs({
+    required this.payment,
+    this.key,
+  });
 
   final PaymentDTO payment;
 
@@ -329,8 +512,11 @@ class PaymentPage1RouteArgs {
 /// [EmptyRouterPage]
 class BaseHomeRouter extends PageRouteInfo<void> {
   const BaseHomeRouter({List<PageRouteInfo>? children})
-      : super(BaseHomeRouter.name,
-            path: 'empty-router-page', initialChildren: children);
+      : super(
+          BaseHomeRouter.name,
+          path: 'empty-router-page',
+          initialChildren: children,
+        );
 
   static const String name = 'BaseHomeRouter';
 }
@@ -339,7 +525,10 @@ class BaseHomeRouter extends PageRouteInfo<void> {
 /// [SectionsPage]
 class SectionsPageRoute extends PageRouteInfo<void> {
   const SectionsPageRoute()
-      : super(SectionsPageRoute.name, path: 'sections-page');
+      : super(
+          SectionsPageRoute.name,
+          path: 'sections-page',
+        );
 
   static const String name = 'SectionsPageRoute';
 }
@@ -347,7 +536,11 @@ class SectionsPageRoute extends PageRouteInfo<void> {
 /// generated route for
 /// [ProfilePage]
 class ProfilePageRoute extends PageRouteInfo<void> {
-  const ProfilePageRoute() : super(ProfilePageRoute.name, path: 'profile-page');
+  const ProfilePageRoute()
+      : super(
+          ProfilePageRoute.name,
+          path: 'profile-page',
+        );
 
   static const String name = 'ProfilePageRoute';
 }
@@ -355,7 +548,11 @@ class ProfilePageRoute extends PageRouteInfo<void> {
 /// generated route for
 /// [HomePage]
 class HomePageRoute extends PageRouteInfo<void> {
-  const HomePageRoute() : super(HomePageRoute.name, path: '');
+  const HomePageRoute()
+      : super(
+          HomePageRoute.name,
+          path: '',
+        );
 
   static const String name = 'HomePageRoute';
 }
@@ -363,7 +560,11 @@ class HomePageRoute extends PageRouteInfo<void> {
 /// generated route for
 /// [HostelPage]
 class HostelPageRoute extends PageRouteInfo<void> {
-  const HostelPageRoute() : super(HostelPageRoute.name, path: 'hostel-page');
+  const HostelPageRoute()
+      : super(
+          HostelPageRoute.name,
+          path: 'hostel-page',
+        );
 
   static const String name = 'HostelPageRoute';
 }
@@ -372,7 +573,10 @@ class HostelPageRoute extends PageRouteInfo<void> {
 /// [HelpSectionPage]
 class HelpSectionPageRoute extends PageRouteInfo<void> {
   const HelpSectionPageRoute()
-      : super(HelpSectionPageRoute.name, path: 'help-section-page');
+      : super(
+          HelpSectionPageRoute.name,
+          path: 'help-section-page',
+        );
 
   static const String name = 'HelpSectionPageRoute';
 }
@@ -381,16 +585,26 @@ class HelpSectionPageRoute extends PageRouteInfo<void> {
 /// [HelpSectionDetailPage]
 class HelpSectionDetailPageRoute
     extends PageRouteInfo<HelpSectionDetailPageRouteArgs> {
-  HelpSectionDetailPageRoute({required int id, Key? key})
-      : super(HelpSectionDetailPageRoute.name,
-            path: 'help-section-detail-page',
-            args: HelpSectionDetailPageRouteArgs(id: id, key: key));
+  HelpSectionDetailPageRoute({
+    required int id,
+    Key? key,
+  }) : super(
+          HelpSectionDetailPageRoute.name,
+          path: 'help-section-detail-page',
+          args: HelpSectionDetailPageRouteArgs(
+            id: id,
+            key: key,
+          ),
+        );
 
   static const String name = 'HelpSectionDetailPageRoute';
 }
 
 class HelpSectionDetailPageRouteArgs {
-  const HelpSectionDetailPageRouteArgs({required this.id, this.key});
+  const HelpSectionDetailPageRouteArgs({
+    required this.id,
+    this.key,
+  });
 
   final int id;
 
@@ -406,7 +620,10 @@ class HelpSectionDetailPageRouteArgs {
 /// [ChooseEduPage]
 class ChooseEduPageRoute extends PageRouteInfo<void> {
   const ChooseEduPageRoute()
-      : super(ChooseEduPageRoute.name, path: 'choose-edu-page');
+      : super(
+          ChooseEduPageRoute.name,
+          path: 'choose-edu-page',
+        );
 
   static const String name = 'ChooseEduPageRoute';
 }
@@ -414,16 +631,26 @@ class ChooseEduPageRoute extends PageRouteInfo<void> {
 /// generated route for
 /// [ApplicationPage]
 class ApplicationPageRoute extends PageRouteInfo<ApplicationPageRouteArgs> {
-  ApplicationPageRoute({Key? key, required int catId})
-      : super(ApplicationPageRoute.name,
-            path: 'application-page',
-            args: ApplicationPageRouteArgs(key: key, catId: catId));
+  ApplicationPageRoute({
+    Key? key,
+    required int catId,
+  }) : super(
+          ApplicationPageRoute.name,
+          path: 'application-page',
+          args: ApplicationPageRouteArgs(
+            key: key,
+            catId: catId,
+          ),
+        );
 
   static const String name = 'ApplicationPageRoute';
 }
 
 class ApplicationPageRouteArgs {
-  const ApplicationPageRouteArgs({this.key, required this.catId});
+  const ApplicationPageRouteArgs({
+    this.key,
+    required this.catId,
+  });
 
   final Key? key;
 
@@ -439,23 +666,29 @@ class ApplicationPageRouteArgs {
 /// [PreparationPayment]
 class PreparationPaymentRoute
     extends PageRouteInfo<PreparationPaymentRouteArgs> {
-  PreparationPaymentRoute(
-      {required VerificationResponseDTO verificationResponse,
-      required int orderId,
-      Key? key})
-      : super(PreparationPaymentRoute.name,
-            path: 'preparation-payment',
-            args: PreparationPaymentRouteArgs(
-                verificationResponse: verificationResponse,
-                orderId: orderId,
-                key: key));
+  PreparationPaymentRoute({
+    required VerificationResponseDTO verificationResponse,
+    required int orderId,
+    Key? key,
+  }) : super(
+          PreparationPaymentRoute.name,
+          path: 'preparation-payment',
+          args: PreparationPaymentRouteArgs(
+            verificationResponse: verificationResponse,
+            orderId: orderId,
+            key: key,
+          ),
+        );
 
   static const String name = 'PreparationPaymentRoute';
 }
 
 class PreparationPaymentRouteArgs {
-  const PreparationPaymentRouteArgs(
-      {required this.verificationResponse, required this.orderId, this.key});
+  const PreparationPaymentRouteArgs({
+    required this.verificationResponse,
+    required this.orderId,
+    this.key,
+  });
 
   final VerificationResponseDTO verificationResponse;
 
@@ -473,7 +706,10 @@ class PreparationPaymentRouteArgs {
 /// [MyApplicationPage]
 class MyApplicationPageRoute extends PageRouteInfo<void> {
   const MyApplicationPageRoute()
-      : super(MyApplicationPageRoute.name, path: 'my-application-page');
+      : super(
+          MyApplicationPageRoute.name,
+          path: 'my-application-page',
+        );
 
   static const String name = 'MyApplicationPageRoute';
 }
@@ -482,16 +718,26 @@ class MyApplicationPageRoute extends PageRouteInfo<void> {
 /// [SettlementConditionsPage]
 class SettlementConditionsPageRoute
     extends PageRouteInfo<SettlementConditionsPageRouteArgs> {
-  SettlementConditionsPageRoute({required String text, Key? key})
-      : super(SettlementConditionsPageRoute.name,
-            path: 'settlement-conditions-page',
-            args: SettlementConditionsPageRouteArgs(text: text, key: key));
+  SettlementConditionsPageRoute({
+    required String text,
+    Key? key,
+  }) : super(
+          SettlementConditionsPageRoute.name,
+          path: 'settlement-conditions-page',
+          args: SettlementConditionsPageRouteArgs(
+            text: text,
+            key: key,
+          ),
+        );
 
   static const String name = 'SettlementConditionsPageRoute';
 }
 
 class SettlementConditionsPageRouteArgs {
-  const SettlementConditionsPageRouteArgs({required this.text, this.key});
+  const SettlementConditionsPageRouteArgs({
+    required this.text,
+    this.key,
+  });
 
   final String text;
 

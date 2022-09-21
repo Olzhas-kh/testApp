@@ -15,6 +15,12 @@ class SectionsPage extends StatefulWidget {
 class _SectionsPageState extends State<SectionsPage> {
   late List<SectionCardPayload> payloads = [
     SectionCardPayload(
+      onTap: () {},
+      text: 'Student Life',
+      localImage: 'assets/temp/section3.png',
+      isActive: true,
+    ),
+    SectionCardPayload(
       onTap: () {
         buildDevelopAlertDialog(context);
       },
@@ -32,11 +38,6 @@ class _SectionsPageState extends State<SectionsPage> {
       onTap: () {
         buildDevelopAlertDialog(context);
       },
-      text: 'Student Life',
-      localImage: 'assets/temp/section3.png',
-    ),
-    SectionCardPayload(
-      onTap: () {},
       text: context.appLocale.frequentlyAskedQuestions,
       localImage: 'assets/temp/section4.png',
     ),

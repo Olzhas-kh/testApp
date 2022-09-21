@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'notification_bloc.dart';
@@ -11,25 +12,7 @@ part of 'notification_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$NotificationEventTearOff {
-  const _$NotificationEventTearOff();
-
-  _FirebaseInit firebaseInit({required BuildContext context}) {
-    return _FirebaseInit(
-      context: context,
-    );
-  }
-
-  _GetNotificationHiveBox getNotificationHiveBox() {
-    return const _GetNotificationHiveBox();
-  }
-}
-
-/// @nodoc
-const $NotificationEvent = _$NotificationEventTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$NotificationEvent {
@@ -92,29 +75,29 @@ class _$NotificationEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$FirebaseInitCopyWith<$Res> {
-  factory _$FirebaseInitCopyWith(
-          _FirebaseInit value, $Res Function(_FirebaseInit) then) =
-      __$FirebaseInitCopyWithImpl<$Res>;
+abstract class _$$_FirebaseInitCopyWith<$Res> {
+  factory _$$_FirebaseInitCopyWith(
+          _$_FirebaseInit value, $Res Function(_$_FirebaseInit) then) =
+      __$$_FirebaseInitCopyWithImpl<$Res>;
   $Res call({BuildContext context});
 }
 
 /// @nodoc
-class __$FirebaseInitCopyWithImpl<$Res>
+class __$$_FirebaseInitCopyWithImpl<$Res>
     extends _$NotificationEventCopyWithImpl<$Res>
-    implements _$FirebaseInitCopyWith<$Res> {
-  __$FirebaseInitCopyWithImpl(
-      _FirebaseInit _value, $Res Function(_FirebaseInit) _then)
-      : super(_value, (v) => _then(v as _FirebaseInit));
+    implements _$$_FirebaseInitCopyWith<$Res> {
+  __$$_FirebaseInitCopyWithImpl(
+      _$_FirebaseInit _value, $Res Function(_$_FirebaseInit) _then)
+      : super(_value, (v) => _then(v as _$_FirebaseInit));
 
   @override
-  _FirebaseInit get _value => super._value as _FirebaseInit;
+  _$_FirebaseInit get _value => super._value as _$_FirebaseInit;
 
   @override
   $Res call({
     Object? context = freezed,
   }) {
-    return _then(_FirebaseInit(
+    return _then(_$_FirebaseInit(
       context: context == freezed
           ? _value.context
           : context // ignore: cast_nullable_to_non_nullable
@@ -125,30 +108,22 @@ class __$FirebaseInitCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_FirebaseInit with DiagnosticableTreeMixin implements _FirebaseInit {
+class _$_FirebaseInit implements _FirebaseInit {
   const _$_FirebaseInit({required this.context});
 
   @override
   final BuildContext context;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'NotificationEvent.firebaseInit(context: $context)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'NotificationEvent.firebaseInit'))
-      ..add(DiagnosticsProperty('context', context));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _FirebaseInit &&
+            other is _$_FirebaseInit &&
             const DeepCollectionEquality().equals(other.context, context));
   }
 
@@ -158,8 +133,8 @@ class _$_FirebaseInit with DiagnosticableTreeMixin implements _FirebaseInit {
 
   @JsonKey(ignore: true)
   @override
-  _$FirebaseInitCopyWith<_FirebaseInit> get copyWith =>
-      __$FirebaseInitCopyWithImpl<_FirebaseInit>(this, _$identity);
+  _$$_FirebaseInitCopyWith<_$_FirebaseInit> get copyWith =>
+      __$$_FirebaseInitCopyWithImpl<_$_FirebaseInit>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -226,57 +201,50 @@ class _$_FirebaseInit with DiagnosticableTreeMixin implements _FirebaseInit {
 }
 
 abstract class _FirebaseInit implements NotificationEvent {
-  const factory _FirebaseInit({required BuildContext context}) =
+  const factory _FirebaseInit({required final BuildContext context}) =
       _$_FirebaseInit;
 
   BuildContext get context;
   @JsonKey(ignore: true)
-  _$FirebaseInitCopyWith<_FirebaseInit> get copyWith =>
+  _$$_FirebaseInitCopyWith<_$_FirebaseInit> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$GetNotificationHiveBoxCopyWith<$Res> {
-  factory _$GetNotificationHiveBoxCopyWith(_GetNotificationHiveBox value,
-          $Res Function(_GetNotificationHiveBox) then) =
-      __$GetNotificationHiveBoxCopyWithImpl<$Res>;
+abstract class _$$_GetNotificationHiveBoxCopyWith<$Res> {
+  factory _$$_GetNotificationHiveBoxCopyWith(_$_GetNotificationHiveBox value,
+          $Res Function(_$_GetNotificationHiveBox) then) =
+      __$$_GetNotificationHiveBoxCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$GetNotificationHiveBoxCopyWithImpl<$Res>
+class __$$_GetNotificationHiveBoxCopyWithImpl<$Res>
     extends _$NotificationEventCopyWithImpl<$Res>
-    implements _$GetNotificationHiveBoxCopyWith<$Res> {
-  __$GetNotificationHiveBoxCopyWithImpl(_GetNotificationHiveBox _value,
-      $Res Function(_GetNotificationHiveBox) _then)
-      : super(_value, (v) => _then(v as _GetNotificationHiveBox));
+    implements _$$_GetNotificationHiveBoxCopyWith<$Res> {
+  __$$_GetNotificationHiveBoxCopyWithImpl(_$_GetNotificationHiveBox _value,
+      $Res Function(_$_GetNotificationHiveBox) _then)
+      : super(_value, (v) => _then(v as _$_GetNotificationHiveBox));
 
   @override
-  _GetNotificationHiveBox get _value => super._value as _GetNotificationHiveBox;
+  _$_GetNotificationHiveBox get _value =>
+      super._value as _$_GetNotificationHiveBox;
 }
 
 /// @nodoc
 
-class _$_GetNotificationHiveBox
-    with DiagnosticableTreeMixin
-    implements _GetNotificationHiveBox {
+class _$_GetNotificationHiveBox implements _GetNotificationHiveBox {
   const _$_GetNotificationHiveBox();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'NotificationEvent.getNotificationHiveBox()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty(
-        'type', 'NotificationEvent.getNotificationHiveBox'));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _GetNotificationHiveBox);
+        (other.runtimeType == runtimeType &&
+            other is _$_GetNotificationHiveBox);
   }
 
   @override
@@ -351,32 +319,6 @@ abstract class _GetNotificationHiveBox implements NotificationEvent {
 }
 
 /// @nodoc
-class _$NotificationStateTearOff {
-  const _$NotificationStateTearOff();
-
-  _Initial initial() {
-    return const _Initial();
-  }
-
-  _ErrorOpenHiveBox errorOpenHiveBox(
-      {String message = 'Ошибка при заагрузке уведомлении!'}) {
-    return _ErrorOpenHiveBox(
-      message: message,
-    );
-  }
-
-  _SuccessNotificationHiveBox successNotificationHiveBox(
-      {required Box<NotificationEntity> box}) {
-    return _SuccessNotificationHiveBox(
-      box: box,
-    );
-  }
-}
-
-/// @nodoc
-const $NotificationState = _$NotificationStateTearOff();
-
-/// @nodoc
 mixin _$NotificationState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -446,41 +388,37 @@ class _$NotificationStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$InitialCopyWith<$Res> {
-  factory _$InitialCopyWith(_Initial value, $Res Function(_Initial) then) =
-      __$InitialCopyWithImpl<$Res>;
+abstract class _$$_InitialCopyWith<$Res> {
+  factory _$$_InitialCopyWith(
+          _$_Initial value, $Res Function(_$_Initial) then) =
+      __$$_InitialCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$InitialCopyWithImpl<$Res> extends _$NotificationStateCopyWithImpl<$Res>
-    implements _$InitialCopyWith<$Res> {
-  __$InitialCopyWithImpl(_Initial _value, $Res Function(_Initial) _then)
-      : super(_value, (v) => _then(v as _Initial));
+class __$$_InitialCopyWithImpl<$Res>
+    extends _$NotificationStateCopyWithImpl<$Res>
+    implements _$$_InitialCopyWith<$Res> {
+  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+      : super(_value, (v) => _then(v as _$_Initial));
 
   @override
-  _Initial get _value => super._value as _Initial;
+  _$_Initial get _value => super._value as _$_Initial;
 }
 
 /// @nodoc
 
-class _$_Initial with DiagnosticableTreeMixin implements _Initial {
+class _$_Initial implements _Initial {
   const _$_Initial();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'NotificationState.initial()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'NotificationState.initial'));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Initial);
+        (other.runtimeType == runtimeType && other is _$_Initial);
   }
 
   @override
@@ -564,29 +502,29 @@ abstract class _Initial implements NotificationState {
 }
 
 /// @nodoc
-abstract class _$ErrorOpenHiveBoxCopyWith<$Res> {
-  factory _$ErrorOpenHiveBoxCopyWith(
-          _ErrorOpenHiveBox value, $Res Function(_ErrorOpenHiveBox) then) =
-      __$ErrorOpenHiveBoxCopyWithImpl<$Res>;
+abstract class _$$_ErrorOpenHiveBoxCopyWith<$Res> {
+  factory _$$_ErrorOpenHiveBoxCopyWith(
+          _$_ErrorOpenHiveBox value, $Res Function(_$_ErrorOpenHiveBox) then) =
+      __$$_ErrorOpenHiveBoxCopyWithImpl<$Res>;
   $Res call({String message});
 }
 
 /// @nodoc
-class __$ErrorOpenHiveBoxCopyWithImpl<$Res>
+class __$$_ErrorOpenHiveBoxCopyWithImpl<$Res>
     extends _$NotificationStateCopyWithImpl<$Res>
-    implements _$ErrorOpenHiveBoxCopyWith<$Res> {
-  __$ErrorOpenHiveBoxCopyWithImpl(
-      _ErrorOpenHiveBox _value, $Res Function(_ErrorOpenHiveBox) _then)
-      : super(_value, (v) => _then(v as _ErrorOpenHiveBox));
+    implements _$$_ErrorOpenHiveBoxCopyWith<$Res> {
+  __$$_ErrorOpenHiveBoxCopyWithImpl(
+      _$_ErrorOpenHiveBox _value, $Res Function(_$_ErrorOpenHiveBox) _then)
+      : super(_value, (v) => _then(v as _$_ErrorOpenHiveBox));
 
   @override
-  _ErrorOpenHiveBox get _value => super._value as _ErrorOpenHiveBox;
+  _$_ErrorOpenHiveBox get _value => super._value as _$_ErrorOpenHiveBox;
 
   @override
   $Res call({
     Object? message = freezed,
   }) {
-    return _then(_ErrorOpenHiveBox(
+    return _then(_$_ErrorOpenHiveBox(
       message: message == freezed
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -597,34 +535,24 @@ class __$ErrorOpenHiveBoxCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ErrorOpenHiveBox
-    with DiagnosticableTreeMixin
-    implements _ErrorOpenHiveBox {
+class _$_ErrorOpenHiveBox implements _ErrorOpenHiveBox {
   const _$_ErrorOpenHiveBox(
       {this.message = 'Ошибка при заагрузке уведомлении!'});
 
-  @JsonKey()
   @override
+  @JsonKey()
   final String message;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'NotificationState.errorOpenHiveBox(message: $message)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'NotificationState.errorOpenHiveBox'))
-      ..add(DiagnosticsProperty('message', message));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ErrorOpenHiveBox &&
+            other is _$_ErrorOpenHiveBox &&
             const DeepCollectionEquality().equals(other.message, message));
   }
 
@@ -634,8 +562,8 @@ class _$_ErrorOpenHiveBox
 
   @JsonKey(ignore: true)
   @override
-  _$ErrorOpenHiveBoxCopyWith<_ErrorOpenHiveBox> get copyWith =>
-      __$ErrorOpenHiveBoxCopyWithImpl<_ErrorOpenHiveBox>(this, _$identity);
+  _$$_ErrorOpenHiveBoxCopyWith<_$_ErrorOpenHiveBox> get copyWith =>
+      __$$_ErrorOpenHiveBoxCopyWithImpl<_$_ErrorOpenHiveBox>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -711,40 +639,41 @@ class _$_ErrorOpenHiveBox
 }
 
 abstract class _ErrorOpenHiveBox implements NotificationState {
-  const factory _ErrorOpenHiveBox({String message}) = _$_ErrorOpenHiveBox;
+  const factory _ErrorOpenHiveBox({final String message}) = _$_ErrorOpenHiveBox;
 
   String get message;
   @JsonKey(ignore: true)
-  _$ErrorOpenHiveBoxCopyWith<_ErrorOpenHiveBox> get copyWith =>
+  _$$_ErrorOpenHiveBoxCopyWith<_$_ErrorOpenHiveBox> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$SuccessNotificationHiveBoxCopyWith<$Res> {
-  factory _$SuccessNotificationHiveBoxCopyWith(
-          _SuccessNotificationHiveBox value,
-          $Res Function(_SuccessNotificationHiveBox) then) =
-      __$SuccessNotificationHiveBoxCopyWithImpl<$Res>;
+abstract class _$$_SuccessNotificationHiveBoxCopyWith<$Res> {
+  factory _$$_SuccessNotificationHiveBoxCopyWith(
+          _$_SuccessNotificationHiveBox value,
+          $Res Function(_$_SuccessNotificationHiveBox) then) =
+      __$$_SuccessNotificationHiveBoxCopyWithImpl<$Res>;
   $Res call({Box<NotificationEntity> box});
 }
 
 /// @nodoc
-class __$SuccessNotificationHiveBoxCopyWithImpl<$Res>
+class __$$_SuccessNotificationHiveBoxCopyWithImpl<$Res>
     extends _$NotificationStateCopyWithImpl<$Res>
-    implements _$SuccessNotificationHiveBoxCopyWith<$Res> {
-  __$SuccessNotificationHiveBoxCopyWithImpl(_SuccessNotificationHiveBox _value,
-      $Res Function(_SuccessNotificationHiveBox) _then)
-      : super(_value, (v) => _then(v as _SuccessNotificationHiveBox));
+    implements _$$_SuccessNotificationHiveBoxCopyWith<$Res> {
+  __$$_SuccessNotificationHiveBoxCopyWithImpl(
+      _$_SuccessNotificationHiveBox _value,
+      $Res Function(_$_SuccessNotificationHiveBox) _then)
+      : super(_value, (v) => _then(v as _$_SuccessNotificationHiveBox));
 
   @override
-  _SuccessNotificationHiveBox get _value =>
-      super._value as _SuccessNotificationHiveBox;
+  _$_SuccessNotificationHiveBox get _value =>
+      super._value as _$_SuccessNotificationHiveBox;
 
   @override
   $Res call({
     Object? box = freezed,
   }) {
-    return _then(_SuccessNotificationHiveBox(
+    return _then(_$_SuccessNotificationHiveBox(
       box: box == freezed
           ? _value.box
           : box // ignore: cast_nullable_to_non_nullable
@@ -755,33 +684,22 @@ class __$SuccessNotificationHiveBoxCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_SuccessNotificationHiveBox
-    with DiagnosticableTreeMixin
-    implements _SuccessNotificationHiveBox {
+class _$_SuccessNotificationHiveBox implements _SuccessNotificationHiveBox {
   const _$_SuccessNotificationHiveBox({required this.box});
 
   @override
   final Box<NotificationEntity> box;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'NotificationState.successNotificationHiveBox(box: $box)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty(
-          'type', 'NotificationState.successNotificationHiveBox'))
-      ..add(DiagnosticsProperty('box', box));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _SuccessNotificationHiveBox &&
+            other is _$_SuccessNotificationHiveBox &&
             const DeepCollectionEquality().equals(other.box, box));
   }
 
@@ -791,9 +709,9 @@ class _$_SuccessNotificationHiveBox
 
   @JsonKey(ignore: true)
   @override
-  _$SuccessNotificationHiveBoxCopyWith<_SuccessNotificationHiveBox>
-      get copyWith => __$SuccessNotificationHiveBoxCopyWithImpl<
-          _SuccessNotificationHiveBox>(this, _$identity);
+  _$$_SuccessNotificationHiveBoxCopyWith<_$_SuccessNotificationHiveBox>
+      get copyWith => __$$_SuccessNotificationHiveBoxCopyWithImpl<
+          _$_SuccessNotificationHiveBox>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -870,10 +788,11 @@ class _$_SuccessNotificationHiveBox
 
 abstract class _SuccessNotificationHiveBox implements NotificationState {
   const factory _SuccessNotificationHiveBox(
-      {required Box<NotificationEntity> box}) = _$_SuccessNotificationHiveBox;
+          {required final Box<NotificationEntity> box}) =
+      _$_SuccessNotificationHiveBox;
 
   Box<NotificationEntity> get box;
   @JsonKey(ignore: true)
-  _$SuccessNotificationHiveBoxCopyWith<_SuccessNotificationHiveBox>
+  _$$_SuccessNotificationHiveBoxCopyWith<_$_SuccessNotificationHiveBox>
       get copyWith => throw _privateConstructorUsedError;
 }

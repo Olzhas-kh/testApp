@@ -166,13 +166,13 @@ class _ProfilePageState extends State<ProfilePage> {
                               const Divider(
                                 color: Color(0xff909090),
                               ),
-                              buildRow(
-                                text: context.appLocale.email,
-                                value: user.email ?? context.appLocale.notSpecified,
-                              ),
-                              const Divider(
-                                color: Color(0xff909090),
-                              ),
+                              // buildRow(
+                              //   text: context.appLocale.email,
+                              //   value: user.email ?? context.appLocale.notSpecified,
+                              // ),
+                              // const Divider(
+                              //   color: Color(0xff909090),
+                              // ),
                               buildRow(
                                 text: context.appLocale.gender,
                                 value: user.gender ?? context.appLocale.notSpecified,
