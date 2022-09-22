@@ -92,16 +92,26 @@ class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    DocumentsPageRoute.name: (routeData) {
+      final args = routeData.argsAs<DocumentsPageRouteArgs>();
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: DocumentsPage(
+          key: args.key,
+          documentCatId: args.documentCatId,
+        ),
+      );
+    },
     BaseHomeRouter.name: (routeData) {
       return MaterialPageX<dynamic>(
         routeData: routeData,
         child: const EmptyRouterPage(),
       );
     },
-    SectionsPageRoute.name: (routeData) {
+    BaseSectionsRouter.name: (routeData) {
       return MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const SectionsPage(),
+        child: const EmptyRouterPage(),
       );
     },
     ProfilePageRoute.name: (routeData) {
@@ -181,6 +191,18 @@ class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    SectionsPageRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const SectionsPage(),
+      );
+    },
+    StudentsPageRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const StudentsPage(),
+      );
+    },
   };
 
   @override
@@ -242,9 +264,21 @@ class _$AppRouter extends RootStackRouter {
               ],
             ),
             RouteConfig(
-              SectionsPageRoute.name,
-              path: 'sections-page',
+              BaseSectionsRouter.name,
+              path: 'empty-router-page',
               parent: LauncherRoute.name,
+              children: [
+                RouteConfig(
+                  SectionsPageRoute.name,
+                  path: '',
+                  parent: BaseSectionsRouter.name,
+                ),
+                RouteConfig(
+                  StudentsPageRoute.name,
+                  path: 'students-page',
+                  parent: BaseSectionsRouter.name,
+                ),
+              ],
             ),
             RouteConfig(
               ProfilePageRoute.name,
@@ -284,6 +318,10 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(
           PaymentPage1Route.name,
           path: '/payment-page1',
+        ),
+        RouteConfig(
+          DocumentsPageRoute.name,
+          path: '/documents-page',
         ),
       ];
 }
@@ -509,6 +547,40 @@ class PaymentPage1RouteArgs {
 }
 
 /// generated route for
+/// [DocumentsPage]
+class DocumentsPageRoute extends PageRouteInfo<DocumentsPageRouteArgs> {
+  DocumentsPageRoute({
+    Key? key,
+    required int documentCatId,
+  }) : super(
+          DocumentsPageRoute.name,
+          path: '/documents-page',
+          args: DocumentsPageRouteArgs(
+            key: key,
+            documentCatId: documentCatId,
+          ),
+        );
+
+  static const String name = 'DocumentsPageRoute';
+}
+
+class DocumentsPageRouteArgs {
+  const DocumentsPageRouteArgs({
+    this.key,
+    required this.documentCatId,
+  });
+
+  final Key? key;
+
+  final int documentCatId;
+
+  @override
+  String toString() {
+    return 'DocumentsPageRouteArgs{key: $key, documentCatId: $documentCatId}';
+  }
+}
+
+/// generated route for
 /// [EmptyRouterPage]
 class BaseHomeRouter extends PageRouteInfo<void> {
   const BaseHomeRouter({List<PageRouteInfo>? children})
@@ -522,15 +594,16 @@ class BaseHomeRouter extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [SectionsPage]
-class SectionsPageRoute extends PageRouteInfo<void> {
-  const SectionsPageRoute()
+/// [EmptyRouterPage]
+class BaseSectionsRouter extends PageRouteInfo<void> {
+  const BaseSectionsRouter({List<PageRouteInfo>? children})
       : super(
-          SectionsPageRoute.name,
-          path: 'sections-page',
+          BaseSectionsRouter.name,
+          path: 'empty-router-page',
+          initialChildren: children,
         );
 
-  static const String name = 'SectionsPageRoute';
+  static const String name = 'BaseSectionsRouter';
 }
 
 /// generated route for
@@ -747,4 +820,28 @@ class SettlementConditionsPageRouteArgs {
   String toString() {
     return 'SettlementConditionsPageRouteArgs{text: $text, key: $key}';
   }
+}
+
+/// generated route for
+/// [SectionsPage]
+class SectionsPageRoute extends PageRouteInfo<void> {
+  const SectionsPageRoute()
+      : super(
+          SectionsPageRoute.name,
+          path: '',
+        );
+
+  static const String name = 'SectionsPageRoute';
+}
+
+/// generated route for
+/// [StudentsPage]
+class StudentsPageRoute extends PageRouteInfo<void> {
+  const StudentsPageRoute()
+      : super(
+          StudentsPageRoute.name,
+          path: 'students-page',
+        );
+
+  static const String name = 'StudentsPageRoute';
 }

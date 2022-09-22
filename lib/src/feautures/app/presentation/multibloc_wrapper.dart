@@ -15,6 +15,8 @@ import 'package:narxoz/src/feautures/home/presentation/bloc/hostel_cubit.dart';
 import 'package:narxoz/src/feautures/home/presentation/bloc/my_application_cubit.dart';
 import 'package:narxoz/src/feautures/notifications/bloc/notification_bloc.dart';
 import 'package:narxoz/src/feautures/profile/presentation/bloc/profile_cubit.dart';
+import 'package:narxoz/src/feautures/sections/presentation/bloc/documents_cubit.dart';
+import 'package:narxoz/src/feautures/sections/presentation/bloc/students_cubit.dart';
 import 'package:provider/provider.dart';
 
 class MultiblocWrapper extends StatelessWidget {
@@ -76,6 +78,12 @@ class MultiblocWrapper extends StatelessWidget {
           ),
           BlocProvider<BannersCubit>(
             create: (_) => sl<BannersCubit>(),
+          ),
+          BlocProvider<StudentsCubit>(
+            create: (_) => sl<StudentsCubit>(),
+          ),
+          BlocProvider<DocumentsCubit>(
+            create: (_) => sl<DocumentsCubit>(),
           ),
         ],
         child: child,

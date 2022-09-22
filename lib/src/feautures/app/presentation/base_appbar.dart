@@ -5,7 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:narxoz/src/core/resources/resources.dart';
 import 'package:narxoz/src/feautures/app/bloc/app_bloc.dart';
 import 'package:narxoz/src/feautures/app/presentation/locale_provider.dart';
-import 'package:narxoz/src/feautures/notifications/widget/pages/notifications.dart';
+import 'package:narxoz/src/feautures/notifications/widget/pages/notifications_screen.dart';
 import 'package:provider/provider.dart';
 
 class BaseAppBar extends StatefulWidget {

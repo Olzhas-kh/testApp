@@ -43,4 +43,11 @@ mixin EndPoints {
   static const login = '/auth/login';
   static const profile = '/user/account/profile';
   static const logout = '/user/logout';
+
+  // sections
+
+  static const documentCats = '/user/document-categories';
+  static String documents(int id) {
+    return '/user/document-categories/$id/documents';
+  }
 }

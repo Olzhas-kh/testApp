@@ -22,7 +22,9 @@ import 'package:narxoz/src/feautures/home/presentation/ui/hostel/preparation_pay
 import 'package:narxoz/src/feautures/home/presentation/ui/hostel/success_page.dart';
 import 'package:narxoz/src/feautures/home/presentation/ui/requests/web_requests_page.dart';
 import 'package:narxoz/src/feautures/profile/presentation/ui/profile_page.dart';
+import 'package:narxoz/src/feautures/sections/presentation/ui/documents_page.dart';
 import 'package:narxoz/src/feautures/sections/presentation/ui/sections_page.dart';
+import 'package:narxoz/src/feautures/sections/presentation/ui/students_page.dart';
 
 part 'app_router.gr.dart';
 
@@ -56,7 +58,17 @@ part 'app_router.gr.dart';
         ),
 
         //
-        AutoRoute(page: SectionsPage),
+        AutoRoute(
+          page: EmptyRouterPage,
+          name: 'BaseSectionsRouter',
+          children: [
+            AutoRoute(
+              page: SectionsPage,
+              initial: true,
+            ),
+            AutoRoute(page: StudentsPage),
+          ],
+        ),
         AutoRoute(page: ProfilePage),
       ],
     ),
@@ -72,6 +84,9 @@ part 'app_router.gr.dart';
     AutoRoute(page: SuccessPage),
     AutoRoute(page: PaymentPage),
     AutoRoute(page: PaymentPage1),
+
+    // Sections
+    AutoRoute(page: DocumentsPage),
   ],
 )
 class AppRouter extends _$AppRouter {}

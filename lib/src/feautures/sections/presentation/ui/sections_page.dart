@@ -1,7 +1,9 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:narxoz/src/core/extension/extensions.dart';
 import 'package:narxoz/src/core/resources/resources.dart';
 import 'package:narxoz/src/feautures/app/presentation/base_appbar.dart';
+import 'package:narxoz/src/feautures/app/router/app_router.dart';
 import 'package:narxoz/src/feautures/app/widgets/custom/custom_alert_dialog.dart';
 import 'package:narxoz/src/feautures/sections/presentation/widgets/section_card_widget.dart';
 
@@ -15,7 +17,9 @@ class SectionsPage extends StatefulWidget {
 class _SectionsPageState extends State<SectionsPage> {
   late List<SectionCardPayload> payloads = [
     SectionCardPayload(
-      onTap: () {},
+      onTap: () {
+        context.router.push(const StudentsPageRoute());
+      },
       text: 'Student Life',
       localImage: 'assets/temp/section3.png',
       isActive: true,

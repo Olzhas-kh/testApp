@@ -9,27 +9,38 @@ import 'package:narxoz/src/feautures/app/widgets/custom/custom_button.dart';
 import 'package:narxoz/src/feautures/app/widgets/custom/custom_loaders.dart';
 import 'package:narxoz/src/feautures/app/widgets/custom/custom_snackbars.dart';
 import 'package:narxoz/src/feautures/sections/data/model/document_dto.dart';
+import 'package:narxoz/src/feautures/sections/presentation/bloc/documents_cubit.dart';
 import 'package:narxoz/src/feautures/sections/presentation/bloc/students_cubit.dart';
-import 'package:narxoz/src/feautures/sections/presentation/ui/documents_page.dart';
+import 'package:url_launcher/url_launcher.dart';
 
-class StudentsPage extends StatefulWidget {
-  const StudentsPage({super.key});
+class DocumentsPage extends StatefulWidget {
+  final int documentCatId;
+  const DocumentsPage({
+    super.key,
+    required this.documentCatId,
+  });
 
   @override
-  State<StudentsPage> createState() => _StudentsPageState();
+  State<DocumentsPage> createState() => _DocumentsPageState();
 }
 
-class _StudentsPageState extends State<StudentsPage> {
+class _DocumentsPageState extends State<DocumentsPage> {
   @override
   void initState() {
-    final cubit = BlocProvider.of<StudentsCubit>(context);
-    cubit.state.maybeWhen(
-      // loadedState: (List<HelpSectionDTO> sections) {},
-      orElse: () {
-        cubit.getDocumentCats();
-      },
-    );
+    final cubit = BlocProvider.of<DocumentsCubit>(context);
+
+    cubit.getDocumentCats(documentCatId: widget.documentCatId);
+
     super.initState();
+  }
+
+  Future<void> _launchInBrowser(Uri url) async {
+    if (!await launchUrl(
+      url,
+      mode: LaunchMode.inAppWebView,
+    )) {
+      throw 'Could not launch $url';
+    }
   }
 
   @override
@@ -47,7 +58,7 @@ class _StudentsPageState extends State<StudentsPage> {
               isSafeArea: true,
             ),
             Expanded(
-              child: BlocConsumer<StudentsCubit, StudentsState>(
+              child: BlocConsumer<DocumentsCubit, DocumentsState>(
                 listener: (context, state) {
                   state.whenOrNull(
                     errorState: (String message) {
@@ -57,24 +68,26 @@ class _StudentsPageState extends State<StudentsPage> {
                 },
                 builder: (context, state) {
                   return state.maybeWhen(
-                    loadedState: (List<DocumentDTO> documentCats) {
+                    loadedState: (List<DocumentDTO> documents) {
                       return ListView.separated(
                         // shrinkWrap: true,
                         padding: const EdgeInsets.symmetric(horizontal: 25).copyWith(top: 25),
-                        itemCount: documentCats.length,
+                        itemCount: documents.length,
                         itemBuilder: (context, index) {
                           return DecoratedBox(
                             decoration: const BoxDecoration(
                               boxShadow: AppDecorations.dropShadow,
                             ),
                             child: CustomButton(
-                              height: 48,
+                              height: 68,
                               body: Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text(
-                                    documentCats[index].name ?? context.appLocale.notSpecified,
-                                    style: AppTextStyles.gilroy16w600,
+                                  Flexible(
+                                    child: Text(
+                                      documents[index].name ?? context.appLocale.notSpecified,
+                                      style: AppTextStyles.gilroy16w600,
+                                    ),
                                   ),
                                   const Icon(
                                     Icons.arrow_forward_ios,
@@ -82,12 +95,13 @@ class _StudentsPageState extends State<StudentsPage> {
                                   ),
                                 ],
                               ),
-                              onClick: () {
-                                context.router.push(
-                                  DocumentsPageRoute(
-                                    documentCatId: documentCats[index].id,
-                                  ),
-                                );
+                              onClick: () async {
+                                final Uri? uri = Uri.tryParse(documents[index].link ?? '');
+                                if (uri != null) {
+                                  await _launchInBrowser(uri);
+                                } else {
+                                  buildErrorCustomSnackBar(context, 'context.appLocale.');
+                                }
                               },
                               style: whiteButtonStyle(),
                             ),

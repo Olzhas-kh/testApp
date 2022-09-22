@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'students_cubit.dart';
+part of 'documents_cubit.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,11 +15,11 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$StudentsState {
+mixin _$DocumentsState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialState,
-    required TResult Function(List<DocumentDTO> documentCategories) loadedState,
+    required TResult Function(List<DocumentDTO> documents) loadedState,
     required TResult Function() emptyState,
     required TResult Function() loadingState,
     required TResult Function(String message) errorState,
@@ -28,7 +28,7 @@ mixin _$StudentsState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initialState,
-    TResult Function(List<DocumentDTO> documentCategories)? loadedState,
+    TResult Function(List<DocumentDTO> documents)? loadedState,
     TResult Function()? emptyState,
     TResult Function()? loadingState,
     TResult Function(String message)? errorState,
@@ -37,7 +37,7 @@ mixin _$StudentsState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialState,
-    TResult Function(List<DocumentDTO> documentCategories)? loadedState,
+    TResult Function(List<DocumentDTO> documents)? loadedState,
     TResult Function()? emptyState,
     TResult Function()? loadingState,
     TResult Function(String message)? errorState,
@@ -75,20 +75,20 @@ mixin _$StudentsState {
 }
 
 /// @nodoc
-abstract class $StudentsStateCopyWith<$Res> {
-  factory $StudentsStateCopyWith(
-          StudentsState value, $Res Function(StudentsState) then) =
-      _$StudentsStateCopyWithImpl<$Res>;
+abstract class $DocumentsStateCopyWith<$Res> {
+  factory $DocumentsStateCopyWith(
+          DocumentsState value, $Res Function(DocumentsState) then) =
+      _$DocumentsStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$StudentsStateCopyWithImpl<$Res>
-    implements $StudentsStateCopyWith<$Res> {
-  _$StudentsStateCopyWithImpl(this._value, this._then);
+class _$DocumentsStateCopyWithImpl<$Res>
+    implements $DocumentsStateCopyWith<$Res> {
+  _$DocumentsStateCopyWithImpl(this._value, this._then);
 
-  final StudentsState _value;
+  final DocumentsState _value;
   // ignore: unused_field
-  final $Res Function(StudentsState) _then;
+  final $Res Function(DocumentsState) _then;
 }
 
 /// @nodoc
@@ -100,7 +100,7 @@ abstract class _$$_InitialStateCopyWith<$Res> {
 
 /// @nodoc
 class __$$_InitialStateCopyWithImpl<$Res>
-    extends _$StudentsStateCopyWithImpl<$Res>
+    extends _$DocumentsStateCopyWithImpl<$Res>
     implements _$$_InitialStateCopyWith<$Res> {
   __$$_InitialStateCopyWithImpl(
       _$_InitialState _value, $Res Function(_$_InitialState) _then)
@@ -117,7 +117,7 @@ class _$_InitialState implements _InitialState {
 
   @override
   String toString() {
-    return 'StudentsState.initialState()';
+    return 'DocumentsState.initialState()';
   }
 
   @override
@@ -133,7 +133,7 @@ class _$_InitialState implements _InitialState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialState,
-    required TResult Function(List<DocumentDTO> documentCategories) loadedState,
+    required TResult Function(List<DocumentDTO> documents) loadedState,
     required TResult Function() emptyState,
     required TResult Function() loadingState,
     required TResult Function(String message) errorState,
@@ -145,7 +145,7 @@ class _$_InitialState implements _InitialState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initialState,
-    TResult Function(List<DocumentDTO> documentCategories)? loadedState,
+    TResult Function(List<DocumentDTO> documents)? loadedState,
     TResult Function()? emptyState,
     TResult Function()? loadingState,
     TResult Function(String message)? errorState,
@@ -157,7 +157,7 @@ class _$_InitialState implements _InitialState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialState,
-    TResult Function(List<DocumentDTO> documentCategories)? loadedState,
+    TResult Function(List<DocumentDTO> documents)? loadedState,
     TResult Function()? emptyState,
     TResult Function()? loadingState,
     TResult Function(String message)? errorState,
@@ -210,7 +210,7 @@ class _$_InitialState implements _InitialState {
   }
 }
 
-abstract class _InitialState implements StudentsState {
+abstract class _InitialState implements DocumentsState {
   const factory _InitialState() = _$_InitialState;
 }
 
@@ -219,12 +219,12 @@ abstract class _$$_LoadedStateCopyWith<$Res> {
   factory _$$_LoadedStateCopyWith(
           _$_LoadedState value, $Res Function(_$_LoadedState) then) =
       __$$_LoadedStateCopyWithImpl<$Res>;
-  $Res call({List<DocumentDTO> documentCategories});
+  $Res call({List<DocumentDTO> documents});
 }
 
 /// @nodoc
 class __$$_LoadedStateCopyWithImpl<$Res>
-    extends _$StudentsStateCopyWithImpl<$Res>
+    extends _$DocumentsStateCopyWithImpl<$Res>
     implements _$$_LoadedStateCopyWith<$Res> {
   __$$_LoadedStateCopyWithImpl(
       _$_LoadedState _value, $Res Function(_$_LoadedState) _then)
@@ -235,12 +235,12 @@ class __$$_LoadedStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? documentCategories = freezed,
+    Object? documents = freezed,
   }) {
     return _then(_$_LoadedState(
-      documentCategories: documentCategories == freezed
-          ? _value._documentCategories
-          : documentCategories // ignore: cast_nullable_to_non_nullable
+      documents: documents == freezed
+          ? _value._documents
+          : documents // ignore: cast_nullable_to_non_nullable
               as List<DocumentDTO>,
     ));
   }
@@ -249,19 +249,19 @@ class __$$_LoadedStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_LoadedState implements _LoadedState {
-  const _$_LoadedState({required final List<DocumentDTO> documentCategories})
-      : _documentCategories = documentCategories;
+  const _$_LoadedState({required final List<DocumentDTO> documents})
+      : _documents = documents;
 
-  final List<DocumentDTO> _documentCategories;
+  final List<DocumentDTO> _documents;
   @override
-  List<DocumentDTO> get documentCategories {
+  List<DocumentDTO> get documents {
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_documentCategories);
+    return EqualUnmodifiableListView(_documents);
   }
 
   @override
   String toString() {
-    return 'StudentsState.loadedState(documentCategories: $documentCategories)';
+    return 'DocumentsState.loadedState(documents: $documents)';
   }
 
   @override
@@ -270,12 +270,12 @@ class _$_LoadedState implements _LoadedState {
         (other.runtimeType == runtimeType &&
             other is _$_LoadedState &&
             const DeepCollectionEquality()
-                .equals(other._documentCategories, _documentCategories));
+                .equals(other._documents, _documents));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_documentCategories));
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_documents));
 
   @JsonKey(ignore: true)
   @override
@@ -286,38 +286,38 @@ class _$_LoadedState implements _LoadedState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialState,
-    required TResult Function(List<DocumentDTO> documentCategories) loadedState,
+    required TResult Function(List<DocumentDTO> documents) loadedState,
     required TResult Function() emptyState,
     required TResult Function() loadingState,
     required TResult Function(String message) errorState,
   }) {
-    return loadedState(documentCategories);
+    return loadedState(documents);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initialState,
-    TResult Function(List<DocumentDTO> documentCategories)? loadedState,
+    TResult Function(List<DocumentDTO> documents)? loadedState,
     TResult Function()? emptyState,
     TResult Function()? loadingState,
     TResult Function(String message)? errorState,
   }) {
-    return loadedState?.call(documentCategories);
+    return loadedState?.call(documents);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialState,
-    TResult Function(List<DocumentDTO> documentCategories)? loadedState,
+    TResult Function(List<DocumentDTO> documents)? loadedState,
     TResult Function()? emptyState,
     TResult Function()? loadingState,
     TResult Function(String message)? errorState,
     required TResult orElse(),
   }) {
     if (loadedState != null) {
-      return loadedState(documentCategories);
+      return loadedState(documents);
     }
     return orElse();
   }
@@ -363,11 +363,11 @@ class _$_LoadedState implements _LoadedState {
   }
 }
 
-abstract class _LoadedState implements StudentsState {
-  const factory _LoadedState(
-      {required final List<DocumentDTO> documentCategories}) = _$_LoadedState;
+abstract class _LoadedState implements DocumentsState {
+  const factory _LoadedState({required final List<DocumentDTO> documents}) =
+      _$_LoadedState;
 
-  List<DocumentDTO> get documentCategories;
+  List<DocumentDTO> get documents;
   @JsonKey(ignore: true)
   _$$_LoadedStateCopyWith<_$_LoadedState> get copyWith =>
       throw _privateConstructorUsedError;
@@ -382,7 +382,7 @@ abstract class _$$_EmptyStateCopyWith<$Res> {
 
 /// @nodoc
 class __$$_EmptyStateCopyWithImpl<$Res>
-    extends _$StudentsStateCopyWithImpl<$Res>
+    extends _$DocumentsStateCopyWithImpl<$Res>
     implements _$$_EmptyStateCopyWith<$Res> {
   __$$_EmptyStateCopyWithImpl(
       _$_EmptyState _value, $Res Function(_$_EmptyState) _then)
@@ -399,7 +399,7 @@ class _$_EmptyState implements _EmptyState {
 
   @override
   String toString() {
-    return 'StudentsState.emptyState()';
+    return 'DocumentsState.emptyState()';
   }
 
   @override
@@ -415,7 +415,7 @@ class _$_EmptyState implements _EmptyState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialState,
-    required TResult Function(List<DocumentDTO> documentCategories) loadedState,
+    required TResult Function(List<DocumentDTO> documents) loadedState,
     required TResult Function() emptyState,
     required TResult Function() loadingState,
     required TResult Function(String message) errorState,
@@ -427,7 +427,7 @@ class _$_EmptyState implements _EmptyState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initialState,
-    TResult Function(List<DocumentDTO> documentCategories)? loadedState,
+    TResult Function(List<DocumentDTO> documents)? loadedState,
     TResult Function()? emptyState,
     TResult Function()? loadingState,
     TResult Function(String message)? errorState,
@@ -439,7 +439,7 @@ class _$_EmptyState implements _EmptyState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialState,
-    TResult Function(List<DocumentDTO> documentCategories)? loadedState,
+    TResult Function(List<DocumentDTO> documents)? loadedState,
     TResult Function()? emptyState,
     TResult Function()? loadingState,
     TResult Function(String message)? errorState,
@@ -492,7 +492,7 @@ class _$_EmptyState implements _EmptyState {
   }
 }
 
-abstract class _EmptyState implements StudentsState {
+abstract class _EmptyState implements DocumentsState {
   const factory _EmptyState() = _$_EmptyState;
 }
 
@@ -505,7 +505,7 @@ abstract class _$$_LoadingStateCopyWith<$Res> {
 
 /// @nodoc
 class __$$_LoadingStateCopyWithImpl<$Res>
-    extends _$StudentsStateCopyWithImpl<$Res>
+    extends _$DocumentsStateCopyWithImpl<$Res>
     implements _$$_LoadingStateCopyWith<$Res> {
   __$$_LoadingStateCopyWithImpl(
       _$_LoadingState _value, $Res Function(_$_LoadingState) _then)
@@ -522,7 +522,7 @@ class _$_LoadingState implements _LoadingState {
 
   @override
   String toString() {
-    return 'StudentsState.loadingState()';
+    return 'DocumentsState.loadingState()';
   }
 
   @override
@@ -538,7 +538,7 @@ class _$_LoadingState implements _LoadingState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialState,
-    required TResult Function(List<DocumentDTO> documentCategories) loadedState,
+    required TResult Function(List<DocumentDTO> documents) loadedState,
     required TResult Function() emptyState,
     required TResult Function() loadingState,
     required TResult Function(String message) errorState,
@@ -550,7 +550,7 @@ class _$_LoadingState implements _LoadingState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initialState,
-    TResult Function(List<DocumentDTO> documentCategories)? loadedState,
+    TResult Function(List<DocumentDTO> documents)? loadedState,
     TResult Function()? emptyState,
     TResult Function()? loadingState,
     TResult Function(String message)? errorState,
@@ -562,7 +562,7 @@ class _$_LoadingState implements _LoadingState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialState,
-    TResult Function(List<DocumentDTO> documentCategories)? loadedState,
+    TResult Function(List<DocumentDTO> documents)? loadedState,
     TResult Function()? emptyState,
     TResult Function()? loadingState,
     TResult Function(String message)? errorState,
@@ -615,7 +615,7 @@ class _$_LoadingState implements _LoadingState {
   }
 }
 
-abstract class _LoadingState implements StudentsState {
+abstract class _LoadingState implements DocumentsState {
   const factory _LoadingState() = _$_LoadingState;
 }
 
@@ -629,7 +629,7 @@ abstract class _$$_ErrorStateCopyWith<$Res> {
 
 /// @nodoc
 class __$$_ErrorStateCopyWithImpl<$Res>
-    extends _$StudentsStateCopyWithImpl<$Res>
+    extends _$DocumentsStateCopyWithImpl<$Res>
     implements _$$_ErrorStateCopyWith<$Res> {
   __$$_ErrorStateCopyWithImpl(
       _$_ErrorState _value, $Res Function(_$_ErrorState) _then)
@@ -661,7 +661,7 @@ class _$_ErrorState implements _ErrorState {
 
   @override
   String toString() {
-    return 'StudentsState.errorState(message: $message)';
+    return 'DocumentsState.errorState(message: $message)';
   }
 
   @override
@@ -685,7 +685,7 @@ class _$_ErrorState implements _ErrorState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialState,
-    required TResult Function(List<DocumentDTO> documentCategories) loadedState,
+    required TResult Function(List<DocumentDTO> documents) loadedState,
     required TResult Function() emptyState,
     required TResult Function() loadingState,
     required TResult Function(String message) errorState,
@@ -697,7 +697,7 @@ class _$_ErrorState implements _ErrorState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initialState,
-    TResult Function(List<DocumentDTO> documentCategories)? loadedState,
+    TResult Function(List<DocumentDTO> documents)? loadedState,
     TResult Function()? emptyState,
     TResult Function()? loadingState,
     TResult Function(String message)? errorState,
@@ -709,7 +709,7 @@ class _$_ErrorState implements _ErrorState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialState,
-    TResult Function(List<DocumentDTO> documentCategories)? loadedState,
+    TResult Function(List<DocumentDTO> documents)? loadedState,
     TResult Function()? emptyState,
     TResult Function()? loadingState,
     TResult Function(String message)? errorState,
@@ -762,7 +762,7 @@ class _$_ErrorState implements _ErrorState {
   }
 }
 
-abstract class _ErrorState implements StudentsState {
+abstract class _ErrorState implements DocumentsState {
   const factory _ErrorState({required final String message}) = _$_ErrorState;
 
   String get message;

@@ -14,11 +14,13 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:http/http.dart' as http;
 import 'package:narxoz/src/core/constants/hive_boxes.dart';
 import 'package:narxoz/src/feautures/notifications/api/models/notification.dart';
-import 'package:narxoz/src/feautures/notifications/widget/pages/notifications.dart';
+import 'package:narxoz/src/feautures/notifications/widget/pages/notifications_screen.dart';
 
 part 'notification_bloc.freezed.dart';
 part 'notification_event.dart';
 part 'notification_state.dart';
+
+const _tag = 'NotificationBloc';
 
 class NotificationBloc extends Bloc<NotificationEvent, NotificationState> {
   NotificationBloc() : super(const _Initial()) {
@@ -50,9 +52,8 @@ class NotificationBloc extends Bloc<NotificationEvent, NotificationState> {
     _FirebaseInit eventFirebaseInit,
     Emitter<NotificationState> emit,
   ) async {
-    log(' _firebaseInit');
-    const initializationSettingsAndroid =
-        AndroidInitializationSettings('@mipmap/ic_launcher');
+    log(' _firebaseInit', name: _tag);
+    const initializationSettingsAndroid = AndroidInitializationSettings('@mipmap/ic_launcher');
     const initializationSettingsIOs = DarwinInitializationSettings();
     const initializationSettings = InitializationSettings(
       android: initializationSettingsAndroid,
@@ -61,14 +62,13 @@ class NotificationBloc extends Bloc<NotificationEvent, NotificationState> {
     // ignore: avoid-ignoring-return-values
     flutterLocalNotificationsPlugin.initialize(initializationSettings);
 
-    await FirebaseMessaging.instance
-        .setForegroundNotificationPresentationOptions(
+    await FirebaseMessaging.instance.setForegroundNotificationPresentationOptions(
       alert: true,
       sound: true,
     );
 
     var fcmToken = await FirebaseMessaging.instance.getToken();
-    log('FCM TOKEN: $fcmToken');
+    log('FCM TOKEN: $fcmToken', name: _tag);
 
     final _messaging = FirebaseMessaging.instance;
     if (Platform.isIOS) {
@@ -80,7 +80,7 @@ class NotificationBloc extends Bloc<NotificationEvent, NotificationState> {
         return;
       }
 
-      log('Message is: $message');
+      log('Message is: $message', name: _tag);
       if (message.notification != null) {
         await saveNotification(message);
       }
@@ -92,10 +92,9 @@ class NotificationBloc extends Bloc<NotificationEvent, NotificationState> {
     // ignore: avoid-ignoring-return-values
     FirebaseMessaging.onMessageOpenedApp.listen(
       (RemoteMessage event) async {
-        log('openedAppMessage is: $event');
+        log('openedAppMessage is: $event', name: _tag);
         await saveNotification(event);
 
-        // ignore: unawaited_futures, avoid_dynamic_calls
         // ignore: avoid-ignoring-return-values
         Navigator.push(
           eventFirebaseInit.context,
@@ -108,10 +107,12 @@ class NotificationBloc extends Bloc<NotificationEvent, NotificationState> {
 
     // ignore: avoid-ignoring-return-values
     FirebaseMessaging.onMessage.listen((RemoteMessage event) async {
-      log('Notify listen');
       final notification = event.notification;
 
       final android = Platform.isAndroid ? event.notification?.android : null;
+
+      log('Notify listen ${event.notification?.toMap()}', name: _tag);
+      log('Notify listen ${event.data}', name: _tag);
 
       if (notification != null) {
         await saveNotification(event);
@@ -150,10 +151,12 @@ class NotificationBloc extends Bloc<NotificationEvent, NotificationState> {
           createdAt: DateTime.now().toString().substring(0, 16),
           // clock time
           time: DateTime.now().toString().substring(0, 16),
-          image: event.data['image'] != null
-              ? await encodeUrlImg(event.data['image'] as String)
-              : '',
+          // image: event.data['image'] != null ? await encodeUrlImg(event.data['image'] as String) : '',
+          image: event.data['image'] != null ? (event.data['image'] as String) : '',
         );
+
+        log('event.data["image"] ${event.data['image']}', name: _tag);
+        log('notifyModel ${notifyModel.image}', name: _tag);
 
         final box = Hive.isBoxOpen(notifyBox)
             ? Hive.box<NotificationEntity>(notifyBox)
@@ -169,9 +172,7 @@ class NotificationBloc extends Bloc<NotificationEvent, NotificationState> {
           return;
         }
         for (final n in listNotify) {
-          if (n.title == notifyModel.title &&
-              n.text == notifyModel.text &&
-              n.time == notifyModel.time) {
+          if (n.title == notifyModel.title && n.text == notifyModel.text && n.time == notifyModel.time) {
             count++;
           }
         }
@@ -179,7 +180,7 @@ class NotificationBloc extends Bloc<NotificationEvent, NotificationState> {
           // ignore: avoid-ignoring-return-values
           await box.add(notifyModel);
         }
-        log('Notification is saved ${notifyModel.title}');
+        log('Notification is saved ${notifyModel.title}', name: _tag);
       }
     } catch (e) {}
   }
@@ -194,16 +195,14 @@ class NotificationBloc extends Bloc<NotificationEvent, NotificationState> {
   }
 
   // ignore: member-ordering-extended
-  Future<void> _requestPermissionToNotifications(
-      FirebaseMessaging _messaging) async {
+  Future<void> _requestPermissionToNotifications(FirebaseMessaging _messaging) async {
     final settings = await _messaging.requestPermission();
 
     if (settings.authorizationStatus == AuthorizationStatus.authorized) {
       if (kDebugMode) {
         print('User granted permission');
       }
-    } else if (settings.authorizationStatus ==
-        AuthorizationStatus.provisional) {
+    } else if (settings.authorizationStatus == AuthorizationStatus.provisional) {
       if (kDebugMode) {
         print('User granted provisional permission');
       }
@@ -216,13 +215,11 @@ class NotificationBloc extends Bloc<NotificationEvent, NotificationState> {
 }
 
 // ignore: prefer-correct-identifier-length
-final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
-    FlutterLocalNotificationsPlugin();
+final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
 
 const AndroidNotificationChannel channel = AndroidNotificationChannel(
   'high_importance_channel', // id
   'High Importance Notifications', // title
-  description:
-      'This channel is used for important notifications.', // description
+  description: 'This channel is used for important notifications.', // description
   importance: Importance.high,
 );
