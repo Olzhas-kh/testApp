@@ -51,7 +51,7 @@ class _NarxozAppState extends State<NarxozApp> {
       // ),
     );
     _initHive();
-    _firebaseInit();
+    // _firebaseInit();
   }
 
   @override

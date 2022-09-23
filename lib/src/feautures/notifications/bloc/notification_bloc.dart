@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
 
+import 'package:auto_route/auto_route.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -13,8 +14,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:http/http.dart' as http;
 import 'package:narxoz/src/core/constants/hive_boxes.dart';
+import 'package:narxoz/src/feautures/app/router/app_router.dart';
 import 'package:narxoz/src/feautures/notifications/api/models/notification.dart';
-import 'package:narxoz/src/feautures/notifications/widget/pages/notifications_screen.dart';
 
 part 'notification_bloc.freezed.dart';
 part 'notification_event.dart';
@@ -96,12 +97,13 @@ class NotificationBloc extends Bloc<NotificationEvent, NotificationState> {
         await saveNotification(event);
 
         // ignore: avoid-ignoring-return-values
-        Navigator.push(
-          eventFirebaseInit.context,
-          MaterialPageRoute(
-            builder: (_) => NotificationsScreen(),
-          ),
-        );
+        // Navigator.push(
+        //   eventFirebaseInit.context,
+        //   MaterialPageRoute(
+        //     builder: (_) => NotificationsScreen(),
+        //   ),
+        // );
+        eventFirebaseInit.context.router.push(NotificationsScreenRoute());
       },
     );
 
