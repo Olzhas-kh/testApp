@@ -23,6 +23,7 @@ abstract class AuthRepository {
   Future<Either<Failure, UserDTO>> signIn({
     required String login,
     required String password,
+    required String deviceToken,
   });
 
   Future<Either<Failure, UserDTO>> getUserFromCache();
@@ -87,12 +88,14 @@ class AuthRepositoryImpl extends AuthRepository {
   Future<Either<Failure, UserDTO>> signIn({
     required String login,
     required String password,
+    required String deviceToken,
   }) async {
     if (await networkInfo.isConnected) {
       try {
         final String token = await remoteDS.login(
           login: login,
           password: password,
+          deviceToken: deviceToken,
         );
 
         final UserDTO generateUser = UserDTO(login: login, token: token);

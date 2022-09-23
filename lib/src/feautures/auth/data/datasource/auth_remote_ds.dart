@@ -13,6 +13,7 @@ abstract class AuthRemoteDS {
   Future<String> login({
     required String login,
     required String password,
+    required String deviceToken,
   });
 
   Future<String> logOut();
@@ -34,6 +35,7 @@ class AuthRemoteDSImpl extends AuthRemoteDS {
   Future<String> login({
     required String login,
     required String password,
+    required String deviceToken,
   }) async {
     try {
       final response = await dio.post(
@@ -41,6 +43,7 @@ class AuthRemoteDSImpl extends AuthRemoteDS {
         data: {
           'email': login,
           'password': password,
+          'device_token': deviceToken,
         },
       );
 

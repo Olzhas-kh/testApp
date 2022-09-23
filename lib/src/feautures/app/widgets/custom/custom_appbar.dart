@@ -7,11 +7,21 @@ class CustomAppBar extends StatelessWidget {
   final void Function()? onTap;
   final String text;
   final bool isSafeArea;
+  final bool isLong;
   const CustomAppBar({
     super.key,
     required this.onTap,
     required this.text,
     this.isSafeArea = false,
+    this.isLong = false,
+  });
+
+  const CustomAppBar.long({
+    super.key,
+    required this.onTap,
+    required this.text,
+    this.isSafeArea = false,
+    this.isLong = true,
   });
 
   @override
@@ -19,8 +29,7 @@ class CustomAppBar extends StatelessWidget {
     return PreferredSize(
       preferredSize: const Size.fromHeight(70),
       child: Padding(
-        padding:
-            const EdgeInsets.symmetric(horizontal: 20, vertical: 15).copyWith(
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15).copyWith(
           top: isSafeArea ? 15 : context.screenSize.height * .07,
         ),
         child: Row(
@@ -32,12 +41,28 @@ class CustomAppBar extends StatelessWidget {
                 onTap: onTap,
               ),
             ),
-            const Spacer(flex: 6),
-            Text(
-              text,
-              style: AppTextStyles.gilroy20w500,
-            ),
-            const Spacer(flex: 9),
+            if (!isLong)
+              const Spacer(flex: 6)
+            else
+              const SizedBox(
+                width: 8,
+              ),
+            if (!isLong)
+              Text( 
+                text,
+                style: AppTextStyles.gilroy20w500,
+              )
+            else
+              Flexible(
+                child: Text(
+                  text,
+                  style: AppTextStyles.gilroy20w500.copyWith(
+                    overflow: TextOverflow.ellipsis,
+                    fontSize: 18,
+                  ),
+                ),
+              ),
+            if (!isLong) const Spacer(flex: 9),
           ],
         ),
       ),

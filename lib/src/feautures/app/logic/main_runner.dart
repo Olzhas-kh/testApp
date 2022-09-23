@@ -2,9 +2,12 @@ import 'dart:async';
 import 'dart:io';
 
 // import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+import 'package:narxoz/firebase_options.dart';
 import 'package:narxoz/src/core/services/locator_service.dart';
 // import 'package:kausar/core/services/locator_service.dart';
 
@@ -34,11 +37,17 @@ mixin MainRunner {
     // await EasyLocalization.ensureInitialized();
     // EasyLocalization.logger.enableLevels = [];
 
-    // await Firebase.initializeApp();
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+
+    FirebaseMessaging.onBackgroundMessage(_firebasePushHandler);
 
     if (!kIsWeb) {
       if (Platform.isAndroid) {
-        await AndroidInAppWebViewController.setWebContentsDebuggingEnabled(true);
+        await AndroidInAppWebViewController.setWebContentsDebuggingEnabled(
+          true,
+        );
       }
     }
 
@@ -61,3 +70,6 @@ mixin MainRunner {
     // );
   }
 }
+
+Future<void> _firebasePushHandler(RemoteMessage message) async =>
+    Firebase.initializeApp();

@@ -15,11 +15,13 @@ class SignInCubit extends Cubit<SignInState> {
   Future<void> signIn({
     required String login,
     required String password,
+    required String deviceToken,
   }) async {
     emit(const SignInState.loadingState());
     final failureOrUser = await _authRepository.signIn(
       login: login,
       password: password,
+      deviceToken: deviceToken,
     );
 
     failureOrUser.fold(

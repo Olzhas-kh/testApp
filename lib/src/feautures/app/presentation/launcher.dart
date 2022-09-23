@@ -6,6 +6,7 @@ import 'package:narxoz/src/feautures/app/bloc/app_bloc.dart';
 import 'package:narxoz/src/feautures/app/presentation/base.dart';
 import 'package:narxoz/src/feautures/app/widgets/custom/custom_loading_widget.dart';
 import 'package:narxoz/src/feautures/auth/presentation/ui/sign_in_page.dart';
+import 'package:narxoz/src/feautures/notifications/bloc/notification_bloc.dart';
 
 class Launcher extends StatefulWidget {
   const Launcher({super.key});
@@ -26,6 +27,7 @@ class _LauncherState extends State<Launcher> {
 
   Future<void> init() async {
     BlocProvider.of<AppBloc>(context).add(const AppEvent.checkAuth());
+    BlocProvider.of<NotificationBloc>(context).add(NotificationEvent.firebaseInit(context: context));
   }
 
   @override

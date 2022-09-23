@@ -22,7 +22,12 @@ import 'package:narxoz/src/feautures/home/presentation/bloc/help_section_cubit.d
 import 'package:narxoz/src/feautures/home/presentation/bloc/help_section_detail_cubit.dart';
 import 'package:narxoz/src/feautures/home/presentation/bloc/hostel_cubit.dart';
 import 'package:narxoz/src/feautures/home/presentation/bloc/my_application_cubit.dart';
+import 'package:narxoz/src/feautures/notifications/bloc/notification_bloc.dart';
 import 'package:narxoz/src/feautures/profile/presentation/bloc/profile_cubit.dart';
+import 'package:narxoz/src/feautures/sections/data/datasource/student_remote_ds.dart';
+import 'package:narxoz/src/feautures/sections/data/repository/student_repository.dart';
+import 'package:narxoz/src/feautures/sections/presentation/bloc/documents_cubit.dart';
+import 'package:narxoz/src/feautures/sections/presentation/bloc/students_cubit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 final sl = GetIt.instance;
@@ -38,6 +43,8 @@ Future<void> initLocator() async {
       // sl(),
     ),
   );
+
+  sl.registerFactory(() => NotificationBloc());
   sl.registerFactory(() => SignInCubit(sl()));
   sl.registerFactory(() => HelpSectionCubit(sl()));
   sl.registerFactory(() => HelpSectionDetailCubit(sl()));
@@ -50,6 +57,8 @@ Future<void> initLocator() async {
   // sl.registerFactory(() => DormCardVerifyCubit(sl()));
   sl.registerFactory(() => ProfileCubit(sl()));
   sl.registerFactory(() => BannersCubit(sl()));
+  sl.registerFactory(() => StudentsCubit(sl()));
+  sl.registerFactory(() => DocumentsCubit(sl()));
 
   ///
   ///
@@ -81,6 +90,13 @@ Future<void> initLocator() async {
       // newAdRemoteDS: sl(),
     ),
   );
+  sl.registerLazySingleton<StudentRepository>(
+    () => StudentRepositoryImpl(
+      networkInfo: sl(),
+      remoteDs: sl(),
+      // newAdRemoteDS: sl(),
+    ),
+  );
 
   ///
   ///
@@ -94,9 +110,9 @@ Future<void> initLocator() async {
   sl.registerLazySingleton<HostelRemoteDS>(
     () => HostelRemoteDSImpl(sl()),
   );
-  // sl.registerLazySingleton<AddressRemoteDs>(
-  //   () => AddressRemoteDsImpl(sl()),
-  // );
+  sl.registerLazySingleton<StudentRemoteDS>(
+    () => StudentRemoteDSImpl(sl()),
+  );
 
   ///
   ///

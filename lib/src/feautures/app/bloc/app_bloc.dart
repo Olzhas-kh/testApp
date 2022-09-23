@@ -79,7 +79,7 @@ class AppBloc extends Bloc<AppEvent, AppState> {
     _Exiting event,
     Emitter<AppState> emit,
   ) async {
-    final result = await _authRepository.logOut();
+    final result = await _authRepository.logOut(onlyLocally: true);
 
     result.fold(
       (l) {
