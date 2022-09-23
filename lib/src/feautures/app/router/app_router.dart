@@ -21,6 +21,7 @@ import 'package:narxoz/src/feautures/home/presentation/ui/hostel/payment_page1.d
 import 'package:narxoz/src/feautures/home/presentation/ui/hostel/preparation_payment.dart';
 import 'package:narxoz/src/feautures/home/presentation/ui/hostel/success_page.dart';
 import 'package:narxoz/src/feautures/home/presentation/ui/requests/web_requests_page.dart';
+import 'package:narxoz/src/feautures/notifications/notifications.dart';
 import 'package:narxoz/src/feautures/profile/presentation/ui/profile_page.dart';
 import 'package:narxoz/src/feautures/sections/presentation/ui/documents_page.dart';
 import 'package:narxoz/src/feautures/sections/presentation/ui/sections_page.dart';
@@ -84,6 +85,7 @@ part 'app_router.gr.dart';
     AutoRoute(page: SuccessPage),
     AutoRoute(page: PaymentPage),
     AutoRoute(page: PaymentPage1),
+    AutoRoute(page: NotificationsScreen),
 
     // Sections
     AutoRoute(page: DocumentsPage),

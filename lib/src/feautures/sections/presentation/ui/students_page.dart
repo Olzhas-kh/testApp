@@ -10,7 +10,6 @@ import 'package:narxoz/src/feautures/app/widgets/custom/custom_loaders.dart';
 import 'package:narxoz/src/feautures/app/widgets/custom/custom_snackbars.dart';
 import 'package:narxoz/src/feautures/sections/data/model/document_dto.dart';
 import 'package:narxoz/src/feautures/sections/presentation/bloc/students_cubit.dart';
-import 'package:narxoz/src/feautures/sections/presentation/ui/documents_page.dart';
 
 class StudentsPage extends StatefulWidget {
   const StudentsPage({super.key});
@@ -43,7 +42,7 @@ class _StudentsPageState extends State<StudentsPage> {
               onTap: () {
                 context.router.pop();
               },
-              text: context.appLocale.helpSection,
+              text: context.appLocale.students,
               isSafeArea: true,
             ),
             Expanded(
@@ -72,9 +71,11 @@ class _StudentsPageState extends State<StudentsPage> {
                               body: Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text(
-                                    documentCats[index].name ?? context.appLocale.notSpecified,
-                                    style: AppTextStyles.gilroy16w600,
+                                  Flexible(
+                                    child: Text(
+                                      documentCats[index].name ?? context.appLocale.notSpecified,
+                                      style: AppTextStyles.gilroy16w600,
+                                    ),
                                   ),
                                   const Icon(
                                     Icons.arrow_forward_ios,
@@ -85,6 +86,7 @@ class _StudentsPageState extends State<StudentsPage> {
                               onClick: () {
                                 context.router.push(
                                   DocumentsPageRoute(
+                                    title: documentCats[index].name ?? '',
                                     documentCatId: documentCats[index].id,
                                   ),
                                 );

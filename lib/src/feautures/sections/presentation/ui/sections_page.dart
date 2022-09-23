@@ -20,7 +20,7 @@ class _SectionsPageState extends State<SectionsPage> {
       onTap: () {
         context.router.push(const StudentsPageRoute());
       },
-      text: 'Student Life',
+      text: context.appLocale.students,
       localImage: 'assets/temp/section3.png',
       isActive: true,
     ),

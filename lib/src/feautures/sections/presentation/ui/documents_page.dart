@@ -1,22 +1,24 @@
+import 'dart:io';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:narxoz/src/core/extension/extensions.dart';
 import 'package:narxoz/src/core/resources/resources.dart';
-import 'package:narxoz/src/feautures/app/router/app_router.dart';
 import 'package:narxoz/src/feautures/app/widgets/custom/custom_appbar.dart';
 import 'package:narxoz/src/feautures/app/widgets/custom/custom_button.dart';
 import 'package:narxoz/src/feautures/app/widgets/custom/custom_loaders.dart';
 import 'package:narxoz/src/feautures/app/widgets/custom/custom_snackbars.dart';
 import 'package:narxoz/src/feautures/sections/data/model/document_dto.dart';
 import 'package:narxoz/src/feautures/sections/presentation/bloc/documents_cubit.dart';
-import 'package:narxoz/src/feautures/sections/presentation/bloc/students_cubit.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class DocumentsPage extends StatefulWidget {
+  final String title;
   final int documentCatId;
   const DocumentsPage({
     super.key,
+    required this.title,
     required this.documentCatId,
   });
 
@@ -34,7 +36,7 @@ class _DocumentsPageState extends State<DocumentsPage> {
     super.initState();
   }
 
-  Future<void> _launchInBrowser(Uri url) async {
+  Future<void> _launchInApp(Uri url) async {
     if (!await launchUrl(
       url,
       mode: LaunchMode.inAppWebView,
@@ -43,18 +45,26 @@ class _DocumentsPageState extends State<DocumentsPage> {
     }
   }
 
+  Future<void> _launchInBrowser(Uri url) async {
+    if (!await launchUrl(
+      url,
+      mode: LaunchMode.externalApplication,
+    )) {
+      throw 'Could not launch $url';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar:
       body: SafeArea(
         child: Column(
           children: [
-            CustomAppBar(
+            CustomAppBar.long(
               onTap: () {
                 context.router.pop();
               },
-              text: context.appLocale.helpSection,
+              text: widget.title,
               isSafeArea: true,
             ),
             Expanded(
@@ -98,7 +108,11 @@ class _DocumentsPageState extends State<DocumentsPage> {
                               onClick: () async {
                                 final Uri? uri = Uri.tryParse(documents[index].link ?? '');
                                 if (uri != null) {
-                                  await _launchInBrowser(uri);
+                                  if (Platform.isIOS) {
+                                    await _launchInApp(uri);
+                                  } else {
+                                    await _launchInBrowser(uri);
+                                  }
                                 } else {
                                   buildErrorCustomSnackBar(context, 'context.appLocale.');
                                 }

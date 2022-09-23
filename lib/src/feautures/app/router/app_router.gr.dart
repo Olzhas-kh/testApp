@@ -92,12 +92,19 @@ class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    NotificationsScreenRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const NotificationsScreen(),
+      );
+    },
     DocumentsPageRoute.name: (routeData) {
       final args = routeData.argsAs<DocumentsPageRouteArgs>();
       return MaterialPageX<dynamic>(
         routeData: routeData,
         child: DocumentsPage(
           key: args.key,
+          title: args.title,
           documentCatId: args.documentCatId,
         ),
       );
@@ -318,6 +325,10 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(
           PaymentPage1Route.name,
           path: '/payment-page1',
+        ),
+        RouteConfig(
+          NotificationsScreenRoute.name,
+          path: '/notifications-screen',
         ),
         RouteConfig(
           DocumentsPageRoute.name,
@@ -547,16 +558,30 @@ class PaymentPage1RouteArgs {
 }
 
 /// generated route for
+/// [NotificationsScreen]
+class NotificationsScreenRoute extends PageRouteInfo<void> {
+  const NotificationsScreenRoute()
+      : super(
+          NotificationsScreenRoute.name,
+          path: '/notifications-screen',
+        );
+
+  static const String name = 'NotificationsScreenRoute';
+}
+
+/// generated route for
 /// [DocumentsPage]
 class DocumentsPageRoute extends PageRouteInfo<DocumentsPageRouteArgs> {
   DocumentsPageRoute({
     Key? key,
+    required String title,
     required int documentCatId,
   }) : super(
           DocumentsPageRoute.name,
           path: '/documents-page',
           args: DocumentsPageRouteArgs(
             key: key,
+            title: title,
             documentCatId: documentCatId,
           ),
         );
@@ -567,16 +592,19 @@ class DocumentsPageRoute extends PageRouteInfo<DocumentsPageRouteArgs> {
 class DocumentsPageRouteArgs {
   const DocumentsPageRouteArgs({
     this.key,
+    required this.title,
     required this.documentCatId,
   });
 
   final Key? key;
 
+  final String title;
+
   final int documentCatId;
 
   @override
   String toString() {
-    return 'DocumentsPageRouteArgs{key: $key, documentCatId: $documentCatId}';
+    return 'DocumentsPageRouteArgs{key: $key, title: $title, documentCatId: $documentCatId}';
   }
 }
 
