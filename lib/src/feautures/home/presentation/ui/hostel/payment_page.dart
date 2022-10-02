@@ -21,9 +21,8 @@ class PaymentPage extends StatefulWidget {
 }
 
 class _PaymentPageState extends State<PaymentPage> {
-  // TODO
+
   // final Completer<WebViewController> _controller = Completer<WebViewController>();
-  late WebViewController _webViewController;
 
   @override
   void initState() {
@@ -74,7 +73,6 @@ class _PaymentPageState extends State<PaymentPage> {
                 },
                 onWebViewCreated: (WebViewController webViewController) {
                   // _controller.complete(webViewController);
-                  _webViewController = webViewController;
                 },
 
                 // key: _key,
