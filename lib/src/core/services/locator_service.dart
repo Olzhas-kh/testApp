@@ -10,8 +10,10 @@ import 'package:narxoz/src/feautures/auth/data/datasource/auth_remote_ds.dart';
 import 'package:narxoz/src/feautures/auth/data/repository/auth_repository.dart';
 import 'package:narxoz/src/feautures/auth/presentation/bloc/sign_in_cubit.dart';
 import 'package:narxoz/src/feautures/home/data/datasource/help_section_remote_ds.dart';
+import 'package:narxoz/src/feautures/home/data/datasource/home_remote_ds.dart';
 import 'package:narxoz/src/feautures/home/data/datasource/hostel_remote_ds.dart';
 import 'package:narxoz/src/feautures/home/data/repository/help_section_repository.dart';
+import 'package:narxoz/src/feautures/home/data/repository/home_repository.dart';
 import 'package:narxoz/src/feautures/home/data/repository/hostel_repository.dart';
 import 'package:narxoz/src/feautures/home/presentation/bloc/application_cubit.dart';
 import 'package:narxoz/src/feautures/home/presentation/bloc/application_verify_cubit.dart';
@@ -22,6 +24,7 @@ import 'package:narxoz/src/feautures/home/presentation/bloc/help_section_cubit.d
 import 'package:narxoz/src/feautures/home/presentation/bloc/help_section_detail_cubit.dart';
 import 'package:narxoz/src/feautures/home/presentation/bloc/hostel_cubit.dart';
 import 'package:narxoz/src/feautures/home/presentation/bloc/my_application_cubit.dart';
+import 'package:narxoz/src/feautures/home/presentation/bloc/schedule_cubit.dart';
 import 'package:narxoz/src/feautures/notifications/bloc/notification_bloc.dart';
 import 'package:narxoz/src/feautures/profile/presentation/bloc/profile_cubit.dart';
 import 'package:narxoz/src/feautures/sections/data/datasource/student_remote_ds.dart';
@@ -59,6 +62,7 @@ Future<void> initLocator() async {
   sl.registerFactory(() => BannersCubit(sl()));
   sl.registerFactory(() => StudentsCubit(sl()));
   sl.registerFactory(() => DocumentsCubit(sl()));
+  sl.registerFactory(() => ScheduleCubit(sl()));
 
   ///
   ///
@@ -97,6 +101,12 @@ Future<void> initLocator() async {
       // newAdRemoteDS: sl(),
     ),
   );
+  sl.registerLazySingleton<HomeRepository>(
+    () => HomeRepositoryImpl(
+      networkInfo: sl(),
+      remoteDs: sl(),
+    ),
+  );
 
   ///
   ///
@@ -112,6 +122,9 @@ Future<void> initLocator() async {
   );
   sl.registerLazySingleton<StudentRemoteDS>(
     () => StudentRemoteDSImpl(sl()),
+  );
+  sl.registerLazySingleton<HomeRemoteDS>(
+    () => HomeRemoteDSImpl(sl()),
   );
 
   ///

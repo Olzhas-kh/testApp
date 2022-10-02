@@ -6,6 +6,7 @@ import 'package:narxoz/src/core/extension/extensions.dart';
 import 'package:narxoz/src/core/resources/resources.dart';
 import 'package:narxoz/src/feautures/app/router/app_router.dart';
 import 'package:narxoz/src/feautures/app/widgets/custom/custom_alert_dialog.dart';
+import 'package:narxoz/src/feautures/home/presentation/ui/schedule/schedule_page.dart';
 
 class ChaptersWidget extends StatefulWidget {
   const ChaptersWidget({super.key});
@@ -126,7 +127,7 @@ class _ChaptersWidgetState extends State<ChaptersWidget> {
                             context.router.push(const WebRequestsPageRoute());
                             break;
                           case 5:
-                            context.router.push(const WebRequestsPageRoute());
+                            context.router.push(const SchedulePageRoute());
                             break;
                           case 6:
                             context.router.push(const WebRequestsPageRoute());

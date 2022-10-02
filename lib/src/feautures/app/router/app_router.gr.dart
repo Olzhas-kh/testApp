@@ -198,6 +198,12 @@ class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    SchedulePageRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const SchedulePage(),
+      );
+    },
     SectionsPageRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
         routeData: routeData,
@@ -266,6 +272,11 @@ class _$AppRouter extends RootStackRouter {
                 RouteConfig(
                   SettlementConditionsPageRoute.name,
                   path: 'settlement-conditions-page',
+                  parent: BaseHomeRouter.name,
+                ),
+                RouteConfig(
+                  SchedulePageRoute.name,
+                  path: 'schedule-page',
                   parent: BaseHomeRouter.name,
                 ),
               ],
@@ -848,6 +859,18 @@ class SettlementConditionsPageRouteArgs {
   String toString() {
     return 'SettlementConditionsPageRouteArgs{text: $text, key: $key}';
   }
+}
+
+/// generated route for
+/// [SchedulePage]
+class SchedulePageRoute extends PageRouteInfo<void> {
+  const SchedulePageRoute()
+      : super(
+          SchedulePageRoute.name,
+          path: 'schedule-page',
+        );
+
+  static const String name = 'SchedulePageRoute';
 }
 
 /// generated route for
