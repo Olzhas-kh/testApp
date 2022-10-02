@@ -43,6 +43,7 @@ mixin EndPoints {
   static const login = '/auth/login';
   static const profile = '/user/account/profile';
   static const logout = '/user/logout';
+  static const schedules = '/user/schedules';
 
   // sections
 
