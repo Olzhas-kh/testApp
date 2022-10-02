@@ -67,6 +67,8 @@ class HostelRemoteDSImpl extends HostelRemoteDS {
       throw ServerException(
         message: (e.response!.data as Map<String, dynamic>)['message'] as String,
       );
+    } catch (e) {
+      throw ServerException(message: e.toString());
     }
   }
 
@@ -82,6 +84,8 @@ class HostelRemoteDSImpl extends HostelRemoteDS {
       throw ServerException(
         message: (e.response!.data as Map<String, dynamic>)['message'] as String,
       );
+    } catch (e) {
+      throw ServerException(message: e.toString());
     }
   }
 
@@ -99,6 +103,8 @@ class HostelRemoteDSImpl extends HostelRemoteDS {
       throw ServerException(
         message: (e.response!.data as Map<String, dynamic>)['message'] as String,
       );
+    } catch (e) {
+      throw ServerException(message: e.toString());
     }
   }
 
@@ -116,6 +122,8 @@ class HostelRemoteDSImpl extends HostelRemoteDS {
       throw ServerException(
         message: (e.response!.data as Map<String, dynamic>)['message'] as String,
       );
+    } catch (e) {
+      throw ServerException(message: e.toString());
     }
   }
 
@@ -167,6 +175,8 @@ class HostelRemoteDSImpl extends HostelRemoteDS {
       throw ServerException(
         message: (e.response!.data as Map<String, dynamic>)['message'] as String,
       );
+    } catch (e) {
+      throw ServerException(message: e.toString());
     }
   }
 
@@ -277,6 +287,8 @@ class HostelRemoteDSImpl extends HostelRemoteDS {
       throw ServerException(
         message: (e.response!.data as Map<String, dynamic>)['message'] as String,
       );
+    } catch (e) {
+      throw ServerException(message: e.toString());
     }
   }
 }

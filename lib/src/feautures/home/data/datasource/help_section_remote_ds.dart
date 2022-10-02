@@ -27,14 +27,13 @@ class HelpSectionRemoteDSImpl extends HelpSectionRemoteDS {
         EndPoints.helpSections,
       );
 
-      return (response.data as List)
-          .map((e) => HelpSectionDTO.fromJson(e as Map<String, dynamic>))
-          .toList();
+      return (response.data as List).map((e) => HelpSectionDTO.fromJson(e as Map<String, dynamic>)).toList();
     } on DioError catch (e) {
       throw ServerException(
-        message:
-            (e.response!.data as Map<String, dynamic>)['message'] as String,
+        message: (e.response!.data as Map<String, dynamic>)['message'] as String,
       );
+    } catch (e) {
+      throw ServerException(message: e.toString());
     }
   }
 
@@ -50,9 +49,10 @@ class HelpSectionRemoteDSImpl extends HelpSectionRemoteDS {
       return HelpSectionDTO.fromJson(response.data as Map<String, dynamic>);
     } on DioError catch (e) {
       throw ServerException(
-        message:
-            (e.response!.data as Map<String, dynamic>)['message'] as String,
+        message: (e.response!.data as Map<String, dynamic>)['message'] as String,
       );
+    } catch (e) {
+      throw ServerException(message: e.toString());
     }
   }
 }
