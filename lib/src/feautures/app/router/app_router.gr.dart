@@ -204,6 +204,12 @@ class _$AppRouter extends RootStackRouter {
         child: const SchedulePage(),
       );
     },
+    TasksPageRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const TasksPage(),
+      );
+    },
     SectionsPageRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
         routeData: routeData,
@@ -277,6 +283,11 @@ class _$AppRouter extends RootStackRouter {
                 RouteConfig(
                   SchedulePageRoute.name,
                   path: 'schedule-page',
+                  parent: BaseHomeRouter.name,
+                ),
+                RouteConfig(
+                  TasksPageRoute.name,
+                  path: 'tasks-page',
                   parent: BaseHomeRouter.name,
                 ),
               ],
@@ -871,6 +882,18 @@ class SchedulePageRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'SchedulePageRoute';
+}
+
+/// generated route for
+/// [TasksPage]
+class TasksPageRoute extends PageRouteInfo<void> {
+  const TasksPageRoute()
+      : super(
+          TasksPageRoute.name,
+          path: 'tasks-page',
+        );
+
+  static const String name = 'TasksPageRoute';
 }
 
 /// generated route for

@@ -22,6 +22,7 @@ import 'package:narxoz/src/feautures/home/presentation/ui/hostel/preparation_pay
 import 'package:narxoz/src/feautures/home/presentation/ui/hostel/success_page.dart';
 import 'package:narxoz/src/feautures/home/presentation/ui/requests/web_requests_page.dart';
 import 'package:narxoz/src/feautures/home/presentation/ui/schedule/schedule_page.dart';
+import 'package:narxoz/src/feautures/home/presentation/ui/tasks/tasks_page.dart';
 import 'package:narxoz/src/feautures/notifications/notifications.dart';
 import 'package:narxoz/src/feautures/profile/presentation/ui/profile_page.dart';
 import 'package:narxoz/src/feautures/sections/presentation/ui/documents_page.dart';
@@ -57,6 +58,7 @@ part 'app_router.gr.dart';
             AutoRoute(page: MyApplicationPage),
             AutoRoute(page: SettlementConditionsPage),
             AutoRoute(page: SchedulePage),
+            AutoRoute(page: TasksPage),
           ],
         ),
 

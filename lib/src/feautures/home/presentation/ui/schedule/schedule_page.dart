@@ -8,14 +8,9 @@ import 'package:narxoz/src/feautures/home/data/model/schedule_dto.dart';
 import 'package:narxoz/src/feautures/home/presentation/bloc/schedule_cubit.dart';
 import 'package:narxoz/src/feautures/home/presentation/widgets/schedule_card.dart';
 
-class SchedulePage extends StatefulWidget {
+class SchedulePage extends StatelessWidget {
   const SchedulePage({super.key});
 
-  @override
-  State<SchedulePage> createState() => _SchedulePageState();
-}
-
-class _SchedulePageState extends State<SchedulePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
