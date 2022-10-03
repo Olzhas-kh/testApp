@@ -198,6 +198,28 @@ class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    SchedulePageRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const SchedulePage(),
+      );
+    },
+    TasksPageRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const TasksPage(),
+      );
+    },
+    AssessmentsPageRoute.name: (routeData) {
+      final args = routeData.argsAs<AssessmentsPageRouteArgs>();
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: AssessmentsPage(
+          key: args.key,
+          assessment: args.assessment,
+        ),
+      );
+    },
     SectionsPageRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
         routeData: routeData,
@@ -266,6 +288,21 @@ class _$AppRouter extends RootStackRouter {
                 RouteConfig(
                   SettlementConditionsPageRoute.name,
                   path: 'settlement-conditions-page',
+                  parent: BaseHomeRouter.name,
+                ),
+                RouteConfig(
+                  SchedulePageRoute.name,
+                  path: 'schedule-page',
+                  parent: BaseHomeRouter.name,
+                ),
+                RouteConfig(
+                  TasksPageRoute.name,
+                  path: 'tasks-page',
+                  parent: BaseHomeRouter.name,
+                ),
+                RouteConfig(
+                  AssessmentsPageRoute.name,
+                  path: 'assessments-page',
                   parent: BaseHomeRouter.name,
                 ),
               ],
@@ -847,6 +884,64 @@ class SettlementConditionsPageRouteArgs {
   @override
   String toString() {
     return 'SettlementConditionsPageRouteArgs{text: $text, key: $key}';
+  }
+}
+
+/// generated route for
+/// [SchedulePage]
+class SchedulePageRoute extends PageRouteInfo<void> {
+  const SchedulePageRoute()
+      : super(
+          SchedulePageRoute.name,
+          path: 'schedule-page',
+        );
+
+  static const String name = 'SchedulePageRoute';
+}
+
+/// generated route for
+/// [TasksPage]
+class TasksPageRoute extends PageRouteInfo<void> {
+  const TasksPageRoute()
+      : super(
+          TasksPageRoute.name,
+          path: 'tasks-page',
+        );
+
+  static const String name = 'TasksPageRoute';
+}
+
+/// generated route for
+/// [AssessmentsPage]
+class AssessmentsPageRoute extends PageRouteInfo<AssessmentsPageRouteArgs> {
+  AssessmentsPageRoute({
+    Key? key,
+    required TaskDTO assessment,
+  }) : super(
+          AssessmentsPageRoute.name,
+          path: 'assessments-page',
+          args: AssessmentsPageRouteArgs(
+            key: key,
+            assessment: assessment,
+          ),
+        );
+
+  static const String name = 'AssessmentsPageRoute';
+}
+
+class AssessmentsPageRouteArgs {
+  const AssessmentsPageRouteArgs({
+    this.key,
+    required this.assessment,
+  });
+
+  final Key? key;
+
+  final TaskDTO assessment;
+
+  @override
+  String toString() {
+    return 'AssessmentsPageRouteArgs{key: $key, assessment: $assessment}';
   }
 }
 

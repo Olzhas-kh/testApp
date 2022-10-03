@@ -6,6 +6,7 @@ import 'package:narxoz/src/feautures/app/presentation/locale_provider.dart';
 import 'package:narxoz/src/feautures/auth/presentation/bloc/sign_in_cubit.dart';
 import 'package:narxoz/src/feautures/home/presentation/bloc/application_cubit.dart';
 import 'package:narxoz/src/feautures/home/presentation/bloc/application_verify_cubit.dart';
+import 'package:narxoz/src/feautures/home/presentation/bloc/assessment_cubit.dart';
 import 'package:narxoz/src/feautures/home/presentation/bloc/banners_cubit.dart';
 import 'package:narxoz/src/feautures/home/presentation/bloc/choose_edu_cubit.dart';
 import 'package:narxoz/src/feautures/home/presentation/bloc/dorm_card_cubit.dart';
@@ -13,6 +14,8 @@ import 'package:narxoz/src/feautures/home/presentation/bloc/help_section_cubit.d
 import 'package:narxoz/src/feautures/home/presentation/bloc/help_section_detail_cubit.dart';
 import 'package:narxoz/src/feautures/home/presentation/bloc/hostel_cubit.dart';
 import 'package:narxoz/src/feautures/home/presentation/bloc/my_application_cubit.dart';
+import 'package:narxoz/src/feautures/home/presentation/bloc/schedule_cubit.dart';
+import 'package:narxoz/src/feautures/home/presentation/bloc/tasks_cubit.dart';
 import 'package:narxoz/src/feautures/notifications/bloc/notification_bloc.dart';
 import 'package:narxoz/src/feautures/profile/presentation/bloc/profile_cubit.dart';
 import 'package:narxoz/src/feautures/sections/presentation/bloc/documents_cubit.dart';
@@ -84,6 +87,15 @@ class MultiblocWrapper extends StatelessWidget {
           ),
           BlocProvider<DocumentsCubit>(
             create: (_) => sl<DocumentsCubit>(),
+          ),
+          BlocProvider<ScheduleCubit>(
+            create: (_) => sl<ScheduleCubit>(),
+          ),
+          BlocProvider<TasksCubit>(
+            create: (_) => sl<TasksCubit>(),
+          ),
+          BlocProvider<AssessmentsCubit>(
+            create: (_) => sl<AssessmentsCubit>(),
           ),
         ],
         child: child,

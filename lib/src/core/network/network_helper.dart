@@ -43,6 +43,11 @@ mixin EndPoints {
   static const login = '/auth/login';
   static const profile = '/user/account/profile';
   static const logout = '/user/logout';
+  static const schedules = '/user/schedules';
+  static const assessments = '/user/assessments';
+  static String assessmentsDetail(String value) {
+    return '/user/assessments/$value';
+  }
 
   // sections
 

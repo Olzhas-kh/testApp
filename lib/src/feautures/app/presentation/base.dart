@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:narxoz/src/core/resources/resources.dart';
 import 'package:narxoz/src/feautures/app/router/app_router.dart';
+import 'package:narxoz/src/feautures/home/presentation/bloc/schedule_cubit.dart';
 import 'package:narxoz/src/feautures/profile/presentation/bloc/profile_cubit.dart';
 
 // ignore: unused_element
@@ -21,6 +22,7 @@ class _BaseState extends State<Base> {
 
   Future<void> init() async {
     BlocProvider.of<ProfileCubit>(context).getProfile();
+    BlocProvider.of<ScheduleCubit>(context).getSchedule();
   }
 
   @override

@@ -1,4 +1,3 @@
-
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
@@ -7,6 +6,7 @@ import 'package:narxoz/src/core/extension/extensions.dart';
 import 'package:narxoz/src/core/resources/resources.dart';
 import 'package:narxoz/src/feautures/app/router/app_router.dart';
 import 'package:narxoz/src/feautures/app/widgets/custom/custom_alert_dialog.dart';
+import 'package:narxoz/src/feautures/home/presentation/ui/schedule/schedule_page.dart';
 
 class ChaptersWidget extends StatefulWidget {
   const ChaptersWidget({super.key});
@@ -26,34 +26,31 @@ class _ChaptersWidgetState extends State<ChaptersWidget> {
     _Chapter(
       id: 2,
       text: 'Canvas',
-      // onTap: () {},
       isActive: true,
       image: 'assets/icons/chapter_2.svg',
     ),
     _Chapter(
       id: 3,
       text: context.appLocale.hostel,
-      // onTap: () {},
       isActive: true,
       image: 'assets/icons/chapter_3.svg',
     ),
     _Chapter(
       id: 4,
       text: context.appLocale.applications,
-      // onTap: () {},
       isActive: true,
       image: 'assets/icons/chapter_4.svg',
     ),
     _Chapter(
       id: 5,
-      text: context.appLocale.finance,
-      // onTap: () {},
+      text: context.appLocale.schedule,
+      isActive: true,
       image: 'assets/icons/chapter_5.svg',
     ),
     _Chapter(
       id: 6,
-      text: context.appLocale.documents,
-      // onTap: () {},
+      text: context.appLocale.tasks,
+      isActive: true,
       image: 'assets/icons/chapter_6.svg',
     ),
     _Chapter(
@@ -71,7 +68,6 @@ class _ChaptersWidgetState extends State<ChaptersWidget> {
     _Chapter(
       id: 9,
       text: context.appLocale.library,
-      // onTap: () {},
       image: 'assets/icons/chapter_9.svg',
     ),
   ];
@@ -118,7 +114,7 @@ class _ChaptersWidgetState extends State<ChaptersWidget> {
                             // if (Platform.isIOS) {
                             //   _launchInBrowser(Uri.parse(NarxozLinks.newBannerLink));
                             // } else {
-                              context.router.push(const BannerPageRoute());
+                            context.router.push(const BannerPageRoute());
                             // }
                             break;
                           case 2:
@@ -129,6 +125,12 @@ class _ChaptersWidgetState extends State<ChaptersWidget> {
                             break;
                           case 4:
                             context.router.push(const WebRequestsPageRoute());
+                            break;
+                          case 5:
+                            context.router.push(const SchedulePageRoute());
+                            break;
+                          case 6:
+                            context.router.push(const TasksPageRoute());
                             break;
                           default:
                         }

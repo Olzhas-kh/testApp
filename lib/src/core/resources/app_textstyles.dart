@@ -1,6 +1,18 @@
 part of 'resources.dart';
 
 mixin AppTextStyles {
+  static const gilroy13w500Grey = TextStyle(
+    fontSize: 13,
+    color: Color(0xff686868),
+    fontWeight: FontWeight.w500,
+  );
+
+  static const gilroy14w500Grey = TextStyle(
+    fontSize: 14,
+    color: Color(0xff606060),
+    fontWeight: FontWeight.w500,
+  );
+
   static const gilroy15w500 = TextStyle(
     // fontFamily: AppFonts.gilroy,
     fontSize: 15,
