@@ -3,6 +3,7 @@ import 'package:auto_route/empty_router_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:narxoz/src/feautures/app/presentation/launcher.dart';
 import 'package:narxoz/src/feautures/home/data/model/payment_dto.dart';
+import 'package:narxoz/src/feautures/home/data/model/task_dto.dart';
 import 'package:narxoz/src/feautures/home/data/model/verification_response_dto.dart';
 import 'package:narxoz/src/feautures/home/presentation/ui/banner_page.dart';
 import 'package:narxoz/src/feautures/home/presentation/ui/banners_detail_page.dart';
@@ -22,6 +23,7 @@ import 'package:narxoz/src/feautures/home/presentation/ui/hostel/preparation_pay
 import 'package:narxoz/src/feautures/home/presentation/ui/hostel/success_page.dart';
 import 'package:narxoz/src/feautures/home/presentation/ui/requests/web_requests_page.dart';
 import 'package:narxoz/src/feautures/home/presentation/ui/schedule/schedule_page.dart';
+import 'package:narxoz/src/feautures/home/presentation/ui/tasks/assessments_page.dart';
 import 'package:narxoz/src/feautures/home/presentation/ui/tasks/tasks_page.dart';
 import 'package:narxoz/src/feautures/notifications/notifications.dart';
 import 'package:narxoz/src/feautures/profile/presentation/ui/profile_page.dart';
@@ -59,6 +61,7 @@ part 'app_router.gr.dart';
             AutoRoute(page: SettlementConditionsPage),
             AutoRoute(page: SchedulePage),
             AutoRoute(page: TasksPage),
+            AutoRoute(page: AssessmentsPage),
           ],
         ),
 

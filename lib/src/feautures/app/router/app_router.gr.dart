@@ -210,6 +210,16 @@ class _$AppRouter extends RootStackRouter {
         child: const TasksPage(),
       );
     },
+    AssessmentsPageRoute.name: (routeData) {
+      final args = routeData.argsAs<AssessmentsPageRouteArgs>();
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: AssessmentsPage(
+          key: args.key,
+          assessment: args.assessment,
+        ),
+      );
+    },
     SectionsPageRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
         routeData: routeData,
@@ -288,6 +298,11 @@ class _$AppRouter extends RootStackRouter {
                 RouteConfig(
                   TasksPageRoute.name,
                   path: 'tasks-page',
+                  parent: BaseHomeRouter.name,
+                ),
+                RouteConfig(
+                  AssessmentsPageRoute.name,
+                  path: 'assessments-page',
                   parent: BaseHomeRouter.name,
                 ),
               ],
@@ -894,6 +909,40 @@ class TasksPageRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'TasksPageRoute';
+}
+
+/// generated route for
+/// [AssessmentsPage]
+class AssessmentsPageRoute extends PageRouteInfo<AssessmentsPageRouteArgs> {
+  AssessmentsPageRoute({
+    Key? key,
+    required TaskDTO assessment,
+  }) : super(
+          AssessmentsPageRoute.name,
+          path: 'assessments-page',
+          args: AssessmentsPageRouteArgs(
+            key: key,
+            assessment: assessment,
+          ),
+        );
+
+  static const String name = 'AssessmentsPageRoute';
+}
+
+class AssessmentsPageRouteArgs {
+  const AssessmentsPageRouteArgs({
+    this.key,
+    required this.assessment,
+  });
+
+  final Key? key;
+
+  final TaskDTO assessment;
+
+  @override
+  String toString() {
+    return 'AssessmentsPageRouteArgs{key: $key, assessment: $assessment}';
+  }
 }
 
 /// generated route for

@@ -130,7 +130,7 @@ class _ChaptersWidgetState extends State<ChaptersWidget> {
                             context.router.push(const SchedulePageRoute());
                             break;
                           case 6:
-                            context.router.push(const WebRequestsPageRoute());
+                            context.router.push(const TasksPageRoute());
                             break;
                           default:
                         }
