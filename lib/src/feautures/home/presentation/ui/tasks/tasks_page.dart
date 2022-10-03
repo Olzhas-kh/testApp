@@ -40,9 +40,9 @@ class _TasksPageState extends State<TasksPage> {
               child: BlocBuilder<TasksCubit, TasksState>(
                 builder: (context, state) {
                   return state.maybeWhen(
-                    loadedState: (List<TaskDTO> tasks) {
+                    loadedState: (List<TaskDTO> objects) {
                       return ListView.separated(
-                        itemCount: tasks.length,
+                        itemCount: objects.length,
                         padding: const EdgeInsets.all(25),
                         itemBuilder: (context, index) {
                           return Container(
@@ -57,12 +57,12 @@ class _TasksPageState extends State<TasksPage> {
                               child: InkWell(
                                 borderRadius: BorderRadius.circular(10),
                                 onTap: () {
-                                  context.router.push(AssessmentsPageRoute(assessment: tasks[index]));
+                                  context.router.push(AssessmentsPageRoute(assessment: objects[index]));
                                 },
                                 child: Padding(
                                   padding: const EdgeInsets.all(15),
                                   child: Text(
-                                    tasks[index].name ?? context.appLocale.notSpecified,
+                                    objects[index].name ?? context.appLocale.notSpecified,
                                     style: AppTextStyles.gilroy15w500,
                                   ),
                                 ),
