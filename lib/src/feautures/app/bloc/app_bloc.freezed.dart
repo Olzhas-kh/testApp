@@ -585,6 +585,7 @@ mixin _$AppEvent {
     required TResult Function() logining,
     required TResult Function() exiting,
     required TResult Function() refreshLocal,
+    required TResult Function() startListenDio,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -593,6 +594,7 @@ mixin _$AppEvent {
     TResult Function()? logining,
     TResult Function()? exiting,
     TResult Function()? refreshLocal,
+    TResult Function()? startListenDio,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -601,6 +603,7 @@ mixin _$AppEvent {
     TResult Function()? logining,
     TResult Function()? exiting,
     TResult Function()? refreshLocal,
+    TResult Function()? startListenDio,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -610,6 +613,7 @@ mixin _$AppEvent {
     required TResult Function(_Logining value) logining,
     required TResult Function(_Exiting value) exiting,
     required TResult Function(_RefreshLocal value) refreshLocal,
+    required TResult Function(_StartListenDio value) startListenDio,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -618,6 +622,7 @@ mixin _$AppEvent {
     TResult Function(_Logining value)? logining,
     TResult Function(_Exiting value)? exiting,
     TResult Function(_RefreshLocal value)? refreshLocal,
+    TResult Function(_StartListenDio value)? startListenDio,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -626,6 +631,7 @@ mixin _$AppEvent {
     TResult Function(_Logining value)? logining,
     TResult Function(_Exiting value)? exiting,
     TResult Function(_RefreshLocal value)? refreshLocal,
+    TResult Function(_StartListenDio value)? startListenDio,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -690,6 +696,7 @@ class _$_CheckAuth implements _CheckAuth {
     required TResult Function() logining,
     required TResult Function() exiting,
     required TResult Function() refreshLocal,
+    required TResult Function() startListenDio,
   }) {
     return checkAuth();
   }
@@ -701,6 +708,7 @@ class _$_CheckAuth implements _CheckAuth {
     TResult Function()? logining,
     TResult Function()? exiting,
     TResult Function()? refreshLocal,
+    TResult Function()? startListenDio,
   }) {
     return checkAuth?.call();
   }
@@ -712,6 +720,7 @@ class _$_CheckAuth implements _CheckAuth {
     TResult Function()? logining,
     TResult Function()? exiting,
     TResult Function()? refreshLocal,
+    TResult Function()? startListenDio,
     required TResult orElse(),
   }) {
     if (checkAuth != null) {
@@ -727,6 +736,7 @@ class _$_CheckAuth implements _CheckAuth {
     required TResult Function(_Logining value) logining,
     required TResult Function(_Exiting value) exiting,
     required TResult Function(_RefreshLocal value) refreshLocal,
+    required TResult Function(_StartListenDio value) startListenDio,
   }) {
     return checkAuth(this);
   }
@@ -738,6 +748,7 @@ class _$_CheckAuth implements _CheckAuth {
     TResult Function(_Logining value)? logining,
     TResult Function(_Exiting value)? exiting,
     TResult Function(_RefreshLocal value)? refreshLocal,
+    TResult Function(_StartListenDio value)? startListenDio,
   }) {
     return checkAuth?.call(this);
   }
@@ -749,6 +760,7 @@ class _$_CheckAuth implements _CheckAuth {
     TResult Function(_Logining value)? logining,
     TResult Function(_Exiting value)? exiting,
     TResult Function(_RefreshLocal value)? refreshLocal,
+    TResult Function(_StartListenDio value)? startListenDio,
     required TResult orElse(),
   }) {
     if (checkAuth != null) {
@@ -806,6 +818,7 @@ class _$_Logining implements _Logining {
     required TResult Function() logining,
     required TResult Function() exiting,
     required TResult Function() refreshLocal,
+    required TResult Function() startListenDio,
   }) {
     return logining();
   }
@@ -817,6 +830,7 @@ class _$_Logining implements _Logining {
     TResult Function()? logining,
     TResult Function()? exiting,
     TResult Function()? refreshLocal,
+    TResult Function()? startListenDio,
   }) {
     return logining?.call();
   }
@@ -828,6 +842,7 @@ class _$_Logining implements _Logining {
     TResult Function()? logining,
     TResult Function()? exiting,
     TResult Function()? refreshLocal,
+    TResult Function()? startListenDio,
     required TResult orElse(),
   }) {
     if (logining != null) {
@@ -843,6 +858,7 @@ class _$_Logining implements _Logining {
     required TResult Function(_Logining value) logining,
     required TResult Function(_Exiting value) exiting,
     required TResult Function(_RefreshLocal value) refreshLocal,
+    required TResult Function(_StartListenDio value) startListenDio,
   }) {
     return logining(this);
   }
@@ -854,6 +870,7 @@ class _$_Logining implements _Logining {
     TResult Function(_Logining value)? logining,
     TResult Function(_Exiting value)? exiting,
     TResult Function(_RefreshLocal value)? refreshLocal,
+    TResult Function(_StartListenDio value)? startListenDio,
   }) {
     return logining?.call(this);
   }
@@ -865,6 +882,7 @@ class _$_Logining implements _Logining {
     TResult Function(_Logining value)? logining,
     TResult Function(_Exiting value)? exiting,
     TResult Function(_RefreshLocal value)? refreshLocal,
+    TResult Function(_StartListenDio value)? startListenDio,
     required TResult orElse(),
   }) {
     if (logining != null) {
@@ -921,6 +939,7 @@ class _$_Exiting implements _Exiting {
     required TResult Function() logining,
     required TResult Function() exiting,
     required TResult Function() refreshLocal,
+    required TResult Function() startListenDio,
   }) {
     return exiting();
   }
@@ -932,6 +951,7 @@ class _$_Exiting implements _Exiting {
     TResult Function()? logining,
     TResult Function()? exiting,
     TResult Function()? refreshLocal,
+    TResult Function()? startListenDio,
   }) {
     return exiting?.call();
   }
@@ -943,6 +963,7 @@ class _$_Exiting implements _Exiting {
     TResult Function()? logining,
     TResult Function()? exiting,
     TResult Function()? refreshLocal,
+    TResult Function()? startListenDio,
     required TResult orElse(),
   }) {
     if (exiting != null) {
@@ -958,6 +979,7 @@ class _$_Exiting implements _Exiting {
     required TResult Function(_Logining value) logining,
     required TResult Function(_Exiting value) exiting,
     required TResult Function(_RefreshLocal value) refreshLocal,
+    required TResult Function(_StartListenDio value) startListenDio,
   }) {
     return exiting(this);
   }
@@ -969,6 +991,7 @@ class _$_Exiting implements _Exiting {
     TResult Function(_Logining value)? logining,
     TResult Function(_Exiting value)? exiting,
     TResult Function(_RefreshLocal value)? refreshLocal,
+    TResult Function(_StartListenDio value)? startListenDio,
   }) {
     return exiting?.call(this);
   }
@@ -980,6 +1003,7 @@ class _$_Exiting implements _Exiting {
     TResult Function(_Logining value)? logining,
     TResult Function(_Exiting value)? exiting,
     TResult Function(_RefreshLocal value)? refreshLocal,
+    TResult Function(_StartListenDio value)? startListenDio,
     required TResult orElse(),
   }) {
     if (exiting != null) {
@@ -1037,6 +1061,7 @@ class _$_RefreshLocal implements _RefreshLocal {
     required TResult Function() logining,
     required TResult Function() exiting,
     required TResult Function() refreshLocal,
+    required TResult Function() startListenDio,
   }) {
     return refreshLocal();
   }
@@ -1048,6 +1073,7 @@ class _$_RefreshLocal implements _RefreshLocal {
     TResult Function()? logining,
     TResult Function()? exiting,
     TResult Function()? refreshLocal,
+    TResult Function()? startListenDio,
   }) {
     return refreshLocal?.call();
   }
@@ -1059,6 +1085,7 @@ class _$_RefreshLocal implements _RefreshLocal {
     TResult Function()? logining,
     TResult Function()? exiting,
     TResult Function()? refreshLocal,
+    TResult Function()? startListenDio,
     required TResult orElse(),
   }) {
     if (refreshLocal != null) {
@@ -1074,6 +1101,7 @@ class _$_RefreshLocal implements _RefreshLocal {
     required TResult Function(_Logining value) logining,
     required TResult Function(_Exiting value) exiting,
     required TResult Function(_RefreshLocal value) refreshLocal,
+    required TResult Function(_StartListenDio value) startListenDio,
   }) {
     return refreshLocal(this);
   }
@@ -1085,6 +1113,7 @@ class _$_RefreshLocal implements _RefreshLocal {
     TResult Function(_Logining value)? logining,
     TResult Function(_Exiting value)? exiting,
     TResult Function(_RefreshLocal value)? refreshLocal,
+    TResult Function(_StartListenDio value)? startListenDio,
   }) {
     return refreshLocal?.call(this);
   }
@@ -1096,6 +1125,7 @@ class _$_RefreshLocal implements _RefreshLocal {
     TResult Function(_Logining value)? logining,
     TResult Function(_Exiting value)? exiting,
     TResult Function(_RefreshLocal value)? refreshLocal,
+    TResult Function(_StartListenDio value)? startListenDio,
     required TResult orElse(),
   }) {
     if (refreshLocal != null) {
@@ -1107,4 +1137,126 @@ class _$_RefreshLocal implements _RefreshLocal {
 
 abstract class _RefreshLocal implements AppEvent {
   const factory _RefreshLocal() = _$_RefreshLocal;
+}
+
+/// @nodoc
+abstract class _$$_StartListenDioCopyWith<$Res> {
+  factory _$$_StartListenDioCopyWith(
+          _$_StartListenDio value, $Res Function(_$_StartListenDio) then) =
+      __$$_StartListenDioCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_StartListenDioCopyWithImpl<$Res> extends _$AppEventCopyWithImpl<$Res>
+    implements _$$_StartListenDioCopyWith<$Res> {
+  __$$_StartListenDioCopyWithImpl(
+      _$_StartListenDio _value, $Res Function(_$_StartListenDio) _then)
+      : super(_value, (v) => _then(v as _$_StartListenDio));
+
+  @override
+  _$_StartListenDio get _value => super._value as _$_StartListenDio;
+}
+
+/// @nodoc
+
+class _$_StartListenDio implements _StartListenDio {
+  const _$_StartListenDio();
+
+  @override
+  String toString() {
+    return 'AppEvent.startListenDio()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_StartListenDio);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() checkAuth,
+    required TResult Function() logining,
+    required TResult Function() exiting,
+    required TResult Function() refreshLocal,
+    required TResult Function() startListenDio,
+  }) {
+    return startListenDio();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? checkAuth,
+    TResult Function()? logining,
+    TResult Function()? exiting,
+    TResult Function()? refreshLocal,
+    TResult Function()? startListenDio,
+  }) {
+    return startListenDio?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? checkAuth,
+    TResult Function()? logining,
+    TResult Function()? exiting,
+    TResult Function()? refreshLocal,
+    TResult Function()? startListenDio,
+    required TResult orElse(),
+  }) {
+    if (startListenDio != null) {
+      return startListenDio();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_CheckAuth value) checkAuth,
+    required TResult Function(_Logining value) logining,
+    required TResult Function(_Exiting value) exiting,
+    required TResult Function(_RefreshLocal value) refreshLocal,
+    required TResult Function(_StartListenDio value) startListenDio,
+  }) {
+    return startListenDio(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_CheckAuth value)? checkAuth,
+    TResult Function(_Logining value)? logining,
+    TResult Function(_Exiting value)? exiting,
+    TResult Function(_RefreshLocal value)? refreshLocal,
+    TResult Function(_StartListenDio value)? startListenDio,
+  }) {
+    return startListenDio?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CheckAuth value)? checkAuth,
+    TResult Function(_Logining value)? logining,
+    TResult Function(_Exiting value)? exiting,
+    TResult Function(_RefreshLocal value)? refreshLocal,
+    TResult Function(_StartListenDio value)? startListenDio,
+    required TResult orElse(),
+  }) {
+    if (startListenDio != null) {
+      return startListenDio(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _StartListenDio implements AppEvent {
+  const factory _StartListenDio() = _$_StartListenDio;
 }

@@ -4,6 +4,8 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:narxoz/src/core/network/network_helper.dart';
+import 'package:narxoz/src/core/services/locator_service.dart';
+import 'package:narxoz/src/feautures/app/logic/not_auth_logic.dart';
 import 'package:narxoz/src/feautures/auth/data/datasource/auth_local_ds.dart';
 import 'package:narxoz/src/feautures/auth/data/model/user_dto.dart';
 
@@ -99,14 +101,15 @@ class _NarxozDioInterceptor extends Interceptor {
     DioError err,
     ErrorInterceptorHandler handler,
   ) async {
+    sl<NotAuthLogic>().statusSubject.add(err.response?.statusCode ?? 0);
+
     if ((err.response?.statusCode ?? 0) == HttpStatus.unauthorized) {
-      try {
-        // await refreshToken();
-      } on DioError {
-        rethrow;
-      }
-    } else if ((err.response?.statusCode ?? 0) ==
-        HttpStatus.unprocessableEntity) {
+      // try {
+      //   // await refreshToken();
+      // } on DioError {
+      //   rethrow;
+      // }
+    } else if ((err.response?.statusCode ?? 0) == HttpStatus.unprocessableEntity) {
       // try {
       //   await refreshToken();
       // } on DioError catch (e) {
