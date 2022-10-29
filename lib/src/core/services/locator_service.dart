@@ -4,6 +4,7 @@ import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:narxoz/src/core/network/dio_wrapper.dart';
 import 'package:narxoz/src/core/network/network_info.dart';
 import 'package:narxoz/src/feautures/app/bloc/app_bloc.dart';
+import 'package:narxoz/src/feautures/app/logic/not_auth_logic.dart';
 import 'package:narxoz/src/feautures/app/router/app_router.dart';
 import 'package:narxoz/src/feautures/auth/data/datasource/auth_local_ds.dart';
 import 'package:narxoz/src/feautures/auth/data/datasource/auth_remote_ds.dart';
@@ -42,7 +43,7 @@ Future<void> initLocator() async {
   sl.registerFactory(
     () => AppBloc(
       sl(),
-      // sl(),
+      sl(),
       // sl(),
       // sl(),
       // sl(),
@@ -73,6 +74,9 @@ Future<void> initLocator() async {
   /// Core
   sl.registerLazySingleton<NetworkInfo>(
     () => NetworkInfoImp(sl()),
+  );
+  sl.registerLazySingleton<NotAuthLogic>(
+    () => NotAuthLogic(),
   );
 
   ///

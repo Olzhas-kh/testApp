@@ -9,4 +9,6 @@ class AppEvent with _$AppEvent {
   const factory AppEvent.exiting() = _Exiting;
 
   const factory AppEvent.refreshLocal() = _RefreshLocal;
+
+  const factory AppEvent.startListenDio() = _StartListenDio;
 }

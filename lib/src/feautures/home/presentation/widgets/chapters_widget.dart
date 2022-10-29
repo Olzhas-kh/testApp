@@ -6,7 +6,6 @@ import 'package:narxoz/src/core/extension/extensions.dart';
 import 'package:narxoz/src/core/resources/resources.dart';
 import 'package:narxoz/src/feautures/app/router/app_router.dart';
 import 'package:narxoz/src/feautures/app/widgets/custom/custom_alert_dialog.dart';
-import 'package:narxoz/src/feautures/home/presentation/ui/schedule/schedule_page.dart';
 
 class ChaptersWidget extends StatefulWidget {
   const ChaptersWidget({super.key});
@@ -53,23 +52,23 @@ class _ChaptersWidgetState extends State<ChaptersWidget> {
       isActive: true,
       image: 'assets/icons/chapter_6.svg',
     ),
-    _Chapter(
-      id: 7,
-      text: context.appLocale.catalog,
-      // onTap: () {},
-      image: 'assets/icons/chapter_7.svg',
-    ),
-    _Chapter(
-      id: 8,
-      text: context.appLocale.adviser,
-      // onTap: () {},
-      image: 'assets/icons/chapter_8.svg',
-    ),
-    _Chapter(
-      id: 9,
-      text: context.appLocale.library,
-      image: 'assets/icons/chapter_9.svg',
-    ),
+    // _Chapter(
+    //   id: 7,
+    //   text: context.appLocale.catalog,
+    //   // onTap: () {},
+    //   image: 'assets/icons/chapter_7.svg',
+    // ),
+    // _Chapter(
+    //   id: 8,
+    //   text: context.appLocale.adviser,
+    //   // onTap: () {},
+    //   image: 'assets/icons/chapter_8.svg',
+    // ),
+    // _Chapter(
+    //   id: 9,
+    //   text: context.appLocale.library,
+    //   image: 'assets/icons/chapter_9.svg',
+    // ),
   ];
 
   // Future<void> _launchInBrowser(Uri url) async {

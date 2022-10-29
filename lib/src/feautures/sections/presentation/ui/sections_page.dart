@@ -24,27 +24,27 @@ class _SectionsPageState extends State<SectionsPage> {
       localImage: 'assets/temp/section3.png',
       isActive: true,
     ),
-    SectionCardPayload(
-      onTap: () {
-        buildDevelopAlertDialog(context);
-      },
-      text: context.appLocale.jobOpenings,
-      localImage: 'assets/temp/section1.png',
-    ),
-    SectionCardPayload(
-      onTap: () {
-        buildDevelopAlertDialog(context);
-      },
-      text: 'Academic mobility',
-      localImage: 'assets/temp/section2.png',
-    ),
-    SectionCardPayload(
-      onTap: () {
-        buildDevelopAlertDialog(context);
-      },
-      text: context.appLocale.frequentlyAskedQuestions,
-      localImage: 'assets/temp/section4.png',
-    ),
+    // SectionCardPayload(
+    //   onTap: () {
+    //     buildDevelopAlertDialog(context);
+    //   },
+    //   text: context.appLocale.jobOpenings,
+    //   localImage: 'assets/temp/section1.png',
+    // ),
+    // SectionCardPayload(
+    //   onTap: () {
+    //     buildDevelopAlertDialog(context);
+    //   },
+    //   text: 'Academic mobility',
+    //   localImage: 'assets/temp/section2.png',
+    // ),
+    // SectionCardPayload(
+    //   onTap: () {
+    //     buildDevelopAlertDialog(context);
+    //   },
+    //   text: context.appLocale.frequentlyAskedQuestions,
+    //   localImage: 'assets/temp/section4.png',
+    // ),
   ];
 
   @override
