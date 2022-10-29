@@ -43,7 +43,8 @@ mixin _$AnswerPayload {
 abstract class $AnswerPayloadCopyWith<$Res> {
   factory $AnswerPayloadCopyWith(
           AnswerPayload value, $Res Function(AnswerPayload) then) =
-      _$AnswerPayloadCopyWithImpl<$Res>;
+      _$AnswerPayloadCopyWithImpl<$Res, AnswerPayload>;
+  @useResult
   $Res call(
       {@JsonKey(name: 'question_id') String questionID,
       dynamic value,
@@ -52,39 +53,41 @@ abstract class $AnswerPayloadCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$AnswerPayloadCopyWithImpl<$Res>
+class _$AnswerPayloadCopyWithImpl<$Res, $Val extends AnswerPayload>
     implements $AnswerPayloadCopyWith<$Res> {
   _$AnswerPayloadCopyWithImpl(this._value, this._then);
 
-  final AnswerPayload _value;
   // ignore: unused_field
-  final $Res Function(AnswerPayload) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? questionID = freezed,
-    Object? value = freezed,
+    Object? questionID = null,
+    Object? value = null,
     Object? isFile = freezed,
     Object? fieldType = freezed,
   }) {
     return _then(_value.copyWith(
-      questionID: questionID == freezed
+      questionID: null == questionID
           ? _value.questionID
           : questionID // ignore: cast_nullable_to_non_nullable
               as String,
-      value: value == freezed
+      value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      isFile: isFile == freezed
+      isFile: freezed == isFile
           ? _value.isFile
           : isFile // ignore: cast_nullable_to_non_nullable
               as bool?,
-      fieldType: fieldType == freezed
+      fieldType: freezed == fieldType
           ? _value.fieldType
           : fieldType // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -95,6 +98,7 @@ abstract class _$$_AnswerPayloadCopyWith<$Res>
           _$_AnswerPayload value, $Res Function(_$_AnswerPayload) then) =
       __$$_AnswerPayloadCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(name: 'question_id') String questionID,
       dynamic value,
@@ -104,36 +108,34 @@ abstract class _$$_AnswerPayloadCopyWith<$Res>
 
 /// @nodoc
 class __$$_AnswerPayloadCopyWithImpl<$Res>
-    extends _$AnswerPayloadCopyWithImpl<$Res>
+    extends _$AnswerPayloadCopyWithImpl<$Res, _$_AnswerPayload>
     implements _$$_AnswerPayloadCopyWith<$Res> {
   __$$_AnswerPayloadCopyWithImpl(
       _$_AnswerPayload _value, $Res Function(_$_AnswerPayload) _then)
-      : super(_value, (v) => _then(v as _$_AnswerPayload));
+      : super(_value, _then);
 
-  @override
-  _$_AnswerPayload get _value => super._value as _$_AnswerPayload;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? questionID = freezed,
-    Object? value = freezed,
+    Object? questionID = null,
+    Object? value = null,
     Object? isFile = freezed,
     Object? fieldType = freezed,
   }) {
     return _then(_$_AnswerPayload(
-      questionID: questionID == freezed
+      questionID: null == questionID
           ? _value.questionID
           : questionID // ignore: cast_nullable_to_non_nullable
               as String,
-      value: value == freezed
+      value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      isFile: isFile == freezed
+      isFile: freezed == isFile
           ? _value.isFile
           : isFile // ignore: cast_nullable_to_non_nullable
               as bool?,
-      fieldType: fieldType == freezed
+      fieldType: freezed == fieldType
           ? _value.fieldType
           : fieldType // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -171,6 +173,7 @@ class _$_AnswerPayload implements _AnswerPayload {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_AnswerPayloadCopyWith<_$_AnswerPayload> get copyWith =>
       __$$_AnswerPayloadCopyWithImpl<_$_AnswerPayload>(this, _$identity);
 

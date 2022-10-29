@@ -35,7 +35,8 @@ mixin _$TaskDTO {
 /// @nodoc
 abstract class $TaskDTOCopyWith<$Res> {
   factory $TaskDTOCopyWith(TaskDTO value, $Res Function(TaskDTO) then) =
-      _$TaskDTOCopyWithImpl<$Res>;
+      _$TaskDTOCopyWithImpl<$Res, TaskDTO>;
+  @useResult
   $Res call(
       {String? name,
       String? grade,
@@ -44,13 +45,16 @@ abstract class $TaskDTOCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$TaskDTOCopyWithImpl<$Res> implements $TaskDTOCopyWith<$Res> {
+class _$TaskDTOCopyWithImpl<$Res, $Val extends TaskDTO>
+    implements $TaskDTOCopyWith<$Res> {
   _$TaskDTOCopyWithImpl(this._value, this._then);
 
-  final TaskDTO _value;
   // ignore: unused_field
-  final $Res Function(TaskDTO) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? name = freezed,
@@ -59,23 +63,23 @@ class _$TaskDTOCopyWithImpl<$Res> implements $TaskDTOCopyWith<$Res> {
     Object? lockAt = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      grade: grade == freezed
+      grade: freezed == grade
           ? _value.grade
           : grade // ignore: cast_nullable_to_non_nullable
               as String?,
-      unlocakAt: unlocakAt == freezed
+      unlocakAt: freezed == unlocakAt
           ? _value.unlocakAt
           : unlocakAt // ignore: cast_nullable_to_non_nullable
               as String?,
-      lockAt: lockAt == freezed
+      lockAt: freezed == lockAt
           ? _value.lockAt
           : lockAt // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -85,6 +89,7 @@ abstract class _$$_TaskDTOCopyWith<$Res> implements $TaskDTOCopyWith<$Res> {
           _$_TaskDTO value, $Res Function(_$_TaskDTO) then) =
       __$$_TaskDTOCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String? name,
       String? grade,
@@ -93,14 +98,13 @@ abstract class _$$_TaskDTOCopyWith<$Res> implements $TaskDTOCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_TaskDTOCopyWithImpl<$Res> extends _$TaskDTOCopyWithImpl<$Res>
+class __$$_TaskDTOCopyWithImpl<$Res>
+    extends _$TaskDTOCopyWithImpl<$Res, _$_TaskDTO>
     implements _$$_TaskDTOCopyWith<$Res> {
   __$$_TaskDTOCopyWithImpl(_$_TaskDTO _value, $Res Function(_$_TaskDTO) _then)
-      : super(_value, (v) => _then(v as _$_TaskDTO));
+      : super(_value, _then);
 
-  @override
-  _$_TaskDTO get _value => super._value as _$_TaskDTO;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? name = freezed,
@@ -109,19 +113,19 @@ class __$$_TaskDTOCopyWithImpl<$Res> extends _$TaskDTOCopyWithImpl<$Res>
     Object? lockAt = freezed,
   }) {
     return _then(_$_TaskDTO(
-      name: name == freezed
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      grade: grade == freezed
+      grade: freezed == grade
           ? _value.grade
           : grade // ignore: cast_nullable_to_non_nullable
               as String?,
-      unlocakAt: unlocakAt == freezed
+      unlocakAt: freezed == unlocakAt
           ? _value.unlocakAt
           : unlocakAt // ignore: cast_nullable_to_non_nullable
               as String?,
-      lockAt: lockAt == freezed
+      lockAt: freezed == lockAt
           ? _value.lockAt
           : lockAt // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -162,23 +166,20 @@ class _$_TaskDTO implements _TaskDTO {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_TaskDTO &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.grade, grade) &&
-            const DeepCollectionEquality().equals(other.unlocakAt, unlocakAt) &&
-            const DeepCollectionEquality().equals(other.lockAt, lockAt));
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.grade, grade) || other.grade == grade) &&
+            (identical(other.unlocakAt, unlocakAt) ||
+                other.unlocakAt == unlocakAt) &&
+            (identical(other.lockAt, lockAt) || other.lockAt == lockAt));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(grade),
-      const DeepCollectionEquality().hash(unlocakAt),
-      const DeepCollectionEquality().hash(lockAt));
+  int get hashCode => Object.hash(runtimeType, name, grade, unlocakAt, lockAt);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_TaskDTOCopyWith<_$_TaskDTO> get copyWith =>
       __$$_TaskDTOCopyWithImpl<_$_TaskDTO>(this, _$identity);
 

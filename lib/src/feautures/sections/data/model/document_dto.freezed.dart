@@ -34,38 +34,42 @@ mixin _$DocumentDTO {
 abstract class $DocumentDTOCopyWith<$Res> {
   factory $DocumentDTOCopyWith(
           DocumentDTO value, $Res Function(DocumentDTO) then) =
-      _$DocumentDTOCopyWithImpl<$Res>;
+      _$DocumentDTOCopyWithImpl<$Res, DocumentDTO>;
+  @useResult
   $Res call({int id, String? name, String? link});
 }
 
 /// @nodoc
-class _$DocumentDTOCopyWithImpl<$Res> implements $DocumentDTOCopyWith<$Res> {
+class _$DocumentDTOCopyWithImpl<$Res, $Val extends DocumentDTO>
+    implements $DocumentDTOCopyWith<$Res> {
   _$DocumentDTOCopyWithImpl(this._value, this._then);
 
-  final DocumentDTO _value;
   // ignore: unused_field
-  final $Res Function(DocumentDTO) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
+    Object? id = null,
     Object? name = freezed,
     Object? link = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      name: name == freezed
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      link: link == freezed
+      link: freezed == link
           ? _value.link
           : link // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -76,35 +80,35 @@ abstract class _$$_DocumentDTOCopyWith<$Res>
           _$_DocumentDTO value, $Res Function(_$_DocumentDTO) then) =
       __$$_DocumentDTOCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({int id, String? name, String? link});
 }
 
 /// @nodoc
-class __$$_DocumentDTOCopyWithImpl<$Res> extends _$DocumentDTOCopyWithImpl<$Res>
+class __$$_DocumentDTOCopyWithImpl<$Res>
+    extends _$DocumentDTOCopyWithImpl<$Res, _$_DocumentDTO>
     implements _$$_DocumentDTOCopyWith<$Res> {
   __$$_DocumentDTOCopyWithImpl(
       _$_DocumentDTO _value, $Res Function(_$_DocumentDTO) _then)
-      : super(_value, (v) => _then(v as _$_DocumentDTO));
+      : super(_value, _then);
 
-  @override
-  _$_DocumentDTO get _value => super._value as _$_DocumentDTO;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
+    Object? id = null,
     Object? name = freezed,
     Object? link = freezed,
   }) {
     return _then(_$_DocumentDTO(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      name: name == freezed
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      link: link == freezed
+      link: freezed == link
           ? _value.link
           : link // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -137,21 +141,18 @@ class _$_DocumentDTO implements _DocumentDTO {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DocumentDTO &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.link, link));
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.link, link) || other.link == link));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(link));
+  int get hashCode => Object.hash(runtimeType, id, name, link);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_DocumentDTOCopyWith<_$_DocumentDTO> get copyWith =>
       __$$_DocumentDTOCopyWithImpl<_$_DocumentDTO>(this, _$identity);
 

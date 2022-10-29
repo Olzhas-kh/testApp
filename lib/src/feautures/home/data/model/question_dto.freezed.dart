@@ -37,7 +37,8 @@ mixin _$QuestionDTO {
 abstract class $QuestionDTOCopyWith<$Res> {
   factory $QuestionDTOCopyWith(
           QuestionDTO value, $Res Function(QuestionDTO) then) =
-      _$QuestionDTOCopyWithImpl<$Res>;
+      _$QuestionDTOCopyWithImpl<$Res, QuestionDTO>;
+  @useResult
   $Res call(
       {String id,
       @JsonKey(name: 'display_name') String? displayName,
@@ -46,38 +47,41 @@ abstract class $QuestionDTOCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$QuestionDTOCopyWithImpl<$Res> implements $QuestionDTOCopyWith<$Res> {
+class _$QuestionDTOCopyWithImpl<$Res, $Val extends QuestionDTO>
+    implements $QuestionDTOCopyWith<$Res> {
   _$QuestionDTOCopyWithImpl(this._value, this._then);
 
-  final QuestionDTO _value;
   // ignore: unused_field
-  final $Res Function(QuestionDTO) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
+    Object? id = null,
     Object? displayName = freezed,
     Object? fieldType = freezed,
     Object? options = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      displayName: displayName == freezed
+      displayName: freezed == displayName
           ? _value.displayName
           : displayName // ignore: cast_nullable_to_non_nullable
               as String?,
-      fieldType: fieldType == freezed
+      fieldType: freezed == fieldType
           ? _value.fieldType
           : fieldType // ignore: cast_nullable_to_non_nullable
               as String?,
-      options: options == freezed
+      options: freezed == options
           ? _value.options
           : options // ignore: cast_nullable_to_non_nullable
               as List<OptionsDTO>?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -88,6 +92,7 @@ abstract class _$$_QuestionDTOCopyWith<$Res>
           _$_QuestionDTO value, $Res Function(_$_QuestionDTO) then) =
       __$$_QuestionDTOCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String id,
       @JsonKey(name: 'display_name') String? displayName,
@@ -96,36 +101,35 @@ abstract class _$$_QuestionDTOCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_QuestionDTOCopyWithImpl<$Res> extends _$QuestionDTOCopyWithImpl<$Res>
+class __$$_QuestionDTOCopyWithImpl<$Res>
+    extends _$QuestionDTOCopyWithImpl<$Res, _$_QuestionDTO>
     implements _$$_QuestionDTOCopyWith<$Res> {
   __$$_QuestionDTOCopyWithImpl(
       _$_QuestionDTO _value, $Res Function(_$_QuestionDTO) _then)
-      : super(_value, (v) => _then(v as _$_QuestionDTO));
+      : super(_value, _then);
 
-  @override
-  _$_QuestionDTO get _value => super._value as _$_QuestionDTO;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
+    Object? id = null,
     Object? displayName = freezed,
     Object? fieldType = freezed,
     Object? options = freezed,
   }) {
     return _then(_$_QuestionDTO(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      displayName: displayName == freezed
+      displayName: freezed == displayName
           ? _value.displayName
           : displayName // ignore: cast_nullable_to_non_nullable
               as String?,
-      fieldType: fieldType == freezed
+      fieldType: freezed == fieldType
           ? _value.fieldType
           : fieldType // ignore: cast_nullable_to_non_nullable
               as String?,
-      options: options == freezed
+      options: freezed == options
           ? _value._options
           : options // ignore: cast_nullable_to_non_nullable
               as List<OptionsDTO>?,
@@ -173,24 +177,22 @@ class _$_QuestionDTO implements _QuestionDTO {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_QuestionDTO &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality()
-                .equals(other.displayName, displayName) &&
-            const DeepCollectionEquality().equals(other.fieldType, fieldType) &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.displayName, displayName) ||
+                other.displayName == displayName) &&
+            (identical(other.fieldType, fieldType) ||
+                other.fieldType == fieldType) &&
             const DeepCollectionEquality().equals(other._options, _options));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(displayName),
-      const DeepCollectionEquality().hash(fieldType),
+  int get hashCode => Object.hash(runtimeType, id, displayName, fieldType,
       const DeepCollectionEquality().hash(_options));
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_QuestionDTOCopyWith<_$_QuestionDTO> get copyWith =>
       __$$_QuestionDTOCopyWithImpl<_$_QuestionDTO>(this, _$identity);
 
@@ -248,33 +250,37 @@ mixin _$OptionsDTO {
 abstract class $OptionsDTOCopyWith<$Res> {
   factory $OptionsDTOCopyWith(
           OptionsDTO value, $Res Function(OptionsDTO) then) =
-      _$OptionsDTOCopyWithImpl<$Res>;
+      _$OptionsDTOCopyWithImpl<$Res, OptionsDTO>;
+  @useResult
   $Res call({String id, @JsonKey(name: 'display_name') String? displayName});
 }
 
 /// @nodoc
-class _$OptionsDTOCopyWithImpl<$Res> implements $OptionsDTOCopyWith<$Res> {
+class _$OptionsDTOCopyWithImpl<$Res, $Val extends OptionsDTO>
+    implements $OptionsDTOCopyWith<$Res> {
   _$OptionsDTOCopyWithImpl(this._value, this._then);
 
-  final OptionsDTO _value;
   // ignore: unused_field
-  final $Res Function(OptionsDTO) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
+    Object? id = null,
     Object? displayName = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      displayName: displayName == freezed
+      displayName: freezed == displayName
           ? _value.displayName
           : displayName // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -285,30 +291,30 @@ abstract class _$$_OptionsDTOCopyWith<$Res>
           _$_OptionsDTO value, $Res Function(_$_OptionsDTO) then) =
       __$$_OptionsDTOCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String id, @JsonKey(name: 'display_name') String? displayName});
 }
 
 /// @nodoc
-class __$$_OptionsDTOCopyWithImpl<$Res> extends _$OptionsDTOCopyWithImpl<$Res>
+class __$$_OptionsDTOCopyWithImpl<$Res>
+    extends _$OptionsDTOCopyWithImpl<$Res, _$_OptionsDTO>
     implements _$$_OptionsDTOCopyWith<$Res> {
   __$$_OptionsDTOCopyWithImpl(
       _$_OptionsDTO _value, $Res Function(_$_OptionsDTO) _then)
-      : super(_value, (v) => _then(v as _$_OptionsDTO));
+      : super(_value, _then);
 
-  @override
-  _$_OptionsDTO get _value => super._value as _$_OptionsDTO;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
+    Object? id = null,
     Object? displayName = freezed,
   }) {
     return _then(_$_OptionsDTO(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      displayName: displayName == freezed
+      displayName: freezed == displayName
           ? _value.displayName
           : displayName // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -341,20 +347,18 @@ class _$_OptionsDTO implements _OptionsDTO {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_OptionsDTO &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality()
-                .equals(other.displayName, displayName));
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.displayName, displayName) ||
+                other.displayName == displayName));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(displayName));
+  int get hashCode => Object.hash(runtimeType, id, displayName);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_OptionsDTOCopyWith<_$_OptionsDTO> get copyWith =>
       __$$_OptionsDTOCopyWithImpl<_$_OptionsDTO>(this, _$identity);
 

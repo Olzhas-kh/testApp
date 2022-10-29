@@ -36,7 +36,8 @@ mixin _$VerificationResponseDTO {
 abstract class $VerificationResponseDTOCopyWith<$Res> {
   factory $VerificationResponseDTOCopyWith(VerificationResponseDTO value,
           $Res Function(VerificationResponseDTO) then) =
-      _$VerificationResponseDTOCopyWithImpl<$Res>;
+      _$VerificationResponseDTOCopyWithImpl<$Res, VerificationResponseDTO>;
+  @useResult
   $Res call(
       {@JsonKey(name: 'payment_status') bool? paymentStatus,
       String? message,
@@ -46,14 +47,17 @@ abstract class $VerificationResponseDTOCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$VerificationResponseDTOCopyWithImpl<$Res>
+class _$VerificationResponseDTOCopyWithImpl<$Res,
+        $Val extends VerificationResponseDTO>
     implements $VerificationResponseDTOCopyWith<$Res> {
   _$VerificationResponseDTOCopyWithImpl(this._value, this._then);
 
-  final VerificationResponseDTO _value;
   // ignore: unused_field
-  final $Res Function(VerificationResponseDTO) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? paymentStatus = freezed,
@@ -61,29 +65,30 @@ class _$VerificationResponseDTOCopyWithImpl<$Res>
     Object? data = freezed,
   }) {
     return _then(_value.copyWith(
-      paymentStatus: paymentStatus == freezed
+      paymentStatus: freezed == paymentStatus
           ? _value.paymentStatus
           : paymentStatus // ignore: cast_nullable_to_non_nullable
               as bool?,
-      message: message == freezed
+      message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String?,
-      data: data == freezed
+      data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as ArendatorDTO?,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $ArendatorDTOCopyWith<$Res>? get data {
     if (_value.data == null) {
       return null;
     }
 
     return $ArendatorDTOCopyWith<$Res>(_value.data!, (value) {
-      return _then(_value.copyWith(data: value));
+      return _then(_value.copyWith(data: value) as $Val);
     });
   }
 }
@@ -95,6 +100,7 @@ abstract class _$$_VerificationResponseDTOCopyWith<$Res>
           $Res Function(_$_VerificationResponseDTO) then) =
       __$$_VerificationResponseDTOCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(name: 'payment_status') bool? paymentStatus,
       String? message,
@@ -106,16 +112,14 @@ abstract class _$$_VerificationResponseDTOCopyWith<$Res>
 
 /// @nodoc
 class __$$_VerificationResponseDTOCopyWithImpl<$Res>
-    extends _$VerificationResponseDTOCopyWithImpl<$Res>
+    extends _$VerificationResponseDTOCopyWithImpl<$Res,
+        _$_VerificationResponseDTO>
     implements _$$_VerificationResponseDTOCopyWith<$Res> {
   __$$_VerificationResponseDTOCopyWithImpl(_$_VerificationResponseDTO _value,
       $Res Function(_$_VerificationResponseDTO) _then)
-      : super(_value, (v) => _then(v as _$_VerificationResponseDTO));
+      : super(_value, _then);
 
-  @override
-  _$_VerificationResponseDTO get _value =>
-      super._value as _$_VerificationResponseDTO;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? paymentStatus = freezed,
@@ -123,15 +127,15 @@ class __$$_VerificationResponseDTOCopyWithImpl<$Res>
     Object? data = freezed,
   }) {
     return _then(_$_VerificationResponseDTO(
-      paymentStatus: paymentStatus == freezed
+      paymentStatus: freezed == paymentStatus
           ? _value.paymentStatus
           : paymentStatus // ignore: cast_nullable_to_non_nullable
               as bool?,
-      message: message == freezed
+      message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String?,
-      data: data == freezed
+      data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as ArendatorDTO?,
@@ -168,22 +172,19 @@ class _$_VerificationResponseDTO implements _VerificationResponseDTO {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_VerificationResponseDTO &&
-            const DeepCollectionEquality()
-                .equals(other.paymentStatus, paymentStatus) &&
-            const DeepCollectionEquality().equals(other.message, message) &&
-            const DeepCollectionEquality().equals(other.data, data));
+            (identical(other.paymentStatus, paymentStatus) ||
+                other.paymentStatus == paymentStatus) &&
+            (identical(other.message, message) || other.message == message) &&
+            (identical(other.data, data) || other.data == data));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(paymentStatus),
-      const DeepCollectionEquality().hash(message),
-      const DeepCollectionEquality().hash(data));
+  int get hashCode => Object.hash(runtimeType, paymentStatus, message, data);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_VerificationResponseDTOCopyWith<_$_VerificationResponseDTO>
       get copyWith =>
           __$$_VerificationResponseDTOCopyWithImpl<_$_VerificationResponseDTO>(
@@ -239,33 +240,37 @@ mixin _$ArendatorDTO {
 abstract class $ArendatorDTOCopyWith<$Res> {
   factory $ArendatorDTOCopyWith(
           ArendatorDTO value, $Res Function(ArendatorDTO) then) =
-      _$ArendatorDTOCopyWithImpl<$Res>;
+      _$ArendatorDTOCopyWithImpl<$Res, ArendatorDTO>;
+  @useResult
   $Res call({@JsonKey(name: 'fullname') String? fullName, int? amount});
 }
 
 /// @nodoc
-class _$ArendatorDTOCopyWithImpl<$Res> implements $ArendatorDTOCopyWith<$Res> {
+class _$ArendatorDTOCopyWithImpl<$Res, $Val extends ArendatorDTO>
+    implements $ArendatorDTOCopyWith<$Res> {
   _$ArendatorDTOCopyWithImpl(this._value, this._then);
 
-  final ArendatorDTO _value;
   // ignore: unused_field
-  final $Res Function(ArendatorDTO) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? fullName = freezed,
     Object? amount = freezed,
   }) {
     return _then(_value.copyWith(
-      fullName: fullName == freezed
+      fullName: freezed == fullName
           ? _value.fullName
           : fullName // ignore: cast_nullable_to_non_nullable
               as String?,
-      amount: amount == freezed
+      amount: freezed == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
               as int?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -276,31 +281,30 @@ abstract class _$$_ArendatorDTOCopyWith<$Res>
           _$_ArendatorDTO value, $Res Function(_$_ArendatorDTO) then) =
       __$$_ArendatorDTOCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({@JsonKey(name: 'fullname') String? fullName, int? amount});
 }
 
 /// @nodoc
 class __$$_ArendatorDTOCopyWithImpl<$Res>
-    extends _$ArendatorDTOCopyWithImpl<$Res>
+    extends _$ArendatorDTOCopyWithImpl<$Res, _$_ArendatorDTO>
     implements _$$_ArendatorDTOCopyWith<$Res> {
   __$$_ArendatorDTOCopyWithImpl(
       _$_ArendatorDTO _value, $Res Function(_$_ArendatorDTO) _then)
-      : super(_value, (v) => _then(v as _$_ArendatorDTO));
+      : super(_value, _then);
 
-  @override
-  _$_ArendatorDTO get _value => super._value as _$_ArendatorDTO;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? fullName = freezed,
     Object? amount = freezed,
   }) {
     return _then(_$_ArendatorDTO(
-      fullName: fullName == freezed
+      fullName: freezed == fullName
           ? _value.fullName
           : fullName // ignore: cast_nullable_to_non_nullable
               as String?,
-      amount: amount == freezed
+      amount: freezed == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
               as int?,
@@ -333,19 +337,18 @@ class _$_ArendatorDTO implements _ArendatorDTO {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ArendatorDTO &&
-            const DeepCollectionEquality().equals(other.fullName, fullName) &&
-            const DeepCollectionEquality().equals(other.amount, amount));
+            (identical(other.fullName, fullName) ||
+                other.fullName == fullName) &&
+            (identical(other.amount, amount) || other.amount == amount));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(fullName),
-      const DeepCollectionEquality().hash(amount));
+  int get hashCode => Object.hash(runtimeType, fullName, amount);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ArendatorDTOCopyWith<_$_ArendatorDTO> get copyWith =>
       __$$_ArendatorDTOCopyWithImpl<_$_ArendatorDTO>(this, _$identity);
 

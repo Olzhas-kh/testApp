@@ -34,33 +34,37 @@ mixin _$ScheduleDTO {
 abstract class $ScheduleDTOCopyWith<$Res> {
   factory $ScheduleDTOCopyWith(
           ScheduleDTO value, $Res Function(ScheduleDTO) then) =
-      _$ScheduleDTOCopyWithImpl<$Res>;
+      _$ScheduleDTOCopyWithImpl<$Res, ScheduleDTO>;
+  @useResult
   $Res call({String? week, @JsonKey(name: 'data') List<LessonDTO>? data});
 }
 
 /// @nodoc
-class _$ScheduleDTOCopyWithImpl<$Res> implements $ScheduleDTOCopyWith<$Res> {
+class _$ScheduleDTOCopyWithImpl<$Res, $Val extends ScheduleDTO>
+    implements $ScheduleDTOCopyWith<$Res> {
   _$ScheduleDTOCopyWithImpl(this._value, this._then);
 
-  final ScheduleDTO _value;
   // ignore: unused_field
-  final $Res Function(ScheduleDTO) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? week = freezed,
     Object? data = freezed,
   }) {
     return _then(_value.copyWith(
-      week: week == freezed
+      week: freezed == week
           ? _value.week
           : week // ignore: cast_nullable_to_non_nullable
               as String?,
-      data: data == freezed
+      data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as List<LessonDTO>?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -71,30 +75,30 @@ abstract class _$$_ScheduleDTOCopyWith<$Res>
           _$_ScheduleDTO value, $Res Function(_$_ScheduleDTO) then) =
       __$$_ScheduleDTOCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String? week, @JsonKey(name: 'data') List<LessonDTO>? data});
 }
 
 /// @nodoc
-class __$$_ScheduleDTOCopyWithImpl<$Res> extends _$ScheduleDTOCopyWithImpl<$Res>
+class __$$_ScheduleDTOCopyWithImpl<$Res>
+    extends _$ScheduleDTOCopyWithImpl<$Res, _$_ScheduleDTO>
     implements _$$_ScheduleDTOCopyWith<$Res> {
   __$$_ScheduleDTOCopyWithImpl(
       _$_ScheduleDTO _value, $Res Function(_$_ScheduleDTO) _then)
-      : super(_value, (v) => _then(v as _$_ScheduleDTO));
+      : super(_value, _then);
 
-  @override
-  _$_ScheduleDTO get _value => super._value as _$_ScheduleDTO;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? week = freezed,
     Object? data = freezed,
   }) {
     return _then(_$_ScheduleDTO(
-      week: week == freezed
+      week: freezed == week
           ? _value.week
           : week // ignore: cast_nullable_to_non_nullable
               as String?,
-      data: data == freezed
+      data: freezed == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
               as List<LessonDTO>?,
@@ -134,19 +138,18 @@ class _$_ScheduleDTO implements _ScheduleDTO {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ScheduleDTO &&
-            const DeepCollectionEquality().equals(other.week, week) &&
+            (identical(other.week, week) || other.week == week) &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(week),
-      const DeepCollectionEquality().hash(_data));
+      runtimeType, week, const DeepCollectionEquality().hash(_data));
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ScheduleDTOCopyWith<_$_ScheduleDTO> get copyWith =>
       __$$_ScheduleDTOCopyWithImpl<_$_ScheduleDTO>(this, _$identity);
 

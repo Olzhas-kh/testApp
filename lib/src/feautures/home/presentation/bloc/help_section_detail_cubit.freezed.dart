@@ -26,10 +26,10 @@ mixin _$HelpSectionDetailState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initialState,
-    TResult Function(HelpSectionDTO section)? loadedState,
-    TResult Function()? loadingState,
-    TResult Function(String message)? errorState,
+    TResult? Function()? initialState,
+    TResult? Function(HelpSectionDTO section)? loadedState,
+    TResult? Function()? loadingState,
+    TResult? Function(String message)? errorState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -51,10 +51,10 @@ mixin _$HelpSectionDetailState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_InitialState value)? initialState,
-    TResult Function(_LoadedState value)? loadedState,
-    TResult Function(_LoadingState value)? loadingState,
-    TResult Function(_ErrorState value)? errorState,
+    TResult? Function(_InitialState value)? initialState,
+    TResult? Function(_LoadedState value)? loadedState,
+    TResult? Function(_LoadingState value)? loadingState,
+    TResult? Function(_ErrorState value)? errorState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -72,17 +72,19 @@ mixin _$HelpSectionDetailState {
 abstract class $HelpSectionDetailStateCopyWith<$Res> {
   factory $HelpSectionDetailStateCopyWith(HelpSectionDetailState value,
           $Res Function(HelpSectionDetailState) then) =
-      _$HelpSectionDetailStateCopyWithImpl<$Res>;
+      _$HelpSectionDetailStateCopyWithImpl<$Res, HelpSectionDetailState>;
 }
 
 /// @nodoc
-class _$HelpSectionDetailStateCopyWithImpl<$Res>
+class _$HelpSectionDetailStateCopyWithImpl<$Res,
+        $Val extends HelpSectionDetailState>
     implements $HelpSectionDetailStateCopyWith<$Res> {
   _$HelpSectionDetailStateCopyWithImpl(this._value, this._then);
 
-  final HelpSectionDetailState _value;
   // ignore: unused_field
-  final $Res Function(HelpSectionDetailState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -94,14 +96,11 @@ abstract class _$$_InitialStateCopyWith<$Res> {
 
 /// @nodoc
 class __$$_InitialStateCopyWithImpl<$Res>
-    extends _$HelpSectionDetailStateCopyWithImpl<$Res>
+    extends _$HelpSectionDetailStateCopyWithImpl<$Res, _$_InitialState>
     implements _$$_InitialStateCopyWith<$Res> {
   __$$_InitialStateCopyWithImpl(
       _$_InitialState _value, $Res Function(_$_InitialState) _then)
-      : super(_value, (v) => _then(v as _$_InitialState));
-
-  @override
-  _$_InitialState get _value => super._value as _$_InitialState;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -137,10 +136,10 @@ class _$_InitialState implements _InitialState {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initialState,
-    TResult Function(HelpSectionDTO section)? loadedState,
-    TResult Function()? loadingState,
-    TResult Function(String message)? errorState,
+    TResult? Function()? initialState,
+    TResult? Function(HelpSectionDTO section)? loadedState,
+    TResult? Function()? loadingState,
+    TResult? Function(String message)? errorState,
   }) {
     return initialState?.call();
   }
@@ -174,10 +173,10 @@ class _$_InitialState implements _InitialState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_InitialState value)? initialState,
-    TResult Function(_LoadedState value)? loadedState,
-    TResult Function(_LoadingState value)? loadingState,
-    TResult Function(_ErrorState value)? errorState,
+    TResult? Function(_InitialState value)? initialState,
+    TResult? Function(_LoadedState value)? loadedState,
+    TResult? Function(_LoadingState value)? loadingState,
+    TResult? Function(_ErrorState value)? errorState,
   }) {
     return initialState?.call(this);
   }
@@ -207,6 +206,7 @@ abstract class _$$_LoadedStateCopyWith<$Res> {
   factory _$$_LoadedStateCopyWith(
           _$_LoadedState value, $Res Function(_$_LoadedState) then) =
       __$$_LoadedStateCopyWithImpl<$Res>;
+  @useResult
   $Res call({HelpSectionDTO section});
 
   $HelpSectionDTOCopyWith<$Res> get section;
@@ -214,21 +214,19 @@ abstract class _$$_LoadedStateCopyWith<$Res> {
 
 /// @nodoc
 class __$$_LoadedStateCopyWithImpl<$Res>
-    extends _$HelpSectionDetailStateCopyWithImpl<$Res>
+    extends _$HelpSectionDetailStateCopyWithImpl<$Res, _$_LoadedState>
     implements _$$_LoadedStateCopyWith<$Res> {
   __$$_LoadedStateCopyWithImpl(
       _$_LoadedState _value, $Res Function(_$_LoadedState) _then)
-      : super(_value, (v) => _then(v as _$_LoadedState));
+      : super(_value, _then);
 
-  @override
-  _$_LoadedState get _value => super._value as _$_LoadedState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? section = freezed,
+    Object? section = null,
   }) {
     return _then(_$_LoadedState(
-      section: section == freezed
+      section: null == section
           ? _value.section
           : section // ignore: cast_nullable_to_non_nullable
               as HelpSectionDTO,
@@ -236,6 +234,7 @@ class __$$_LoadedStateCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $HelpSectionDTOCopyWith<$Res> get section {
     return $HelpSectionDTOCopyWith<$Res>(_value.section, (value) {
       return _then(_value.copyWith(section: value));
@@ -261,15 +260,15 @@ class _$_LoadedState implements _LoadedState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_LoadedState &&
-            const DeepCollectionEquality().equals(other.section, section));
+            (identical(other.section, section) || other.section == section));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(section));
+  int get hashCode => Object.hash(runtimeType, section);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_LoadedStateCopyWith<_$_LoadedState> get copyWith =>
       __$$_LoadedStateCopyWithImpl<_$_LoadedState>(this, _$identity);
 
@@ -287,10 +286,10 @@ class _$_LoadedState implements _LoadedState {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initialState,
-    TResult Function(HelpSectionDTO section)? loadedState,
-    TResult Function()? loadingState,
-    TResult Function(String message)? errorState,
+    TResult? Function()? initialState,
+    TResult? Function(HelpSectionDTO section)? loadedState,
+    TResult? Function()? loadingState,
+    TResult? Function(String message)? errorState,
   }) {
     return loadedState?.call(section);
   }
@@ -324,10 +323,10 @@ class _$_LoadedState implements _LoadedState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_InitialState value)? initialState,
-    TResult Function(_LoadedState value)? loadedState,
-    TResult Function(_LoadingState value)? loadingState,
-    TResult Function(_ErrorState value)? errorState,
+    TResult? Function(_InitialState value)? initialState,
+    TResult? Function(_LoadedState value)? loadedState,
+    TResult? Function(_LoadingState value)? loadingState,
+    TResult? Function(_ErrorState value)? errorState,
   }) {
     return loadedState?.call(this);
   }
@@ -367,14 +366,11 @@ abstract class _$$_LoadingStateCopyWith<$Res> {
 
 /// @nodoc
 class __$$_LoadingStateCopyWithImpl<$Res>
-    extends _$HelpSectionDetailStateCopyWithImpl<$Res>
+    extends _$HelpSectionDetailStateCopyWithImpl<$Res, _$_LoadingState>
     implements _$$_LoadingStateCopyWith<$Res> {
   __$$_LoadingStateCopyWithImpl(
       _$_LoadingState _value, $Res Function(_$_LoadingState) _then)
-      : super(_value, (v) => _then(v as _$_LoadingState));
-
-  @override
-  _$_LoadingState get _value => super._value as _$_LoadingState;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -410,10 +406,10 @@ class _$_LoadingState implements _LoadingState {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initialState,
-    TResult Function(HelpSectionDTO section)? loadedState,
-    TResult Function()? loadingState,
-    TResult Function(String message)? errorState,
+    TResult? Function()? initialState,
+    TResult? Function(HelpSectionDTO section)? loadedState,
+    TResult? Function()? loadingState,
+    TResult? Function(String message)? errorState,
   }) {
     return loadingState?.call();
   }
@@ -447,10 +443,10 @@ class _$_LoadingState implements _LoadingState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_InitialState value)? initialState,
-    TResult Function(_LoadedState value)? loadedState,
-    TResult Function(_LoadingState value)? loadingState,
-    TResult Function(_ErrorState value)? errorState,
+    TResult? Function(_InitialState value)? initialState,
+    TResult? Function(_LoadedState value)? loadedState,
+    TResult? Function(_LoadingState value)? loadingState,
+    TResult? Function(_ErrorState value)? errorState,
   }) {
     return loadingState?.call(this);
   }
@@ -480,26 +476,25 @@ abstract class _$$_ErrorStateCopyWith<$Res> {
   factory _$$_ErrorStateCopyWith(
           _$_ErrorState value, $Res Function(_$_ErrorState) then) =
       __$$_ErrorStateCopyWithImpl<$Res>;
+  @useResult
   $Res call({String message});
 }
 
 /// @nodoc
 class __$$_ErrorStateCopyWithImpl<$Res>
-    extends _$HelpSectionDetailStateCopyWithImpl<$Res>
+    extends _$HelpSectionDetailStateCopyWithImpl<$Res, _$_ErrorState>
     implements _$$_ErrorStateCopyWith<$Res> {
   __$$_ErrorStateCopyWithImpl(
       _$_ErrorState _value, $Res Function(_$_ErrorState) _then)
-      : super(_value, (v) => _then(v as _$_ErrorState));
+      : super(_value, _then);
 
-  @override
-  _$_ErrorState get _value => super._value as _$_ErrorState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? message = freezed,
+    Object? message = null,
   }) {
     return _then(_$_ErrorState(
-      message: message == freezed
+      message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
@@ -525,15 +520,15 @@ class _$_ErrorState implements _ErrorState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ErrorState &&
-            const DeepCollectionEquality().equals(other.message, message));
+            (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(message));
+  int get hashCode => Object.hash(runtimeType, message);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ErrorStateCopyWith<_$_ErrorState> get copyWith =>
       __$$_ErrorStateCopyWithImpl<_$_ErrorState>(this, _$identity);
 
@@ -551,10 +546,10 @@ class _$_ErrorState implements _ErrorState {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initialState,
-    TResult Function(HelpSectionDTO section)? loadedState,
-    TResult Function()? loadingState,
-    TResult Function(String message)? errorState,
+    TResult? Function()? initialState,
+    TResult? Function(HelpSectionDTO section)? loadedState,
+    TResult? Function()? loadingState,
+    TResult? Function(String message)? errorState,
   }) {
     return errorState?.call(message);
   }
@@ -588,10 +583,10 @@ class _$_ErrorState implements _ErrorState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_InitialState value)? initialState,
-    TResult Function(_LoadedState value)? loadedState,
-    TResult Function(_LoadingState value)? loadingState,
-    TResult Function(_ErrorState value)? errorState,
+    TResult? Function(_InitialState value)? initialState,
+    TResult? Function(_LoadedState value)? loadedState,
+    TResult? Function(_LoadingState value)? loadingState,
+    TResult? Function(_ErrorState value)? errorState,
   }) {
     return errorState?.call(this);
   }

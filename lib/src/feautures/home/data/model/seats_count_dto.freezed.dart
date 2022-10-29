@@ -33,34 +33,37 @@ mixin _$SeatsCountDTO {
 abstract class $SeatsCountDTOCopyWith<$Res> {
   factory $SeatsCountDTOCopyWith(
           SeatsCountDTO value, $Res Function(SeatsCountDTO) then) =
-      _$SeatsCountDTOCopyWithImpl<$Res>;
+      _$SeatsCountDTOCopyWithImpl<$Res, SeatsCountDTO>;
+  @useResult
   $Res call({int price, List<PlacementDTO>? placements});
 }
 
 /// @nodoc
-class _$SeatsCountDTOCopyWithImpl<$Res>
+class _$SeatsCountDTOCopyWithImpl<$Res, $Val extends SeatsCountDTO>
     implements $SeatsCountDTOCopyWith<$Res> {
   _$SeatsCountDTOCopyWithImpl(this._value, this._then);
 
-  final SeatsCountDTO _value;
   // ignore: unused_field
-  final $Res Function(SeatsCountDTO) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? price = freezed,
+    Object? price = null,
     Object? placements = freezed,
   }) {
     return _then(_value.copyWith(
-      price: price == freezed
+      price: null == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
               as int,
-      placements: placements == freezed
+      placements: freezed == placements
           ? _value.placements
           : placements // ignore: cast_nullable_to_non_nullable
               as List<PlacementDTO>?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -71,31 +74,30 @@ abstract class _$$_SeatsCountDTOCopyWith<$Res>
           _$_SeatsCountDTO value, $Res Function(_$_SeatsCountDTO) then) =
       __$$_SeatsCountDTOCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({int price, List<PlacementDTO>? placements});
 }
 
 /// @nodoc
 class __$$_SeatsCountDTOCopyWithImpl<$Res>
-    extends _$SeatsCountDTOCopyWithImpl<$Res>
+    extends _$SeatsCountDTOCopyWithImpl<$Res, _$_SeatsCountDTO>
     implements _$$_SeatsCountDTOCopyWith<$Res> {
   __$$_SeatsCountDTOCopyWithImpl(
       _$_SeatsCountDTO _value, $Res Function(_$_SeatsCountDTO) _then)
-      : super(_value, (v) => _then(v as _$_SeatsCountDTO));
+      : super(_value, _then);
 
-  @override
-  _$_SeatsCountDTO get _value => super._value as _$_SeatsCountDTO;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? price = freezed,
+    Object? price = null,
     Object? placements = freezed,
   }) {
     return _then(_$_SeatsCountDTO(
-      price: price == freezed
+      price: null == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
               as int,
-      placements: placements == freezed
+      placements: freezed == placements
           ? _value._placements
           : placements // ignore: cast_nullable_to_non_nullable
               as List<PlacementDTO>?,
@@ -134,7 +136,7 @@ class _$_SeatsCountDTO implements _SeatsCountDTO {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SeatsCountDTO &&
-            const DeepCollectionEquality().equals(other.price, price) &&
+            (identical(other.price, price) || other.price == price) &&
             const DeepCollectionEquality()
                 .equals(other._placements, _placements));
   }
@@ -142,12 +144,11 @@ class _$_SeatsCountDTO implements _SeatsCountDTO {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(price),
-      const DeepCollectionEquality().hash(_placements));
+      runtimeType, price, const DeepCollectionEquality().hash(_placements));
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_SeatsCountDTOCopyWith<_$_SeatsCountDTO> get copyWith =>
       __$$_SeatsCountDTOCopyWithImpl<_$_SeatsCountDTO>(this, _$identity);
 

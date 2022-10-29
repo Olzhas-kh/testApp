@@ -51,7 +51,8 @@ mixin _$UserDTO {
 /// @nodoc
 abstract class $UserDTOCopyWith<$Res> {
   factory $UserDTOCopyWith(UserDTO value, $Res Function(UserDTO) then) =
-      _$UserDTOCopyWithImpl<$Res>;
+      _$UserDTOCopyWithImpl<$Res, UserDTO>;
+  @useResult
   $Res call(
       {@JsonKey(name: 'first_name') String? firstName,
       @JsonKey(name: 'last_name') String? lastName,
@@ -69,13 +70,16 @@ abstract class $UserDTOCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$UserDTOCopyWithImpl<$Res> implements $UserDTOCopyWith<$Res> {
+class _$UserDTOCopyWithImpl<$Res, $Val extends UserDTO>
+    implements $UserDTOCopyWith<$Res> {
   _$UserDTOCopyWithImpl(this._value, this._then);
 
-  final UserDTO _value;
   // ignore: unused_field
-  final $Res Function(UserDTO) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? firstName = freezed,
@@ -93,59 +97,59 @@ class _$UserDTOCopyWithImpl<$Res> implements $UserDTOCopyWith<$Res> {
     Object? token = freezed,
   }) {
     return _then(_value.copyWith(
-      firstName: firstName == freezed
+      firstName: freezed == firstName
           ? _value.firstName
           : firstName // ignore: cast_nullable_to_non_nullable
               as String?,
-      lastName: lastName == freezed
+      lastName: freezed == lastName
           ? _value.lastName
           : lastName // ignore: cast_nullable_to_non_nullable
               as String?,
-      fullName: fullName == freezed
+      fullName: freezed == fullName
           ? _value.fullName
           : fullName // ignore: cast_nullable_to_non_nullable
               as String?,
-      email: email == freezed
+      email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String?,
-      login: login == freezed
+      login: freezed == login
           ? _value.login
           : login // ignore: cast_nullable_to_non_nullable
               as String?,
-      gender: gender == freezed
+      gender: freezed == gender
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
               as String?,
-      dateOfBirth: dateOfBirth == freezed
+      dateOfBirth: freezed == dateOfBirth
           ? _value.dateOfBirth
           : dateOfBirth // ignore: cast_nullable_to_non_nullable
               as String?,
-      formOfTraining: formOfTraining == freezed
+      formOfTraining: freezed == formOfTraining
           ? _value.formOfTraining
           : formOfTraining // ignore: cast_nullable_to_non_nullable
               as String?,
-      level: level == freezed
+      level: freezed == level
           ? _value.level
           : level // ignore: cast_nullable_to_non_nullable
               as String?,
-      program: program == freezed
+      program: freezed == program
           ? _value.program
           : program // ignore: cast_nullable_to_non_nullable
               as String?,
-      gpa: gpa == freezed
+      gpa: freezed == gpa
           ? _value.gpa
           : gpa // ignore: cast_nullable_to_non_nullable
               as String?,
-      avatar: avatar == freezed
+      avatar: freezed == avatar
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as String?,
-      token: token == freezed
+      token: freezed == token
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -155,6 +159,7 @@ abstract class _$$_UserDTOCopyWith<$Res> implements $UserDTOCopyWith<$Res> {
           _$_UserDTO value, $Res Function(_$_UserDTO) then) =
       __$$_UserDTOCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(name: 'first_name') String? firstName,
       @JsonKey(name: 'last_name') String? lastName,
@@ -172,14 +177,13 @@ abstract class _$$_UserDTOCopyWith<$Res> implements $UserDTOCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_UserDTOCopyWithImpl<$Res> extends _$UserDTOCopyWithImpl<$Res>
+class __$$_UserDTOCopyWithImpl<$Res>
+    extends _$UserDTOCopyWithImpl<$Res, _$_UserDTO>
     implements _$$_UserDTOCopyWith<$Res> {
   __$$_UserDTOCopyWithImpl(_$_UserDTO _value, $Res Function(_$_UserDTO) _then)
-      : super(_value, (v) => _then(v as _$_UserDTO));
+      : super(_value, _then);
 
-  @override
-  _$_UserDTO get _value => super._value as _$_UserDTO;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? firstName = freezed,
@@ -197,55 +201,55 @@ class __$$_UserDTOCopyWithImpl<$Res> extends _$UserDTOCopyWithImpl<$Res>
     Object? token = freezed,
   }) {
     return _then(_$_UserDTO(
-      firstName: firstName == freezed
+      firstName: freezed == firstName
           ? _value.firstName
           : firstName // ignore: cast_nullable_to_non_nullable
               as String?,
-      lastName: lastName == freezed
+      lastName: freezed == lastName
           ? _value.lastName
           : lastName // ignore: cast_nullable_to_non_nullable
               as String?,
-      fullName: fullName == freezed
+      fullName: freezed == fullName
           ? _value.fullName
           : fullName // ignore: cast_nullable_to_non_nullable
               as String?,
-      email: email == freezed
+      email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String?,
-      login: login == freezed
+      login: freezed == login
           ? _value.login
           : login // ignore: cast_nullable_to_non_nullable
               as String?,
-      gender: gender == freezed
+      gender: freezed == gender
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
               as String?,
-      dateOfBirth: dateOfBirth == freezed
+      dateOfBirth: freezed == dateOfBirth
           ? _value.dateOfBirth
           : dateOfBirth // ignore: cast_nullable_to_non_nullable
               as String?,
-      formOfTraining: formOfTraining == freezed
+      formOfTraining: freezed == formOfTraining
           ? _value.formOfTraining
           : formOfTraining // ignore: cast_nullable_to_non_nullable
               as String?,
-      level: level == freezed
+      level: freezed == level
           ? _value.level
           : level // ignore: cast_nullable_to_non_nullable
               as String?,
-      program: program == freezed
+      program: freezed == program
           ? _value.program
           : program // ignore: cast_nullable_to_non_nullable
               as String?,
-      gpa: gpa == freezed
+      gpa: freezed == gpa
           ? _value.gpa
           : gpa // ignore: cast_nullable_to_non_nullable
               as String?,
-      avatar: avatar == freezed
+      avatar: freezed == avatar
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as String?,
-      token: token == freezed
+      token: freezed == token
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -320,43 +324,47 @@ class _$_UserDTO implements _UserDTO {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_UserDTO &&
-            const DeepCollectionEquality().equals(other.firstName, firstName) &&
-            const DeepCollectionEquality().equals(other.lastName, lastName) &&
-            const DeepCollectionEquality().equals(other.fullName, fullName) &&
-            const DeepCollectionEquality().equals(other.email, email) &&
-            const DeepCollectionEquality().equals(other.login, login) &&
-            const DeepCollectionEquality().equals(other.gender, gender) &&
-            const DeepCollectionEquality()
-                .equals(other.dateOfBirth, dateOfBirth) &&
-            const DeepCollectionEquality()
-                .equals(other.formOfTraining, formOfTraining) &&
-            const DeepCollectionEquality().equals(other.level, level) &&
-            const DeepCollectionEquality().equals(other.program, program) &&
-            const DeepCollectionEquality().equals(other.gpa, gpa) &&
-            const DeepCollectionEquality().equals(other.avatar, avatar) &&
-            const DeepCollectionEquality().equals(other.token, token));
+            (identical(other.firstName, firstName) ||
+                other.firstName == firstName) &&
+            (identical(other.lastName, lastName) ||
+                other.lastName == lastName) &&
+            (identical(other.fullName, fullName) ||
+                other.fullName == fullName) &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.login, login) || other.login == login) &&
+            (identical(other.gender, gender) || other.gender == gender) &&
+            (identical(other.dateOfBirth, dateOfBirth) ||
+                other.dateOfBirth == dateOfBirth) &&
+            (identical(other.formOfTraining, formOfTraining) ||
+                other.formOfTraining == formOfTraining) &&
+            (identical(other.level, level) || other.level == level) &&
+            (identical(other.program, program) || other.program == program) &&
+            (identical(other.gpa, gpa) || other.gpa == gpa) &&
+            (identical(other.avatar, avatar) || other.avatar == avatar) &&
+            (identical(other.token, token) || other.token == token));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(firstName),
-      const DeepCollectionEquality().hash(lastName),
-      const DeepCollectionEquality().hash(fullName),
-      const DeepCollectionEquality().hash(email),
-      const DeepCollectionEquality().hash(login),
-      const DeepCollectionEquality().hash(gender),
-      const DeepCollectionEquality().hash(dateOfBirth),
-      const DeepCollectionEquality().hash(formOfTraining),
-      const DeepCollectionEquality().hash(level),
-      const DeepCollectionEquality().hash(program),
-      const DeepCollectionEquality().hash(gpa),
-      const DeepCollectionEquality().hash(avatar),
-      const DeepCollectionEquality().hash(token));
+      firstName,
+      lastName,
+      fullName,
+      email,
+      login,
+      gender,
+      dateOfBirth,
+      formOfTraining,
+      level,
+      program,
+      gpa,
+      avatar,
+      token);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_UserDTOCopyWith<_$_UserDTO> get copyWith =>
       __$$_UserDTOCopyWithImpl<_$_UserDTO>(this, _$identity);
 

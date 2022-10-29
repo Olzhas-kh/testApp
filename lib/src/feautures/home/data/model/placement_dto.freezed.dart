@@ -35,7 +35,8 @@ mixin _$PlacementDTO {
 abstract class $PlacementDTOCopyWith<$Res> {
   factory $PlacementDTOCopyWith(
           PlacementDTO value, $Res Function(PlacementDTO) then) =
-      _$PlacementDTOCopyWithImpl<$Res>;
+      _$PlacementDTOCopyWithImpl<$Res, PlacementDTO>;
+  @useResult
   $Res call(
       {String id,
       String? name,
@@ -43,33 +44,36 @@ abstract class $PlacementDTOCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$PlacementDTOCopyWithImpl<$Res> implements $PlacementDTOCopyWith<$Res> {
+class _$PlacementDTOCopyWithImpl<$Res, $Val extends PlacementDTO>
+    implements $PlacementDTOCopyWith<$Res> {
   _$PlacementDTOCopyWithImpl(this._value, this._then);
 
-  final PlacementDTO _value;
   // ignore: unused_field
-  final $Res Function(PlacementDTO) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
+    Object? id = null,
     Object? name = freezed,
     Object? availableSeatsCount = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      name: name == freezed
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      availableSeatsCount: availableSeatsCount == freezed
+      availableSeatsCount: freezed == availableSeatsCount
           ? _value.availableSeatsCount
           : availableSeatsCount // ignore: cast_nullable_to_non_nullable
               as int?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -80,6 +84,7 @@ abstract class _$$_PlacementDTOCopyWith<$Res>
           _$_PlacementDTO value, $Res Function(_$_PlacementDTO) then) =
       __$$_PlacementDTOCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String id,
       String? name,
@@ -88,31 +93,29 @@ abstract class _$$_PlacementDTOCopyWith<$Res>
 
 /// @nodoc
 class __$$_PlacementDTOCopyWithImpl<$Res>
-    extends _$PlacementDTOCopyWithImpl<$Res>
+    extends _$PlacementDTOCopyWithImpl<$Res, _$_PlacementDTO>
     implements _$$_PlacementDTOCopyWith<$Res> {
   __$$_PlacementDTOCopyWithImpl(
       _$_PlacementDTO _value, $Res Function(_$_PlacementDTO) _then)
-      : super(_value, (v) => _then(v as _$_PlacementDTO));
+      : super(_value, _then);
 
-  @override
-  _$_PlacementDTO get _value => super._value as _$_PlacementDTO;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
+    Object? id = null,
     Object? name = freezed,
     Object? availableSeatsCount = freezed,
   }) {
     return _then(_$_PlacementDTO(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      name: name == freezed
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      availableSeatsCount: availableSeatsCount == freezed
+      availableSeatsCount: freezed == availableSeatsCount
           ? _value.availableSeatsCount
           : availableSeatsCount // ignore: cast_nullable_to_non_nullable
               as int?,
@@ -149,22 +152,19 @@ class _$_PlacementDTO implements _PlacementDTO {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_PlacementDTO &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality()
-                .equals(other.availableSeatsCount, availableSeatsCount));
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.availableSeatsCount, availableSeatsCount) ||
+                other.availableSeatsCount == availableSeatsCount));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(availableSeatsCount));
+  int get hashCode => Object.hash(runtimeType, id, name, availableSeatsCount);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_PlacementDTOCopyWith<_$_PlacementDTO> get copyWith =>
       __$$_PlacementDTOCopyWithImpl<_$_PlacementDTO>(this, _$identity);
 

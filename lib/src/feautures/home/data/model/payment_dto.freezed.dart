@@ -37,7 +37,8 @@ mixin _$PaymentDTO {
 abstract class $PaymentDTOCopyWith<$Res> {
   factory $PaymentDTOCopyWith(
           PaymentDTO value, $Res Function(PaymentDTO) then) =
-      _$PaymentDTOCopyWithImpl<$Res>;
+      _$PaymentDTOCopyWithImpl<$Res, PaymentDTO>;
+  @useResult
   $Res call(
       {@JsonKey(name: 'redirect_url') String? redirectUrl,
       @JsonKey(name: 'request_url') String? requestUrl,
@@ -45,13 +46,16 @@ abstract class $PaymentDTOCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$PaymentDTOCopyWithImpl<$Res> implements $PaymentDTOCopyWith<$Res> {
+class _$PaymentDTOCopyWithImpl<$Res, $Val extends PaymentDTO>
+    implements $PaymentDTOCopyWith<$Res> {
   _$PaymentDTOCopyWithImpl(this._value, this._then);
 
-  final PaymentDTO _value;
   // ignore: unused_field
-  final $Res Function(PaymentDTO) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? redirectUrl = freezed,
@@ -59,19 +63,19 @@ class _$PaymentDTOCopyWithImpl<$Res> implements $PaymentDTOCopyWith<$Res> {
     Object? failureUrl = freezed,
   }) {
     return _then(_value.copyWith(
-      redirectUrl: redirectUrl == freezed
+      redirectUrl: freezed == redirectUrl
           ? _value.redirectUrl
           : redirectUrl // ignore: cast_nullable_to_non_nullable
               as String?,
-      requestUrl: requestUrl == freezed
+      requestUrl: freezed == requestUrl
           ? _value.requestUrl
           : requestUrl // ignore: cast_nullable_to_non_nullable
               as String?,
-      failureUrl: failureUrl == freezed
+      failureUrl: freezed == failureUrl
           ? _value.failureUrl
           : failureUrl // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -82,6 +86,7 @@ abstract class _$$_PaymentDTOCopyWith<$Res>
           _$_PaymentDTO value, $Res Function(_$_PaymentDTO) then) =
       __$$_PaymentDTOCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(name: 'redirect_url') String? redirectUrl,
       @JsonKey(name: 'request_url') String? requestUrl,
@@ -89,15 +94,14 @@ abstract class _$$_PaymentDTOCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_PaymentDTOCopyWithImpl<$Res> extends _$PaymentDTOCopyWithImpl<$Res>
+class __$$_PaymentDTOCopyWithImpl<$Res>
+    extends _$PaymentDTOCopyWithImpl<$Res, _$_PaymentDTO>
     implements _$$_PaymentDTOCopyWith<$Res> {
   __$$_PaymentDTOCopyWithImpl(
       _$_PaymentDTO _value, $Res Function(_$_PaymentDTO) _then)
-      : super(_value, (v) => _then(v as _$_PaymentDTO));
+      : super(_value, _then);
 
-  @override
-  _$_PaymentDTO get _value => super._value as _$_PaymentDTO;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? redirectUrl = freezed,
@@ -105,15 +109,15 @@ class __$$_PaymentDTOCopyWithImpl<$Res> extends _$PaymentDTOCopyWithImpl<$Res>
     Object? failureUrl = freezed,
   }) {
     return _then(_$_PaymentDTO(
-      redirectUrl: redirectUrl == freezed
+      redirectUrl: freezed == redirectUrl
           ? _value.redirectUrl
           : redirectUrl // ignore: cast_nullable_to_non_nullable
               as String?,
-      requestUrl: requestUrl == freezed
+      requestUrl: freezed == requestUrl
           ? _value.requestUrl
           : requestUrl // ignore: cast_nullable_to_non_nullable
               as String?,
-      failureUrl: failureUrl == freezed
+      failureUrl: freezed == failureUrl
           ? _value.failureUrl
           : failureUrl // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -152,24 +156,22 @@ class _$_PaymentDTO implements _PaymentDTO {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_PaymentDTO &&
-            const DeepCollectionEquality()
-                .equals(other.redirectUrl, redirectUrl) &&
-            const DeepCollectionEquality()
-                .equals(other.requestUrl, requestUrl) &&
-            const DeepCollectionEquality()
-                .equals(other.failureUrl, failureUrl));
+            (identical(other.redirectUrl, redirectUrl) ||
+                other.redirectUrl == redirectUrl) &&
+            (identical(other.requestUrl, requestUrl) ||
+                other.requestUrl == requestUrl) &&
+            (identical(other.failureUrl, failureUrl) ||
+                other.failureUrl == failureUrl));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(redirectUrl),
-      const DeepCollectionEquality().hash(requestUrl),
-      const DeepCollectionEquality().hash(failureUrl));
+  int get hashCode =>
+      Object.hash(runtimeType, redirectUrl, requestUrl, failureUrl);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_PaymentDTOCopyWith<_$_PaymentDTO> get copyWith =>
       __$$_PaymentDTOCopyWithImpl<_$_PaymentDTO>(this, _$identity);
 

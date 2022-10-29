@@ -36,7 +36,8 @@ mixin _$HostelInfoDTO {
 abstract class $HostelInfoDTOCopyWith<$Res> {
   factory $HostelInfoDTOCopyWith(
           HostelInfoDTO value, $Res Function(HostelInfoDTO) then) =
-      _$HostelInfoDTOCopyWithImpl<$Res>;
+      _$HostelInfoDTOCopyWithImpl<$Res, HostelInfoDTO>;
+  @useResult
   $Res call(
       {@JsonKey(name: "settlement_starts_at") String? settlmentStartsAt,
       @JsonKey(name: "settlement_ends_at") String? settlmentEndsAt,
@@ -44,14 +45,16 @@ abstract class $HostelInfoDTOCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$HostelInfoDTOCopyWithImpl<$Res>
+class _$HostelInfoDTOCopyWithImpl<$Res, $Val extends HostelInfoDTO>
     implements $HostelInfoDTOCopyWith<$Res> {
   _$HostelInfoDTOCopyWithImpl(this._value, this._then);
 
-  final HostelInfoDTO _value;
   // ignore: unused_field
-  final $Res Function(HostelInfoDTO) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? settlmentStartsAt = freezed,
@@ -59,19 +62,19 @@ class _$HostelInfoDTOCopyWithImpl<$Res>
     Object? images = freezed,
   }) {
     return _then(_value.copyWith(
-      settlmentStartsAt: settlmentStartsAt == freezed
+      settlmentStartsAt: freezed == settlmentStartsAt
           ? _value.settlmentStartsAt
           : settlmentStartsAt // ignore: cast_nullable_to_non_nullable
               as String?,
-      settlmentEndsAt: settlmentEndsAt == freezed
+      settlmentEndsAt: freezed == settlmentEndsAt
           ? _value.settlmentEndsAt
           : settlmentEndsAt // ignore: cast_nullable_to_non_nullable
               as String?,
-      images: images == freezed
+      images: freezed == images
           ? _value.images
           : images // ignore: cast_nullable_to_non_nullable
               as List<String>?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -82,6 +85,7 @@ abstract class _$$_HostelInfoDTOCopyWith<$Res>
           _$_HostelInfoDTO value, $Res Function(_$_HostelInfoDTO) then) =
       __$$_HostelInfoDTOCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(name: "settlement_starts_at") String? settlmentStartsAt,
       @JsonKey(name: "settlement_ends_at") String? settlmentEndsAt,
@@ -90,15 +94,13 @@ abstract class _$$_HostelInfoDTOCopyWith<$Res>
 
 /// @nodoc
 class __$$_HostelInfoDTOCopyWithImpl<$Res>
-    extends _$HostelInfoDTOCopyWithImpl<$Res>
+    extends _$HostelInfoDTOCopyWithImpl<$Res, _$_HostelInfoDTO>
     implements _$$_HostelInfoDTOCopyWith<$Res> {
   __$$_HostelInfoDTOCopyWithImpl(
       _$_HostelInfoDTO _value, $Res Function(_$_HostelInfoDTO) _then)
-      : super(_value, (v) => _then(v as _$_HostelInfoDTO));
+      : super(_value, _then);
 
-  @override
-  _$_HostelInfoDTO get _value => super._value as _$_HostelInfoDTO;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? settlmentStartsAt = freezed,
@@ -106,15 +108,15 @@ class __$$_HostelInfoDTOCopyWithImpl<$Res>
     Object? images = freezed,
   }) {
     return _then(_$_HostelInfoDTO(
-      settlmentStartsAt: settlmentStartsAt == freezed
+      settlmentStartsAt: freezed == settlmentStartsAt
           ? _value.settlmentStartsAt
           : settlmentStartsAt // ignore: cast_nullable_to_non_nullable
               as String?,
-      settlmentEndsAt: settlmentEndsAt == freezed
+      settlmentEndsAt: freezed == settlmentEndsAt
           ? _value.settlmentEndsAt
           : settlmentEndsAt // ignore: cast_nullable_to_non_nullable
               as String?,
-      images: images == freezed
+      images: freezed == images
           ? _value._images
           : images // ignore: cast_nullable_to_non_nullable
               as List<String>?,
@@ -159,23 +161,21 @@ class _$_HostelInfoDTO implements _HostelInfoDTO {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_HostelInfoDTO &&
-            const DeepCollectionEquality()
-                .equals(other.settlmentStartsAt, settlmentStartsAt) &&
-            const DeepCollectionEquality()
-                .equals(other.settlmentEndsAt, settlmentEndsAt) &&
+            (identical(other.settlmentStartsAt, settlmentStartsAt) ||
+                other.settlmentStartsAt == settlmentStartsAt) &&
+            (identical(other.settlmentEndsAt, settlmentEndsAt) ||
+                other.settlmentEndsAt == settlmentEndsAt) &&
             const DeepCollectionEquality().equals(other._images, _images));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(settlmentStartsAt),
-      const DeepCollectionEquality().hash(settlmentEndsAt),
-      const DeepCollectionEquality().hash(_images));
+  int get hashCode => Object.hash(runtimeType, settlmentStartsAt,
+      settlmentEndsAt, const DeepCollectionEquality().hash(_images));
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_HostelInfoDTOCopyWith<_$_HostelInfoDTO> get copyWith =>
       __$$_HostelInfoDTOCopyWithImpl<_$_HostelInfoDTO>(this, _$identity);
 

@@ -33,38 +33,42 @@ mixin _$BannerDTO {
 /// @nodoc
 abstract class $BannerDTOCopyWith<$Res> {
   factory $BannerDTOCopyWith(BannerDTO value, $Res Function(BannerDTO) then) =
-      _$BannerDTOCopyWithImpl<$Res>;
+      _$BannerDTOCopyWithImpl<$Res, BannerDTO>;
+  @useResult
   $Res call({int id, String? link, String? image});
 }
 
 /// @nodoc
-class _$BannerDTOCopyWithImpl<$Res> implements $BannerDTOCopyWith<$Res> {
+class _$BannerDTOCopyWithImpl<$Res, $Val extends BannerDTO>
+    implements $BannerDTOCopyWith<$Res> {
   _$BannerDTOCopyWithImpl(this._value, this._then);
 
-  final BannerDTO _value;
   // ignore: unused_field
-  final $Res Function(BannerDTO) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
+    Object? id = null,
     Object? link = freezed,
     Object? image = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      link: link == freezed
+      link: freezed == link
           ? _value.link
           : link // ignore: cast_nullable_to_non_nullable
               as String?,
-      image: image == freezed
+      image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -74,35 +78,35 @@ abstract class _$$_BannerDTOCopyWith<$Res> implements $BannerDTOCopyWith<$Res> {
           _$_BannerDTO value, $Res Function(_$_BannerDTO) then) =
       __$$_BannerDTOCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({int id, String? link, String? image});
 }
 
 /// @nodoc
-class __$$_BannerDTOCopyWithImpl<$Res> extends _$BannerDTOCopyWithImpl<$Res>
+class __$$_BannerDTOCopyWithImpl<$Res>
+    extends _$BannerDTOCopyWithImpl<$Res, _$_BannerDTO>
     implements _$$_BannerDTOCopyWith<$Res> {
   __$$_BannerDTOCopyWithImpl(
       _$_BannerDTO _value, $Res Function(_$_BannerDTO) _then)
-      : super(_value, (v) => _then(v as _$_BannerDTO));
+      : super(_value, _then);
 
-  @override
-  _$_BannerDTO get _value => super._value as _$_BannerDTO;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
+    Object? id = null,
     Object? link = freezed,
     Object? image = freezed,
   }) {
     return _then(_$_BannerDTO(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      link: link == freezed
+      link: freezed == link
           ? _value.link
           : link // ignore: cast_nullable_to_non_nullable
               as String?,
-      image: image == freezed
+      image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -135,21 +139,18 @@ class _$_BannerDTO implements _BannerDTO {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_BannerDTO &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.link, link) &&
-            const DeepCollectionEquality().equals(other.image, image));
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.link, link) || other.link == link) &&
+            (identical(other.image, image) || other.image == image));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(link),
-      const DeepCollectionEquality().hash(image));
+  int get hashCode => Object.hash(runtimeType, id, link, image);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_BannerDTOCopyWith<_$_BannerDTO> get copyWith =>
       __$$_BannerDTOCopyWithImpl<_$_BannerDTO>(this, _$identity);
 

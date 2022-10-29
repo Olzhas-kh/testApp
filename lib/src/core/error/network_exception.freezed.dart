@@ -26,10 +26,10 @@ mixin _$NetworkException {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(DioError error)? request,
-    TResult Function(String? error)? type,
-    TResult Function(String message)? connectivity,
-    TResult Function(String message)? timeOut,
+    TResult? Function(DioError error)? request,
+    TResult? Function(String? error)? type,
+    TResult? Function(String message)? connectivity,
+    TResult? Function(String message)? timeOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -51,10 +51,10 @@ mixin _$NetworkException {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_ResponseError value)? request,
-    TResult Function(_DecodingError value)? type,
-    TResult Function(_Connectivity value)? connectivity,
-    TResult Function(_TimeOut value)? timeOut,
+    TResult? Function(_ResponseError value)? request,
+    TResult? Function(_DecodingError value)? type,
+    TResult? Function(_Connectivity value)? connectivity,
+    TResult? Function(_TimeOut value)? timeOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -72,17 +72,18 @@ mixin _$NetworkException {
 abstract class $NetworkExceptionCopyWith<$Res> {
   factory $NetworkExceptionCopyWith(
           NetworkException value, $Res Function(NetworkException) then) =
-      _$NetworkExceptionCopyWithImpl<$Res>;
+      _$NetworkExceptionCopyWithImpl<$Res, NetworkException>;
 }
 
 /// @nodoc
-class _$NetworkExceptionCopyWithImpl<$Res>
+class _$NetworkExceptionCopyWithImpl<$Res, $Val extends NetworkException>
     implements $NetworkExceptionCopyWith<$Res> {
   _$NetworkExceptionCopyWithImpl(this._value, this._then);
 
-  final NetworkException _value;
   // ignore: unused_field
-  final $Res Function(NetworkException) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -90,26 +91,25 @@ abstract class _$$_ResponseErrorCopyWith<$Res> {
   factory _$$_ResponseErrorCopyWith(
           _$_ResponseError value, $Res Function(_$_ResponseError) then) =
       __$$_ResponseErrorCopyWithImpl<$Res>;
+  @useResult
   $Res call({DioError error});
 }
 
 /// @nodoc
 class __$$_ResponseErrorCopyWithImpl<$Res>
-    extends _$NetworkExceptionCopyWithImpl<$Res>
+    extends _$NetworkExceptionCopyWithImpl<$Res, _$_ResponseError>
     implements _$$_ResponseErrorCopyWith<$Res> {
   __$$_ResponseErrorCopyWithImpl(
       _$_ResponseError _value, $Res Function(_$_ResponseError) _then)
-      : super(_value, (v) => _then(v as _$_ResponseError));
+      : super(_value, _then);
 
-  @override
-  _$_ResponseError get _value => super._value as _$_ResponseError;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = freezed,
+    Object? error = null,
   }) {
     return _then(_$_ResponseError(
-      error: error == freezed
+      error: null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as DioError,
@@ -135,15 +135,15 @@ class _$_ResponseError extends _ResponseError {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ResponseError &&
-            const DeepCollectionEquality().equals(other.error, error));
+            (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
+  int get hashCode => Object.hash(runtimeType, error);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ResponseErrorCopyWith<_$_ResponseError> get copyWith =>
       __$$_ResponseErrorCopyWithImpl<_$_ResponseError>(this, _$identity);
 
@@ -161,10 +161,10 @@ class _$_ResponseError extends _ResponseError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(DioError error)? request,
-    TResult Function(String? error)? type,
-    TResult Function(String message)? connectivity,
-    TResult Function(String message)? timeOut,
+    TResult? Function(DioError error)? request,
+    TResult? Function(String? error)? type,
+    TResult? Function(String message)? connectivity,
+    TResult? Function(String message)? timeOut,
   }) {
     return request?.call(error);
   }
@@ -198,10 +198,10 @@ class _$_ResponseError extends _ResponseError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_ResponseError value)? request,
-    TResult Function(_DecodingError value)? type,
-    TResult Function(_Connectivity value)? connectivity,
-    TResult Function(_TimeOut value)? timeOut,
+    TResult? Function(_ResponseError value)? request,
+    TResult? Function(_DecodingError value)? type,
+    TResult? Function(_Connectivity value)? connectivity,
+    TResult? Function(_TimeOut value)? timeOut,
   }) {
     return request?.call(this);
   }
@@ -238,26 +238,25 @@ abstract class _$$_DecodingErrorCopyWith<$Res> {
   factory _$$_DecodingErrorCopyWith(
           _$_DecodingError value, $Res Function(_$_DecodingError) then) =
       __$$_DecodingErrorCopyWithImpl<$Res>;
+  @useResult
   $Res call({String? error});
 }
 
 /// @nodoc
 class __$$_DecodingErrorCopyWithImpl<$Res>
-    extends _$NetworkExceptionCopyWithImpl<$Res>
+    extends _$NetworkExceptionCopyWithImpl<$Res, _$_DecodingError>
     implements _$$_DecodingErrorCopyWith<$Res> {
   __$$_DecodingErrorCopyWithImpl(
       _$_DecodingError _value, $Res Function(_$_DecodingError) _then)
-      : super(_value, (v) => _then(v as _$_DecodingError));
+      : super(_value, _then);
 
-  @override
-  _$_DecodingError get _value => super._value as _$_DecodingError;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? error = freezed,
   }) {
     return _then(_$_DecodingError(
-      error: error == freezed
+      error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -283,15 +282,15 @@ class _$_DecodingError extends _DecodingError {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DecodingError &&
-            const DeepCollectionEquality().equals(other.error, error));
+            (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
+  int get hashCode => Object.hash(runtimeType, error);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_DecodingErrorCopyWith<_$_DecodingError> get copyWith =>
       __$$_DecodingErrorCopyWithImpl<_$_DecodingError>(this, _$identity);
 
@@ -309,10 +308,10 @@ class _$_DecodingError extends _DecodingError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(DioError error)? request,
-    TResult Function(String? error)? type,
-    TResult Function(String message)? connectivity,
-    TResult Function(String message)? timeOut,
+    TResult? Function(DioError error)? request,
+    TResult? Function(String? error)? type,
+    TResult? Function(String message)? connectivity,
+    TResult? Function(String message)? timeOut,
   }) {
     return type?.call(error);
   }
@@ -346,10 +345,10 @@ class _$_DecodingError extends _DecodingError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_ResponseError value)? request,
-    TResult Function(_DecodingError value)? type,
-    TResult Function(_Connectivity value)? connectivity,
-    TResult Function(_TimeOut value)? timeOut,
+    TResult? Function(_ResponseError value)? request,
+    TResult? Function(_DecodingError value)? type,
+    TResult? Function(_Connectivity value)? connectivity,
+    TResult? Function(_TimeOut value)? timeOut,
   }) {
     return type?.call(this);
   }
@@ -385,26 +384,25 @@ abstract class _$$_ConnectivityCopyWith<$Res> {
   factory _$$_ConnectivityCopyWith(
           _$_Connectivity value, $Res Function(_$_Connectivity) then) =
       __$$_ConnectivityCopyWithImpl<$Res>;
+  @useResult
   $Res call({String message});
 }
 
 /// @nodoc
 class __$$_ConnectivityCopyWithImpl<$Res>
-    extends _$NetworkExceptionCopyWithImpl<$Res>
+    extends _$NetworkExceptionCopyWithImpl<$Res, _$_Connectivity>
     implements _$$_ConnectivityCopyWith<$Res> {
   __$$_ConnectivityCopyWithImpl(
       _$_Connectivity _value, $Res Function(_$_Connectivity) _then)
-      : super(_value, (v) => _then(v as _$_Connectivity));
+      : super(_value, _then);
 
-  @override
-  _$_Connectivity get _value => super._value as _$_Connectivity;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? message = freezed,
+    Object? message = null,
   }) {
     return _then(_$_Connectivity(
-      message: message == freezed
+      message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
@@ -432,15 +430,15 @@ class _$_Connectivity extends _Connectivity {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Connectivity &&
-            const DeepCollectionEquality().equals(other.message, message));
+            (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(message));
+  int get hashCode => Object.hash(runtimeType, message);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ConnectivityCopyWith<_$_Connectivity> get copyWith =>
       __$$_ConnectivityCopyWithImpl<_$_Connectivity>(this, _$identity);
 
@@ -458,10 +456,10 @@ class _$_Connectivity extends _Connectivity {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(DioError error)? request,
-    TResult Function(String? error)? type,
-    TResult Function(String message)? connectivity,
-    TResult Function(String message)? timeOut,
+    TResult? Function(DioError error)? request,
+    TResult? Function(String? error)? type,
+    TResult? Function(String message)? connectivity,
+    TResult? Function(String message)? timeOut,
   }) {
     return connectivity?.call(message);
   }
@@ -495,10 +493,10 @@ class _$_Connectivity extends _Connectivity {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_ResponseError value)? request,
-    TResult Function(_DecodingError value)? type,
-    TResult Function(_Connectivity value)? connectivity,
-    TResult Function(_TimeOut value)? timeOut,
+    TResult? Function(_ResponseError value)? request,
+    TResult? Function(_DecodingError value)? type,
+    TResult? Function(_Connectivity value)? connectivity,
+    TResult? Function(_TimeOut value)? timeOut,
   }) {
     return connectivity?.call(this);
   }
@@ -534,25 +532,24 @@ abstract class _$$_TimeOutCopyWith<$Res> {
   factory _$$_TimeOutCopyWith(
           _$_TimeOut value, $Res Function(_$_TimeOut) then) =
       __$$_TimeOutCopyWithImpl<$Res>;
+  @useResult
   $Res call({String message});
 }
 
 /// @nodoc
 class __$$_TimeOutCopyWithImpl<$Res>
-    extends _$NetworkExceptionCopyWithImpl<$Res>
+    extends _$NetworkExceptionCopyWithImpl<$Res, _$_TimeOut>
     implements _$$_TimeOutCopyWith<$Res> {
   __$$_TimeOutCopyWithImpl(_$_TimeOut _value, $Res Function(_$_TimeOut) _then)
-      : super(_value, (v) => _then(v as _$_TimeOut));
+      : super(_value, _then);
 
-  @override
-  _$_TimeOut get _value => super._value as _$_TimeOut;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? message = freezed,
+    Object? message = null,
   }) {
     return _then(_$_TimeOut(
-      message: message == freezed
+      message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
@@ -579,15 +576,15 @@ class _$_TimeOut extends _TimeOut {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_TimeOut &&
-            const DeepCollectionEquality().equals(other.message, message));
+            (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(message));
+  int get hashCode => Object.hash(runtimeType, message);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_TimeOutCopyWith<_$_TimeOut> get copyWith =>
       __$$_TimeOutCopyWithImpl<_$_TimeOut>(this, _$identity);
 
@@ -605,10 +602,10 @@ class _$_TimeOut extends _TimeOut {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(DioError error)? request,
-    TResult Function(String? error)? type,
-    TResult Function(String message)? connectivity,
-    TResult Function(String message)? timeOut,
+    TResult? Function(DioError error)? request,
+    TResult? Function(String? error)? type,
+    TResult? Function(String message)? connectivity,
+    TResult? Function(String message)? timeOut,
   }) {
     return timeOut?.call(message);
   }
@@ -642,10 +639,10 @@ class _$_TimeOut extends _TimeOut {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_ResponseError value)? request,
-    TResult Function(_DecodingError value)? type,
-    TResult Function(_Connectivity value)? connectivity,
-    TResult Function(_TimeOut value)? timeOut,
+    TResult? Function(_ResponseError value)? request,
+    TResult? Function(_DecodingError value)? type,
+    TResult? Function(_Connectivity value)? connectivity,
+    TResult? Function(_TimeOut value)? timeOut,
   }) {
     return timeOut?.call(this);
   }

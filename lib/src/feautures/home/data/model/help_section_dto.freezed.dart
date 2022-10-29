@@ -34,39 +34,42 @@ mixin _$HelpSectionDTO {
 abstract class $HelpSectionDTOCopyWith<$Res> {
   factory $HelpSectionDTOCopyWith(
           HelpSectionDTO value, $Res Function(HelpSectionDTO) then) =
-      _$HelpSectionDTOCopyWithImpl<$Res>;
+      _$HelpSectionDTOCopyWithImpl<$Res, HelpSectionDTO>;
+  @useResult
   $Res call({int id, String name, String? content});
 }
 
 /// @nodoc
-class _$HelpSectionDTOCopyWithImpl<$Res>
+class _$HelpSectionDTOCopyWithImpl<$Res, $Val extends HelpSectionDTO>
     implements $HelpSectionDTOCopyWith<$Res> {
   _$HelpSectionDTOCopyWithImpl(this._value, this._then);
 
-  final HelpSectionDTO _value;
   // ignore: unused_field
-  final $Res Function(HelpSectionDTO) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? name = freezed,
+    Object? id = null,
+    Object? name = null,
     Object? content = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      content: content == freezed
+      content: freezed == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -77,36 +80,35 @@ abstract class _$$_HelpSectionDTOCopyWith<$Res>
           _$_HelpSectionDTO value, $Res Function(_$_HelpSectionDTO) then) =
       __$$_HelpSectionDTOCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({int id, String name, String? content});
 }
 
 /// @nodoc
 class __$$_HelpSectionDTOCopyWithImpl<$Res>
-    extends _$HelpSectionDTOCopyWithImpl<$Res>
+    extends _$HelpSectionDTOCopyWithImpl<$Res, _$_HelpSectionDTO>
     implements _$$_HelpSectionDTOCopyWith<$Res> {
   __$$_HelpSectionDTOCopyWithImpl(
       _$_HelpSectionDTO _value, $Res Function(_$_HelpSectionDTO) _then)
-      : super(_value, (v) => _then(v as _$_HelpSectionDTO));
+      : super(_value, _then);
 
-  @override
-  _$_HelpSectionDTO get _value => super._value as _$_HelpSectionDTO;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? name = freezed,
+    Object? id = null,
+    Object? name = null,
     Object? content = freezed,
   }) {
     return _then(_$_HelpSectionDTO(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      content: content == freezed
+      content: freezed == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -139,21 +141,18 @@ class _$_HelpSectionDTO implements _HelpSectionDTO {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_HelpSectionDTO &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.content, content));
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.content, content) || other.content == content));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(content));
+  int get hashCode => Object.hash(runtimeType, id, name, content);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_HelpSectionDTOCopyWith<_$_HelpSectionDTO> get copyWith =>
       __$$_HelpSectionDTOCopyWithImpl<_$_HelpSectionDTO>(this, _$identity);
 

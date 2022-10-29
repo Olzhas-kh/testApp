@@ -26,10 +26,10 @@ mixin _$AppState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? loadingState,
-    TResult Function()? notAuthorizedState,
-    TResult Function()? inAppState,
-    TResult Function(String message)? errorState,
+    TResult? Function()? loadingState,
+    TResult? Function()? notAuthorizedState,
+    TResult? Function()? inAppState,
+    TResult? Function(String message)? errorState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -51,10 +51,10 @@ mixin _$AppState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_LoadingState value)? loadingState,
-    TResult Function(_NotAuthorizedState value)? notAuthorizedState,
-    TResult Function(_InAppState value)? inAppState,
-    TResult Function(_ErrorState value)? errorState,
+    TResult? Function(_LoadingState value)? loadingState,
+    TResult? Function(_NotAuthorizedState value)? notAuthorizedState,
+    TResult? Function(_InAppState value)? inAppState,
+    TResult? Function(_ErrorState value)? errorState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -71,16 +71,18 @@ mixin _$AppState {
 /// @nodoc
 abstract class $AppStateCopyWith<$Res> {
   factory $AppStateCopyWith(AppState value, $Res Function(AppState) then) =
-      _$AppStateCopyWithImpl<$Res>;
+      _$AppStateCopyWithImpl<$Res, AppState>;
 }
 
 /// @nodoc
-class _$AppStateCopyWithImpl<$Res> implements $AppStateCopyWith<$Res> {
+class _$AppStateCopyWithImpl<$Res, $Val extends AppState>
+    implements $AppStateCopyWith<$Res> {
   _$AppStateCopyWithImpl(this._value, this._then);
 
-  final AppState _value;
   // ignore: unused_field
-  final $Res Function(AppState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -91,14 +93,12 @@ abstract class _$$_LoadingStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_LoadingStateCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
+class __$$_LoadingStateCopyWithImpl<$Res>
+    extends _$AppStateCopyWithImpl<$Res, _$_LoadingState>
     implements _$$_LoadingStateCopyWith<$Res> {
   __$$_LoadingStateCopyWithImpl(
       _$_LoadingState _value, $Res Function(_$_LoadingState) _then)
-      : super(_value, (v) => _then(v as _$_LoadingState));
-
-  @override
-  _$_LoadingState get _value => super._value as _$_LoadingState;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -134,10 +134,10 @@ class _$_LoadingState implements _LoadingState {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? loadingState,
-    TResult Function()? notAuthorizedState,
-    TResult Function()? inAppState,
-    TResult Function(String message)? errorState,
+    TResult? Function()? loadingState,
+    TResult? Function()? notAuthorizedState,
+    TResult? Function()? inAppState,
+    TResult? Function(String message)? errorState,
   }) {
     return loadingState?.call();
   }
@@ -171,10 +171,10 @@ class _$_LoadingState implements _LoadingState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_LoadingState value)? loadingState,
-    TResult Function(_NotAuthorizedState value)? notAuthorizedState,
-    TResult Function(_InAppState value)? inAppState,
-    TResult Function(_ErrorState value)? errorState,
+    TResult? Function(_LoadingState value)? loadingState,
+    TResult? Function(_NotAuthorizedState value)? notAuthorizedState,
+    TResult? Function(_InAppState value)? inAppState,
+    TResult? Function(_ErrorState value)? errorState,
   }) {
     return loadingState?.call(this);
   }
@@ -208,14 +208,11 @@ abstract class _$$_NotAuthorizedStateCopyWith<$Res> {
 
 /// @nodoc
 class __$$_NotAuthorizedStateCopyWithImpl<$Res>
-    extends _$AppStateCopyWithImpl<$Res>
+    extends _$AppStateCopyWithImpl<$Res, _$_NotAuthorizedState>
     implements _$$_NotAuthorizedStateCopyWith<$Res> {
   __$$_NotAuthorizedStateCopyWithImpl(
       _$_NotAuthorizedState _value, $Res Function(_$_NotAuthorizedState) _then)
-      : super(_value, (v) => _then(v as _$_NotAuthorizedState));
-
-  @override
-  _$_NotAuthorizedState get _value => super._value as _$_NotAuthorizedState;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -251,10 +248,10 @@ class _$_NotAuthorizedState implements _NotAuthorizedState {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? loadingState,
-    TResult Function()? notAuthorizedState,
-    TResult Function()? inAppState,
-    TResult Function(String message)? errorState,
+    TResult? Function()? loadingState,
+    TResult? Function()? notAuthorizedState,
+    TResult? Function()? inAppState,
+    TResult? Function(String message)? errorState,
   }) {
     return notAuthorizedState?.call();
   }
@@ -288,10 +285,10 @@ class _$_NotAuthorizedState implements _NotAuthorizedState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_LoadingState value)? loadingState,
-    TResult Function(_NotAuthorizedState value)? notAuthorizedState,
-    TResult Function(_InAppState value)? inAppState,
-    TResult Function(_ErrorState value)? errorState,
+    TResult? Function(_LoadingState value)? loadingState,
+    TResult? Function(_NotAuthorizedState value)? notAuthorizedState,
+    TResult? Function(_InAppState value)? inAppState,
+    TResult? Function(_ErrorState value)? errorState,
   }) {
     return notAuthorizedState?.call(this);
   }
@@ -324,14 +321,12 @@ abstract class _$$_InAppStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_InAppStateCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
+class __$$_InAppStateCopyWithImpl<$Res>
+    extends _$AppStateCopyWithImpl<$Res, _$_InAppState>
     implements _$$_InAppStateCopyWith<$Res> {
   __$$_InAppStateCopyWithImpl(
       _$_InAppState _value, $Res Function(_$_InAppState) _then)
-      : super(_value, (v) => _then(v as _$_InAppState));
-
-  @override
-  _$_InAppState get _value => super._value as _$_InAppState;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -367,10 +362,10 @@ class _$_InAppState implements _InAppState {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? loadingState,
-    TResult Function()? notAuthorizedState,
-    TResult Function()? inAppState,
-    TResult Function(String message)? errorState,
+    TResult? Function()? loadingState,
+    TResult? Function()? notAuthorizedState,
+    TResult? Function()? inAppState,
+    TResult? Function(String message)? errorState,
   }) {
     return inAppState?.call();
   }
@@ -404,10 +399,10 @@ class _$_InAppState implements _InAppState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_LoadingState value)? loadingState,
-    TResult Function(_NotAuthorizedState value)? notAuthorizedState,
-    TResult Function(_InAppState value)? inAppState,
-    TResult Function(_ErrorState value)? errorState,
+    TResult? Function(_LoadingState value)? loadingState,
+    TResult? Function(_NotAuthorizedState value)? notAuthorizedState,
+    TResult? Function(_InAppState value)? inAppState,
+    TResult? Function(_ErrorState value)? errorState,
   }) {
     return inAppState?.call(this);
   }
@@ -437,25 +432,25 @@ abstract class _$$_ErrorStateCopyWith<$Res> {
   factory _$$_ErrorStateCopyWith(
           _$_ErrorState value, $Res Function(_$_ErrorState) then) =
       __$$_ErrorStateCopyWithImpl<$Res>;
+  @useResult
   $Res call({String message});
 }
 
 /// @nodoc
-class __$$_ErrorStateCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
+class __$$_ErrorStateCopyWithImpl<$Res>
+    extends _$AppStateCopyWithImpl<$Res, _$_ErrorState>
     implements _$$_ErrorStateCopyWith<$Res> {
   __$$_ErrorStateCopyWithImpl(
       _$_ErrorState _value, $Res Function(_$_ErrorState) _then)
-      : super(_value, (v) => _then(v as _$_ErrorState));
+      : super(_value, _then);
 
-  @override
-  _$_ErrorState get _value => super._value as _$_ErrorState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? message = freezed,
+    Object? message = null,
   }) {
     return _then(_$_ErrorState(
-      message: message == freezed
+      message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
@@ -481,15 +476,15 @@ class _$_ErrorState implements _ErrorState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ErrorState &&
-            const DeepCollectionEquality().equals(other.message, message));
+            (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(message));
+  int get hashCode => Object.hash(runtimeType, message);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ErrorStateCopyWith<_$_ErrorState> get copyWith =>
       __$$_ErrorStateCopyWithImpl<_$_ErrorState>(this, _$identity);
 
@@ -507,10 +502,10 @@ class _$_ErrorState implements _ErrorState {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? loadingState,
-    TResult Function()? notAuthorizedState,
-    TResult Function()? inAppState,
-    TResult Function(String message)? errorState,
+    TResult? Function()? loadingState,
+    TResult? Function()? notAuthorizedState,
+    TResult? Function()? inAppState,
+    TResult? Function(String message)? errorState,
   }) {
     return errorState?.call(message);
   }
@@ -544,10 +539,10 @@ class _$_ErrorState implements _ErrorState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_LoadingState value)? loadingState,
-    TResult Function(_NotAuthorizedState value)? notAuthorizedState,
-    TResult Function(_InAppState value)? inAppState,
-    TResult Function(_ErrorState value)? errorState,
+    TResult? Function(_LoadingState value)? loadingState,
+    TResult? Function(_NotAuthorizedState value)? notAuthorizedState,
+    TResult? Function(_InAppState value)? inAppState,
+    TResult? Function(_ErrorState value)? errorState,
   }) {
     return errorState?.call(this);
   }
@@ -590,11 +585,11 @@ mixin _$AppEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? checkAuth,
-    TResult Function()? logining,
-    TResult Function()? exiting,
-    TResult Function()? refreshLocal,
-    TResult Function()? startListenDio,
+    TResult? Function()? checkAuth,
+    TResult? Function()? logining,
+    TResult? Function()? exiting,
+    TResult? Function()? refreshLocal,
+    TResult? Function()? startListenDio,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -618,11 +613,11 @@ mixin _$AppEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CheckAuth value)? checkAuth,
-    TResult Function(_Logining value)? logining,
-    TResult Function(_Exiting value)? exiting,
-    TResult Function(_RefreshLocal value)? refreshLocal,
-    TResult Function(_StartListenDio value)? startListenDio,
+    TResult? Function(_CheckAuth value)? checkAuth,
+    TResult? Function(_Logining value)? logining,
+    TResult? Function(_Exiting value)? exiting,
+    TResult? Function(_RefreshLocal value)? refreshLocal,
+    TResult? Function(_StartListenDio value)? startListenDio,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -640,16 +635,18 @@ mixin _$AppEvent {
 /// @nodoc
 abstract class $AppEventCopyWith<$Res> {
   factory $AppEventCopyWith(AppEvent value, $Res Function(AppEvent) then) =
-      _$AppEventCopyWithImpl<$Res>;
+      _$AppEventCopyWithImpl<$Res, AppEvent>;
 }
 
 /// @nodoc
-class _$AppEventCopyWithImpl<$Res> implements $AppEventCopyWith<$Res> {
+class _$AppEventCopyWithImpl<$Res, $Val extends AppEvent>
+    implements $AppEventCopyWith<$Res> {
   _$AppEventCopyWithImpl(this._value, this._then);
 
-  final AppEvent _value;
   // ignore: unused_field
-  final $Res Function(AppEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -660,14 +657,12 @@ abstract class _$$_CheckAuthCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_CheckAuthCopyWithImpl<$Res> extends _$AppEventCopyWithImpl<$Res>
+class __$$_CheckAuthCopyWithImpl<$Res>
+    extends _$AppEventCopyWithImpl<$Res, _$_CheckAuth>
     implements _$$_CheckAuthCopyWith<$Res> {
   __$$_CheckAuthCopyWithImpl(
       _$_CheckAuth _value, $Res Function(_$_CheckAuth) _then)
-      : super(_value, (v) => _then(v as _$_CheckAuth));
-
-  @override
-  _$_CheckAuth get _value => super._value as _$_CheckAuth;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -704,11 +699,11 @@ class _$_CheckAuth implements _CheckAuth {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? checkAuth,
-    TResult Function()? logining,
-    TResult Function()? exiting,
-    TResult Function()? refreshLocal,
-    TResult Function()? startListenDio,
+    TResult? Function()? checkAuth,
+    TResult? Function()? logining,
+    TResult? Function()? exiting,
+    TResult? Function()? refreshLocal,
+    TResult? Function()? startListenDio,
   }) {
     return checkAuth?.call();
   }
@@ -744,11 +739,11 @@ class _$_CheckAuth implements _CheckAuth {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CheckAuth value)? checkAuth,
-    TResult Function(_Logining value)? logining,
-    TResult Function(_Exiting value)? exiting,
-    TResult Function(_RefreshLocal value)? refreshLocal,
-    TResult Function(_StartListenDio value)? startListenDio,
+    TResult? Function(_CheckAuth value)? checkAuth,
+    TResult? Function(_Logining value)? logining,
+    TResult? Function(_Exiting value)? exiting,
+    TResult? Function(_RefreshLocal value)? refreshLocal,
+    TResult? Function(_StartListenDio value)? startListenDio,
   }) {
     return checkAuth?.call(this);
   }
@@ -782,14 +777,12 @@ abstract class _$$_LoginingCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_LoginingCopyWithImpl<$Res> extends _$AppEventCopyWithImpl<$Res>
+class __$$_LoginingCopyWithImpl<$Res>
+    extends _$AppEventCopyWithImpl<$Res, _$_Logining>
     implements _$$_LoginingCopyWith<$Res> {
   __$$_LoginingCopyWithImpl(
       _$_Logining _value, $Res Function(_$_Logining) _then)
-      : super(_value, (v) => _then(v as _$_Logining));
-
-  @override
-  _$_Logining get _value => super._value as _$_Logining;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -826,11 +819,11 @@ class _$_Logining implements _Logining {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? checkAuth,
-    TResult Function()? logining,
-    TResult Function()? exiting,
-    TResult Function()? refreshLocal,
-    TResult Function()? startListenDio,
+    TResult? Function()? checkAuth,
+    TResult? Function()? logining,
+    TResult? Function()? exiting,
+    TResult? Function()? refreshLocal,
+    TResult? Function()? startListenDio,
   }) {
     return logining?.call();
   }
@@ -866,11 +859,11 @@ class _$_Logining implements _Logining {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CheckAuth value)? checkAuth,
-    TResult Function(_Logining value)? logining,
-    TResult Function(_Exiting value)? exiting,
-    TResult Function(_RefreshLocal value)? refreshLocal,
-    TResult Function(_StartListenDio value)? startListenDio,
+    TResult? Function(_CheckAuth value)? checkAuth,
+    TResult? Function(_Logining value)? logining,
+    TResult? Function(_Exiting value)? exiting,
+    TResult? Function(_RefreshLocal value)? refreshLocal,
+    TResult? Function(_StartListenDio value)? startListenDio,
   }) {
     return logining?.call(this);
   }
@@ -904,13 +897,11 @@ abstract class _$$_ExitingCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ExitingCopyWithImpl<$Res> extends _$AppEventCopyWithImpl<$Res>
+class __$$_ExitingCopyWithImpl<$Res>
+    extends _$AppEventCopyWithImpl<$Res, _$_Exiting>
     implements _$$_ExitingCopyWith<$Res> {
   __$$_ExitingCopyWithImpl(_$_Exiting _value, $Res Function(_$_Exiting) _then)
-      : super(_value, (v) => _then(v as _$_Exiting));
-
-  @override
-  _$_Exiting get _value => super._value as _$_Exiting;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -947,11 +938,11 @@ class _$_Exiting implements _Exiting {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? checkAuth,
-    TResult Function()? logining,
-    TResult Function()? exiting,
-    TResult Function()? refreshLocal,
-    TResult Function()? startListenDio,
+    TResult? Function()? checkAuth,
+    TResult? Function()? logining,
+    TResult? Function()? exiting,
+    TResult? Function()? refreshLocal,
+    TResult? Function()? startListenDio,
   }) {
     return exiting?.call();
   }
@@ -987,11 +978,11 @@ class _$_Exiting implements _Exiting {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CheckAuth value)? checkAuth,
-    TResult Function(_Logining value)? logining,
-    TResult Function(_Exiting value)? exiting,
-    TResult Function(_RefreshLocal value)? refreshLocal,
-    TResult Function(_StartListenDio value)? startListenDio,
+    TResult? Function(_CheckAuth value)? checkAuth,
+    TResult? Function(_Logining value)? logining,
+    TResult? Function(_Exiting value)? exiting,
+    TResult? Function(_RefreshLocal value)? refreshLocal,
+    TResult? Function(_StartListenDio value)? startListenDio,
   }) {
     return exiting?.call(this);
   }
@@ -1025,14 +1016,12 @@ abstract class _$$_RefreshLocalCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_RefreshLocalCopyWithImpl<$Res> extends _$AppEventCopyWithImpl<$Res>
+class __$$_RefreshLocalCopyWithImpl<$Res>
+    extends _$AppEventCopyWithImpl<$Res, _$_RefreshLocal>
     implements _$$_RefreshLocalCopyWith<$Res> {
   __$$_RefreshLocalCopyWithImpl(
       _$_RefreshLocal _value, $Res Function(_$_RefreshLocal) _then)
-      : super(_value, (v) => _then(v as _$_RefreshLocal));
-
-  @override
-  _$_RefreshLocal get _value => super._value as _$_RefreshLocal;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -1069,11 +1058,11 @@ class _$_RefreshLocal implements _RefreshLocal {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? checkAuth,
-    TResult Function()? logining,
-    TResult Function()? exiting,
-    TResult Function()? refreshLocal,
-    TResult Function()? startListenDio,
+    TResult? Function()? checkAuth,
+    TResult? Function()? logining,
+    TResult? Function()? exiting,
+    TResult? Function()? refreshLocal,
+    TResult? Function()? startListenDio,
   }) {
     return refreshLocal?.call();
   }
@@ -1109,11 +1098,11 @@ class _$_RefreshLocal implements _RefreshLocal {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CheckAuth value)? checkAuth,
-    TResult Function(_Logining value)? logining,
-    TResult Function(_Exiting value)? exiting,
-    TResult Function(_RefreshLocal value)? refreshLocal,
-    TResult Function(_StartListenDio value)? startListenDio,
+    TResult? Function(_CheckAuth value)? checkAuth,
+    TResult? Function(_Logining value)? logining,
+    TResult? Function(_Exiting value)? exiting,
+    TResult? Function(_RefreshLocal value)? refreshLocal,
+    TResult? Function(_StartListenDio value)? startListenDio,
   }) {
     return refreshLocal?.call(this);
   }
@@ -1147,14 +1136,12 @@ abstract class _$$_StartListenDioCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_StartListenDioCopyWithImpl<$Res> extends _$AppEventCopyWithImpl<$Res>
+class __$$_StartListenDioCopyWithImpl<$Res>
+    extends _$AppEventCopyWithImpl<$Res, _$_StartListenDio>
     implements _$$_StartListenDioCopyWith<$Res> {
   __$$_StartListenDioCopyWithImpl(
       _$_StartListenDio _value, $Res Function(_$_StartListenDio) _then)
-      : super(_value, (v) => _then(v as _$_StartListenDio));
-
-  @override
-  _$_StartListenDio get _value => super._value as _$_StartListenDio;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -1191,11 +1178,11 @@ class _$_StartListenDio implements _StartListenDio {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? checkAuth,
-    TResult Function()? logining,
-    TResult Function()? exiting,
-    TResult Function()? refreshLocal,
-    TResult Function()? startListenDio,
+    TResult? Function()? checkAuth,
+    TResult? Function()? logining,
+    TResult? Function()? exiting,
+    TResult? Function()? refreshLocal,
+    TResult? Function()? startListenDio,
   }) {
     return startListenDio?.call();
   }
@@ -1231,11 +1218,11 @@ class _$_StartListenDio implements _StartListenDio {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CheckAuth value)? checkAuth,
-    TResult Function(_Logining value)? logining,
-    TResult Function(_Exiting value)? exiting,
-    TResult Function(_RefreshLocal value)? refreshLocal,
-    TResult Function(_StartListenDio value)? startListenDio,
+    TResult? Function(_CheckAuth value)? checkAuth,
+    TResult? Function(_Logining value)? logining,
+    TResult? Function(_Exiting value)? exiting,
+    TResult? Function(_RefreshLocal value)? refreshLocal,
+    TResult? Function(_StartListenDio value)? startListenDio,
   }) {
     return startListenDio?.call(this);
   }

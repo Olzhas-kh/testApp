@@ -24,8 +24,8 @@ mixin _$NotificationEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(BuildContext context)? firebaseInit,
-    TResult Function()? getNotificationHiveBox,
+    TResult? Function(BuildContext context)? firebaseInit,
+    TResult? Function()? getNotificationHiveBox,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -44,8 +44,8 @@ mixin _$NotificationEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_FirebaseInit value)? firebaseInit,
-    TResult Function(_GetNotificationHiveBox value)? getNotificationHiveBox,
+    TResult? Function(_FirebaseInit value)? firebaseInit,
+    TResult? Function(_GetNotificationHiveBox value)? getNotificationHiveBox,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -61,17 +61,18 @@ mixin _$NotificationEvent {
 abstract class $NotificationEventCopyWith<$Res> {
   factory $NotificationEventCopyWith(
           NotificationEvent value, $Res Function(NotificationEvent) then) =
-      _$NotificationEventCopyWithImpl<$Res>;
+      _$NotificationEventCopyWithImpl<$Res, NotificationEvent>;
 }
 
 /// @nodoc
-class _$NotificationEventCopyWithImpl<$Res>
+class _$NotificationEventCopyWithImpl<$Res, $Val extends NotificationEvent>
     implements $NotificationEventCopyWith<$Res> {
   _$NotificationEventCopyWithImpl(this._value, this._then);
 
-  final NotificationEvent _value;
   // ignore: unused_field
-  final $Res Function(NotificationEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -79,26 +80,25 @@ abstract class _$$_FirebaseInitCopyWith<$Res> {
   factory _$$_FirebaseInitCopyWith(
           _$_FirebaseInit value, $Res Function(_$_FirebaseInit) then) =
       __$$_FirebaseInitCopyWithImpl<$Res>;
+  @useResult
   $Res call({BuildContext context});
 }
 
 /// @nodoc
 class __$$_FirebaseInitCopyWithImpl<$Res>
-    extends _$NotificationEventCopyWithImpl<$Res>
+    extends _$NotificationEventCopyWithImpl<$Res, _$_FirebaseInit>
     implements _$$_FirebaseInitCopyWith<$Res> {
   __$$_FirebaseInitCopyWithImpl(
       _$_FirebaseInit _value, $Res Function(_$_FirebaseInit) _then)
-      : super(_value, (v) => _then(v as _$_FirebaseInit));
+      : super(_value, _then);
 
-  @override
-  _$_FirebaseInit get _value => super._value as _$_FirebaseInit;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? context = freezed,
+    Object? context = null,
   }) {
     return _then(_$_FirebaseInit(
-      context: context == freezed
+      context: null == context
           ? _value.context
           : context // ignore: cast_nullable_to_non_nullable
               as BuildContext,
@@ -108,15 +108,23 @@ class __$$_FirebaseInitCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_FirebaseInit implements _FirebaseInit {
+class _$_FirebaseInit with DiagnosticableTreeMixin implements _FirebaseInit {
   const _$_FirebaseInit({required this.context});
 
   @override
   final BuildContext context;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'NotificationEvent.firebaseInit(context: $context)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'NotificationEvent.firebaseInit'))
+      ..add(DiagnosticsProperty('context', context));
   }
 
   @override
@@ -124,15 +132,15 @@ class _$_FirebaseInit implements _FirebaseInit {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_FirebaseInit &&
-            const DeepCollectionEquality().equals(other.context, context));
+            (identical(other.context, context) || other.context == context));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(context));
+  int get hashCode => Object.hash(runtimeType, context);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_FirebaseInitCopyWith<_$_FirebaseInit> get copyWith =>
       __$$_FirebaseInitCopyWithImpl<_$_FirebaseInit>(this, _$identity);
 
@@ -148,8 +156,8 @@ class _$_FirebaseInit implements _FirebaseInit {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(BuildContext context)? firebaseInit,
-    TResult Function()? getNotificationHiveBox,
+    TResult? Function(BuildContext context)? firebaseInit,
+    TResult? Function()? getNotificationHiveBox,
   }) {
     return firebaseInit?.call(context);
   }
@@ -180,8 +188,8 @@ class _$_FirebaseInit implements _FirebaseInit {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_FirebaseInit value)? firebaseInit,
-    TResult Function(_GetNotificationHiveBox value)? getNotificationHiveBox,
+    TResult? Function(_FirebaseInit value)? firebaseInit,
+    TResult? Function(_GetNotificationHiveBox value)? getNotificationHiveBox,
   }) {
     return firebaseInit?.call(this);
   }
@@ -219,25 +227,30 @@ abstract class _$$_GetNotificationHiveBoxCopyWith<$Res> {
 
 /// @nodoc
 class __$$_GetNotificationHiveBoxCopyWithImpl<$Res>
-    extends _$NotificationEventCopyWithImpl<$Res>
+    extends _$NotificationEventCopyWithImpl<$Res, _$_GetNotificationHiveBox>
     implements _$$_GetNotificationHiveBoxCopyWith<$Res> {
   __$$_GetNotificationHiveBoxCopyWithImpl(_$_GetNotificationHiveBox _value,
       $Res Function(_$_GetNotificationHiveBox) _then)
-      : super(_value, (v) => _then(v as _$_GetNotificationHiveBox));
-
-  @override
-  _$_GetNotificationHiveBox get _value =>
-      super._value as _$_GetNotificationHiveBox;
+      : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_GetNotificationHiveBox implements _GetNotificationHiveBox {
+class _$_GetNotificationHiveBox
+    with DiagnosticableTreeMixin
+    implements _GetNotificationHiveBox {
   const _$_GetNotificationHiveBox();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'NotificationEvent.getNotificationHiveBox()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty(
+        'type', 'NotificationEvent.getNotificationHiveBox'));
   }
 
   @override
@@ -262,8 +275,8 @@ class _$_GetNotificationHiveBox implements _GetNotificationHiveBox {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(BuildContext context)? firebaseInit,
-    TResult Function()? getNotificationHiveBox,
+    TResult? Function(BuildContext context)? firebaseInit,
+    TResult? Function()? getNotificationHiveBox,
   }) {
     return getNotificationHiveBox?.call();
   }
@@ -294,8 +307,8 @@ class _$_GetNotificationHiveBox implements _GetNotificationHiveBox {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_FirebaseInit value)? firebaseInit,
-    TResult Function(_GetNotificationHiveBox value)? getNotificationHiveBox,
+    TResult? Function(_FirebaseInit value)? firebaseInit,
+    TResult? Function(_GetNotificationHiveBox value)? getNotificationHiveBox,
   }) {
     return getNotificationHiveBox?.call(this);
   }
@@ -330,9 +343,9 @@ mixin _$NotificationState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(String message)? errorOpenHiveBox,
-    TResult Function(Box<NotificationEntity> box)? successNotificationHiveBox,
+    TResult? Function()? initial,
+    TResult? Function(String message)? errorOpenHiveBox,
+    TResult? Function(Box<NotificationEntity> box)? successNotificationHiveBox,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -353,9 +366,9 @@ mixin _$NotificationState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_ErrorOpenHiveBox value)? errorOpenHiveBox,
-    TResult Function(_SuccessNotificationHiveBox value)?
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_ErrorOpenHiveBox value)? errorOpenHiveBox,
+    TResult? Function(_SuccessNotificationHiveBox value)?
         successNotificationHiveBox,
   }) =>
       throw _privateConstructorUsedError;
@@ -374,17 +387,18 @@ mixin _$NotificationState {
 abstract class $NotificationStateCopyWith<$Res> {
   factory $NotificationStateCopyWith(
           NotificationState value, $Res Function(NotificationState) then) =
-      _$NotificationStateCopyWithImpl<$Res>;
+      _$NotificationStateCopyWithImpl<$Res, NotificationState>;
 }
 
 /// @nodoc
-class _$NotificationStateCopyWithImpl<$Res>
+class _$NotificationStateCopyWithImpl<$Res, $Val extends NotificationState>
     implements $NotificationStateCopyWith<$Res> {
   _$NotificationStateCopyWithImpl(this._value, this._then);
 
-  final NotificationState _value;
   // ignore: unused_field
-  final $Res Function(NotificationState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -396,23 +410,26 @@ abstract class _$$_InitialCopyWith<$Res> {
 
 /// @nodoc
 class __$$_InitialCopyWithImpl<$Res>
-    extends _$NotificationStateCopyWithImpl<$Res>
+    extends _$NotificationStateCopyWithImpl<$Res, _$_Initial>
     implements _$$_InitialCopyWith<$Res> {
   __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
-      : super(_value, (v) => _then(v as _$_Initial));
-
-  @override
-  _$_Initial get _value => super._value as _$_Initial;
+      : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
+class _$_Initial with DiagnosticableTreeMixin implements _Initial {
   const _$_Initial();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'NotificationState.initial()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'NotificationState.initial'));
   }
 
   @override
@@ -438,9 +455,9 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(String message)? errorOpenHiveBox,
-    TResult Function(Box<NotificationEntity> box)? successNotificationHiveBox,
+    TResult? Function()? initial,
+    TResult? Function(String message)? errorOpenHiveBox,
+    TResult? Function(Box<NotificationEntity> box)? successNotificationHiveBox,
   }) {
     return initial?.call();
   }
@@ -473,9 +490,9 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_ErrorOpenHiveBox value)? errorOpenHiveBox,
-    TResult Function(_SuccessNotificationHiveBox value)?
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_ErrorOpenHiveBox value)? errorOpenHiveBox,
+    TResult? Function(_SuccessNotificationHiveBox value)?
         successNotificationHiveBox,
   }) {
     return initial?.call(this);
@@ -506,26 +523,25 @@ abstract class _$$_ErrorOpenHiveBoxCopyWith<$Res> {
   factory _$$_ErrorOpenHiveBoxCopyWith(
           _$_ErrorOpenHiveBox value, $Res Function(_$_ErrorOpenHiveBox) then) =
       __$$_ErrorOpenHiveBoxCopyWithImpl<$Res>;
+  @useResult
   $Res call({String message});
 }
 
 /// @nodoc
 class __$$_ErrorOpenHiveBoxCopyWithImpl<$Res>
-    extends _$NotificationStateCopyWithImpl<$Res>
+    extends _$NotificationStateCopyWithImpl<$Res, _$_ErrorOpenHiveBox>
     implements _$$_ErrorOpenHiveBoxCopyWith<$Res> {
   __$$_ErrorOpenHiveBoxCopyWithImpl(
       _$_ErrorOpenHiveBox _value, $Res Function(_$_ErrorOpenHiveBox) _then)
-      : super(_value, (v) => _then(v as _$_ErrorOpenHiveBox));
+      : super(_value, _then);
 
-  @override
-  _$_ErrorOpenHiveBox get _value => super._value as _$_ErrorOpenHiveBox;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? message = freezed,
+    Object? message = null,
   }) {
     return _then(_$_ErrorOpenHiveBox(
-      message: message == freezed
+      message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
@@ -535,7 +551,9 @@ class __$$_ErrorOpenHiveBoxCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ErrorOpenHiveBox implements _ErrorOpenHiveBox {
+class _$_ErrorOpenHiveBox
+    with DiagnosticableTreeMixin
+    implements _ErrorOpenHiveBox {
   const _$_ErrorOpenHiveBox(
       {this.message = 'Ошибка при заагрузке уведомлении!'});
 
@@ -544,8 +562,16 @@ class _$_ErrorOpenHiveBox implements _ErrorOpenHiveBox {
   final String message;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'NotificationState.errorOpenHiveBox(message: $message)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'NotificationState.errorOpenHiveBox'))
+      ..add(DiagnosticsProperty('message', message));
   }
 
   @override
@@ -553,15 +579,15 @@ class _$_ErrorOpenHiveBox implements _ErrorOpenHiveBox {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ErrorOpenHiveBox &&
-            const DeepCollectionEquality().equals(other.message, message));
+            (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(message));
+  int get hashCode => Object.hash(runtimeType, message);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ErrorOpenHiveBoxCopyWith<_$_ErrorOpenHiveBox> get copyWith =>
       __$$_ErrorOpenHiveBoxCopyWithImpl<_$_ErrorOpenHiveBox>(this, _$identity);
 
@@ -579,9 +605,9 @@ class _$_ErrorOpenHiveBox implements _ErrorOpenHiveBox {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(String message)? errorOpenHiveBox,
-    TResult Function(Box<NotificationEntity> box)? successNotificationHiveBox,
+    TResult? Function()? initial,
+    TResult? Function(String message)? errorOpenHiveBox,
+    TResult? Function(Box<NotificationEntity> box)? successNotificationHiveBox,
   }) {
     return errorOpenHiveBox?.call(message);
   }
@@ -614,9 +640,9 @@ class _$_ErrorOpenHiveBox implements _ErrorOpenHiveBox {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_ErrorOpenHiveBox value)? errorOpenHiveBox,
-    TResult Function(_SuccessNotificationHiveBox value)?
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_ErrorOpenHiveBox value)? errorOpenHiveBox,
+    TResult? Function(_SuccessNotificationHiveBox value)?
         successNotificationHiveBox,
   }) {
     return errorOpenHiveBox?.call(this);
@@ -653,28 +679,26 @@ abstract class _$$_SuccessNotificationHiveBoxCopyWith<$Res> {
           _$_SuccessNotificationHiveBox value,
           $Res Function(_$_SuccessNotificationHiveBox) then) =
       __$$_SuccessNotificationHiveBoxCopyWithImpl<$Res>;
+  @useResult
   $Res call({Box<NotificationEntity> box});
 }
 
 /// @nodoc
 class __$$_SuccessNotificationHiveBoxCopyWithImpl<$Res>
-    extends _$NotificationStateCopyWithImpl<$Res>
+    extends _$NotificationStateCopyWithImpl<$Res, _$_SuccessNotificationHiveBox>
     implements _$$_SuccessNotificationHiveBoxCopyWith<$Res> {
   __$$_SuccessNotificationHiveBoxCopyWithImpl(
       _$_SuccessNotificationHiveBox _value,
       $Res Function(_$_SuccessNotificationHiveBox) _then)
-      : super(_value, (v) => _then(v as _$_SuccessNotificationHiveBox));
+      : super(_value, _then);
 
-  @override
-  _$_SuccessNotificationHiveBox get _value =>
-      super._value as _$_SuccessNotificationHiveBox;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? box = freezed,
+    Object? box = null,
   }) {
     return _then(_$_SuccessNotificationHiveBox(
-      box: box == freezed
+      box: null == box
           ? _value.box
           : box // ignore: cast_nullable_to_non_nullable
               as Box<NotificationEntity>,
@@ -684,15 +708,26 @@ class __$$_SuccessNotificationHiveBoxCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_SuccessNotificationHiveBox implements _SuccessNotificationHiveBox {
+class _$_SuccessNotificationHiveBox
+    with DiagnosticableTreeMixin
+    implements _SuccessNotificationHiveBox {
   const _$_SuccessNotificationHiveBox({required this.box});
 
   @override
   final Box<NotificationEntity> box;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'NotificationState.successNotificationHiveBox(box: $box)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'NotificationState.successNotificationHiveBox'))
+      ..add(DiagnosticsProperty('box', box));
   }
 
   @override
@@ -700,15 +735,15 @@ class _$_SuccessNotificationHiveBox implements _SuccessNotificationHiveBox {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SuccessNotificationHiveBox &&
-            const DeepCollectionEquality().equals(other.box, box));
+            (identical(other.box, box) || other.box == box));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(box));
+  int get hashCode => Object.hash(runtimeType, box);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_SuccessNotificationHiveBoxCopyWith<_$_SuccessNotificationHiveBox>
       get copyWith => __$$_SuccessNotificationHiveBoxCopyWithImpl<
           _$_SuccessNotificationHiveBox>(this, _$identity);
@@ -727,9 +762,9 @@ class _$_SuccessNotificationHiveBox implements _SuccessNotificationHiveBox {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(String message)? errorOpenHiveBox,
-    TResult Function(Box<NotificationEntity> box)? successNotificationHiveBox,
+    TResult? Function()? initial,
+    TResult? Function(String message)? errorOpenHiveBox,
+    TResult? Function(Box<NotificationEntity> box)? successNotificationHiveBox,
   }) {
     return successNotificationHiveBox?.call(box);
   }
@@ -762,9 +797,9 @@ class _$_SuccessNotificationHiveBox implements _SuccessNotificationHiveBox {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_ErrorOpenHiveBox value)? errorOpenHiveBox,
-    TResult Function(_SuccessNotificationHiveBox value)?
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_ErrorOpenHiveBox value)? errorOpenHiveBox,
+    TResult? Function(_SuccessNotificationHiveBox value)?
         successNotificationHiveBox,
   }) {
     return successNotificationHiveBox?.call(this);

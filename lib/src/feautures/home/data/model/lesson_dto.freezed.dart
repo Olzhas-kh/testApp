@@ -38,7 +38,8 @@ mixin _$LessonDTO {
 /// @nodoc
 abstract class $LessonDTOCopyWith<$Res> {
   factory $LessonDTOCopyWith(LessonDTO value, $Res Function(LessonDTO) then) =
-      _$LessonDTOCopyWithImpl<$Res>;
+      _$LessonDTOCopyWithImpl<$Res, LessonDTO>;
+  @useResult
   $Res call(
       {@JsonKey(name: 'time_from') String? timeFrom,
       @JsonKey(name: 'time_to') String? timeTo,
@@ -48,13 +49,16 @@ abstract class $LessonDTOCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$LessonDTOCopyWithImpl<$Res> implements $LessonDTOCopyWith<$Res> {
+class _$LessonDTOCopyWithImpl<$Res, $Val extends LessonDTO>
+    implements $LessonDTOCopyWith<$Res> {
   _$LessonDTOCopyWithImpl(this._value, this._then);
 
-  final LessonDTO _value;
   // ignore: unused_field
-  final $Res Function(LessonDTO) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? timeFrom = freezed,
@@ -64,27 +68,27 @@ class _$LessonDTOCopyWithImpl<$Res> implements $LessonDTOCopyWith<$Res> {
     Object? audience = freezed,
   }) {
     return _then(_value.copyWith(
-      timeFrom: timeFrom == freezed
+      timeFrom: freezed == timeFrom
           ? _value.timeFrom
           : timeFrom // ignore: cast_nullable_to_non_nullable
               as String?,
-      timeTo: timeTo == freezed
+      timeTo: freezed == timeTo
           ? _value.timeTo
           : timeTo // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: name == freezed
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      typeOfActivity: typeOfActivity == freezed
+      typeOfActivity: freezed == typeOfActivity
           ? _value.typeOfActivity
           : typeOfActivity // ignore: cast_nullable_to_non_nullable
               as String?,
-      audience: audience == freezed
+      audience: freezed == audience
           ? _value.audience
           : audience // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -94,6 +98,7 @@ abstract class _$$_LessonDTOCopyWith<$Res> implements $LessonDTOCopyWith<$Res> {
           _$_LessonDTO value, $Res Function(_$_LessonDTO) then) =
       __$$_LessonDTOCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(name: 'time_from') String? timeFrom,
       @JsonKey(name: 'time_to') String? timeTo,
@@ -103,15 +108,14 @@ abstract class _$$_LessonDTOCopyWith<$Res> implements $LessonDTOCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_LessonDTOCopyWithImpl<$Res> extends _$LessonDTOCopyWithImpl<$Res>
+class __$$_LessonDTOCopyWithImpl<$Res>
+    extends _$LessonDTOCopyWithImpl<$Res, _$_LessonDTO>
     implements _$$_LessonDTOCopyWith<$Res> {
   __$$_LessonDTOCopyWithImpl(
       _$_LessonDTO _value, $Res Function(_$_LessonDTO) _then)
-      : super(_value, (v) => _then(v as _$_LessonDTO));
+      : super(_value, _then);
 
-  @override
-  _$_LessonDTO get _value => super._value as _$_LessonDTO;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? timeFrom = freezed,
@@ -121,23 +125,23 @@ class __$$_LessonDTOCopyWithImpl<$Res> extends _$LessonDTOCopyWithImpl<$Res>
     Object? audience = freezed,
   }) {
     return _then(_$_LessonDTO(
-      timeFrom: timeFrom == freezed
+      timeFrom: freezed == timeFrom
           ? _value.timeFrom
           : timeFrom // ignore: cast_nullable_to_non_nullable
               as String?,
-      timeTo: timeTo == freezed
+      timeTo: freezed == timeTo
           ? _value.timeTo
           : timeTo // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: name == freezed
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      typeOfActivity: typeOfActivity == freezed
+      typeOfActivity: freezed == typeOfActivity
           ? _value.typeOfActivity
           : typeOfActivity // ignore: cast_nullable_to_non_nullable
               as String?,
-      audience: audience == freezed
+      audience: freezed == audience
           ? _value.audience
           : audience // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -182,26 +186,24 @@ class _$_LessonDTO implements _LessonDTO {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_LessonDTO &&
-            const DeepCollectionEquality().equals(other.timeFrom, timeFrom) &&
-            const DeepCollectionEquality().equals(other.timeTo, timeTo) &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality()
-                .equals(other.typeOfActivity, typeOfActivity) &&
-            const DeepCollectionEquality().equals(other.audience, audience));
+            (identical(other.timeFrom, timeFrom) ||
+                other.timeFrom == timeFrom) &&
+            (identical(other.timeTo, timeTo) || other.timeTo == timeTo) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.typeOfActivity, typeOfActivity) ||
+                other.typeOfActivity == typeOfActivity) &&
+            (identical(other.audience, audience) ||
+                other.audience == audience));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(timeFrom),
-      const DeepCollectionEquality().hash(timeTo),
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(typeOfActivity),
-      const DeepCollectionEquality().hash(audience));
+      runtimeType, timeFrom, timeTo, name, typeOfActivity, audience);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_LessonDTOCopyWith<_$_LessonDTO> get copyWith =>
       __$$_LessonDTOCopyWithImpl<_$_LessonDTO>(this, _$identity);
 

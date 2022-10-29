@@ -38,7 +38,8 @@ mixin _$EducationDTO {
 abstract class $EducationDTOCopyWith<$Res> {
   factory $EducationDTOCopyWith(
           EducationDTO value, $Res Function(EducationDTO) then) =
-      _$EducationDTOCopyWithImpl<$Res>;
+      _$EducationDTOCopyWithImpl<$Res, EducationDTO>;
+  @useResult
   $Res call(
       {int id,
       String? name,
@@ -48,43 +49,46 @@ abstract class $EducationDTOCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$EducationDTOCopyWithImpl<$Res> implements $EducationDTOCopyWith<$Res> {
+class _$EducationDTOCopyWithImpl<$Res, $Val extends EducationDTO>
+    implements $EducationDTOCopyWith<$Res> {
   _$EducationDTOCopyWithImpl(this._value, this._then);
 
-  final EducationDTO _value;
   // ignore: unused_field
-  final $Res Function(EducationDTO) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
+    Object? id = null,
     Object? name = freezed,
     Object? description = freezed,
     Object? dormitoryName = freezed,
     Object? availableSeatsCount = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      name: name == freezed
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      description: description == freezed
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      dormitoryName: dormitoryName == freezed
+      dormitoryName: freezed == dormitoryName
           ? _value.dormitoryName
           : dormitoryName // ignore: cast_nullable_to_non_nullable
               as String?,
-      availableSeatsCount: availableSeatsCount == freezed
+      availableSeatsCount: freezed == availableSeatsCount
           ? _value.availableSeatsCount
           : availableSeatsCount // ignore: cast_nullable_to_non_nullable
               as int?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -95,6 +99,7 @@ abstract class _$$_EducationDTOCopyWith<$Res>
           _$_EducationDTO value, $Res Function(_$_EducationDTO) then) =
       __$$_EducationDTOCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {int id,
       String? name,
@@ -105,41 +110,39 @@ abstract class _$$_EducationDTOCopyWith<$Res>
 
 /// @nodoc
 class __$$_EducationDTOCopyWithImpl<$Res>
-    extends _$EducationDTOCopyWithImpl<$Res>
+    extends _$EducationDTOCopyWithImpl<$Res, _$_EducationDTO>
     implements _$$_EducationDTOCopyWith<$Res> {
   __$$_EducationDTOCopyWithImpl(
       _$_EducationDTO _value, $Res Function(_$_EducationDTO) _then)
-      : super(_value, (v) => _then(v as _$_EducationDTO));
+      : super(_value, _then);
 
-  @override
-  _$_EducationDTO get _value => super._value as _$_EducationDTO;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
+    Object? id = null,
     Object? name = freezed,
     Object? description = freezed,
     Object? dormitoryName = freezed,
     Object? availableSeatsCount = freezed,
   }) {
     return _then(_$_EducationDTO(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      name: name == freezed
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      description: description == freezed
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      dormitoryName: dormitoryName == freezed
+      dormitoryName: freezed == dormitoryName
           ? _value.dormitoryName
           : dormitoryName // ignore: cast_nullable_to_non_nullable
               as String?,
-      availableSeatsCount: availableSeatsCount == freezed
+      availableSeatsCount: freezed == availableSeatsCount
           ? _value.availableSeatsCount
           : availableSeatsCount // ignore: cast_nullable_to_non_nullable
               as int?,
@@ -183,28 +186,24 @@ class _$_EducationDTO implements _EducationDTO {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_EducationDTO &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality()
-                .equals(other.description, description) &&
-            const DeepCollectionEquality()
-                .equals(other.dormitoryName, dormitoryName) &&
-            const DeepCollectionEquality()
-                .equals(other.availableSeatsCount, availableSeatsCount));
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.dormitoryName, dormitoryName) ||
+                other.dormitoryName == dormitoryName) &&
+            (identical(other.availableSeatsCount, availableSeatsCount) ||
+                other.availableSeatsCount == availableSeatsCount));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(description),
-      const DeepCollectionEquality().hash(dormitoryName),
-      const DeepCollectionEquality().hash(availableSeatsCount));
+      runtimeType, id, name, description, dormitoryName, availableSeatsCount);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_EducationDTOCopyWith<_$_EducationDTO> get copyWith =>
       __$$_EducationDTOCopyWithImpl<_$_EducationDTO>(this, _$identity);
 
