@@ -122,17 +122,16 @@ class _SignInPageState extends State<SignInPage> {
                         ),
                         const SizedBox(height: 8),
                         const Spacer(flex: 3),
-                        // TODO
-                        // CustomButton(
-                        //   height: 50,
-                        //   body: Text(
-                        //     context.appLocale.applyForAHostel,
-                        //     style: AppTextStyles.gilroy19w600white,
-                        //   ),
-                        //   onClick: () {},
-                        //   style: redButtonStyle(),
-                        // ),
-                        // const SizedBox(height: 19),
+                        CustomButton(
+                          height: 50,
+                          body: Text(
+                            context.appLocale.applyForAHostel,
+                            style: AppTextStyles.gilroy19w600white,
+                          ),
+                          onClick: () {},
+                          style: redButtonStyle(),
+                        ),
+                        const SizedBox(height: 19),
                         CustomButton(
                           height: 50,
                           body: Text(

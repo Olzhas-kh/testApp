@@ -46,12 +46,16 @@ class _ChaptersWidgetState extends State<ChaptersWidget> {
       isActive: true,
       image: 'assets/icons/chapter_5.svg',
     ),
-    _Chapter(
-      id: 6,
-      text: context.appLocale.tasks,
-      isActive: true,
-      image: 'assets/icons/chapter_6.svg',
-    ),
+
+    /// 
+    /// Задачи теперь будут находится внутри канваса
+    /// 
+    // _Chapter(
+    //   id: 6,
+    //   text: context.appLocale.tasks,
+    //   isActive: true,
+    //   image: 'assets/icons/chapter_6.svg',
+    // ),
     // _Chapter(
     //   id: 7,
     //   text: context.appLocale.catalog,

@@ -7,7 +7,8 @@ import 'package:narxoz/src/feautures/home/data/model/task_dto.dart';
 import 'package:narxoz/src/feautures/home/data/model/verification_response_dto.dart';
 import 'package:narxoz/src/feautures/home/presentation/ui/banner_page.dart';
 import 'package:narxoz/src/feautures/home/presentation/ui/banners_detail_page.dart';
-import 'package:narxoz/src/feautures/home/presentation/ui/canvas_page.dart';
+import 'package:narxoz/src/feautures/home/presentation/ui/canvas/canvas_page.dart';
+import 'package:narxoz/src/feautures/home/presentation/ui/canvas/canvas_web_page.dart';
 import 'package:narxoz/src/feautures/home/presentation/ui/home_page.dart';
 import 'package:narxoz/src/feautures/home/presentation/ui/hostel/application_page.dart';
 import 'package:narxoz/src/feautures/home/presentation/ui/hostel/application_success_page.dart';
@@ -62,6 +63,7 @@ part 'app_router.gr.dart';
             AutoRoute(page: SchedulePage),
             AutoRoute(page: TasksPage),
             AutoRoute(page: AssessmentsPage),
+            AutoRoute(page: CanvasPage),
           ],
         ),
 
@@ -86,7 +88,7 @@ part 'app_router.gr.dart';
     // Home Section
     AutoRoute(page: BannerPage),
     AutoRoute(page: BannersDetailPage),
-    AutoRoute(page: CanvasPage),
+    AutoRoute(page: CanvasWebPage),
     AutoRoute(page: WebRequestsPage),
     AutoRoute(page: ApplicationSuccessPage),
     AutoRoute(page: SuccessPage),

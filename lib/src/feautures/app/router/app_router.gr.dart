@@ -39,10 +39,10 @@ class _$AppRouter extends RootStackRouter {
         ),
       );
     },
-    CanvasPageRoute.name: (routeData) {
+    CanvasWebPageRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const CanvasPage(),
+        child: const CanvasWebPage(),
       );
     },
     WebRequestsPageRoute.name: (routeData) {
@@ -220,6 +220,12 @@ class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    CanvasPageRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const CanvasPage(),
+      );
+    },
     SectionsPageRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
         routeData: routeData,
@@ -305,6 +311,11 @@ class _$AppRouter extends RootStackRouter {
                   path: 'assessments-page',
                   parent: BaseHomeRouter.name,
                 ),
+                RouteConfig(
+                  CanvasPageRoute.name,
+                  path: 'canvas-page',
+                  parent: BaseHomeRouter.name,
+                ),
               ],
             ),
             RouteConfig(
@@ -340,8 +351,8 @@ class _$AppRouter extends RootStackRouter {
           path: '/banners-detail-page',
         ),
         RouteConfig(
-          CanvasPageRoute.name,
-          path: '/canvas-page',
+          CanvasWebPageRoute.name,
+          path: '/canvas-web-page',
         ),
         RouteConfig(
           WebRequestsPageRoute.name,
@@ -434,15 +445,15 @@ class BannersDetailPageRouteArgs {
 }
 
 /// generated route for
-/// [CanvasPage]
-class CanvasPageRoute extends PageRouteInfo<void> {
-  const CanvasPageRoute()
+/// [CanvasWebPage]
+class CanvasWebPageRoute extends PageRouteInfo<void> {
+  const CanvasWebPageRoute()
       : super(
-          CanvasPageRoute.name,
-          path: '/canvas-page',
+          CanvasWebPageRoute.name,
+          path: '/canvas-web-page',
         );
 
-  static const String name = 'CanvasPageRoute';
+  static const String name = 'CanvasWebPageRoute';
 }
 
 /// generated route for
@@ -943,6 +954,18 @@ class AssessmentsPageRouteArgs {
   String toString() {
     return 'AssessmentsPageRouteArgs{key: $key, assessment: $assessment}';
   }
+}
+
+/// generated route for
+/// [CanvasPage]
+class CanvasPageRoute extends PageRouteInfo<void> {
+  const CanvasPageRoute()
+      : super(
+          CanvasPageRoute.name,
+          path: 'canvas-page',
+        );
+
+  static const String name = 'CanvasPageRoute';
 }
 
 /// generated route for

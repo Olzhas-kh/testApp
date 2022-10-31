@@ -1,3 +1,4 @@
+
 import 'dart:developer';
 import 'dart:io';
 
@@ -8,15 +9,15 @@ import 'package:webview_flutter/webview_flutter.dart';
 
 //
 //
-// Раздел canvas на главном экране
-class CanvasPage extends StatefulWidget {
-  const CanvasPage({super.key});
+// Раздел canvas на вебвью внутри канвас на главном экране
+class CanvasWebPage extends StatefulWidget {
+  const CanvasWebPage({super.key});
 
   @override
-  State<CanvasPage> createState() => _CanvasPageState();
+  State<CanvasWebPage> createState() => _CanvasWebPageState();
 }
 
-class _CanvasPageState extends State<CanvasPage> {
+class _CanvasWebPageState extends State<CanvasWebPage> {
   @override
   void initState() {
     super.initState();
