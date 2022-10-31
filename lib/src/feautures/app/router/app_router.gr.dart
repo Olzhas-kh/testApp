@@ -109,6 +109,61 @@ class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    HostelRouteWithoutToken.name: (routeData) {
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const HostelPage(),
+      );
+    },
+    HelpSectionRouteWithoutToken.name: (routeData) {
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const HelpSectionPage(),
+      );
+    },
+    HelpSectionDetailRouteWithoutToken.name: (routeData) {
+      final args = routeData.argsAs<HelpSectionDetailRouteWithoutTokenArgs>();
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: HelpSectionDetailPage(
+          id: args.id,
+          key: args.key,
+        ),
+      );
+    },
+    ChooseEduRouteWithoutToken.name: (routeData) {
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const ChooseEduPage(),
+      );
+    },
+    ApplicationRouteWithoutToken.name: (routeData) {
+      final args = routeData.argsAs<ApplicationRouteWithoutTokenArgs>();
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: ApplicationPage(
+          key: args.key,
+          catId: args.catId,
+        ),
+      );
+    },
+    PreparationRouteWithoutToken.name: (routeData) {
+      final args = routeData.argsAs<PreparationRouteWithoutTokenArgs>();
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: PreparationPayment(
+          verificationResponse: args.verificationResponse,
+          orderId: args.orderId,
+          key: args.key,
+        ),
+      );
+    },
+    MyApplicationRouteWithoutToken.name: (routeData) {
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const MyApplicationPage(),
+      );
+    },
     BaseHomeRouter.name: (routeData) {
       return MaterialPageX<dynamic>(
         routeData: routeData,
@@ -382,6 +437,34 @@ class _$AppRouter extends RootStackRouter {
           DocumentsPageRoute.name,
           path: '/documents-page',
         ),
+        RouteConfig(
+          HostelRouteWithoutToken.name,
+          path: '/hostel-page',
+        ),
+        RouteConfig(
+          HelpSectionRouteWithoutToken.name,
+          path: '/help-section-page',
+        ),
+        RouteConfig(
+          HelpSectionDetailRouteWithoutToken.name,
+          path: '/help-section-detail-page',
+        ),
+        RouteConfig(
+          ChooseEduRouteWithoutToken.name,
+          path: '/choose-edu-page',
+        ),
+        RouteConfig(
+          ApplicationRouteWithoutToken.name,
+          path: '/application-page',
+        ),
+        RouteConfig(
+          PreparationRouteWithoutToken.name,
+          path: '/preparation-payment',
+        ),
+        RouteConfig(
+          MyApplicationRouteWithoutToken.name,
+          path: '/my-application-page',
+        ),
       ];
 }
 
@@ -654,6 +737,164 @@ class DocumentsPageRouteArgs {
   String toString() {
     return 'DocumentsPageRouteArgs{key: $key, title: $title, documentCatId: $documentCatId}';
   }
+}
+
+/// generated route for
+/// [HostelPage]
+class HostelRouteWithoutToken extends PageRouteInfo<void> {
+  const HostelRouteWithoutToken()
+      : super(
+          HostelRouteWithoutToken.name,
+          path: '/hostel-page',
+        );
+
+  static const String name = 'HostelRouteWithoutToken';
+}
+
+/// generated route for
+/// [HelpSectionPage]
+class HelpSectionRouteWithoutToken extends PageRouteInfo<void> {
+  const HelpSectionRouteWithoutToken()
+      : super(
+          HelpSectionRouteWithoutToken.name,
+          path: '/help-section-page',
+        );
+
+  static const String name = 'HelpSectionRouteWithoutToken';
+}
+
+/// generated route for
+/// [HelpSectionDetailPage]
+class HelpSectionDetailRouteWithoutToken
+    extends PageRouteInfo<HelpSectionDetailRouteWithoutTokenArgs> {
+  HelpSectionDetailRouteWithoutToken({
+    required int id,
+    Key? key,
+  }) : super(
+          HelpSectionDetailRouteWithoutToken.name,
+          path: '/help-section-detail-page',
+          args: HelpSectionDetailRouteWithoutTokenArgs(
+            id: id,
+            key: key,
+          ),
+        );
+
+  static const String name = 'HelpSectionDetailRouteWithoutToken';
+}
+
+class HelpSectionDetailRouteWithoutTokenArgs {
+  const HelpSectionDetailRouteWithoutTokenArgs({
+    required this.id,
+    this.key,
+  });
+
+  final int id;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'HelpSectionDetailRouteWithoutTokenArgs{id: $id, key: $key}';
+  }
+}
+
+/// generated route for
+/// [ChooseEduPage]
+class ChooseEduRouteWithoutToken extends PageRouteInfo<void> {
+  const ChooseEduRouteWithoutToken()
+      : super(
+          ChooseEduRouteWithoutToken.name,
+          path: '/choose-edu-page',
+        );
+
+  static const String name = 'ChooseEduRouteWithoutToken';
+}
+
+/// generated route for
+/// [ApplicationPage]
+class ApplicationRouteWithoutToken
+    extends PageRouteInfo<ApplicationRouteWithoutTokenArgs> {
+  ApplicationRouteWithoutToken({
+    Key? key,
+    required int catId,
+  }) : super(
+          ApplicationRouteWithoutToken.name,
+          path: '/application-page',
+          args: ApplicationRouteWithoutTokenArgs(
+            key: key,
+            catId: catId,
+          ),
+        );
+
+  static const String name = 'ApplicationRouteWithoutToken';
+}
+
+class ApplicationRouteWithoutTokenArgs {
+  const ApplicationRouteWithoutTokenArgs({
+    this.key,
+    required this.catId,
+  });
+
+  final Key? key;
+
+  final int catId;
+
+  @override
+  String toString() {
+    return 'ApplicationRouteWithoutTokenArgs{key: $key, catId: $catId}';
+  }
+}
+
+/// generated route for
+/// [PreparationPayment]
+class PreparationRouteWithoutToken
+    extends PageRouteInfo<PreparationRouteWithoutTokenArgs> {
+  PreparationRouteWithoutToken({
+    required VerificationResponseDTO verificationResponse,
+    required int orderId,
+    Key? key,
+  }) : super(
+          PreparationRouteWithoutToken.name,
+          path: '/preparation-payment',
+          args: PreparationRouteWithoutTokenArgs(
+            verificationResponse: verificationResponse,
+            orderId: orderId,
+            key: key,
+          ),
+        );
+
+  static const String name = 'PreparationRouteWithoutToken';
+}
+
+class PreparationRouteWithoutTokenArgs {
+  const PreparationRouteWithoutTokenArgs({
+    required this.verificationResponse,
+    required this.orderId,
+    this.key,
+  });
+
+  final VerificationResponseDTO verificationResponse;
+
+  final int orderId;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'PreparationRouteWithoutTokenArgs{verificationResponse: $verificationResponse, orderId: $orderId, key: $key}';
+  }
+}
+
+/// generated route for
+/// [MyApplicationPage]
+class MyApplicationRouteWithoutToken extends PageRouteInfo<void> {
+  const MyApplicationRouteWithoutToken()
+      : super(
+          MyApplicationRouteWithoutToken.name,
+          path: '/my-application-page',
+        );
+
+  static const String name = 'MyApplicationRouteWithoutToken';
 }
 
 /// generated route for

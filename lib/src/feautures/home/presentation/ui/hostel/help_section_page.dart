@@ -59,8 +59,7 @@ class _HelpSectionPageState extends State<HelpSectionPage> {
                     loadedState: (List<HelpSectionDTO> sections) {
                       return ListView.separated(
                         // shrinkWrap: true,
-                        padding: const EdgeInsets.symmetric(horizontal: 25)
-                            .copyWith(top: 25),
+                        padding: const EdgeInsets.symmetric(horizontal: 25).copyWith(top: 25),
                         itemCount: sections.length,
                         itemBuilder: (context, index) {
                           return DecoratedBox(
@@ -70,8 +69,7 @@ class _HelpSectionPageState extends State<HelpSectionPage> {
                             child: CustomButton(
                               height: 48,
                               body: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
                                     sections[index].name,
@@ -83,11 +81,19 @@ class _HelpSectionPageState extends State<HelpSectionPage> {
                                 ],
                               ),
                               onClick: () {
-                                context.router.push(
-                                  HelpSectionDetailPageRoute(
-                                    id: sections[index].id,
-                                  ),
-                                );
+                                if (context.appBloc.isAuthenticated) {
+                                  context.router.push(
+                                    HelpSectionDetailPageRoute(
+                                      id: sections[index].id,
+                                    ),
+                                  );
+                                } else {
+                                  context.router.push(
+                                    HelpSectionDetailRouteWithoutToken(
+                                      id: sections[index].id,
+                                    ),
+                                  );
+                                }
                               },
                               style: whiteButtonStyle(),
                             ),

@@ -14,6 +14,9 @@ import 'package:narxoz/src/feautures/home/data/model/banner_dto.dart';
 const _tag = 'AuthRepository';
 
 abstract class AuthRepository {
+  /// Статус аутентификации
+  bool get isAuthenticated;
+
   Future<Either<Failure, UserDTO>> authCheck();
 
   Future<Either<Failure, String>> logOut({
@@ -43,6 +46,9 @@ class AuthRepositoryImpl extends AuthRepository {
     required this.localDS,
     required this.networkInfo,
   });
+
+  @override
+  bool get isAuthenticated => localDS.getUserFromCacheNull() != null;
 
   @override
   Future<Either<Failure, UserDTO>> authCheck() async {

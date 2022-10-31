@@ -98,6 +98,36 @@ part 'app_router.gr.dart';
 
     // Sections
     AutoRoute(page: DocumentsPage),
+
+    // without token pages
+    AutoRoute(
+      page: HostelPage,
+      name: 'HostelRouteWithoutToken',
+    ),
+    AutoRoute(
+      page: HelpSectionPage,
+      name: 'HelpSectionRouteWithoutToken',
+    ),
+    AutoRoute(
+      page: HelpSectionDetailPage,
+      name: 'HelpSectionDetailRouteWithoutToken',
+    ),
+    AutoRoute(
+      page: ChooseEduPage,
+      name: 'ChooseEduRouteWithoutToken',
+    ),
+    AutoRoute(
+      page: ApplicationPage,
+      name: 'ApplicationRouteWithoutToken',
+    ),
+    AutoRoute(
+      page: PreparationPayment,
+      name: 'PreparationRouteWithoutToken',
+    ),
+    AutoRoute(
+      page: MyApplicationPage,
+      name: 'MyApplicationRouteWithoutToken',
+    ),
   ],
 )
 class AppRouter extends _$AppRouter {}

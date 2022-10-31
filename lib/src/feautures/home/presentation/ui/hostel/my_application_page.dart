@@ -44,12 +44,22 @@ class _MyApplicationPageState extends State<MyApplicationPage> {
                   context.loaderOverlay.hide();
 
                   if (verificationResponse.paymentStatus ?? false) {
-                    context.router.push(
-                      PreparationPaymentRoute(
-                        orderId: orderId,
-                        verificationResponse: verificationResponse,
-                      ),
-                    );
+                    if (context.appBloc.isAuthenticated) {
+                      context.router.push(
+                        PreparationPaymentRoute(
+                          orderId: orderId,
+                          verificationResponse: verificationResponse,
+                        ),
+                      );
+                    } else {
+                      // without token
+                      context.router.push(
+                        PreparationRouteWithoutToken(
+                          verificationResponse: verificationResponse,
+                          orderId: orderId,
+                        ),
+                      );
+                    }
                   } else {
                     showDialog<String>(
                       context: context,

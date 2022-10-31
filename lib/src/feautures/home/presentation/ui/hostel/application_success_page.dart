@@ -66,6 +66,7 @@ class ApplicationSuccessPage extends StatelessWidget {
             style: AppTextStyles.gilroy16w600White,
           ),
           onClick: () {
+            
             context.router.pushAndPopUntil(
               const LauncherRoute(),
               predicate: (route) => false,

@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -5,6 +6,7 @@ import 'package:loader_overlay/loader_overlay.dart';
 import 'package:narxoz/src/core/extension/extensions.dart';
 import 'package:narxoz/src/core/resources/resources.dart';
 import 'package:narxoz/src/feautures/app/bloc/app_bloc.dart';
+import 'package:narxoz/src/feautures/app/router/app_router.dart';
 import 'package:narxoz/src/feautures/app/widgets/custom/custom_button.dart';
 import 'package:narxoz/src/feautures/app/widgets/custom/custom_loading_widget.dart';
 import 'package:narxoz/src/feautures/app/widgets/custom/custom_textfield.dart';
@@ -128,7 +130,9 @@ class _SignInPageState extends State<SignInPage> {
                             context.appLocale.applyForAHostel,
                             style: AppTextStyles.gilroy19w600white,
                           ),
-                          onClick: () {},
+                          onClick: () {
+                            context.router.push(const HostelRouteWithoutToken());
+                          },
                           style: redButtonStyle(),
                         ),
                         const SizedBox(height: 19),

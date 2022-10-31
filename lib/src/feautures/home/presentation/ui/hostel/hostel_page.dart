@@ -126,7 +126,11 @@ class _HostelPageState extends State<HostelPage> {
                                 ],
                               ),
                               onClick: () {
-                                context.router.push(const HelpSectionPageRoute());
+                                if (context.appBloc.isAuthenticated) {
+                                  context.router.push(const HelpSectionPageRoute());
+                                } else {
+                                  context.router.push(const HelpSectionRouteWithoutToken());
+                                }
                               },
                               style: whiteButtonStyle(),
                             ),
@@ -151,7 +155,11 @@ class _HostelPageState extends State<HostelPage> {
                                 ],
                               ),
                               onClick: () {
-                                context.router.push(const MyApplicationPageRoute());
+                                if (context.appBloc.isAuthenticated) {
+                                  context.router.push(const MyApplicationPageRoute());
+                                } else {
+                                  context.router.push(const MyApplicationRouteWithoutToken());
+                                }
                               },
                               style: whiteButtonStyle(),
                             ),
@@ -172,7 +180,11 @@ class _HostelPageState extends State<HostelPage> {
                               ],
                             ),
                             onClick: () {
-                              context.router.push(const ChooseEduPageRoute());
+                              if (context.appBloc.isAuthenticated) {
+                                context.router.push(const ChooseEduPageRoute());
+                              } else {
+                                context.router.push(const ChooseEduRouteWithoutToken());
+                              }
                             },
                             style: redButtonStyle(elevation: 1),
                           ),

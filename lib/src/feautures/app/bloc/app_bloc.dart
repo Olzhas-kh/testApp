@@ -16,6 +16,9 @@ class AppBloc extends Bloc<AppEvent, AppState> {
   final AuthRepository _authRepository;
   final NotAuthLogic _notAuthLogic;
 
+  /// Статус аутентификации
+  bool get isAuthenticated => _authRepository.isAuthenticated;
+
   AppBloc(
     this._authRepository,
     this._notAuthLogic,

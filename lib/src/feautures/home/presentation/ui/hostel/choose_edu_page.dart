@@ -89,11 +89,20 @@ class _ApplicationPageState extends State<ChooseEduPage> {
                                   return;
                                 }
 
-                                context.router.push(
-                                  ApplicationPageRoute(
-                                    catId: categories[index].id,
-                                  ),
-                                );
+                                if (context.appBloc.isAuthenticated) {
+                                  context.router.push(
+                                    ApplicationPageRoute(
+                                      catId: categories[index].id,
+                                    ),
+                                  );
+                                } else {
+                                  // without token
+                                  context.router.push(
+                                    ApplicationRouteWithoutToken(
+                                      catId: categories[index].id,
+                                    ),
+                                  );
+                                }
                               },
                             );
                           },
