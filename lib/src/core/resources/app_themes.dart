@@ -3,7 +3,8 @@ part of 'resources.dart';
 mixin AppTheme {
   static ThemeData get light => ThemeData(
         // primarySwatch: MaterialColor(0xffB1F9A3, primaryColorMap),
-        fontFamily: AppFonts.gilroy,
+        // fontFamily: AppFonts.gilroy,
+        fontFamily: AppFonts.firaSansOT,
         appBarTheme: const AppBarTheme(
           elevation: 0,
           systemOverlayStyle: SystemUiOverlayStyle.dark,
