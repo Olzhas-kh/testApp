@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
+import 'package:narxoz/src/core/constants/constants.dart';
 import 'package:narxoz/src/core/error/excepteion.dart';
 import 'package:narxoz/src/core/error/failure.dart';
 import 'package:narxoz/src/core/network/network_info.dart';
-import 'package:narxoz/src/core/resources/constants.dart';
 import 'package:narxoz/src/feautures/home/data/datasource/home_remote_ds.dart';
 import 'package:narxoz/src/feautures/home/data/model/schedule_dto.dart';
 import 'package:narxoz/src/feautures/home/data/model/task_dto.dart';

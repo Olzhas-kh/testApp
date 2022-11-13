@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:narxoz/src/core/resources/constants.dart';
+import 'package:narxoz/src/core/constants/constants.dart';
 import 'package:narxoz/src/core/resources/resources.dart';
 import 'package:narxoz/src/feautures/app/presentation/base_appbar.dart';
 import 'package:narxoz/src/feautures/home/presentation/bloc/banners_cubit.dart';

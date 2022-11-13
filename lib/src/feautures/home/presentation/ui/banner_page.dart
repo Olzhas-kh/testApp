@@ -3,7 +3,7 @@ import 'dart:io';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:narxoz/src/core/resources/constants.dart';
+import 'package:narxoz/src/core/constants/constants.dart';
 import 'package:narxoz/src/feautures/app/widgets/custom/custom_appbar.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 

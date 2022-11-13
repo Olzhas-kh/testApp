@@ -1,13 +1,9 @@
-import 'dart:developer';
-import 'dart:io';
-
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:narxoz/src/core/extension/extensions.dart';
 import 'package:narxoz/src/feautures/app/router/app_router.dart';
 import 'package:narxoz/src/feautures/app/widgets/custom/custom_appbar.dart';
 import 'package:narxoz/src/feautures/home/presentation/widgets/application_card.dart';
-import 'package:webview_flutter/webview_flutter.dart';
 
 //
 //
