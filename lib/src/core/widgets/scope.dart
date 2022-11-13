@@ -1,6 +1,5 @@
-//ignore_for_file: avoid-returning-widgets
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
 
 typedef DelegateAccess<D extends ScopeDelegate> = D Function(
   BuildContext, {
@@ -15,10 +14,8 @@ typedef DelegateAccess<D extends ScopeDelegate> = D Function(
 abstract class Scope extends StatefulWidget {
   final Widget _child;
 
-  const Scope({
-    required Widget child,
-    super.key,
-  }) : _child = child;
+  const Scope({super.key, required Widget child})
+      : _child = child;
 
   /// Accesses a delegate of a given scope through InheritedWidget location,
   /// thus making this method having complexity of O(1).
@@ -38,6 +35,7 @@ abstract class Scope extends StatefulWidget {
       'contain its instance.',
     );
 
+    // ignore: cast_nullable_to_non_nullable
     return scope?.delegate as D;
   }
 
@@ -64,7 +62,7 @@ abstract class Scope extends StatefulWidget {
 /// instead of the [build] method. Class that extends [ScopeDelegate] should
 /// **NEVER OVERRIDE THE BUILD METHOD**. It will break things.
 abstract class ScopeDelegate<S extends Scope> extends State<S> {
-  List<Object?> get keys => const <Object?>[];
+  List<Object?> get keys => const [];
 
   S get scope => widget;
 
@@ -73,6 +71,7 @@ abstract class ScopeDelegate<S extends Scope> extends State<S> {
   @override
   Widget build(BuildContext context) => _InheritedScope<S>(
         delegate: this,
+        // ignore: avoid-returning-widgets
         child: buildScoping(context, widget._child),
       );
 }
@@ -82,10 +81,10 @@ class _InheritedScope<S extends Scope> extends InheritedWidget {
   final ScopeDelegate<Scope> delegate;
 
   _InheritedScope({
+    super.key,
     required this.delegate,
     required super.child,
-    super.key,
-  }) : keys = delegate.keys;
+  })  : keys = delegate.keys;
 
   @override
   bool updateShouldNotify(_InheritedScope<S> oldWidget) =>
