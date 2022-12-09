@@ -76,26 +76,26 @@ class _BaseAppBarState extends State<BaseAppBar> {
     return menuItems;
   }
 
-  List<double> _getDividersIndexes() {
-    // final List<double> dividersIndexes = [];
-    // for (var i = 0; i < (items.length * 2) - 1; i++) {
-    //   if (i.isOdd) {
-    //     dividersIndexes.add(i.toDouble());
-    //   }
-    // }
-    // return dividersIndexes;
-    final List<double> itemsHeights = [];
-    for (var i = 0; i < (items.length * 2) - 1; i++) {
-      if (i.isEven) {
-        itemsHeights.add(40);
-      }
-      //Dividers indexes will be the odd indexes
-      if (i.isOdd) {
-        itemsHeights.add(4);
-      }
-    }
-    return itemsHeights;
-  }
+  // List<double> _getDividersIndexes() {
+  //   // final List<double> dividersIndexes = [];
+  //   // for (var i = 0; i < (items.length * 2) - 1; i++) {
+  //   //   if (i.isOdd) {
+  //   //     dividersIndexes.add(i.toDouble());
+  //   //   }
+  //   // }
+  //   // return dividersIndexes;
+  //   final List<double> itemsHeights = [];
+  //   for (var i = 0; i < (items.length * 2) - 1; i++) {
+  //     if (i.isEven) {
+  //       itemsHeights.add(40);
+  //     }
+  //     //Dividers indexes will be the odd indexes
+  //     if (i.isOdd) {
+  //       itemsHeights.add(4);
+  //     }
+  //   }
+  //   return itemsHeights;
+  // }
 
   @override
   Widget build(BuildContext context) {
