@@ -1,6 +1,8 @@
+
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import 'package:narxoz/src/core/extension/extensions.dart';
 import 'package:narxoz/src/core/resources/resources.dart';
 import 'package:narxoz/src/feautures/app/router/app_router.dart';
@@ -19,6 +21,13 @@ class HostelPage extends StatefulWidget {
   @override
   State<HostelPage> createState() => _HostelPageState();
 }
+
+DateTime dateTime = DateTime.now();
+DateTime? formattedStartTime;
+DateTime? formattedEndTime;
+HostelInfoDTO? hostelInfo;
+DateFormat format =
+    DateFormat("dd-MM-yyyy"); // specify the format of the date string
 
 class _HostelPageState extends State<HostelPage> {
   @override
@@ -114,7 +123,8 @@ class _HostelPageState extends State<HostelPage> {
                             child: CustomButton(
                               height: 48,
                               body: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
                                     context.appLocale.helpSection,
@@ -127,9 +137,11 @@ class _HostelPageState extends State<HostelPage> {
                               ),
                               onClick: () {
                                 if (context.appBloc.isAuthenticated) {
-                                  context.router.push(const HelpSectionPageRoute());
+                                  context.router
+                                      .push(const HelpSectionPageRoute());
                                 } else {
-                                  context.router.push(const HelpSectionRouteWithoutToken());
+                                  context.router.push(
+                                      const HelpSectionRouteWithoutToken(),);
                                 }
                               },
                               style: whiteButtonStyle(),
@@ -143,7 +155,8 @@ class _HostelPageState extends State<HostelPage> {
                             child: CustomButton(
                               height: 48,
                               body: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
                                     context.appLocale.myApplication,
@@ -156,37 +169,71 @@ class _HostelPageState extends State<HostelPage> {
                               ),
                               onClick: () {
                                 if (context.appBloc.isAuthenticated) {
-                                  context.router.push(const MyApplicationPageRoute());
+                                  context.router
+                                      .push(const MyApplicationPageRoute());
                                 } else {
-                                  context.router.push(const MyApplicationRouteWithoutToken());
+                                  context.router.push(
+                                      const MyApplicationRouteWithoutToken(),);
                                 }
                               },
                               style: whiteButtonStyle(),
                             ),
                           ),
                           const SizedBox(height: 19),
-                          CustomButton(
-                            height: 48,
-                            body: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  context.appLocale.submitAnApplication,
-                                  style: AppTextStyles.gilroy16w600White,
-                                ),
-                                const Icon(
-                                  Icons.arrow_forward_ios,
-                                ),
-                              ],
-                            ),
-                            onClick: () {
-                              if (context.appBloc.isAuthenticated) {
-                                context.router.push(const ChooseEduPageRoute());
-                              } else {
-                                context.router.push(const ChooseEduRouteWithoutToken());
-                              }
+                          BlocConsumer<HostelCubit, HostelState>(
+                            listener: (context, state) {
+                              state.whenOrNull(
+                                errorState: (String message) {
+                                  buildErrorCustomSnackBar(context, message);
+                                },
+                              );
                             },
-                            style: redButtonStyle(elevation: 1),
+                            builder: (context, state) {
+                              return state.maybeWhen(
+                                  loadedState: (HostelInfoDTO hostelInfo) {
+                                formattedStartTime = format.parse(hostelInfo
+                                    .settlmentStartsAt!
+                                    .replaceAll(".", "-"),);
+                                formattedEndTime = format.parse(hostelInfo
+                                    .settlmentEndsAt!
+                                    .replaceAll(".", "-"),);
+                                return dateTime.isAfter(formattedStartTime!) &&
+                                        dateTime.isBefore(formattedEndTime!)
+                                    ? CustomButton(
+                                        height: 48,
+                                        body: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text(
+                                              context.appLocale
+                                                  .submitAnApplication,
+                                              style: AppTextStyles
+                                                  .gilroy16w600White,
+                                            ),
+                                            const Icon(
+                                              Icons.arrow_forward_ios,
+                                            ),
+                                          ],
+                                        ),
+                                        onClick: () {
+                                          if (context.appBloc.isAuthenticated) {
+                                            context.router.push(
+                                                const ChooseEduPageRoute(),);
+                                          } else {
+                                            context.router.push(
+                                                const ChooseEduRouteWithoutToken(),);
+                                          }
+                                        },
+                                        style: redButtonStyle(elevation: 1),
+                                      )
+                                    : Container();
+                              }, orElse: () {
+                                return const Center(
+                                  child: kWaveLoader,
+                                );
+                              },);
+                            },
                           ),
                           const SizedBox(height: 30),
                         ],

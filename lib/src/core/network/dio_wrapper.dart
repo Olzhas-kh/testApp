@@ -16,7 +16,7 @@ class DioWrapper {
 
   Dio dio = Dio(
     BaseOptions(
-      baseUrl: EndPoints.baseUrl, //.baseUrl, //.devBaseUrl,
+      baseUrl: EndPoints.devBaseUrl, //.baseUrl, //.devBaseUrl,
       headers: {
         'Content-Language': 'ru', //default
       },

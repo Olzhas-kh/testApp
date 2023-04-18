@@ -67,7 +67,7 @@ class _ApplicationPageState extends State<ChooseEduPage> {
                               },
                             );
                           },
-                          separatorBuilder: (context, index) => const SizedBox(height: 30),
+                          separatorBuilder: (context, index) => const SizedBox(height: 10),
                         );
                       },
                       categoriesState: (List<EducationDTO> categories) {
@@ -83,11 +83,7 @@ class _ApplicationPageState extends State<ChooseEduPage> {
                               body: '${context.appLocale.location}: ${categories[index].dormitoryName}'
                                   '${categories[index].availableSeatsCount == null || categories[index].availableSeatsCount == 0 ? '\n${context.appLocale.thereAreNoSeats}' : ""}',
                               onTap: () {
-                                if (categories[index].availableSeatsCount == null ||
-                                    categories[index].availableSeatsCount == 0) {
-                                  buildErrorCustomSnackBar(context, context.appLocale.thereAreNoSeats);
-                                  return;
-                                }
+                                
 
                                 if (context.appBloc.isAuthenticated) {
                                   context.router.push(

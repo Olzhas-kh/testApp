@@ -16,14 +16,7 @@ class ApplicationCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DecoratedBox(
-      // height: 96,
-      decoration: BoxDecoration(
-        boxShadow: AppDecorations.dropShadow,
-        color: AppColors.kRedPrimary,
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: Material(
+    return  Material(
         color: Colors.transparent,
         borderRadius: BorderRadius.circular(10),
         child: InkWell(
@@ -69,21 +62,11 @@ class ApplicationCard extends StatelessWidget {
                   ),
                 ),
               ),
-              if (body != null)
-                Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 18,
-                    vertical: 10,
-                  ),
-                  child: Text(
-                    body!,
-                    style: AppTextStyles.gilroy15w600White,
-                  ),
-                ),
+              
             ],
           ),
         ),
-      ),
-    );
+      );
+    
   }
 }

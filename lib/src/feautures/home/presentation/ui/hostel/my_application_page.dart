@@ -37,6 +37,30 @@ class _MyApplicationPageState extends State<MyApplicationPage> {
             listener: (context, state) {
               state.maybeWhen(
                 loadingState: () => context.loaderOverlay.show(),
+                errorState: (message) {
+                  showDialog<String>(
+                      context: context,
+                      builder: (BuildContext context) => CupertinoAlertDialog(
+                        // title: const Text('Разработка'),
+                        content: Text(
+                          message,
+                          style: AppTextStyles.gilroy16w500,
+                        ),
+
+                        actions: <Widget>[
+                          CupertinoDialogAction(
+                            child: Text(
+                              context.appLocale.clearly,
+                              style: AppTextStyles.gilroy16w500,
+                            ),
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                          ),
+                        ],
+                      ),
+                    );
+                },
                 loadedState: (
                   VerificationResponseDTO verificationResponse,
                   int orderId,

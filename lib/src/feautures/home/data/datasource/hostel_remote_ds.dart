@@ -164,7 +164,7 @@ class HostelRemoteDSImpl extends HostelRemoteDS {
           );
         }
       }
-
+      log(formData.toString());
       final response = await dio.post(
         EndPoints.createApplication(catId),
         data: formData,
