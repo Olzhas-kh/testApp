@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:auto_route/auto_route.dart';
@@ -78,7 +79,7 @@ class _PreparationPaymentState extends State<PreparationPayment> {
                   loadingState: () => context.loaderOverlay.show(),
                   errorState: (String message) {
                     context.loaderOverlay.show();
-                    buildErrorCustomSnackBar(context, message);
+                   buildErrorCustomSnackBar(context, message);
                   },
                   loadedState: (PaymentDTO? payment) async {
                     context.loaderOverlay.hide();

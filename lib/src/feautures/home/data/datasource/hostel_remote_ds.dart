@@ -253,18 +253,20 @@ class HostelRemoteDSImpl extends HostelRemoteDS {
           ),
         );
       }
-
+      log("Request Send");
       final response = await dio.post(
         EndPoints.paymentDorm(orderId),
         data: formData,
       );
-
-      if (response.data == null || response.statusCode == 204) {
+      log("Resposnse${response.data}");
+      log("Resposnse String: ${response.data.toString()}");
+      if (response.data.toString().isEmpty ) {
         return null;
-      }
+      }else{
       return PaymentDTO.fromJson(response.data as Map<String, dynamic>);
+      }
+
     } on DioError catch (e) {
-      log(e.toString());
       throw ServerException(
         message: e.response.toString(), //(e.response!.data as Map<String, dynamic>)['message'] as String,
       );

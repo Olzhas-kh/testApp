@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:dartz/dartz.dart';
@@ -183,7 +184,6 @@ class HostelRepositoryImpl extends HostelRepository {
           // answers: answers,
           // placementId: placementId,
         );
-
         return Right(paymentDTO);
       } on ServerException catch (e) {
         return Left(ServerFailure(message: e.message));

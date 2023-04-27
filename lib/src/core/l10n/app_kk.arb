@@ -7,7 +7,7 @@
       }
     }
   },
-  "aDocumentConfirmingTheOrderHasBeenSentToYourEmail": "Сіздің поштаңызға ордерді растайтын құжат жіберілді",
+  "aDocumentConfirmingTheOrderHasBeenSentToYourEmail": "Тексеруден кейін тапсырысты растайтын құжат поштаңызға жіберіледі.",
   "adviser": "Эдвайзер",
   "applicationNumber": "Өтінім нөмірі",
   "applicationSubmission": "Өтінім беру",
@@ -79,5 +79,5 @@
   "typeOfGrant": "Грант түрі",
   "writeTheApplicationNumber": "Өтінім нөмірін жазыңыз",
   "youHaveEnteredAnIncorrectUsernameOrPassword": "Сіз Қате логин немесе пароль енгіздіңіз",
-  "yourApplicationHasBeenSuccessfullyProcessed": "Сіздің өтініміңіз сәтті рәсімделді"
+  "yourApplicationHasBeenSuccessfullyProcessed": "Сіздің төлем түбіртегіңіз сәтті жіберілді"
 }

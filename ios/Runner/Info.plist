@@ -19,11 +19,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>$(FLUTTER_BUILD_NAME)</string>
+	<string>1.2.4</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>$(FLUTTER_BUILD_NUMBER)</string>
+	<string>25</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>sms</string>
@@ -42,6 +42,8 @@
 	</dict>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Приложению необходим доступ к вашей фотографии, чтобы загрузить снимок чека и аватар.</string>
+	<key>UIApplicationSupportsIndirectInputEvents</key>
+	<true/>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>
@@ -63,7 +65,5 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>UIApplicationSupportsIndirectInputEvents</key>
-	<true/>
 </dict>
 </plist>

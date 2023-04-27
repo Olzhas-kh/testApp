@@ -7,7 +7,7 @@
       }
     }
   },
-  "aDocumentConfirmingTheOrderHasBeenSentToYourEmail": "A document confirming the order has been sent to your email",
+  "aDocumentConfirmingTheOrderHasBeenSentToYourEmail": "After verification, a document confirming the order will be sent to your mail.",
   "adviser": "Adviser",
   "applicationNumber": "Application number",
   "applicationSubmission": "Application submission",
@@ -79,5 +79,5 @@
   "typeOfGrant": "Type of grant",
   "writeTheApplicationNumber": "Write the application number",
   "youHaveEnteredAnIncorrectUsernameOrPassword": "You have entered an incorrect username or password",
-  "yourApplicationHasBeenSuccessfullyProcessed": "Your application has been successfully processed"
+  "yourApplicationHasBeenSuccessfullyProcessed": "Your payment receipt has been successfully sent"
 }

@@ -7,7 +7,7 @@
       }
     }
   },
-  "aDocumentConfirmingTheOrderHasBeenSentToYourEmail": "На вашу почту отправлен документ подтверждающий ордер",
+  "aDocumentConfirmingTheOrderHasBeenSentToYourEmail": "После проверки на вашу почту будет отправлен документ подтверждающий ордер",
   "adviser": "Эдвайзер",
   "applicationNumber": "Номер заявки",
   "applicationSubmission": "Подача заявки",
@@ -79,5 +79,5 @@
   "typeOfGrant": "Тип гранта",
   "writeTheApplicationNumber": "Напишите номер заявки",
   "youHaveEnteredAnIncorrectUsernameOrPassword": "Вы ввели неверный логин или пароль",
-  "yourApplicationHasBeenSuccessfullyProcessed": "Ваша заявка успешно оформлена"
+  "yourApplicationHasBeenSuccessfullyProcessed": "Ваш чек об оплате успешно отправлен"
 }
